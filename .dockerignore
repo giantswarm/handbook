@@ -1,0 +1,8 @@
+.DS_Store
+/.circleci
+/.github
+/archive
+/node_modules
+/resources
+/public
+/deploy

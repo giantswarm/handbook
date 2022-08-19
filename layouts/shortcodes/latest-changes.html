@@ -1,0 +1,46 @@
+{{/* Empty dict for change storage where key is the github link & value is a slice with changed pages */}}
+{{ $latest_changes := dict  }}
+
+{{/* Slice for storing github links with date because dict iteration is not sorted */}}
+{{ $latest_changes_sorted := slice }}
+
+{{/* Iterate over last 10 changed pages in reverse (latest is first) */}}
+{{ range first 15 .Site.AllPages.ByLastmod.Reverse }}
+
+  {{/* Create some variables for better readability of this code */}}
+  {{ $date := .Lastmod.Format "2006-01-02 15:04" }}
+  {{ $datetime := .Lastmod.Format "2006-01-02 15:04:05" }}
+  {{ $gh_link := printf "<span datetime=\"%s\" class=\"timeago\" title=\"%s\">%s</span> [%s](%s/commit/%s)" $datetime $date $date .GitInfo.Subject $.Site.Params.github_repo .GitInfo.Hash }}
+  {{ $page_link := printf "[%s](%s) (`%s`)" .Title .Permalink .RelPermalink }}
+
+
+
+  {{/* Classic if key not in dict, create empty slice for key */}}
+  {{ $curr_slice := default slice (index $latest_changes $gh_link) }}
+  {{ if eq (len $curr_slice) 0 }}
+
+    {{ $s := slice }}
+    {{ $init_dict := dict $gh_link $s }}
+    {{ $latest_changes = merge $latest_changes $init_dict }}
+
+    {{ $latest_changes_sorted = $latest_changes_sorted | append $gh_link }}
+
+  {{ end }}
+
+
+  {{/* Append page link to slice corresponding to github link */}}
+  {{ $change_links := index $latest_changes $gh_link | append $page_link }}
+  {{ $dict_to_merge := dict $gh_link $change_links }}
+  {{ $latest_changes = merge $latest_changes $dict_to_merge }}
+
+{{ end }}
+
+<ul>{{ range $change_link := $latest_changes_sorted }}
+<li>{{ markdownify $change_link }}:
+  <ul>{{- range index $latest_changes $change_link -}}
+  <li>{{ markdownify . }}</li>
+  {{- end -}}</ul></li>
+{{ end }}
+</ul>
+<script type="text/javascript" src="https://unpkg.com/timeago.js@4.0.2/dist/timeago.min.js"></script>
+<script type="module">timeago.render(document.querySelectorAll('.timeago'));</script>

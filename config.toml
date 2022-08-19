@@ -1,0 +1,101 @@
+baseURL = "/"
+title = "Giant Swarm Handbook"
+
+enableRobotsTXT = false
+
+# Hugo allows theme composition (and inheritance). The precedence is from left to right.
+theme = ["docsy"]
+
+# Will give values to .Lastmod etc.
+enableGitInfo = true
+
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+# Highlighting config
+pygmentsCodeFences = true
+pygmentsUseClasses = false
+# Use the new Chroma Go highlighter in Hugo.
+pygmentsUseClassic = false
+#pygmentsOptions = "linenos=table"
+# See https://help.farbox.com/pygments.html
+pygmentsStyle = "tango"
+
+# Configure how URLs look like per section.
+[permalinks]
+blog = "/:section/:year/:month/:day/:slug/"
+
+## Configuration for BlackFriday markdown parser: https://github.com/russross/blackfriday
+[blackfriday]
+plainIDAnchors = true
+hrefTargetBlank = true
+angledQuotes = false
+latexDashes = true
+
+# Image processing configuration.
+[imaging]
+resampleFilter = "CatmullRom"
+quality = 75
+anchor = "smart"
+
+[services]
+[services.googleAnalytics]
+# Comment out the next line to disable GA tracking. Also disables the feature described in [params.ui.feedback].
+# id = "UA-00000000-0"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# Everything below this are Site Params
+
+[params]
+copyright = "Giant Swarm GmbH"
+privacy_policy = "https://www.giantswarm.io/privacy-policy"
+
+# Turn off version selection
+archived_version = false
+
+# Repository configuration (URLs for in-page links to opening issues and suggesting changes)
+github_repo = "https://github.com/giantswarm/handbook"
+github_branch = "main"
+
+# Enable Algolia DocSearch
+algolia_docsearch = false
+
+# Enable Lunr.js offline search
+offlineSearch = true
+
+# User interface configuration
+[params.ui]
+# Enable to show the side bar menu in its compact state.
+sidebar_menu_compact = true
+#  Set to true to disable breadcrumb navigation.
+breadcrumb_disable = false
+#  Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
+sidebar_search_disable = true
+#  Set to false if you don't want to display a logo (/assets/icons/logo.svg) in the top nav bar
+navbar_logo = true
+# Set to true to disable the About link in the site footer
+footer_about_disable = false
+
+[[menu.main]]
+    name = "GitHub"
+    weight = 50
+    url = "https://github.com/giantswarm/handbook"
+    pre = "<i class='fab fa-github'></i>"
+
+[params.links]
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[params.links.user]]
+    name ="Twitter"
+    url = "https://twitter.com/giantswarm"
+    icon = "fab fa-twitter"
+    desc = "See what we push out to social media"
+
+# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[params.links.developer]]
+    name = "GitHub"
+    url = "https://github.com/giantswarm/handbook"
+    icon = "fab fa-github"
+    desc = "Edit Handbook content, manage issues"

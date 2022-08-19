@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  hugo:
+    container_name: hugo
+    build:
+      context: .
+      target: build
+    ports:
+      - 1313:1313
+    volumes:
+      - ${PWD}/content:/src/content
+      - ${PWD}/layouts:/src/layouts
+    command:
+      - server
+      - --enableGitInfo
+      - --bind=0.0.0.0
+      - --buildDrafts
