@@ -4,6 +4,8 @@ description: A Helm chart for out handbook
 engine: gotpl
 home: https://github.com/giantswarm/handbook
 name: handbook
+annotations:
+  application.giantswarm.io/team: team
 sources:
   - https://github.com/giantswarm/handbook
 version: [[ .Version ]]
