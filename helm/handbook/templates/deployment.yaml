@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: intranet
+  name: handbook
+  labels:
+    app: handbook
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: handbook
+  template:
+    metadata:
+      name: handbook
+      labels:
+        app: handbook
+    spec:
+      securityContext:
+        runAsUser: 1000
+
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: handbook
+              topologyKey: kubernetes.io/hostname
+            weight: 100
+      containers:
+        - name: handbook
+          image: quay.io/giantswarm/handbook:{{ .Chart.Version }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 20M
+            limits:
+              cpu: 300m
+              memory: 20M
+          volumeMounts:
+            - mountPath: /var/cache/nginx
+              name: cache-volume
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 2
+      volumes:
+        - name: cache-volume
+          emptyDir: {}
+      serviceAccount: handbook
+      serviceAccountName: handbook

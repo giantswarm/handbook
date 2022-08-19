@@ -1,0 +1,60 @@
+---
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: handbook
+spec:
+  allowPrivilegeEscalation: false
+  fsGroup:
+    ranges:
+    - max: 65535
+      min: 1
+    rule: MustRunAs
+  runAsUser:
+    rule: MustRunAsNonRoot
+  seLinux:
+    rule: RunAsAny
+  supplementalGroups:
+    ranges:
+    - max: 65535
+      min: 1
+    rule: MustRunAs
+  volumes:
+  - secret
+  - configMap
+  - emptyDir
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  namespace: intranet
+  name: handbook
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: handbook
+  namespace: intranet
+rules:
+- apiGroups:
+  - extensions
+  resourceNames:
+  - handbook
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: handbook
+  namespace: intranet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: handbook
+subjects:
+- kind: ServiceAccount
+  name: handbook
+  namespace: intranet

@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: intranet
+  name: handbook
+  labels:
+    app: handbook
+spec:
+  ports:
+    - port: 8080
+      targetPort: http
+  selector:
+    app: handbook

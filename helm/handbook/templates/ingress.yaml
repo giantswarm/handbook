@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: intranet
+  name: handbook
+  labels:
+    app: handbook
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-giantswarm
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: handbook.giantswarm.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: handbook
+            port:
+              number: 8080
+  tls:
+  - hosts:
+    - handbook.giantswarm.io
+    secretName: handbook
