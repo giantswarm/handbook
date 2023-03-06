@@ -9,10 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.5] - 2023-03-06
 
+### Added
+- Background image and layout from intranet.
+
 ## [0.0.4] - 2023-03-02
 
 ### Added
 - Additional `docs` layer to match intranet layout.
+
 ## [0.0.3] - 2022-09-06
 
 ### Added
