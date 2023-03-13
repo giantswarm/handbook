@@ -73,7 +73,7 @@ Eventually all nodes will be running without `aws-node` and all pods in the clus
 
 ### Step 6: cleanup and switch to cilium's kube-proxy
 
-The final phase of the upgrade process is about removing `aws-node`, `kube-proxy`, and `calico` and enabling `kube-proxy-replacement` feature in `calico`.
+The final phase of the upgrade process is about removing `aws-node`, `kube-proxy`, and `calico` and enabling `kube-proxy-replacement` feature in `cilium`.
 
 This is the sequence of operations made by `aws-operator`:
 
