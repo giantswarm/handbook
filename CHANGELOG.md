@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add code signing documentation
 - Add initial content for people area.
+- Add `page-meta-links.html` for proper link formatting.
 
 ## [0.0.7] - 2023-03-13
 
