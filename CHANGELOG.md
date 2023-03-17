@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add a ops recipe to trouble shoot GitOps environments.
+
 ## [0.0.8] - 2023-03-17
 
 ### Added
