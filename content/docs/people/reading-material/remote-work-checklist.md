@@ -12,7 +12,7 @@ There are many things that working remotely has in common with a traditional off
 Even if you already have experience in working remotely, you might find some helpful tricks.
 
 ### Security
-- Remote work and mobile security will align with our [Password Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/#password-policy") and [Acceptable Use Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/#acceptable-use-policy") from this document. Please review our [Information Security Policy](https://github.com/giantswarm/isms/wiki/Information-Security-Policy) as well as the [Information Security Guideline](https://intranet.giantswarm.io/docs/security/isms/") for further information.
+- Remote work and mobile security will align with our [Password Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/#password-policy) and [Acceptable Use Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/#acceptable-use-policy) from this document. Please review our [Information Security Policy](https://github.com/giantswarm/isms/wiki/Information-Security-Policy) as well as the [Information Security Guideline](https://intranet.giantswarm.io/docs/security/isms/) for further information.
 - Protect your login credentials from other household members.
 - Your machine must be locked if left unattended. Shut down the machine completely if you will be away for an extended period of time.
 - Protect printed documents by storing them in a safe location and remember to only print if really necessary.
@@ -20,7 +20,7 @@ Even if you already have experience in working remotely, you might find some hel
 
 ### Prerequisites
 - Make sure you have a fast and stable internet connection (DSL / fibre optic cable / LTE)
-- And obviously, a functioning computer/laptop and (web)cam. If you don’t have one or need a new one, you can order one from your [hardware budget](https://intranet.giantswarm.io/docs/people/accounts-hardware-company-information/hardware_buying") and Team-Team is happy to help with questions. This is the process.
+- And obviously, a functioning computer/laptop and (web)cam. If you don’t have one or need a new one, you can order one from your [hardware budget](https://intranet.giantswarm.io/docs/people/accounts-hardware-company-information/hardware_buying) and Team-Team is happy to help with questions. This is the process.
 
 ### Tips and Tricks
 - A decent pair of headphones with a good microphone makes your life a lot easier

@@ -8,7 +8,7 @@ confidentiality: public
 # Ground Rule
 
 You are generally expected to be reachable for emergencies during your P32 day.
-This has been established in the [first ground rules](https://docs.google.com/document/d/1Ws05-gb5SESuwaAKI9gQipGmPjUoVxs_KZqEREjZcVk/edit) of P32 and is your duty to ensure.
+This has been established in the [first ground rules](https://docs.google.com/document/d/1Ws05-gb5SESuwaAKI9gQipGmPjUoVxs_KZqEREjZcVk) of P32 and is your duty to ensure.
 
 > Everyone needs to make sure that their phone number in Personio is correct and reachable!
 

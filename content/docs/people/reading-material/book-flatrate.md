@@ -18,6 +18,6 @@ Like always sharing is caring so make sure you share a summary or your learnings
 Unfortunately German tax law decided to make things difficult. Therefore the following rules apply:
 - Do not spend more than 44 EUR each month.
 - Only buy books between the 1st and the 20st of each month. Book flatrate is closed from the 21st till the end of each month.
-- Use the [Book Log](https://docs.google.com/spreadsheets/d/1aLbQcybAtjLY90r7v62F0HT7D1nIYOnIWeO3IbI8vt8/edit#gid=24313467) to add your purchased books.
+- Use the [Book Log](https://docs.google.com/spreadsheets/d/1aLbQcybAtjLY90r7v62F0HT7D1nIYOnIWeO3IbI8vt8) to add your purchased books.
 - Please add book flatrate in the description for payments or reimbursements via spendesk.
 - Choose the `GiantSwarm` cost center in Spendesk.
