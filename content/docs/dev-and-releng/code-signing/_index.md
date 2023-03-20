@@ -3,6 +3,7 @@ title: Codesigning for Windows binaries
 linkTitle: Codesigning
 description: >
   We distribute signed CLI binaries (.exe) for Windows. Here is how to configure CI and the CLI repository, and how to update the certificate once it expires.
+confidentiality: public
 ---
 
 ## Ensure creation of signed binaries

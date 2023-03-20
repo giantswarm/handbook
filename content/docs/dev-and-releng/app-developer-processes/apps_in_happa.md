@@ -2,13 +2,14 @@
 title: Adding READMEs and Icons to Apps in Happa
 linkTitle: README and icon
 weight: 20
+confidentiality: public
 ---
 
 Your beautiful app deserves to look beautiful in Happa as well. Here are some
 tips and tricks on how to set the Chart.yaml values of your app so that the
 frontend can show relevant information in a pleasing way.
 
-![Sample of an App in Happa](app-example.png)
+![Sample of an App in Happa](../resources/app-example.png)
 
 ## It's in the Chart.yaml
 
@@ -35,22 +36,44 @@ sources:
 annotations:
   application.giantswarm.io/readme: https://raw.githubusercontent.com/giantswarm/jaeger-operator-app/v[[ .Version ]]/README.md
   application.giantswarm.io/team: team-cabbage
+  ui.giantswarm.io/logo: https://s.giantswarm.io/app-icons/jaeger-operator/1/dark.svg
 ```
 
 [View Chart.yaml in Github](https://github.com/giantswarm/jaeger-operator-app/blob/master/helm/jaeger-operator-app/Chart.yaml)
 
 
-### Icon
+### Icon and logo
 
-If you add a URL to a PNG or SVG file in the `icon` field, then
-happa will attempt to fetch it and use it when showing
-your app.
+Happa is designed to work with 2 types of image assets for apps:
+#### 1. Icon
+
+Every app should have an icon, and it must fit a square space.
+
+A good example:
+
+![Good example of an app icon](../resources/app-icon-good-example.png)
+
+A bad example:
+
+![Bad example of an app icon](../resources/app-icon-bad-example.png)
+
+While the icon in the second example also technically fits into a square space, it is not designed for it, as evidenced by the unused vertical space. The resulting icon is also difficult to discern when displayed in a space-constrained area.
+
+Icons can be made available to happa by adding a URL to a PNG or SVG file in the Chart.yaml's `icon` field.
+
+#### 2. Logo
+
+An app may also have a logo for the catalog, to optimize its display in a rectangular space. Logos should only be provided if they have a different shape than the app's icon. The ideal width:height ratio of logos is 2:1.
+
+For example:
+
+![Example of an app logo displayed in the app catalog list in happa](../resources/app-logo-example.png)
+
+Logos can be made available to happa using the `ui.giantswarm.io/logo` annotation.
+
+#### Providing app icons for light and dark backgrounds
 
 We publish app icons through [web-assets](https://github.com/giantswarm/web-assets). Find them in the [`assets/app-icons`](https://github.com/giantswarm/web-assets/tree/master/assets/app-icons) folder.
-
-An example icon url would be `https://s.giantswarm.io/app-icons/1/png/jaeger-operator-app-dark.png`
-
-#### Providing an app icon for light and dark backgrounds
 
 Since our app catalog UI in happa (our web UI) shows app icons on a dark background, there is a chance that an icon/logo would end up invisible because it uses black on a dark blue background. To avoid this, you can provide two versions of the icon file and name the files following a specific pattern.
 
@@ -77,7 +100,7 @@ Apps packaged using CircleCI job `push-to-app-catalog` with [`executor: "app-bui
 automatically include an annotation with key `application.giantswarm.io/readme`
 which points to a versioned copy of the apps README residing in the app catalog.
 
-You can find more information about app metadata in spec [Representation of apps and their metadata for app catalog entries](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/).
+You can find more information about app metadata in spec [Representation of apps and their metadata for app catalog entries](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation.md).
 
 In case you're not using [`app-build-suite`](https://github.com/giantswarm/app-build-suite), it is possible to manually add
 an annotation called `application.giantswarm.io/readme` to `Chart.yaml`.
