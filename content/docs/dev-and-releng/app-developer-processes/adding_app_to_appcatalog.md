@@ -164,7 +164,7 @@ Our detailed documentation about generating the schema is available [on the intr
 
 For charts we support for our customers, we have additional "quality bar" checklists. Please note,
 that currently they need a revamp and you should them as suggestions, not hard requirements. Still,
-please run [the checklists]((https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/application-quality-bars/)
+please run [the checklists](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/application-quality-bars/)
 before you publish a chart.
 
 ### 4. Making the chart available in an app catalog
