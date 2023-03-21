@@ -1,7 +1,7 @@
 {
   "ignorePatterns": [
     {
-      "pattern": "^https://intranet.giantswarm.io/"
+      "pattern": "^https://intranet.giantswarm.io"
     },
     {
       "pattern": "^https://github.com/giantswarm/APP-NAME-app"
@@ -16,13 +16,16 @@
       "pattern": "^https://github.com/giantswarm/web-assets"
     },
     {
-      "pattern": "^https://github.com/giantswarm/installations/"
+      "pattern": "^https://github.com/giantswarm/installations"
     },
     {
-      "pattern": "^https://github.com/giantswarm/giantswarm/"
+      "pattern": "^https://github.com/giantswarm/giantswarm"
     },
     {
-      "pattern": "^https://github.com/giantswarm/isms/"
+      "pattern": "^../"
+    },
+    {
+      "pattern": "^https://github.com/giantswarm/isms"
     }
   ]
 }

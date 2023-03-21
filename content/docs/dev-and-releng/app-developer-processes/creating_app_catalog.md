@@ -66,5 +66,5 @@ The configuration structure supports defining default app catalogs (to be instal
 installation specific config directory like `ghost/appcatalog`.
 
 As mentioned, app catalogs (`Catalog` CR and optionally any associated `ConfigMap` and/or `Secret`) are managed as Helm
-releases using [appcatalog Helm chart](https://github.com/giantswarm/appcatalog/tree/master/helm/appcatalog-chart). App
+releases using [appcatalog Helm chart](https://github.com/giantswarm/appcatalog/tree/master/helm/appcatalog). App
 catalog definitions for management clusters are stored in a form of a Helm values yaml file, overriding and/or extending appcatalog Helm chart default values file settings. As an example please see [giantswarm app catalog definition](https://github.com/giantswarm/installations/blob/master/gauss/appcatalog/giantswarm-appcatalog-values.yaml) for `gauss` installation.
