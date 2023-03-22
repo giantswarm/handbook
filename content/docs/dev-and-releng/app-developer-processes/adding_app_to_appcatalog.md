@@ -109,7 +109,7 @@ we have already seen in the past. The list of these practices is below.
 #### 3.1. Providing all the necessary data and metadata in `Chart.yaml`
 
 We extensively use `Chart.yaml` properties to provide information about the chart to our platform
-and thus our users. Please make sure to check [this sample `Chart.yaml`](https://intranet.giantswarm.io//docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/#supported-chartyaml-file-format)
+and thus our users. Please make sure to check [this sample `Chart.yaml`](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/#supported-chartyaml-file-format)
 for an example of what we expect to be provided in the `Chart.yaml`. Please note, that if you're using
 `abs` (see below) to build your chart, [our annotations](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/#references-to-the-metadata-file-using-annotations-field-in-chartyaml)
 will be automatically set for you.
