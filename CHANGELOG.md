@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added new page on External Secrets Operator managed app
+
 ## [0.0.9] - 2023-03-21
 
 ### Added
