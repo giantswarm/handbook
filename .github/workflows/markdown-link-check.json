@@ -7,7 +7,7 @@
       "pattern": "^https://github.com/giantswarm/APP-NAME-app"
     },
     {
-      "pattern": "^https://github.com/giantswarm/template "
+      "pattern": "^https://github.com/giantswarm/template"
     },
     {
       "pattern": "^https://github.com/giantswarm/github"
