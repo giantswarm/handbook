@@ -23,7 +23,7 @@ control or deploy manually to the cluster.
 
 ## Resource requirements
 
-Onec running, ESO has a small footprint on your cluster, requiring only the
+Once running, ESO has a small footprint on your cluster, requiring only the
 inclusion of 3 additional pods with a CPU requirement of 300m and a memory
 requirement of 1.5GiB.
 
