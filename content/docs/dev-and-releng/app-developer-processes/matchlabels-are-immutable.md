@@ -11,8 +11,8 @@ confidentiality: public
 When creating a helm chart for an app, keep in mind that `spec.selector.matchLabels` is immutable and cannot be changed when upgrading the app.
 
 If your app has been created from [`template-app`](https://github.com/giantswarm/template-app),
-helper templates for creating [labels](https://github.com/giantswarm/template-app/blob/master/helm/APP-NAME/templates/_helpers.tpl#L18-L31)
-and [selector labels](https://github.com/giantswarm/template-app/blob/master/helm/APP-NAME/templates/_helpers.tpl#L33-L39) exist.
+helper templates for creating [labels](https://github.com/giantswarm/template-app/blob/master/helm/{APP-NAME}/templates/_helpers.tpl#L18-L31)
+and [selector labels](https://github.com/giantswarm/template-app/blob/master/helm/{APP-NAME}/templates/_helpers.tpl#L33-L39) exist.
 
 ## Example usage of label templates
 
