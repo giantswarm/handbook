@@ -100,7 +100,7 @@ Apps packaged using CircleCI job `push-to-app-catalog` with [`executor: "app-bui
 automatically include an annotation with key `application.giantswarm.io/readme`
 which points to a versioned copy of the apps README residing in the app catalog.
 
-You can find more information about app metadata in spec [Representation of apps and their metadata for app catalog entries](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation.md).
+You can find more information about app metadata in spec [Representation of apps and their metadata for app catalog entries](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/).
 
 In case you're not using [`app-build-suite`](https://github.com/giantswarm/app-build-suite), it is possible to manually add
 an annotation called `application.giantswarm.io/readme` to `Chart.yaml`.
