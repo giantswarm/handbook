@@ -325,7 +325,7 @@ for being accepted by upstream:
 GitHub automatically closes the Pull Request in the upstream repository once you merge the subtree PR in the app's repository. You can simply re-open it.
 {{% /alert %}}
 
-- go to "upstream copy" repository, update remote "upstream" and fetch changes into the "upstream-main" branch (Step 1 of [I want to update to the latest version from upstream](i-want-to-update-to-the-latest-version-from-upstreami-want-to-update-to-the-latest-version-from-upstream))
+- go to "upstream copy" repository, update remote "upstream" and fetch changes into the "upstream-main" branch (Step 1 of [I want to update to the latest version from upstream](#i-want-to-update-to-the-latest-version-from-upstream)
 - create a branch "my-feature" from "upstream-main"
 - when ready, create a PR (PR1) for "upstream"
 - create another PR (PR2) to merge "my-feature" into "main"

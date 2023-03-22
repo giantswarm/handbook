@@ -20,14 +20,14 @@ file to github.
 the `write` permission to the repository.
 
 Catalogs don't drive their content. After creating the catalog, every application that wants to be included
-in it needs to have a correct [circleci.com](circleci.com) pipeline (see [below](#packaging-and-pushing-apps-into-an-app-catalog)).
+in it needs to have a correct [circleci.com](https://circleci.com) pipeline (see [below](#packaging-and-pushing-apps-into-an-app-catalog)).
 The pipeline is responsible for building the Helm chart and including it in the catalog and its index file.
 
 ## Adding an app catalog to a management cluster
 
 Please start by reading [documentation about app catalogs and apps](https://github.com/giantswarm/giantswarm/blob/main/archive/archive-roadmap/MANAGED-SERVICES-CATALOG.MD).
 
-All application catalogs are defined in the management cluster using the [Catalog](https://docs.giantswarm.io/ui-api/management-api/crd/catalogs.application.giantswarm.io/) CRD. To deploy the Catalog CRs,
+All application catalogs are defined in the management cluster using the [Catalog](https://docs.giantswarm.io/use-the-api/management-api/crd/catalogs.application.giantswarm.io/) CRD. To deploy the Catalog CRs,
 the following process is used:
 
 - App catalog configuration file needs to be added to the [`giantswarm/installations`](https://github.com/giantswarm/installations)
@@ -66,5 +66,5 @@ The configuration structure supports defining default app catalogs (to be instal
 installation specific config directory like `ghost/appcatalog`.
 
 As mentioned, app catalogs (`Catalog` CR and optionally any associated `ConfigMap` and/or `Secret`) are managed as Helm
-releases using [appcatalog Helm chart](https://github.com/giantswarm/appcatalog/tree/master/helm/appcatalog-chart). App
+releases using [appcatalog Helm chart](https://github.com/giantswarm/appcatalog/tree/master/helm/appcatalog). App
 catalog definitions for management clusters are stored in a form of a Helm values yaml file, overriding and/or extending appcatalog Helm chart default values file settings. As an example please see [giantswarm app catalog definition](https://github.com/giantswarm/installations/blob/master/gauss/appcatalog/giantswarm-appcatalog-values.yaml) for `gauss` installation.

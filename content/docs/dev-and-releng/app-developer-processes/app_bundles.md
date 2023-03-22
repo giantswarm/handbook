@@ -8,12 +8,12 @@ confidentiality: public
 
 The App Bundle is a Helm Chart that instead of providing a regular resources, that normally represents
 an application, it provides App CRs, optionally accompanied by ConfigMaps and Secrets. In other words, it is a
-way to represent a group of apps as a single app, to the user and to the system. Check out the [public docs](https://docs.giantswarm.io/app-platform/app-bundle/#app-bundle-definition) if you look for a more detailed explanation.
+way to represent a group of apps as a single app, to the user and to the system. Check out the [public docs](https://docs.giantswarm.io/getting-started/app-platform/app-bundle/#app-bundle-definition) if you look for a more detailed explanation.
 
 The App Bundle usage is currently well established in the company.
 
-For example, for CAPI it has been decided to deploy default apps in this way, see [ADR](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/adr/016-capi-releases.md). By bundling a group of default apps we make the installation
-simpler and also means we can retire the [Release](https://docs.giantswarm.io/ui-api/management-api/crd/releases.release.giantswarm.io/) CRD used in vintage clusters. Hence, a `default-apps-PROVIDER` app bundle will
+For example, for CAPI it has been decided to deploy default apps in this way, see [ADR](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/adr/016-capi-releases/). By bundling a group of default apps we make the installation
+simpler and also means we can retire the [Release](https://docs.giantswarm.io/use-the-api/management-api/crd/releases.release.giantswarm.io/) CRD used in vintage clusters. Hence, a `default-apps-PROVIDER` app bundle will
 exist for each CAPI provider.
 
 Another example is grouping apps by the topic, creating specialized bundles, like for example the `security-pack` app.
@@ -21,7 +21,7 @@ Another example is grouping apps by the topic, creating specialized bundles, lik
 ## Naming Convention
 
 It has been decided for App Bundles to carry the `-bundle` prefix in order to distinguish them from regular apps, see
-the [PDR](https://intranet.giantswarm.io/docs/product/pdr/008_app_bundle_naming.md).
+the [PDR](https://intranet.giantswarm.io/docs/product/pdr/008_app_bundle_naming/).
 
 **Note**, as you may notice the `security-pack` referenced in this doc, for whatever reason, is not compliant with
 these rules yet, do not be suggested by it and please stick to the PDR demands.
@@ -46,7 +46,7 @@ about in the next paragraphs.
 
 ## Installing an App Bundle
 
-The installation process for bundles can be found in the [public docs](https://docs.giantswarm.io/app-platform/app-bundle/). Go there to understand:
+The installation process for bundles can be found in the [public docs](https://docs.giantswarm.io/getting-started/app-platform/app-bundle/#app-bundle-definition). Go there to understand:
 
 - the components the installation involves
 - the configurational demands by these components
