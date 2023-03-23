@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.10] - 2023-03-23
 
+### Fixed
+
+- Fix multiple broken links and markdown formatting.
+
 ## [0.0.9] - 2023-03-21
 
 ### Added
