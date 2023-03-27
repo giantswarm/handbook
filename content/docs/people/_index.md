@@ -1,5 +1,4 @@
 ---
-title: People
 title: People and processes
 linkTitle: People
 weight: 98
