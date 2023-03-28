@@ -14,15 +14,14 @@
 {{ $project_issueURL := printf "%s/issues/new" $gh_project_repo }}
 <a href="{{ $project_issueURL }}" target="_blank"><i class="fas fa-tasks fa-fw"></i> {{ T "post_create_project_issue" }}</a>
 {{ end }}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.5.2/mermaid.min.js"></script>
-<script>
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     var config = {
         startOnLoad:true,
         theme: 'neutral',
         themeCSS: '.node rect { fill: #EFEFEF; } .cluster rect { fill: #FFFFFF; stroke: #000000}',
         fontFamily: 'Roboto:300,300i,400,400i,700,700i',
         flowchart: {
-            htmlLabels: false,
             useMaxWidth: true,
         },
     };
