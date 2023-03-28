@@ -29,7 +29,7 @@ From the kustomization one can tell the source Git repository by looking at the 
 2) Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:
 
 ```
-» flux trace app/alfred-app -n 
+» flux trace app/alfred-app -n alfred-ns
 
 Object:        App/alfred-app
 Namespace:     rfjh2
