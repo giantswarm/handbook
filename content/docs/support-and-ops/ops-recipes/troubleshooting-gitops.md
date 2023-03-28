@@ -5,7 +5,7 @@ owner:
 confidentiality: public
 ---
 
-Since we are offering GitOps as interface for our customers, here we collect to tips on how to troubleshoot the problems can occur. 
+We are offering GitOps as interface for our customers, here we collect tips on how to troubleshoot problems which can occur. 
 
 # Table of Contents
 1. [Identify which kustomization owns a resource](#identify-which-kustomization-owns-a-resource)
@@ -15,7 +15,7 @@ Since we are offering GitOps as interface for our customers, here we collect to 
 
 ## Identify which kustomization owns a resource
 
-1) Usually the resources contain a set of labels that identify which kustomization belongs to. Example:
+1) A resource contains a set of labels that identify which kustomization it belongs to. Example:
 
 ```
   labels:
@@ -24,9 +24,9 @@ Since we are offering GitOps as interface for our customers, here we collect to 
     kustomize.toolkit.fluxcd.io/namespace: default
 ```
 
-From the kustomization you can the Git Repository looking at the spec field `sourceRef`.
+From the kustomization one can tell the source Git repository by looking at the spec field `sourceRef`.
 
-2) Use flux command line. It offers a subcommand `trace` that describe all details related to GitOps:
+2) Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:
 
 ```
 » flux trace app/alfred-app -n 
@@ -44,11 +44,11 @@ Namespace:     default
 ...
 ```
 
-__Note__: If the resource has not labels (or command returns `object not managed by Flux`) the object is not produce as result of helm or kustomize but it could be a owner by a higher resource. Like a pod which does not have the labels but the parent deployment can have them.
+__Note__: If the resource has no labels (or `flux trace` returns `object not managed by Flux`) the object is not produced as result of helm or kustomize but could still be owned by a higher resource. An example would be a *pod* which may not have the labels, but the parent *deployment* does.
 
 ## Download the Git Repository source
 
-Giant Swarm engineers usually have no access to the customer repository but in case of emergency they need to verify something in the customer source repository. For that matters, they can download the repository temporaly with:
+Giant Swarm engineers usually have no access to customer repositories, but may - in case of emergency - need to verify configuration in the source repository. For that purpose, one can download the relevant commit from the source repository using:
 
 ```sh
 export SC=$(kubectl get po -n flux-system -l app=source-controller -o custom-columns=NAME:.metadata.name --no-headers)
@@ -60,7 +60,7 @@ This will download a `<COMMIT_SHA>.tar.gz` file. You can extract it with `tar -x
 
 ## Stop GitOps reconciliation
 
-In case there is a wrong configuration that breaks something in production or pages person oncall, we might need to stop the Flux Kustomization to fix the problem. For that matter, you can find which kustomization the resources belongs to [here](#identify-which-kustomization-owns-a-resource) and then stop the controller reconciliation using:
+In case there is a wrong configuration that breaks something in production or pages an oncall person, we might need to stop the flux kustomization while fixing the problem. To do that, one needs to [identify the kustomization the resources belong to](#identify-which-kustomization-owns-a-resource) and then stop the controller reconciliation using:
 
 ```
 flux suspend kustomization -n default <KUSTOMIZATION_NAME>
