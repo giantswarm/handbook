@@ -20,7 +20,7 @@ Even if you already have experience in working remotely, you might find some hel
 
 ### Prerequisites
 - Make sure you have a fast and stable internet connection (DSL / fibre optic cable / LTE)
-- And obviously, a functioning computer/laptop and (web)cam. If you don’t have one or need a new one, you can order one from your [hardware budget](https://intranet.giantswarm.io/docs/people/accounts-hardware-company-information/hardware_buying) and Team-Team is happy to help with questions. This is the process.
+- And obviously, a functioning computer/laptop and (web)cam. If you don’t have one or need a new one, you can order one from your [hardware budget](https://intranet.giantswarm.io/docs/people/accounts-hardware-company-information/hardware_buying/) and Team-Team is happy to help with questions. This is the process.
 
 ### Tips and Tricks
 - A decent pair of headphones with a good microphone makes your life a lot easier

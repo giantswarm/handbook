@@ -1,6 +1,7 @@
 ---
 title: "Cordoning app and chart CRs"
 weight: 20
+confidentiality: public
 ---
 
 # Overview
@@ -65,7 +66,7 @@ metadata:
 
 ```bash
 kubectl -n giantswarm annotate chart chart-operator-unique 'chart-operator.giantswarm.io/cordon-reason'='Maintenance in progress'
-kubectl -n giantswarm annotate chart chart-operator-unique 'chart-operator.giantswarm.io/cordon-until'=$(date -v +1d '+%Y-%m-%dT%H:%M:%S)
+kubectl -n giantswarm annotate chart chart-operator-unique 'chart-operator.giantswarm.io/cordon-until'=$(date -v +1d '+%Y-%m-%dT%H:%M:%S')
 ```
 
 - You can remove the annotations with these commands.

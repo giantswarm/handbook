@@ -3,13 +3,14 @@ title: "Git subtree for tracking changes in upstream apps"
 weight: 10
 description: >
   This page describes how to use the git-subtree command to easily track upstream projects without leaving git.
+confidentiality: public
 ---
 
 # Git repo setup for tracking upstream changes
 
 ## Notes
 
-- github recently changed the default name of the default branch from `master` to `main`; be careful to
+- GitHub recently changed the default name of the default branch from `master` to `main`; be careful to
   not fall for that
 - some git knowledge is required below
 - if the upstream repo is a repo that has a single chart only, you can skip the 2nd repo described below
@@ -22,6 +23,13 @@ You can watch them here:
 - [git-subtree intro](https://drive.google.com/file/d/11BWAOIm6Mr04DRPf-E4RHf_y7QSee5f8/view)
 - [migrating to git-subtree workflow](https://drive.google.com/file/d/1xb8MGhv5OiBgwL5KMCZCRG3cw59xYOtT/view)
 
+## Usages
+
+The following apps - not limited to - are managed with this method:
+
+- https://github.com/giantswarm/crossplane/
+- https://github.com/giantswarm/external-secrets
+
 ## Assumptions
 
 As an example, I'm
@@ -30,10 +38,10 @@ which is one of the charts held in upstream `helm-charts` repo. I want to easily
 but also be able to submit patches to upstream. I also want to make some specific changes, that
 I never want to go to upstream.
 
-## Repositories types and setup
+## Repository types and setup
 
 We will be working with 3 git repositories per project. This covers the most complex scenario,
-where we track upstream repo that hosts multiple charts in a single repeository and we want to track
+where we track upstream repo that hosts multiple charts in a single repository, and we want to track
 all of them, but finally get just a single chart from there.
 
 Please note, that for a simpler scenario, where you just want to track a subdirectory of an upstream
@@ -44,7 +52,7 @@ and "chart repo".
 The three repos we're going to use are:
 
 - Original upstream repo <https://github.com/grafana/helm-charts/tree/main/charts/loki-distributed>.
-  Every time I say "upstream" repo, I mean this one. It is read-only for us and maintaned by external
+  Every time I say "upstream" repo, I mean this one. It is read-only for us and maintained by external
   organization.
 - (Optional, but recommended) Our copy for tracking the "upstream". We will fork the upstream to
   create what we call "upstream copy"
@@ -61,12 +69,12 @@ The three repos we're going to use are:
 ## Setting up repos
 
 Everything here will be shown as an example based on the
-[grafana's helm charts repo](https://github.com/grafana/helm-charts/). Please make
+[grafana helm charts repo](https://github.com/grafana/helm-charts/). Please make
 sure to go there and have a look at how the repo is organized before you read on.
 
 ### Upstream copy
 
-Let's start with creating "upstream copy". Go on github to the "upstream" repo and fork it.
+Let's start with creating "upstream copy". Go on GitHub to the "upstream" repo and fork it.
 Make sure to change
 the default repo name into something meaningful and ending with "-upstream". In my example, the
 default repo name was `giantswarm/helm-charts`, but I changed it to
@@ -150,15 +158,19 @@ Now, we add code from "upstream-copy" as subtree. We have 2 options here:
    ```bash
    # Create a work branch
    git checkout -b tmp
+
    # Add remote in a subdir
    # git subtree add --prefix [target directory] [git remote] [remote branch] --squash
    git subtree add --prefix upstream-tmp upstream-copy main --squash
+
    # create a new branch with only the contents of a path
    # git subtree split -P [path] -b [target branch]
    git subtree split -P charts/helm-distributed -b temp-split-branch
+
    # create a branch where you will actually update the remote
    git checkout master
    git checkout -b updates
+
    # Put the extracted path in [path] in your new branch
    # git subtree add --squash -P [path] [source branch]
    git subtree add --squash -P helm/loki-distributed temp-split-branch
@@ -200,11 +212,11 @@ git log --grep="^git-subtree-dir: $dir/*\$"
 ```
 
 As a result, you must work carefully to never delete such a commit messages, as then `git subtree` will
-loose any track of your previous `subtree` command. Pay special attention when you merge a branch
+lose any track of your previous `subtree` command. Pay special attention when you merge a branch
 that includes subtree work, as in this case you often edit a long set of messages to something shorter,
 so it's easy to remove `git subtree` comments.
 
-Example of how it looks like in github:
+Example of how it looks like in GitHub:
 
 ![Sample git-subtree merge](subtree-msg.png).
 
@@ -212,7 +224,7 @@ Example of how it looks like in github:
 
 ## Workflows
 
-### I want to setup my local repos after they were already created for the first time
+### I want to set up my local repos after they were already created for the first time
 
 - to setup "upstream-copy":
 
@@ -223,11 +235,12 @@ Example of how it looks like in github:
   git remote add -f upstream https://github.com/grafana/helm-charts.git
   ```
 
-- to setup "chart repo"
+- to set up "chart repo"
 
   ```
   git clone git@github.com:giantswarm/loki-app.git
   cd loki-app
+
   git remote add -f --no-tags upstream-copy git@github.com:giantswarm/grafana-helm-charts-upstream.git  # add remote
   ```
 
@@ -238,7 +251,7 @@ replace `upstream/main` with any other branch or just tag: `vX.Y.Z` (to see upst
 skip the `--skip-tags` flag, as explained [above in set up instructions](#chart-repo)).
 
 1. In "upstream-copy" repo
-  - make sure your local "main" branch is up to date with origin "main"
+  - make sure your local "main" branch is up-to-date with origin "main"
   - checkout "upstream-main" branch
   - fetch changes from "upstream/main", merge them with "upstream-main"
   - checkout "main", merge "upstream-main" to it, push "master"
@@ -247,13 +260,19 @@ skip the `--skip-tags` flag, as explained [above in set up instructions](#chart-
   ```
   git checkout main
   git pull origin main
+
   git checkout upstream-main
   git fetch upstream
+
   git merge upstream/main
+
   git push origin upstream-main # push upstream changes to GitHub
   git push origin [latest-tag-from-upstream]
+
   git checkout main
+
   git merge upstream-main
+
   git push origin main
   git push origin [latest-tag-from-upstream]
   ```
@@ -269,13 +288,22 @@ skip the `--skip-tags` flag, as explained [above in set up instructions](#chart-
   - if the subtree is tracking a subdir of "upstream copy":
 
   ```
-  git fetch upstream-copy refs/tags/<tag-you-want-to-sync-to>:refs/tags/<tag-you-want-to-sync-to> # fetch the most recent state from "upstream <tag-you-want-to-sync-to>"
-  git checkout <tag-you-want-to-sync-to>  # it's OK to be in detached head, we won't change anything
+  # Fetch the upstream tags as `upstream-<tag-you-want-to-sync-to>`
+  git fetch upstream-copy refs/tags/<tag-you-want-to-sync-to>:refs/tags/upstream-<tag-you-want-to-sync-to>
+
+  # It's OK to be in detached head, we won't change anything
+  git checkout upstream-<tag-you-want-to-sync-to>
+
   git subtree split -P charts/loki-distributed -b temp-split-branch
+
   git checkout master
   git subtree merge --squash -P helm/loki temp-split-branch
+
   git push
+
+  # Clean up temporary split branch and upstream tag
   git branch -D temp-split-branch
+  git tag -d upstream-<tag-you-want-to-sync-to>
   ```
 
 ### I want to send non-urgent patch for upstream
@@ -286,7 +314,7 @@ is accepted by upstream (so, you'll get your patch applied and then get it from 
 - go to "upstream copy", update remote "upstream" and fetch changes into the "upstream-main" branch
 - create a branch "my-feature" from "upstream-main"
 - when ready, create a PR for "upstream"
-- when PR is merged, remove local "my-feature" branch and update our dependencies as in [normal upstream update](#I-want-to-update-to-the-latest-version-from-upstream)
+- when PR is merged, remove local "my-feature" branch and update our dependencies as in [normal upstream update](#i-want-to-update-to-the-latest-version-from-upstream)
 
 ### I want to send urgent patch for upstream and use it already
 
@@ -294,20 +322,20 @@ Do this if you want to submit a patch for "upstream" and you need to use it righ
 for being accepted by upstream:
 
 {{% alert title="Pay attention" color="warning" %}}
-GitHub automatically closes the Pull Request in the upstream repository once you merge the subtree PR in the apps repository. You can simply re-open it.
+GitHub automatically closes the Pull Request in the upstream repository once you merge the subtree PR in the app's repository. You can simply re-open it.
 {{% /alert %}}
 
-- go to "upstream copy" repository, update remote "upstream" and fetch changes into the "upstream-main" branch (Step 1 of [I want to update to the latest version from upstream](i-want-to-update-to-the-latest-version-from-upstream))
+- go to "upstream copy" repository, update remote "upstream" and fetch changes into the "upstream-main" branch (Step 1 of [I want to update to the latest version from upstream](#i-want-to-update-to-the-latest-version-from-upstream)
 - create a branch "my-feature" from "upstream-main"
 - when ready, create a PR (PR1) for "upstream"
 - create another PR (PR2) to merge "my-feature" into "main"
-- when PR2 is merged, update "chart repo" dependency on "upstream-copy/master" as in point 2 in [normal upstream update](#I-want-to-update-to-the-latest-version-from-upstream)
-- when PR1 is merged, remove local "my-feature" branch and update our dependencies as in [normal upstream update](#I-want-to-update-to-the-latest-version-from-upstream)
+- when PR2 is merged, update "chart repo" dependency on "upstream-copy/master" as in point 2 in [normal upstream update](#i-want-to-update-to-the-latest-version-from-upstream)
+- when PR1 is merged, remove local "my-feature" branch and update our dependencies as in [normal upstream update](#i-want-to-update-to-the-latest-version-from-upstream)
 
 ### I want to make changes that I don't want to be ever sent to upstream
 
 Do this if you want to make any Giant Swarm specific changes to the chart.
-We have two options about where to do that and it's up to you to think where it makes the most
+We have two options about where to do that, and it's up to you to think where it makes the most
 sense.
 
 1. In the "chart repo" - this should be your default.
@@ -316,12 +344,12 @@ sense.
     changes won't be lost when you update it.
 
 2. In the "upstream copy" repo - makes sense for cases where multiple charts include some shared
-   sub-chart and you want to patch it.
+   sub-chart, and you want to patch it.
 
   - go to "upstream copy", checkout and update "main" branch
   - create a branch "my-feature" from "main"
   - when ready, create a PR from "my-feature" to "main"
-  - when PR is merged, update "chart repo" dependency on "upstream-copy/master" as in point 2 in [normal upstream update](#I-want-to-update-to-the-latest-version-from-upstream)
+  - when PR is merged, update "chart repo" dependency on "upstream-copy/master" as in point 2 in [normal upstream update](#i-want-to-update-to-the-latest-version-from-upstream)
 
 
 ### I want to switch from another way of tracking upstream to the git-subtree way
@@ -330,7 +358,7 @@ In general, we have two options here:
 
 1) Git-supported. It works like this: we start by figuring our a commit (tag, branch, anything)
    in our current repo that was an exact copy of a known upstream version. Let's say this is
-   reperesented by the `vX.Y.Z` tag. Now, I can save a diff between that clean state (a state of
+   represented by the `vX.Y.Z` tag. Now, I can save a diff between that clean state (a state of
    my repo when I got it from the "upstream" but before I applied any custom changes) and my
    current most recent state. The result should
    include everything we've changed since `vX.Y.Z` comparing to upstream.

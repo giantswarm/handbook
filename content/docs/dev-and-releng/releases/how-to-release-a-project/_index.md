@@ -4,6 +4,7 @@ description: |
     This document describes the different steps required in order to release
     a new version of a project.
 weight: 20
+confidentiality: public
 ---
 
 ## Recording
@@ -101,7 +102,7 @@ automatically by the GitHub workflow.
 
 The CI will take care of building and deploying this new version to all
 installations. The full architecture diagram for CI process can be found
-[here](https://intranet.giantswarm.io/docs/dev-and-releng/ci/architecture).
+[here](https://intranet.giantswarm.io/docs/dev-and-releng/ci/architecture/).
 
 Check that CI workflow executes successfully, e.g.
 https://circleci.com/gh/giantswarm/aws-operator

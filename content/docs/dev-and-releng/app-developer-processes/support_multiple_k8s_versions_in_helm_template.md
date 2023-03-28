@@ -3,13 +3,14 @@ title: "How to support multiple k8s versions in a Helm template"
 description: |
   Support multiple k8s versions using Helm capabilities API
 weight: 80
+confidentiality: public
 ---
 
-# Supporting multiple Kubernetes versions in a Helm template
+## Rationale
 
 - Sometimes we need to support multiple Kubernetes versions with API versions
 that have been removed or not exist yet.
-- Helm was a [built in](https://helm.sh/docs/chart_template_guide/builtin_objects/)
+- Helm has a [built in](https://helm.sh/docs/chart_template_guide/builtin_objects/)
 Capabilities API that helps with this.
 
 ## Ingress example

@@ -1,6 +1,5 @@
 ---
 title: People
-title: People and processes
 linkTitle: People
 weight: 98
 icon: fa fa-smile

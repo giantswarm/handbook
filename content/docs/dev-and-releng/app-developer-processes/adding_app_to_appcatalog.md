@@ -3,6 +3,7 @@ title: "How to add and maintain App in an App Catalog"
 weight: 30
 description: >
   How to create, manage and release an App into an App Catalog
+confidentiality: public
 ---
 
 ## Table of Contents
@@ -93,7 +94,7 @@ If you need a Go project skeleton, start with this template instead: <https://gi
 #### 2.1. Getting the sources from upstream
 
 This is the most frequent (so far: only) use case. The hard part is to be able to easily synchronize with upstream sources while also keeping our
-local changes. Please read our guide about it: [how to track upstream repositories using the git-subtree method](https://intranet.giantswarm.io/docs/product/managed-apps/dev-experience/git-subtree/).
+local changes. Please read our guide about it: [how to track upstream repositories using the git-subtree method]({{< relref "/docs/product/managed-apps/dev-experience/git-subtree.md" >}}).
 
 #### 2.2. Writing a chart from scratch
 
@@ -108,7 +109,7 @@ we have already seen in the past. The list of these practices is below.
 #### 3.1. Providing all the necessary data and metadata in `Chart.yaml`
 
 We extensively use `Chart.yaml` properties to provide information about the chart to our platform
-and thus our users. Please make sure to check [this sample `Chart.yaml`](https://intranet.giantswarm.io//docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/#supported-chartyaml-file-format)
+and thus our users. Please make sure to check [this sample `Chart.yaml`](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/#supported-chartyaml-file-format)
 for an example of what we expect to be provided in the `Chart.yaml`. Please note, that if you're using
 `abs` (see below) to build your chart, [our annotations](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/#references-to-the-metadata-file-using-annotations-field-in-chartyaml)
 will be automatically set for you.
@@ -157,13 +158,13 @@ You need to use these values in the chart to configure images for Deployments an
 We provide a YAML schema for validating `values.yaml` file that is provided at installation time
 by a user. That way we can prevent the user from a wide range of typos and misconfiguration errors.
 
-Our detailed documentation about generating the schema is available [on the intranet](https://intranet.giantswarm.io/docs/organizational-structure/teams/cabbage/app-updates/helm-values-schema/)
+Our detailed documentation about generating the schema is available [on the intranet](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/helm-values-schema/)
 
 #### 3.5. The quality bars checklist
 
 For charts we support for our customers, we have additional "quality bar" checklists. Please note,
 that currently they need a revamp and you should them as suggestions, not hard requirements. Still,
-please run [the checklists]((https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/application-quality-bars/)
+please run [the checklists](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/application-quality-bars/)
 before you publish a chart.
 
 ### 4. Making the chart available in an app catalog
@@ -241,11 +242,11 @@ Please follow [How to release a project]({{< relref "/docs/dev-and-releng/releas
 
 ## Related documentation
 
-- A lot of more detailed processes are documented already [on the intranet]({{< relref "/docs/dev-and-releng/app-developer-processes/_index.md" >}})
+- A lot of more detailed processes are documented already [on the handbook]({{< relref "/docs/dev-and-releng/app-developer-processes/_index.md" >}})
 - [Adding Readmes and Icons to Apps in Happa]({{< relref "/docs/dev-and-releng/app-developer-processes/apps_in_happa.md" >}}) describes the process of adding a Readme and an app icon to your new app
 - [Quality bars for Managed Apps](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/application-quality-bars/) contain hints how to make your app fit for being a managed app
 - [Kubernetes Annotations and Labels in `giantswarm/fmt`](https://github.com/giantswarm/fmt/blob/master/kubernetes/annotations_and_labels.md) contain some commonly used annotations and labels in kubernetes resources
-- [App Release Checklist](https://intranet.giantswarm.io/docs/organizational-structure/teams/cabbage/app-release-checklist) contains hints and guidelines on what to do when releasing any Managed App
+- [App Release Checklist](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/app-release-checklist/) contains hints and guidelines on what to do when releasing any Managed App
 - [Creating container registries for retagger](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/)
 - [CircleCI Intranet page](https://intranet.giantswarm.io/docs/dev-and-releng/ci/circle-ci/)
 - [MatchLabels are immutable]({{< relref "/docs/dev-and-releng/app-developer-processes/matchlabels-are-immutable.md" >}})

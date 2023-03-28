@@ -1,22 +1,34 @@
 ---
 title: "App Bundles"
 weight: 20
+confidentiality: public
 ---
 
 ## Overview
 
-For CAPI we have decided to deploy default apps via App Bundles.
-See [ADR](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/adr/016-capi-releases/)
+The App Bundle is a Helm Chart that instead of providing a regular resources, that normally represents
+an application, it provides App CRs, optionally accompanied by ConfigMaps and Secrets. In other words, it is a
+way to represent a group of apps as a single app, to the user and to the system. Check out the [public docs](https://docs.giantswarm.io/getting-started/app-platform/app-bundle/#app-bundle-definition) if you look for a more detailed explanation.
 
-An App Bundle is an App CR that is created in the management cluster and groups
-multiple workload cluster apps. This makes installation simpler and means we can
-retire the [Release](https://docs.giantswarm.io/ui-api/management-api/crd/releases.release.giantswarm.io/)
-CRD used in vintage clusters.
+The App Bundle usage is currently well established in the company.
 
-A `default-apps-PROVIDER` app will exist for each CAPI provider.
+For example, for CAPI it has been decided to deploy default apps in this way, see [ADR](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/adr/016-capi-releases/). By bundling a group of default apps we make the installation
+simpler and also means we can retire the [Release](https://docs.giantswarm.io/use-the-api/management-api/crd/releases.release.giantswarm.io/) CRD used in vintage clusters. Hence, a `default-apps-PROVIDER` app bundle will
+exist for each CAPI provider.
 
-We also provide App Bundles that group apps related to a topic
-e.g. `security-pack`.
+Another example is grouping apps by the topic, creating specialized bundles, like for example the `security-pack` app.
+
+## Naming Convention
+
+It has been decided for App Bundles to carry the `-bundle` prefix in order to distinguish them from regular apps, see
+the [PDR](https://intranet.giantswarm.io/docs/product/pdr/008_app_bundle_naming/).
+
+**Note**, as you may notice the `security-pack` referenced in this doc, for whatever reason, is not compliant with
+these rules yet, do not be suggested by it and please stick to the PDR demands.
+
+What may seem as another exception are `default-apps-PROVIDER` apps. These however are subject to a bit different rules,
+as being used in a different ways than usual apps, no matter bundled or not. See the reasoning behind these apps in
+the previous paragraph.
 
 ## Creating a new App Bundle
 
@@ -27,51 +39,17 @@ and the app should be published to the [cluster-catalog](https://github.com/gian
 
 For other bundles this is [security-pack](https://github.com/giantswarm/security-pack).
 
+Note, app bundle beyond its fancy name is nothing more than a regular Helm Chart. Whatever the Helm
+offers for Charts creation can be used when creating a bundle. Some demands are however posed on the
+configuration, yet not by the bundle construction, but by the way how App Platform works. Find more
+about in the next paragraphs.
+
 ## Installing an App Bundle
 
-An App Bundle can be installed via `kubectl gs template app` using the
-`--in-cluster` flag.
+The installation process for bundles can be found in the [public docs](https://docs.giantswarm.io/getting-started/app-platform/app-bundle/#app-bundle-definition). Go there to understand:
 
-```nohighlight
-$ kubectl gs template app \
---catalog giantswarm \
---name security-pack \
---in-cluster \
---namespace demo1 \ 
---version 0.1.0 \
---user-configmap user-values.yaml
-```
-
-We wish to automate the setting of the `--in-cluster` flag by adding an annotation
-to the bundle apps Chart.yaml that will be added to its AppCatalogEntry CR where
-it can be accessed by front end components. However this is not yet implemented.
-
-```yaml
-apiVersion: application.giantswarm.io/v1alpha1
-kind: App
-metadata:
-  labels:
-    app-operator.giantswarm.io/version: 0.0.0
-    giantswarm.io/managed-by: flux
-  name: security-pack
-  namespace: demo1
-spec:
-  catalog: giantswarm
-  kubeConfig:
-    inCluster: true
-  name: security-pack
-  namespace: demo1
-  version: 0.1.0
-```
-
-- The `app-operator.giantswarm.io/version` label must have the value `0.0.0`.
-- `.spec.kubeConfig.inCluster` must be `true`.
-- `.spec.namespace` must match the namespace used for workload cluster apps.
-This is the org namespace for CAPI and the cluster namespace for vintage.
-
-Note: Any other value for `.spec.namespace` will be blocked by `app-admission-controller`
-this is a security requirement to prevent the user escaping their Management API
-permissions.
+- the components the installation involves
+- the configurational demands by these components
 
 ## Child Apps
 
@@ -92,7 +70,7 @@ apps:
 
 Each child app should have the `giantswarm.io/managed-by` label set to the name
 of the parent app e.g. `default-apps-openstack`. This identifies the parent app
-CR and means the install [is not blocked](https://docs.giantswarm.io/app-platform/defaulting-validation/#gitops-support) 
+CR and means the install [is not blocked](https://docs.giantswarm.io/app-platform/defaulting-validation/#gitops-support)
 by `app-admission-controller`.
 
 ```nohighlight
@@ -120,18 +98,18 @@ When apps are created in the org namespace add a cluster prefix.
 {{- end -}}
 {{- end -}}
 
-# templates/apps.yaml 
+# templates/apps.yaml
 {{- $appName := include "app.name" (dict "app" .appName "cluster" $.Values.clusterName "ns" $.Release.Namespace) }}
 ```
 
 ## User Values
 
 Each child app in the bundle needs to be configurable. This is done via the
-`values.yaml` of the app bundle's helm chart which needs to pass values to the
+`values.yaml` of the app bundle's Helm Chart which needs to pass values to the
 child apps.
 
-This relies heavily on helm templating so care needs to be taken and ideally
-there should be test coverage for this.
+This relies heavily on Helm templating so care needs to be taken and ideally
+there should be test coverage for this. Find an example of such `values.yaml` below.
 
 ```yaml
 userConfig:
@@ -145,9 +123,11 @@ userConfig:
 
 ## GitOps Support
 
-There is a problem with using GitOps and the app bundles concept. The user values
-are passed via a `values` key and a single block of YAML. This prevents using
-bases and overrides in Flux.
+There is a problem with using GitOps and managed apps in general, affecting the
+bundles as well. The user values are passed via the `values` key of either a
+ConfigMap or a Secret, and must be a single block of YAML. This prevents using
+bases and overrides in Flux. This is because [kustomize](https://github.com/kubernetes-sigs/kustomize)
+cannot patch strings.
 
 The proposal in [RFC#29](https://github.com/giantswarm/rfc/pull/29) is to use
 both `.spec.config` and `.spec.userConfig` and the values will be merged by
@@ -169,3 +149,5 @@ spec:
       name: flux01-userconfig
       namespace: org-some
 ```
+
+This approach has been adapted and explained in our [GitOps Template repository](https://github.com/giantswarm/gitops-template), that represents our GitOps offering.
