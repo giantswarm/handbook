@@ -14,7 +14,7 @@ There is not a right or wrong way to go about this process because there is not 
 ### Tools 
 
 1. [Pluto](https://github.com/FairwindsOps/pluto)
-This one is a tool that will show you depreciated APIs in your code, helm charts, and resources.
+This one is a tool that will show you deprecated APIs in your code, helm charts, and resources.
 
 2. [Sysdig Blog](https://sysdig.com/blog/kubernetes-1-27-whats-new/)
 Sysdig is writing a good summary on the major changes in K8s that can be used as reference.
@@ -24,7 +24,7 @@ All kubernetes release notes.
 
 4. [Giant Swarm Releases](https://github.com/giantswarm/releases/) 
 Our own release page and we try to give you a better overview on the important changes. 
-*Tip: Once we depreciate a release, it is moved to "archived", so you might need to dig in there to find our past versions where the K8s version is changing.*
+*Tip: Once we deprecate a release, it is moved to "archived", so you might need to dig in there to find our past versions where the K8s version is changing.*
 
 ### Giant Swarm 
 
