@@ -7,7 +7,7 @@ confidentiality: public
 
 ### Purpose
 
-When uprading Giant Swarm releases you will notice that the kubernetes version is also being upgraded. As part of the upgrade process it should be a habit to check for the newest changes upstream. This ensures that the diffs, deprecations, and new features from an upstream kubernetes perspective are known. 
+When upgrading Giant Swarm releases you will notice that the kubernetes version is also being upgraded. As part of the upgrade process it should be a habit to check for the newest changes upstream. This ensures that the diffs, deprecations, and new features from an upstream kubernetes perspective are known. 
 
 There is not a right or wrong way to go about this process because there is not one tool that simply gives all of the answers. However, the following tools combine to give a nice overview of the important changes. Let us know if you have thoughts as well!  
 
