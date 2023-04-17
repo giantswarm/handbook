@@ -27,7 +27,7 @@ You can watch them here:
 
 The following apps - not limited to - are managed with this method:
 
-- https://github.com/giantswarm/crossplane/
+- https://github.com/giantswarm/crossplane
 - https://github.com/giantswarm/external-secrets
 
 ## Assumptions
@@ -409,4 +409,34 @@ In general, we have two options here:
    git commit -am "applied custom changes"
    # you're ready continue with updating to the current state
    ```
+## Fixing when original subtree-split commit is lost
 
+For reasons we're not completely sure of (but that for sure include history rewrite with `git push --force`), it might happen that the commit ID that is merged as a subtree from the artificial sub-directory tree created with `git subtree split` might change its commit ID, even though the set of changes is still the same. One way you can get out of this situation is:
+
+1) Figure out (from normal git log) in the `main` branch (or the working branch) when we did the last actual merge from upstream. This merge commit has the following message in it:
+
+```
+Squashed 'your/subdir' content from commit [short ID]
+    
+git-subtree-dir: your/subdir
+git-subtree-split: [long ID]
+```
+
+Let's assume in our case the commit was done on 03.01.2023.
+
+2) Do normal git subtree split, then checkout this tree so you can inspect its log. Start with checkout `git checkout temp-split-branch` then use `git log`. Now find the last artificial commit ID that we merged - its hash is different now, but we assume the set of patches is the same. In our case we look for the newest commit older than 03.01.2023 in the artificial history created by `subtree split`. Let's assume this commit has ID `5a9c69f11f1466569e04c8a60cbb132617d2185f`.
+
+3) `git-subtree` is just a bash script that greps git log in search for that hash, so we can make it believe that certain hash was merged by doing an empty commit with `git commit --allow-empty -m` and including a commit message informing that it was merged:
+
+```
+Squashed 'your/subdir' content from commit 5a9c69f1
+    
+git-subtree-dir: your/subdir
+git-subtree-split: 5a9c69f11f1466569e04c8a60cbb132617d2185f
+```
+
+To make it easier to find the needed hash ID in the artificial history created by `subtree`, you can try the following script
+
+```sh
+last-subtree = "!f() { git log temp-split-branch --until \"$(git log main --grep='git-subtree-split' --pretty=format:\"%ad\" -1)\" --pretty=format:\"%H\" -1; }; f"
+```
