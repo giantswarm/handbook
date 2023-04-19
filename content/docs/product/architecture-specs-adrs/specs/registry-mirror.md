@@ -45,9 +45,9 @@ This issue extends to all other public registries. Due to the multi-tenancy of o
 
 We address this by only using Giant Swarm-controlled registries, which only have our images. Malicious actors can't place their own images on these registries. For example, we have `docker.io/giantswarm/kube-apiserver:v1.24.10` which is also available on the mirror `giantswarm.azurecr.io/giantswarm/kube-apiserver:v1.24.10`.
 
-## What private registries are we using?
+## What Giant Swarm-controlled registry mirrors are we using?
 
-We are using Azure Container Registry (ACR) as a private registry outside of China.
+We are using Azure Container Registry (ACR) as a Giant Swarm-controlled registry outside of China. The domain `giantswarm.azurecr.io` is for images while `giantswarmpublic.azurecr.io` is for app catalogs.
 
 This is configured as a registry mirror, and we synchronise images between Docker Hub and Azure Container Registry (ACR).
 
@@ -55,11 +55,11 @@ This is configured as a registry mirror, and we synchronise images between Docke
 
 We have not found a suitable private registry in China yet.
 
-## Why don't we use X as a private registry?
+## Why don't we use X as a Giant Swarm-controlled registry?
 
 - We are not using Amazon Elastic Container Registry (ECR) as it does not support anonymous pulling of images.
 - We don't use Azure Container Registry (ACR) in China as it requires us to set up a Chinese business entity.
-- We don't host our own private registry to avoid the investment of running a registry.
+- We don't host our own registry to avoid the investment of running a registry.
 
 ## Why are we only using public images?
 
