@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add an ops recipe to troubleshoot GitOps environments
 
+### Changed
+
+- Reword "Registry Mirrors" article to focus on current state of containerd but still mention historical context for Docker daemon behavior
+
 ## [0.0.10] - 2023-03-23
 
 ### Fixed

@@ -15,39 +15,41 @@ Given a number of Quay outages in Q2 2020, we decided that these single points o
 
 One possible solution to Quay not providing the service level we want is to run our own registry / registries. This could have consisted of a single global registry, one registry per region, running a registry per management cluster, or various other topologies.
 
-We discounted this due to the effort of providing the necessarily high service level, regardless of the overall topology - i.e: that registry would need to be highly available, and the team felt that providing that service would take an unreasonable amount of our time and energy, compared to other solutions.
+We discounted this due to the effort of providing the necessarily high maintenance effort, regardless of the overall topology - i.e: that registry would need to be highly available, and the team felt that providing that service would take an unreasonable amount of our time and energy, compared to other solutions.
 
 ## What are registry mirrors, and how do they work?
 
-The Docker daemon can be configured with a set of _registry mirrors_. When a user attempts to pull an image, the Docker daemon will try the registries listed in the registry mirrors first. If the image is found in the registry mirrors, it is pulled from there.
+containerd can be configured with a set of _registry mirrors_. When a user attempts to pull an image, the daemon will try the endpoints in the configured order. For example, for `docker.io/...` images, we could configure to try Docker Hub first but fall back to a mirror in case of an error (e.g. service down, rate limit).
 
-This is helpful in our situation in that it allows us to use multiple registries, instead of relying on one registry. When relying on one registry, that singular registry as to have very high uptime. When we are using multiple registries, we can tolerate a failure of one registry much better.
+This is helpful in our situation in that it allows us to use multiple registries, instead of relying on one registry. When relying on one registry, that singular registry must have a very high uptime. When we are using multiple registries, we can tolerate a failure of one registry much better.
 
-See [here](https://docs.docker.com/registry/recipes/mirror/) for Docker's documentation on registry mirrors. Similar support also exists for containerd, see [here](https://github.com/containerd/cri/pull/531).
+See [here](https://github.com/containerd/containerd/blob/main/docs/hosts.md#server-field) for containerd's documentation on registry mirrors.
+
+Before the switch to containerd, we used the Docker daemon which tries the configured mirrors first (see [their documentation](https://docs.docker.com/registry/recipes/mirror/)).
 
 ## Why do we need to use Docker Hub images?
 
-The Docker daemon currently only supports registry mirrors when using images hosted on Docker Hub, i.e: `redis`, `datadog/agent`, `docker.io/redis, or `docker.io/datadog/agent`. This is documented [here](https://docs.docker.com/registry/recipes/mirror/#gotcha).
+Since we switched to containerd, this should not be a problem anymore. Depending on the cluster app template (such as [`cluster-aws`](https://github.com/giantswarm/cluster-aws)), we offer configuring registries which are not Docker Hub, including the option to list mirror endpoints.
 
-If registry mirrors are configured and a user attempts to pull an image from a registry that is not Docker Hub, i.e: `quay.io/giantswarm/aws-operator`, the mirrors are not considered and the daemon pulls directly from the specific registry (`quay.io` in this case).
+Previously, we used the Docker daemon which only supported registry mirrors when using images hosted on Docker Hub, i.e: `redis`, `datadog/agent`, `docker.io/redis`, or `docker.io/datadog/agent`. This is documented [here](https://docs.docker.com/registry/recipes/mirror/#gotcha). If registry mirrors are configured and a user attempts to pull an image from a registry that is not Docker Hub, i.e: `quay.io/giantswarm/aws-operator`, the mirrors are not considered and the daemon pulls only from the specific registry (`quay.io` in this case).
 
 We tend to use image names that contain `docker.io` - for example, `docker.io/giantswarm/hyperkube` over `giantswarm/hyperkube` - to make templating easier.
 
 ## Why can't we use Quay / other public registries as a registry mirror?
 
-The Docker daemon attempts to use the configured registry mirrors for images on Docker Hub. For example, given the image `datadog/agent` and Quay configured as a registry mirror, the Docker daemon would attempt to pull the image `quay.io/datadog/agent`. This image does not exist, so the Docker daemon would fallback to using `datadog/agent` from Docker Hub.
+If configured, containerd attempts to use the configured registry mirrors for images on Docker Hub. For example, given the image `datadog/agent` (shorthand for `docker.io/datadog/agent`) and Quay configured as a registry mirror, the daemon might attempt to pull the image `quay.io/datadog/agent` if Docker Hub is unavailable or returns a temporary rate limit failure. This image does not exist, so the daemon can only use the primary endpoint (Docker Hub), but not Quay.
 
-However, a malicious actor could create the repository `quay.io/datadog/agent` - or other popular images - and place malicious images there. These would then be picked up by the Docker daemon and run.
+However, a malicious actor could create the repository `quay.io/datadog/agent` - or other popular images - and place malicious images there. These could then be picked up by the daemon and run.
 
-This issues extends to all other public registries. Due to the multi-tenancy of our clusters (i.e: we can't control which images our customers use), any public registry would pose the same security issue.
+This issue extends to all other public registries. Due to the multi-tenancy of our clusters (i.e: we can't control which images our customers use), any public registry would pose the same security issue.
 
-We address this issue by only using private registries, which only have our images in. Malicious actors can't place their own images on these registries.
+We address this by only using Giant Swarm-controlled registries, which only have our images. Malicious actors can't place their own images on these registries. For example, we have `docker.io/giantswarm/kube-apiserver:v1.24.10` which is also available on the mirror `giantswarm.azurecr.io/giantswarm/kube-apiserver:v1.24.10`.
 
 ## What private registries are we using?
 
 We are using Azure Container Registry (ACR) as a private registry outside of China.
 
-This is configured as a registry mirror, and we synchronise images with Docker Hub and Azure Container Registry (ACR).
+This is configured as a registry mirror, and we synchronise images between Docker Hub and Azure Container Registry (ACR).
 
 ## Why don't we support registry mirrors in China?
 
@@ -56,7 +58,7 @@ We have not found a suitable private registry in China yet.
 ## Why don't we use X as a private registry?
 
 - We are not using Amazon Elastic Container Registry (ECR) as it does not support anonymous pulling of images.
-- We don't use Azure Container Registry (ACR) in China as it requires us to provide a Chinese business entity to set up.
+- We don't use Azure Container Registry (ACR) in China as it requires us to set up a Chinese business entity.
 - We don't host our own private registry to avoid the investment of running a registry.
 
 ## Why are we only using public images?
@@ -64,6 +66,8 @@ We have not found a suitable private registry in China yet.
 When using registry mirrors, the Docker daemon attempts to use the same credentials for all registries. To avoid unnecessary complications aligning credentials across registries, and as all our work is open-source, it's more straightforward to only use public images.
 
 We can still use private images, just without the benefits of registry mirrors.
+
+Having switched to containerd which allows setting separate credentials per endpoint, this should not be a problem anymore but images remain public for the above historical reasons.
 
 ## What images are being synchronised?
 
@@ -75,7 +79,7 @@ We are only synchronising tagged images, not all SHAs - this is to avoid synchro
 
 We use the tool [crsync](https://github.com/giantswarm/crsync) to synchronise images between registries. This is deployed on the Operations Platform.
 
-This shows the general state of our registries before our work. On the whole, CI pushed to both Quay and Aliyun.
+This shows the general state of our registries before our migration. On the whole, CI pushed to both Quay and Aliyun.
 
 ```mermaid
     graph LR
@@ -192,6 +196,20 @@ In the much further future, we'd like to get rid of Quay entirely, and only use 
 
 ## Which registries do which machines use?
 
+Machines outside of China use registry mirroring. Azure Container Registry is set as the mirror. This means that machines will attempt to pull images from Docker Hub first, and fall back to Azure Container Registry in case of errors.
+
+```mermaid
+    graph LR
+
+    M[Machines outside China] -.-> ACR[Azure Container Registry]
+    M --> D[Docker Hub]
+
+    style ACR fill:#C8CE74
+    style D fill:#4AA35A
+```
+
+For old clusters that still use the Docker daemon instead of containerd, the mirror will be attempted first.
+
 Machines in China do not use registry mirroring, so pull all the images from Aliyun.
 
 ```mermaid
@@ -200,16 +218,4 @@ Machines in China do not use registry mirroring, so pull all the images from Ali
     M[Machines in China] --> AL[Aliyun]
 
     style AL fill:#8EBA62
-```
-
-Machines outside of China do use registry mirroring. Azure Container Registry is set as the mirror. This means that machines will attempt to pull images from Azure Container Registry first, and fall back to Docker Hub in case of errors.
-
-```mermaid
-    graph LR
-
-    M[Machines outside China] --> ACR[Azure Container Registry]
-    M --> D[Docker Hub]
-
-    style ACR fill:#C8CE74
-    style D fill:#4AA35A
 ```
