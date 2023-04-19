@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add an ops recipe to troubleshoot GitOps environments
 
+### Fixed
+
+- Fix invalid redirects on request URLs without trailing slash (enable relative redirects)
+
 ## [0.0.10] - 2023-03-23
 
 ### Fixed
