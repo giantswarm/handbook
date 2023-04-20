@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A directive in Dockerfile to disable absolute redirects
 - Add an ops recipe to troubleshoot GitOps environments
 
 ### Changed
