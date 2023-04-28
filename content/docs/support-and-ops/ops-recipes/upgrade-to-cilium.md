@@ -92,7 +92,7 @@ Another critical process happening in this phase is the cleanup of `kube-proxy` 
 - While we worked hard to prevent that from happening, it's still possible that some downtime will be happening on the workloads. This is a CNI switch after all.
 - The AWS CNI Pod subnets will remain after the upgrade, they will not be deleted while upgrading to v19 release. We will work on removing them in future releases if neccessary.  
 
-## AWS-CNI leftovers
+## AWS-CNI Leftovers
 
 After a successful upgrade of a v18 cluster to v19, there will be a few AWS resources originally created for AWS CNI that will not be cleaned up. Those resources include:
 
@@ -103,6 +103,6 @@ After a successful upgrade of a v18 cluster to v19, there will be a few AWS reso
 We keep those resources around for two reasons:
 
 1. to ease a rollback. Should anything unexpected happen during the upgrade, keeping those resources will make it easier to revert to v18.
-2. to avoid upgrade errors. It's not uncommon to have VPC peerings set up agains AWS CNI subnets and that would make automated deletion through cloudformation fail.
+2. to avoid upgrade errors. It's not uncommon to have VPC peerings set up agains AWS CNI subnets and that would make automated deletion through CloudFormation fail.
 
-In order to clean up those resources, it's enough to remove the `aws-operator.giantswarm.io/legacy-aws-cni-pod-cidr` annotation from the `AWSCluster` CR *after the upgrade is completed* and force an update of the `tccp` cloudformation stack. Please ask your AE if you need help.
+In order to clean up those resources, it's enough to remove the `aws-operator.giantswarm.io/legacy-aws-cni-pod-cidr` annotation from the `AWSCluster` CR *after the upgrade is completed* and force an update of the `tccp` CloudFormation stack. Please ask your Account Engineer (AE) if you need help.
