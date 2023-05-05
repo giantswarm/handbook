@@ -13,9 +13,9 @@ enableGitInfo = true
 confidentiality = "confidentiality"
 
 [params.taxonomy]
-taxonomyCloud = ["confidentiality"]
-taxonomyCloudTitle = ["confidentiality"]
-taxonomyPageHeader = [] # This hides the taxonomies in the header.
+taxonomyCloud = [] # This hides the taxonomies in the sidebar.
+taxonomyCloudTitle = [] # This hides the taxonomies in the sidebar.
+taxonomyPageHeader = ["confidentiality"] 
 
 # Highlighting config
 pygmentsCodeFences = true
