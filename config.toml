@@ -9,7 +9,13 @@ theme = ["docsy"]
 # Will give values to .Lastmod etc.
 enableGitInfo = true
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
+[taxonomies]
+confidentiality = "confidentiality"
+
+[params.taxonomy]
+taxonomyCloud = ["confidentiality"]
+taxonomyCloudTitle = ["confidentiality"]
+taxonomyPageHeader = [] # This hides the taxonomies in the header.
 
 # Highlighting config
 pygmentsCodeFences = true
