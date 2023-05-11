@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add an ops recipe for Master usage CPU too high.
 
+### Changed
+
+- Updated `Troubleshooting gitops` with customer communication section
+
 ## [0.0.11] - 2023-04-20
 
 ### Added
