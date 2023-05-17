@@ -2,6 +2,10 @@
 title: Corporate design resources
 ---
 
+## Icons
+
+You can download the entire collection as a [ZIP archive](gs23-icons-v1.01.zip).
+
 <img src="svg/gs23-icon-airplane.svg" width="18" height="18" alt="airplane preview" /> airplane - [SVG](svg/gs23-icon-airplane.svg) [PNG](png/gs23-icon-airplane.png)
 
 <img src="svg/gs23-icon-alert.svg" width="18" height="18" alt="alert preview" /> alert - [SVG](svg/gs23-icon-alert.svg) [PNG](png/gs23-icon-alert.png)
