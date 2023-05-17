@@ -5,7 +5,7 @@ owner:
 confidentiality: public
 ---
 
-If we suspect the CNI is missbehaving 
+If we suspect the CNI is misbehaving 
 
 # Table of Contents
 1. [Check Component Status](#Check-Component-Status)
