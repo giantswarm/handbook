@@ -62,4 +62,4 @@ Cluster health:          6/6 reachable   (2023-05-17T10:41:28Z)
 $> kubectl -n kube-system port-forward svc/hubble-ui 3000:80
 ```
 
-Once the command is running you can open your browser at http://127.0.0.1:3000/
+Once the command is running you can open your browser at `http://127.0.0.1:3000/`.
