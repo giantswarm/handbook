@@ -36,7 +36,7 @@ Clusters
 - where the `keep-until` date is in the past OR where no `keep-until` label is present
 - where `alpha.giantswarm.io/ignore-cluster-deletion` annotation is set to `false`
 
-can be deleted by anyone without notice or `cluster-cleaner` operator will clean them up automatically.
+can be deleted by anyone without notice or [cluster-cleaner](https://github.com/giantswarm/cluster-cleaner) operator will clean them up automatically.
 
 ### Leave The Environment Better Than You Found It
 
