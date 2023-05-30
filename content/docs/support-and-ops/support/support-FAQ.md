@@ -24,7 +24,7 @@ A good way to do this is to gather enough information to answer all the followin
 
 ## What's expected of the on-support engineer?
 
-Out of a Solutions Engineer on support, it is expected that:
+A Solutions Engineer on support shall:
 
 - the person qualifies the request by following the [Support Template](#support-template-qualifying-a-request)
 - the person tries to perform some basic debugging according to opsrecipes/FAQ entries (look at pods logs, check if nodes are Ready, ...)
