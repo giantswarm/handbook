@@ -27,7 +27,7 @@ A good way to do this is to gather enough information to answer all the followin
 A Solutions Engineer on support shall:
 
 - qualify the request by following the [Support Template](#support-template-qualifying-a-request)
-- the person tries to perform some basic debugging according to opsrecipes/FAQ entries (look at pods logs, check if nodes are Ready, ...)
+- try to perform basic debugging according to opsrecipes/FAQ entries (look at pods logs, check if nodes are Ready, ...)
 - the person drives communication with the customer. This will allow us to have a more diverse face to the customer and not always the same people solving problems even though they might have helped in the background.
 - the person pulls a support person from a specific team (e.g. Cabbage) in the incident channel to help in case they are not able to figure out what's broken/how to fix it
 - the person creates/updates FAQ entries as needed. Notice that, whereas an opsrecipe states _how_ to fix an issue, an FAQ entry includes useful information for debugging, focusing on the _why_ certain steps are taken
