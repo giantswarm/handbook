@@ -33,3 +33,9 @@ A Solutions Engineer on support shall:
 - create/update FAQ entries as needed. Notice that, whereas an opsrecipe states _how_ to fix an issue, an FAQ entry includes useful information for debugging, focusing on the _why_ certain steps are taken
 - mark the support requests that are interesting/problematic so that we can talk about them on Thursday in the AE-SA meeting. We make sure we talk about past requests and learnings across all and make sure teams are aware of the priorities.
 - create a GitHub issue for the request if it is not an issue but a question or a feature request. This will allow us to track the request and make sure it is not lost
+
+## Cheatsheet
+
+### How do I get a list of the AWS Vintage clusters have the `alpha.aws.giantswarm.io/enable-cloudfront-alias` annotation?
+
+While logged in the Management Cluster, run the following command: `kubectl get awscluster --all-namespaces -o json | jq -r '.items[] | select(.metadata.annotations | to_entries[] | .key | startswith("alpha.aws.giantswarm.io/enable")) | .metadata.name'`
