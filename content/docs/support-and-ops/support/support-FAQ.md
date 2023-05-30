@@ -38,4 +38,4 @@ A Solutions Engineer on support shall:
 
 ### How do I get a list of the AWS Vintage clusters have the `alpha.aws.giantswarm.io/enable-cloudfront-alias` annotation?
 
-While logged in the Management Cluster, run the following command: `kubectl get awscluster --all-namespaces -o json | jq -r '.items[] | select(.metadata.annotations | to_entries[] | .key | startswith("alpha.aws.giantswarm.io/enable")) | .metadata.name'`
+While logged in the Management Cluster, run the following command: `kubectl get awscluster --all-namespaces -o json | jq -r '.items[] | select(.metadata.annotations | to_entries[] | .key | startswith("alpha.aws.giantswarm.io/enable-cloudfront")) | .metadata.name'`
