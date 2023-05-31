@@ -22,7 +22,7 @@ A good way to do this is to gather enough information to answer all the followin
 - Did anything change in the cluster recently?
 - Is the issue a real issue, or is it just a question about how to do something or a feature request? If it is not an issue, we can move the discussion to a GitHub issue.
 
-## What's expected of the on-support engineer?
+## What is expected of the on-support Solutions Engineer?
 
 A Solutions Engineer on support shall:
 
@@ -33,6 +33,19 @@ A Solutions Engineer on support shall:
 - create/update FAQ entries as needed. Notice that, whereas an opsrecipe states _how_ to fix an issue, an FAQ entry includes useful information for debugging, focusing on the _why_ certain steps are taken
 - mark the support requests that are interesting/problematic so that we can talk about them on Thursday in the AE-SA meeting. We make sure we talk about past requests and learnings across all and make sure teams are aware of the priorities.
 - create a GitHub issue for the request if it is not an issue but a question or a feature request. This will allow us to track the request and make sure it is not lost
+
+## What is expected of each team's on-support engineer (`@support-$TEAM` on Slack)?
+
+Each team is required to always have a person available to help with support requests during Business Hours (09:00 - 18:00 German time). Each team has total freedom in choosing *who* is on support. Some common setups, each one with its pros and cons, are:
+- the Solutions Architect for the team is the person always on support for the team
+- the on-call engineer for the team is also the engineer that responds to the `@support-$TEAM` mentions on Slack (this can be automated via [Ailefroide](https://github.com/giantswarm/ailefroide-app/))
+- a pool of engineers responds to the `@support-$TEAM` mentions on Slack
+
+Whenever the Solutions Engineer (SE) on support pings `@support-$TEAM` on Slack, the team's on-support engineer shall:
+- join the incident channel created by the Solutions Engineer
+- NOT take over (at least not *fully*), but pair with the SE on support using the incident channel and possibly joining the _support lounge_ (pinned in both the `#support` and `#chapter-se` Slack channels). This is important for various reasons such as upskilling the SE on support and making sure the SE on support is not left alone
+- help the SE on support to write an FAQ entry on how the issue was debugged, mostly by validating the FAQ entry written by the SE against mistakes (if needed)
+- NOT leave the person on support hanging: if they are not able to help for any reason, they have the responsibility to find someone from their team who can take over as domain-expert
 
 ## Cheatsheet
 
