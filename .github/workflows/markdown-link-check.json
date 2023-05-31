@@ -4,6 +4,9 @@
       "pattern": "^../"
     },
     {
+      "pattern": "^https://github.com/giantswarm/ailefroide-app"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/APP-NAME-app"
     },
     {
