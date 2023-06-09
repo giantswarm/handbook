@@ -20,17 +20,23 @@ Create test clusters in a way so that they are as cheap as possible and as expen
 
 Note: This is not possible on KVM.
 
-To be able to keep a test cluster for more than 3 hours, add the following [labels](https://docs.giantswarm.io/advanced/labelling-workload-clusters/):
+To be able to keep a test cluster for more than 4 hours, add the following [labels](https://docs.giantswarm.io/advanced/labelling-workload-clusters/):
 
 - `creator`: The value should be your Slack user name. With this label, others in the company can address you in case of an issue.
 - `keep-until`: As a value, set an ISO date string (format: `YYYY-MM-DD`) for the last day this cluster should still keep running. This is to be evaluated against UTC date/time.
+- Your cluster wont' be deleted until you remove the annotation:
+```
+annotations:
+  alpha.giantswarm.io/ignore-cluster-deletion: "true"
+```
 
 Clusters
 
-- older than 3 hours AND
+- older than 4 hours AND
 - where the `keep-until` date is in the past OR where no `keep-until` label is present
+- where `alpha.giantswarm.io/ignore-cluster-deletion` annotation is set to `false`
 
-can be deleted by anyone without notice.
+can be deleted by anyone without notice or [cluster-cleaner](https://github.com/giantswarm/cluster-cleaner) operator will clean them up automatically.
 
 ### Leave The Environment Better Than You Found It
 

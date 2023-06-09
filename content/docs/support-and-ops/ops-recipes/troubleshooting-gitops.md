@@ -67,3 +67,11 @@ flux suspend kustomization -n default <KUSTOMIZATION_NAME>
 ```
 
 Remember to notify the customer of this change.
+
+## Customer Communication
+
+After stopping reconcilation, please notify the customer of the change via slack support channel where the customer will be able to review and make the necessary changes the following business day. 
+
+In the case of an issue that cannot be fixed by stopping reconcilation and manually doing, a silence may be required. In this case, please notify via slack support channel a) the situation that we are alerted for and that we cannot help due to customer ownership and no access b) we will silence the alert until the next buisness day.  
+
+In case of urgent situations or when pausing reconcilation does not fix the issue and the customer needs to be notified before the next business day, please reference the customer specific escalation matrix found in intranet. This will notify the customer of the situation and that Giant Swarm has no way to fix the problem and that Giant Swarm will silence the alert because of this. `urgent@giantswarm.io` remains available for additional help within the Giant Swarm scope but can only be useful after the customer takes care of their fix. 

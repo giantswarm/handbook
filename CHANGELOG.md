@@ -7,9 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.15] - 2023-05-31
+
+## [0.0.14] - 2023-05-17
+
+## [0.0.13] - 2023-05-16
+
+## [0.0.12] - 2023-05-11
+
+### Added 
+
+- Add an ops recipe for Master usage CPU too high.
+
+### Changed
+
+- Updated `Troubleshooting gitops` with customer communication section
+
+## [0.0.11] - 2023-04-20
+
 ### Added
 
+- A directive in Dockerfile to disable absolute redirects
 - Add an ops recipe to troubleshoot GitOps environments
+
+### Changed
+
+- Reword "Registry Mirrors" article to focus on current state of containerd but still mention historical context for Docker daemon behavior
+- Avoid the term "private" for registries that we control since the images can be pulled publically and anonymously
+- Fix invalid redirects on request URLs without trailing slash (enable relative redirects)
 
 ## [0.0.10] - 2023-03-23
 
@@ -73,7 +98,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.0.10...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.0.15...HEAD
+[0.0.15]: https://github.com/giantswarm/handbook/compare/v0.0.14...v0.0.15
+[0.0.14]: https://github.com/giantswarm/handbook/compare/v0.0.13...v0.0.14
+[0.0.13]: https://github.com/giantswarm/handbook/compare/v0.0.12...v0.0.13
+[0.0.12]: https://github.com/giantswarm/handbook/compare/v0.0.11...v0.0.12
+[0.0.11]: https://github.com/giantswarm/handbook/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/giantswarm/handbook/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/giantswarm/handbook/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/giantswarm/handbook/compare/v0.0.7...v0.0.8
