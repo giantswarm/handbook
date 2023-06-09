@@ -7,7 +7,7 @@ confidentiality: public
 
 ### Purpose
 
-`Flux 2.0` release is anticpated within the next few weeks (June 2023). As part of this release, there are some breaking changes within `kustomize 5.0` that need to be checked by customers in their gitops configurations before Giant Swarm upgrades to this release in Management Clusters. 
+`Flux 2.0` release is anticipated within the next few weeks (June 2023). As part of this release, there are some breaking changes within `kustomize 5.0` that need to be checked by customers in their gitops configurations before Giant Swarm upgrades to this release in Management Clusters. 
 
 ### The Breaking Changes
 
@@ -24,7 +24,7 @@ Whilst you can use `kustomize edit fix`, this is known to break `kustomize build
 ### What do I need to do?
 
 - Review the release notes and breaking changes above. 
-- Check your gitops implmentation for usage of `patchesStrategicMerge` and `patchesJson6902`. 
+- Check your gitops implementation for usage of `patchesStrategicMerge` and `patchesJson6902`. 
 - Replace with `patches`.
     - if relevant, split `patchesStrategicMerge` entries before converting them to `patch` entries.
 - Check your customer specific issue found in your repo or the project board for updates on when Giant Swarm will upgrade.
