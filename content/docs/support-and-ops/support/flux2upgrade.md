@@ -13,7 +13,10 @@ confidentiality: public
 
 Note: This does not replace reading the release notes. Please review the full release notes here.
 - [flux/v2.0.0](https://github.com/fluxcd/flux2/releases)
+<!-- markdown-link-check-disable -->
+<!-- link is valid but link-checker is complaining due a 404 ¯\_(ツ)_/¯-->
 - [kustomize/v5.0.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv5.0.0)
+<!-- markdown-link-check-enable -->
 
 The main takeaway here is that `patchesStrategicMerge` and `patchesJson6902` are deprecated in `v1beta1` for removal in `v1`.
 
