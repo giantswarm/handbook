@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- fixed image links in `proxy` documentation
+
 ## [0.0.16] - 2023-06-14
+
+- Add notes about the current `proxy` implementation for Management- and Workload-Clusters
 
 ## [0.0.15] - 2023-05-31
 

@@ -104,7 +104,10 @@ The current implemented workflow can be visualized like this:
 
 > The green lines represent the additional steps in the common Cluster provisioning workflow if a proxy server has to be used.
 
-![](workload_cluster_creation.svg)
+<!-- markdown-link-check-disable -->
+<!-- link is valid but for some reasons link-checker complaining about this ... if the file is renamed to whatever.md, the link-checker doesn't complain -->
+![](workload_cluster_creation.png)
+<!-- markdown-link-check-enable -->
 
 #### `cluster-apps-operator`
 
