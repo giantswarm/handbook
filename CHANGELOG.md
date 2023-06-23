@@ -7,7 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added "How to write documentation" page from intranet.
+
+### Changed
+
 - Docs: Rename `nginx-ingress-controller` to `ingress-nginx-controller`. ([#82](https://github.com/giantswarm/handbook/pull/82))
+
 
 ## [0.0.18] - 2023-06-14
 
