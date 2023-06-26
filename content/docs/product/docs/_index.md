@@ -18,7 +18,7 @@ Our goal is to have all documentation for our product be available via that site
 
 Our responsibilities for public documentation are layered.
 
-- Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/platform-overview/_index.md) as you can see the front matter.
+- Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/platform-overview/_index.md) as you can see on the front matter (defined by the YAML header fields).
 
 - [SIG Docs]({{< relref "/docs/organizational-structure/sigs/docs/_index.md" >}}) is responsible for overall content coherence and consistency.
 
@@ -54,7 +54,7 @@ to your final commit message when merging.
 
 Changes to the docs content should be merged as soon as the content is relevant for users.
 
-If a PR adds content for a new function that is not yet available to users, the docs pull request **should not be merged**.
+If a PR adds content for a new function that is not yet available to users, the docs pull request **should not be merged** and therefore remain marked as draft while it is not ready.
 
 ### Adding content
 
@@ -126,7 +126,7 @@ foo: bar
 
 **Guideline:** Shell commands and their output get the fake hint `nohighlight` to prevent any funky syntax highlighting.
 
-Shell commands in code blocks are prepended with a `$` (dollar sign and one blank character).
+If a code block includes command output, preprend the shell command with a `$ ` (dollar sign and one blank character).
 
 Example:
 
