@@ -41,7 +41,7 @@ There are several additional repositories which provide additional functionality
 If you want to iterate quickly on some content you can use the `make dev`
 command.
 
-You can access the server at http://localhost:1313/. The server can be stopped by hitting `Ctrl + C`.
+You can access the server at `http://localhost:1313/`. The server can be stopped by hitting `Ctrl + C`.
 
 It will not include content from the external repositories.
 
@@ -54,7 +54,7 @@ make docker-build
 docker-compose up
 ```
 
-You can access the server at http://localhost:8080/. The server can be stopped by hitting `Ctrl + C`.
+You can access the server at `http://localhost:8080/`. The server can be stopped by hitting `Ctrl + C`.
 
 ## Shortcodes
 
