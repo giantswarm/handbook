@@ -11,7 +11,7 @@ icon: fa fa-sort-alpha-down
 - Terms and abbreviations commonly used at Giant Swarm.
 - Where we care, the exact capitalization is mentioned.
 - If something is missing please open a [pull request](https://github.com/giantswarm/handbook/edit/main/content/docs/glossary/_index.md). 🙏
-- Roles and job titles are documented over at [Roles & Habits @ Giant Swarm](https://handbook.giantswarm.io/docs/people/reading-material/onboarding-roles.md/)
+- Roles and job titles are documented over at [Roles & Habits @ Giant Swarm](https://handbook.giantswarm.io/docs/people/reading-material/onboarding-roles/)
 - Your future colleagues and future self will thank you. ❤️
 
 ---
