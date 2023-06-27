@@ -62,7 +62,7 @@ ip-10-0-5-112.eu-central-1.compute.internal   kube-system        k8s-scheduler-i
 ip-10-0-5-112.eu-central-1.compute.internal   kyverno            kyverno-56b45576df-ddx8q                                             100m (2%)      100m (2%)       726m (18%)    256Mi (1%)        1024Mi (6%)     558Mi (3%)
 ip-10-0-5-112.eu-central-1.compute.internal   giantswarm         management-cluster-admission-controller-manager-f4df9d976-rbp4n      100m (2%)      250m (6%)       1m (0%)       250Mi (1%)        250Mi (1%)      25Mi (0%)
 ip-10-0-5-112.eu-central-1.compute.internal   monitoring         net-exporter-z6ng4                                                   50m (1%)       0m (0%)         1m (0%)       75Mi (0%)         150Mi (0%)      16Mi (0%)
-ip-10-0-5-112.eu-central-1.compute.internal   kube-system        nginx-ingress-controller-app-546758487d-jqgrc                        500m (12%)     0m (0%)         2m (0%)       600Mi (3%)        0Mi (0%)        211Mi (1%)
+ip-10-0-5-112.eu-central-1.compute.internal   kube-system        ingress-nginx-controller-app-546758487d-jqgrc                        500m (12%)     0m (0%)         2m (0%)       600Mi (3%)        0Mi (0%)        211Mi (1%)
 ip-10-0-5-112.eu-central-1.compute.internal   monitoring         node-exporter-z2qgt                                                  75m (1%)       0m (0%)         1m (0%)       50Mi (0%)         75Mi (0%)       26Mi (0%)
 ip-10-0-5-112.eu-central-1.compute.internal   monitoring         oauth2-proxy-55568fc5cc-h85d6                                        100m (2%)      100m (2%)       1m (0%)       100Mi (0%)        100Mi (0%)      23Mi (0%)
 ip-10-0-5-112.eu-central-1.compute.internal   promtail           promtail-454w6                                                       100m (2%)      200m (5%)       13m (0%)      128Mi (0%)        128Mi (0%)      87Mi (0%)
@@ -82,4 +82,3 @@ kubectl krew install resource-capacity
 ```
 
 __Note__: If you notice the CPU and memory overloads the machine for last days, you can think on growing the master machine to next instance type.
-

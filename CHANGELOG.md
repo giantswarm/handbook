@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Docs: Rename `nginx-ingress-controller` to `ingress-nginx-controller`. ([#82](https://github.com/giantswarm/handbook/pull/82))
+
+## [0.0.18] - 2023-06-14
+
+## [0.0.17] - 2023-06-14
+
+- fixed image links in `proxy` documentation
+
+## [0.0.16] - 2023-06-14
+
+- Add notes about the current `proxy` implementation for Management- and Workload-Clusters
+
+## [0.0.15] - 2023-05-31
+
 ## [0.0.14] - 2023-05-17
 
 ## [0.0.13] - 2023-05-16
@@ -96,7 +110,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.0.14...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.0.18...HEAD
+[0.0.18]: https://github.com/giantswarm/handbook/compare/v0.0.17...v0.0.18
+[0.0.17]: https://github.com/giantswarm/handbook/compare/v0.0.16...v0.0.17
+[0.0.16]: https://github.com/giantswarm/handbook/compare/v0.0.15...v0.0.16
+[0.0.15]: https://github.com/giantswarm/handbook/compare/v0.0.14...v0.0.15
 [0.0.14]: https://github.com/giantswarm/handbook/compare/v0.0.13...v0.0.14
 [0.0.13]: https://github.com/giantswarm/handbook/compare/v0.0.12...v0.0.13
 [0.0.12]: https://github.com/giantswarm/handbook/compare/v0.0.11...v0.0.12
