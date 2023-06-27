@@ -20,9 +20,9 @@ Our responsibilities for public documentation are layered.
 
 - Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/platform-overview/_index.md) as you can see on the front matter (defined by the YAML header fields).
 
-- [SIG Docs]({{< relref "/docs/organizational-structure/sigs/docs/_index.md" >}}) is responsible for overall content coherence and consistency.
+- [SIG Docs](TBD) is responsible for overall content coherence and consistency.
 
-- [SIG User Experience]({{< relref "/docs/organizational-structure/sigs/ux/_index.md" >}}) (UX) takes responsibility for the overall UI and user experience, having the docs site online and available, have a user-friendly search etc.
+- [SIG User Experience](TBD) (UX) takes responsibility for the overall UI and user experience, having the docs site online and available, have a user-friendly search etc.
 
 ## Editing content
 
