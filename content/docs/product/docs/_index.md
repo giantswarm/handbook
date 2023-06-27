@@ -20,9 +20,9 @@ Our responsibilities for public documentation are layered.
 
 - Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/platform-overview/_index.md) as you can see on the front matter (defined by the YAML header fields).
 
-- [SIG Docs](TBD) is responsible for overall content coherence and consistency.
+- SIG Docs is responsible for overall content coherence and consistency.
 
-- [SIG User Experience](TBD) (UX) takes responsibility for the overall UI and user experience, having the docs site online and available, have a user-friendly search etc.
+- SIG User Experience (UX) takes responsibility for the overall UI and user experience, having the docs site online and available, have a user-friendly search etc.
 
 ## Editing content
 
@@ -30,7 +30,7 @@ In general, modifying content works as follows:
 
 The [giantswarm/docs](https://github.com/giantswarm/docs) repository is where all the documentation content lives. To modify content, clone that repository, create a branch, provide a pull request (PR).
 
-**Note:** You can [run the docs site locally](https://handbook.giantswarm.io/docs/product/docs/docs-dev/) to preview your changes.
+**Note:** You can [run the docs site locally]({{< relref "/docs/product/docs/docs-dev.md" >}}) to preview your changes.
 
 ### Reviews
 
