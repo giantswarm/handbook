@@ -20,7 +20,7 @@ icon: fa fa-sort-alpha-down
 
 ### Ambassador
 
-Someone who is responsible for the information flow between your team and a certain SIG (both directions). See [Ambassadors for SIGs](https://handbook.giantswarm.io/docs/people/teams/ambassador-for-sigs/).
+Someone who is responsible for the information flow between your team and a certain SIG (both directions). See [Ambassadors for SIGs]().
 
 ### Area {#area}
 
