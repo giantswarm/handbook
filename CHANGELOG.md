@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.19] - 2023-06-29
 
+- Moved SIG docs content pages to handbook
 ### Added
 
 - Added "How to write documentation" page from intranet.
