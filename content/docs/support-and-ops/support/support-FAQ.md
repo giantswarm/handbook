@@ -57,7 +57,8 @@ While logged in the Management Cluster, run the following command: `kubectl get 
 ### How do I fix a AWS Vintage cluster that wasn't upgraded to >v18.4.0 directly after adding the IRSA annotation (migration from KIAM)
 
 The cluster will throw errors like these: "WebIdentityErr: failed to retrieve credentials\ncaused by: AccessDenied: Not authorized to perform sts:AssumeRoleWithWebIdentity\n\tstatus code: 403" 
-Root-Cause is that the `alpha.aws.giantswarm.io/enable-cloudfront-alias: ""` was added without upgrading the cluster afterwards, see details [here](https://github.com/giantswarm/releases/blob/cbac05e314f4bcd4caedc8350ebbe804b902f108/aws/v18.4.0/README.md?plain=1#L8)
+Root-Cause may be that the `alpha.aws.giantswarm.io/enable-cloudfront-alias: ""` was added without upgrading the cluster afterwards, see details [here](https://github.com/giantswarm/releases/blob/cbac05e314f4bcd4caedc8350ebbe804b902f108/aws/v18.4.0/README.md?plain=1#L8)
+Example case of this happening, [in this Slack thread](https://gigantic.slack.com/archives/C268Q4WNL/p1688719236782879)
 In order to fix this the tccp stack needs to be recreated as follows: 
 1. Go to cloudformation of WC
 2. find $clusterid-tccpn 
