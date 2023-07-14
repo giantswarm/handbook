@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2023-07-14
+
 ### Added
 
 - Instructions for writing a Cronjob to patch resources
@@ -132,7 +134,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/giantswarm/handbook/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/handbook/compare/v0.0.20...v0.1.0
 [0.0.20]: https://github.com/giantswarm/handbook/compare/v0.0.19...v0.0.20
 [0.0.19]: https://github.com/giantswarm/handbook/compare/v0.0.18...v0.0.19
