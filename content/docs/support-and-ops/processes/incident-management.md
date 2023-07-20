@@ -33,7 +33,7 @@ Silences are managed in a [single repo](https://github.com/giantswarm/silences/)
 
 5. How should I raise issues I discover during debugging? Do all need issues creating? 
 
-Create a [new postmortem](https://github.com/giantswarm/giantswarm/issues/new?assignees=&labels=postmortem%2C+team%2Fnull&template=operations-postmortem.md&title=) that will collect on the main data about the problem and team will take it based on priority.
+Taking into account all incidents should end up with a postmortem, make sure before creating a [new one](https://github.com/giantswarm/giantswarm/issues/new?assignees=&labels=postmortem%2C+team%2Fnull&template=operations-postmortem.md&title=) there is no already an existing one. In the postmortem, you can point to problems found or suggestions raised and the target team will address them based on priority.
 
 # Further links
 
