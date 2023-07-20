@@ -23,7 +23,9 @@ Every incident declared there is a link to the Customer Escalation Matrix which 
 
 4. When is it appropriate to escalate or page another areas on-caller? How do you do that?
 
-In critical processes (P1), the Incident Coordinator will decide together with Operation Engineer when someone else is needed. In case of routine incident (P2), Operation Engineer should decide when to escalate it based on the impact and knowledge about the problem. To escalate use `/inc escalate` (or the button) in the incident channel and select the team or person that you want to target.
+In critical processes (P1), the Incident Coordinator will decide together with Operation Engineer when someone else is needed. In case of a routine incident (P2), Operation Engineer should decide when to escalate it based on the impact and knowledge about the problem. To escalate use `/inc escalate` (or the button) in the incident channel and select the team or person that you want to target.
+
+__Note__: To call for an incident coordinator you can select the `incident_coordinators` group in the `Who I need?` popup window when you escalate through incident.io.
 
 4. How to silence an alert out-of-hours.
 
