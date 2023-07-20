@@ -29,7 +29,7 @@ __Note__: To call for an incident coordinator you can select the `incident_coord
 
 4. How to silence an alert out-of-hours.
 
-Silences are managed in a [single repo](https://github.com/giantswarm/silences/) and they are a especial Custom Resource. Create a new resource copying from existing and modifying cluster/installation names. If you are in the middle of the night don't hesitate to merge without approval. [More info](https://intranet.giantswarm.io/docs/support-and-ops/processes/silence-management/).
+Silences are managed in a [single repo](https://github.com/giantswarm/silences/) and they are a special Custom Resource. Create a new resource copying from existing and modifying cluster/installation names. If you are in the middle of the night don't hesitate to merge without approval. [More info](https://intranet.giantswarm.io/docs/support-and-ops/processes/silence-management/).
 
 5. How should I raise issues I discover during debugging? Do all need issues creating? 
 
