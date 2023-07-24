@@ -8,10 +8,20 @@ confidentiality: public
 If we suspect the CNI is misbehaving 
 
 # Table of Contents
+1. [Command Line Tool](#Command-Line-Tool)
 1. [Check Component Status](#Check-Component-Status)
-2. [Cilium Connectivity Test](#Cilium-Connectivity-Test)
-3. [Check Hubble UI](#Hubble-UI)
+1. [Cilium Connectivity Test](#Cilium-Connectivity-Test)
+1. [Check Hubble UI](#Hubble-UI)
 
+## Command Line Tool
+
+To run `cilium` command line tool (ctl) you can take use the binary from the cilium agent pod lie
+
+```bash
+kubectl exec -it -n kube-system $(kubectl get pod -n kube-system -l app.kubernetes.io/name=cilium-agent -o jsonpath="{.items[0].metadata.name}" ) sh
+```
+
+or you install [cilium client](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli) in your local and ensure the current kubeconfig points to the right cluster.
 
 ## Check Component Status
 
@@ -23,7 +33,7 @@ If we suspect the CNI is misbehaving
 1) Open a terminal connection against any of the pods of the `cilium` daemonset:
 
 ```
-$> kubectl exec -it -n kube-system cilium-6hzvs sh
+$> kubectl exec -it -n kube-system $(kubectl get pod -n kube-system -l app.kubernetes.io/name=cilium-agent -o jsonpath="{.items[0].metadata.name}" ) sh
 ```
 
 2) Check cilium status
