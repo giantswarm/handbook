@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.2] - 2023-07-27
 
+### Added
+
+- A page for incident management FAQ.
+
 ## [0.1.1] - 2023-07-14
 
 ### Added
