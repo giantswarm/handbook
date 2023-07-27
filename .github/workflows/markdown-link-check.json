@@ -22,6 +22,9 @@
       "pattern": "^https://github.com/giantswarm/isms"
     },
     {
+      "pattern": "^https://github.com/giantswarm/silences"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/template"
     },
     {
