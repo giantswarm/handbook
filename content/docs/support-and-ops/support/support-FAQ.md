@@ -52,3 +52,23 @@ Whenever the Solutions Engineer (SE) on support pings `@support-$TEAM` on Slack,
 ### How do I get a list of the AWS Vintage clusters have the `alpha.aws.giantswarm.io/enable-cloudfront-alias` annotation?
 
 While logged in the Management Cluster, run the following command: `kubectl get awscluster --all-namespaces -o json | jq -r '.items[] | select(.metadata.annotations | to_entries[] | .key | startswith("alpha.aws.giantswarm.io/enable-cloudfront")) | .metadata.name'`
+
+### How do I trigger a CloudFormation stack reconciliation?
+
+Follow [this guide]({{< relref "/docs/support-and-ops/ops-recipes/cf-stack-reconciliation.md" >}}).
+
+### How do I fix a AWS Vintage cluster that wasn't upgraded to >v18.4.0 directly after adding the IRSA annotation (migration from KIAM)
+
+The cluster will throw errors like these: `"WebIdentityErr: failed to retrieve credentials\ncaused by: AccessDenied: Not authorized to perform sts:AssumeRoleWithWebIdentity\n\tstatus code: 403"`
+
+The root cause may be that the `alpha.aws.giantswarm.io/enable-cloudfront-alias: ""` was added without upgrading the cluster afterwards, see details [here](https://github.com/giantswarm/releases/blob/cbac05e314f4bcd4caedc8350ebbe804b902f108/aws/v18.4.0/README.md?plain=1#L8)
+
+Example case of this happening, [in this Slack thread](https://gigantic.slack.com/archives/C268Q4WNL/p1688719236782879)
+
+In order to fix this, the `tccpn` stack needs to be updated as follows: 
+1. Go to CloudFormation of WC
+2. find $clusterid-tccpn 
+3. update -> edit in designer -> add "-trigger" at the end of the value for OperatorVersion (e.g. "Value: 14.13.3-trigger")
+4. NextNextNext / set checkmark / submit
+5. tccpn stack rolls: done!
+
