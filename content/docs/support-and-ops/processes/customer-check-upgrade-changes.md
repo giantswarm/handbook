@@ -31,4 +31,4 @@ Our own release page and we try to give you a better overview on the important c
 When upgrading to a new Giant Swarm version, another idea to see the changes would be to use the tool [yamldiff](https://www.yamldiff.com/). Using Giant Swarm versions as examples: Let's say the current version is `17.4.4` and the target version is `18.3.0`. To use yamldiff you would input the YAML files from both current release on the left and target release on the right to learn about the changed components. 
 
 - [17.4.4 yaml](https://raw.githubusercontent.com/giantswarm/releases/master/aws/v17.4.4/release.yaml)
-- [18.3.0 yaml](https://raw.githubusercontent.com/giantswarm/releases/master/aws/v18.3.0/release.yaml)
+- [18.3.0 yaml](https://raw.githubusercontent.com/giantswarm/releases/master/aws/archived/v18.3.0/release.yaml)
