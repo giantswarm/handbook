@@ -104,4 +104,4 @@ Ther are mainly two reasons we decided to run our own developer portal:
 
 - The motivations for introducing developer portals in our customer's organizations (e. g. higher developer productivity, shorter onboarding) also apply to Giant Swarm in general.
 
-Whether we actually reach the second goal depends on a lot of factors. As an engineer at Giant Swarm, you are invited to tell us (the working group, see [contact]{#contact} above) how we are doing and whether you feel the portal is making your job easier or harder, and what we could do to improve it.
+Whether we actually reach the second goal depends on a lot of factors. As an engineer at Giant Swarm, you are invited to tell us (the working group, see [contact](#contact) above) how we are doing and whether you feel the portal is making your job easier or harder, and what we could do to improve it.
