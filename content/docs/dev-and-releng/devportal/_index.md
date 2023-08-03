@@ -100,7 +100,7 @@ Backstage offer a function called **Templates** which we don't make use of, yet.
 
 Ther are mainly two reasons we decided to run our own developer portal:
 
-- Large organizations tend to introduce developer portals as a one-stop shop for their developers. So the product vision of a developer platform naturally includes using a developer portal as a starting point for some use cases, like getting an overview of available servcies, accessing high level service metrics, or creating a new service to be deployed on the platform. And it's a lot easier to reason about how to integrate with a developer portal when we are actually using one ourselves.
+- Large organizations tend to introduce developer portals as a one-stop shop for their developers. So the product vision of a developer platform naturally includes using a developer portal as a starting point for some use cases, like getting an overview of available services, accessing high level service metrics, or creating a new service to be deployed on the platform. And it's a lot easier to reason about how to integrate with a developer portal when we are actually using one ourselves.
 
 - The motivations for introducing developer portals in our customer's organizations (e. g. higher developer productivity, shorter onboarding) also apply to Giant Swarm in general.
 
