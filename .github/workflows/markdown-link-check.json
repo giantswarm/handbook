@@ -34,6 +34,9 @@
       "pattern": "^https://github.com/giantswarm/web-assets"
     },
     {
+      "pattern": "^https://devportal.giantswarm.io"
+    },
+    {
       "pattern": "^https://intranet.giantswarm.io"
     }
   ]
