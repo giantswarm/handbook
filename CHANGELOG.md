@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Ignore more private URLs in linkchecker.
+
 ## [0.3.0] - 2023-08-02
 
 - Add page about developer portal
