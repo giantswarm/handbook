@@ -63,6 +63,11 @@ The catalog presents a few component details that might need explanation:
 
 - **Dependencies**: For Go components in our catalog, we display dependency relations. Note that each Go project usually has a lot more dependencies than shown in the portal. If a dependency is missing, it is either not managed by us (module name starting with `github.com/giantswarm/`), or it is not covered in the catalog (e. g. because it is not mentioned in [giantswarm/github](https://github.com/giantswarm/github/tree/main/repositories)) or it has the Github _Dependency Graph_ feature not activated.
 
+#### Techdocs
+
+For each component in the catalog, the portal also provides access to its documentation, as long as this documentation is included in the same repository that holds the component source code. Backstage calls this _Techdocs_. To be more specific, we include all Markdown files which are present in the repository's root folder as well as in the `/docs` folder (and any subfolders), if it exists.
+
+Techdocs always represent the latest state of the repository's default branch.
 
 #### Integrations
 
