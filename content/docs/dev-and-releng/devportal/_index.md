@@ -61,7 +61,8 @@ The catalog presents a few component details that might need explanation:
 
 - **System**: Currently unused. In the future, we may assign each component to one system, which could  potentially help to get a better overview of our software landscape. However, we need a good taxonomy for that.
 
-Backstage's catalog is capable of providing a lot richer information, like relationships between components (e. g. component A depends on component B, component C is part of component A), and links to related information. Currently we don't have this information modeled, so we cannot display it.
+- **Dependencies**: For Go components in our catalog, we display dependency relations. Note that each Go project usually has a lot more dependencies than shown in the portal. If a dependency is missing, it is either not managed by us (module name starting with `github.com/giantswarm/`), or it is not covered in the catalog (e. g. because it is not mentioned in [giantswarm/github](https://github.com/giantswarm/github/tree/main/repositories)) or it has the Github _Dependency Graph_ feature not activated.
+
 
 #### Integrations
 
