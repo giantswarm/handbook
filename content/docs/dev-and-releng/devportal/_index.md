@@ -24,19 +24,6 @@ In short: every Giant Swarm staff member should have access.
 
 In more detail: every GitHub user account that is a member in one of the [GitHub teams](https://github.com/orgs/giantswarm/teams) in the `giantswarm` Github organization should have access. This normally includes every person working with Giant Swarm.
 
-## Software and deployment
-
-The developer portal is based on [Backstage](https://backstage.io/), an open source software initially developed by Spotify. Backstage was accepted to the Cloud Native Computing Foundation on September 8, 2020 and is currently (as of August 2023) at the Incubating project maturity level.
-
-The main repository for our deployment is [giantswarm/backstage](https://github.com/giantswarm/backstage).
-
-### Staying informed about changed
-
-To stay tuned about user-facing changes in the portal, you can subscribe to the releases of these repositories. We make an effort to explain the changes as good as we can.
-
-- [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) for the general user interface.
-- [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) for details on the catalog data.
-
 ## Content and functions
 
 As of August 2023, the portal consists mainly of the catalog, which offers a quick access to information about the software we produce, and a bit more.
@@ -105,3 +92,16 @@ Ther are mainly two reasons we decided to run our own developer portal:
 - The motivations for introducing developer portals in our customer's organizations (e. g. higher developer productivity, shorter onboarding) also apply to Giant Swarm in general.
 
 Whether we actually reach the second goal depends on a lot of factors. As an engineer at Giant Swarm, you are invited to tell us (the working group, see [contact](#contact) above) how we are doing and whether you feel the portal is making your job easier or harder, and what we could do to improve it.
+
+## Software and deployment
+
+The developer portal is based on [Backstage](https://backstage.io/), an open source software initially developed by Spotify. Backstage was accepted to the Cloud Native Computing Foundation on September 8, 2020 and is currently (as of August 2023) at the Incubating project maturity level.
+
+The main repository for our deployment is [giantswarm/backstage](https://github.com/giantswarm/backstage).
+
+### Staying informed about changed
+
+To stay tuned about user-facing changes in the portal, you can subscribe to the releases of these repositories. We make an effort to explain the changes as good as we can.
+
+- [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) for the general user interface.
+- [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) for details on the catalog data.
