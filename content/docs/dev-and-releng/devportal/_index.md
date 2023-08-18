@@ -59,7 +59,9 @@ The catalog presents a few component details that might need explanation:
   - `flavor:*`: These are the flavour values from giantswarm/github repository metadata (using the American English spelling).
   - `language:*`: Likewise, exposes the language value from giantswarm/github repository metadata.
 
-- **System**: Currently unused. In the future, we may assign each component to one system, which could  potentially help to get a better overview of our software landscape. However, we need a good taxonomy for that.
+- **System**: Components and other entities can be assigned to a System. As of August 2023, we have a first system `app-platform` in the catalog.
+
+  To add a system, you can append it to [`catalog/systems.yaml`](https://github.com/giantswarm/github/blob/main/catalog/systems.yaml). To assign a component to a system, make sure to add the `system` property to the according repository, like in [this example PR](https://github.com/giantswarm/github/pull/1044/files#diff-eacb07a081b75cd32aab835640285ad1413773e06e49af1470c8d4934385f19cR11).
 
 - **Dependencies**: For Go components in our catalog, we display dependency relations. Note that each Go project usually has a lot more dependencies than shown in the portal. If a dependency is missing, it is either not managed by us (module name starting with `github.com/giantswarm/`), or it is not covered in the catalog (e. g. because it is not mentioned in [giantswarm/github](https://github.com/giantswarm/github/tree/main/repositories)) or it has the Github _Dependency Graph_ feature not activated.
 
