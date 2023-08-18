@@ -24,19 +24,6 @@ In short: every Giant Swarm staff member should have access.
 
 In more detail: every GitHub user account that is a member in one of the [GitHub teams](https://github.com/orgs/giantswarm/teams) in the `giantswarm` Github organization should have access. This normally includes every person working with Giant Swarm.
 
-## Software and deployment
-
-The developer portal is based on [Backstage](https://backstage.io/), an open source software initially developed by Spotify. Backstage was accepted to the Cloud Native Computing Foundation on September 8, 2020 and is currently (as of August 2023) at the Incubating project maturity level.
-
-The main repository for our deployment is [giantswarm/backstage](https://github.com/giantswarm/backstage).
-
-### Staying informed about changed
-
-To stay tuned about user-facing changes in the portal, you can subscribe to the releases of these repositories. We make an effort to explain the changes as good as we can.
-
-- [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) for the general user interface.
-- [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) for details on the catalog data.
-
 ## Content and functions
 
 As of August 2023, the portal consists mainly of the catalog, which offers a quick access to information about the software we produce, and a bit more.
@@ -72,9 +59,17 @@ The catalog presents a few component details that might need explanation:
   - `flavor:*`: These are the flavour values from giantswarm/github repository metadata (using the American English spelling).
   - `language:*`: Likewise, exposes the language value from giantswarm/github repository metadata.
 
-- **System**: Currently unused. In the future, we may assign each component to one system, which could  potentially help to get a better overview of our software landscape. However, we need a good taxonomy for that.
+- **System**: Components and other entities can be assigned to a System. As of August 2023, we have a first system `app-platform` in the catalog.
 
-Backstage's catalog is capable of providing a lot richer information, like relationships between components (e. g. component A depends on component B, component C is part of component A), and links to related information. Currently we don't have this information modeled, so we cannot display it.
+  To add a system, you can append it to [`catalog/systems.yaml`](https://github.com/giantswarm/github/blob/main/catalog/systems.yaml). To assign a component to a system, make sure to add the `system` property to the according repository, like in [this example PR](https://github.com/giantswarm/github/pull/1044/files#diff-eacb07a081b75cd32aab835640285ad1413773e06e49af1470c8d4934385f19cR11).
+
+- **Dependencies**: For Go components in our catalog, we display dependency relations. Note that each Go project usually has a lot more dependencies than shown in the portal. If a dependency is missing, it is either not managed by us (module name starting with `github.com/giantswarm/`), or it is not covered in the catalog (e. g. because it is not mentioned in [giantswarm/github](https://github.com/giantswarm/github/tree/main/repositories)) or it has the Github _Dependency Graph_ feature not activated.
+
+#### Techdocs
+
+For each component in the catalog, the portal also provides access to its documentation, as long as this documentation is included in the same repository that holds the component source code. Backstage calls this _Techdocs_. To be more specific, we include all Markdown files which are present in the repository's root folder as well as in the `/docs` folder (and any subfolders), if it exists.
+
+Techdocs always represent the latest state of the repository's default branch.
 
 #### Integrations
 
@@ -105,3 +100,16 @@ Ther are mainly two reasons we decided to run our own developer portal:
 - The motivations for introducing developer portals in our customer's organizations (e. g. higher developer productivity, shorter onboarding) also apply to Giant Swarm in general.
 
 Whether we actually reach the second goal depends on a lot of factors. As an engineer at Giant Swarm, you are invited to tell us (the working group, see [contact](#contact) above) how we are doing and whether you feel the portal is making your job easier or harder, and what we could do to improve it.
+
+## Software and deployment
+
+The developer portal is based on [Backstage](https://backstage.io/), an open source software initially developed by Spotify. Backstage was accepted to the Cloud Native Computing Foundation on September 8, 2020 and is currently (as of August 2023) at the Incubating project maturity level.
+
+The main repository for our deployment is [giantswarm/backstage](https://github.com/giantswarm/backstage).
+
+### Staying informed about changed
+
+To stay tuned about user-facing changes in the portal, you can subscribe to the releases of these repositories. We make an effort to explain the changes as good as we can.
+
+- [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) for the general user interface.
+- [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) for details on the catalog data.
