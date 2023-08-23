@@ -114,4 +114,4 @@ To stay tuned about user-facing changes in the portal, you can subscribe to the 
 - [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) releases for the general user interface.
 - [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) releases for details on the catalog data.
 
-Our catalog content is maintained in the [giantswarm/github]() repository in the [catalog/](https://github.com/giantswarm/github/tree/main/catalog) folder. You can track [content changes](https://github.com/giantswarm/github/commits/main/catalog) there.
+Our catalog content is maintained in the [giantswarm/github](https://github.com/giantswarm/github) repository in the [catalog/](https://github.com/giantswarm/github/tree/main/catalog) folder. You can track [content changes](https://github.com/giantswarm/github/commits/main/catalog) there.
