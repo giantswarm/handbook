@@ -107,9 +107,11 @@ The developer portal is based on [Backstage](https://backstage.io/), an open sou
 
 The main repository for our deployment is [giantswarm/backstage](https://github.com/giantswarm/backstage).
 
-### Staying informed about changed
+### Staying informed about changes
 
 To stay tuned about user-facing changes in the portal, you can subscribe to the releases of these repositories. We make an effort to explain the changes as good as we can.
 
-- [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) for the general user interface.
-- [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) for details on the catalog data.
+- [giantswarm/backstage](https://github.com/giantswarm/backstage/releases) releases for the general user interface.
+- [giantswarm/backstage-catalog-importer](https://github.com/giantswarm/backstage-catalog-importer/releases) releases for details on the catalog data.
+
+Our catalog content is maintained in the [giantswarm/github]() repository in the [catalog/](https://github.com/giantswarm/github/tree/main/catalog) folder. You can track [content changes](https://github.com/giantswarm/github/commits/main/catalog) there.
