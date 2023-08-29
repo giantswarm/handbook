@@ -1,6 +1,9 @@
 ---
 title: "Loki at Giantswarm - usage"
 linkTitle: Loki usage
+description: >
+  Guide explaining how to access and explore logs using Loki
+confidentiality: public
 ---
 
 ## Context
