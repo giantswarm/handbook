@@ -3,10 +3,10 @@ title: "Loki at Giantswarm - usage"
 linkTitle: Loki usage
 ---
 
-## TLDR
+## Context
 
 * logs consultation is on the each management cluster's Grafana.
-* Grafana's `explore` is the way to consult your logs from Loki.
+* Grafana's `Explore` is the way to consult your logs from Loki.
 
 ## Logs exploration
 
