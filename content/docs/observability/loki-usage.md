@@ -10,14 +10,18 @@ linkTitle: Loki usage
 
 ## Logs exploration
 
-* Open your cluster's grafana (`opsctl open -i gauss -a grafana`)
-* Go to "explore" and select `loki` datasource
+* Open your cluster's grafana
+  * via UI: https://docs.giantswarm.io/getting-started/observability/grafana/access/
+  * via CLI: `opsctl open -i myInstallation -a grafana`
+
+* Go to "Explore" item in the "Home" menu
+* Select `loki` datasource on the top left corner
 
 ![explore](../lokidoc-explore.png)
 
-* Then, you can either
-   * use the `builder` and play with the dropdowns
-   * or use `code` to write your query using [logql](https://grafana.com/docs/loki/latest/logql/)
+* Then, you can either use
+   * `builder` and play with the dropdowns to build your query
+   * `code` to write your query using [LogQL](https://grafana.com/docs/loki/latest/logql/)
 
 ![builder / code](../lokidoc-builder-code.png)
 
