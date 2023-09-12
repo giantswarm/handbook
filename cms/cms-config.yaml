@@ -14,23 +14,23 @@ backend:
 site_url: http://localhost:8081/docs
 publish_mode: editorial_workflow
 media_folder: "content/docs"
+media_library: { folder_support: true }
 
 collections:
   - folder: content/docs
     label: "Pages"
     label_singular: "Page"
-    name: pages
+    name: "pages"
     media_folder: ""
-    #public_folder: "../../../static/media/blog" # relative path from markdown file location
-    #path: "{{year}}/{{month}}/{{slug}}"
+    public_folder: ""
+    media_library: { folder_support: true }
     create: true
     format: frontmatter
     extension: md
+    index_file: '_index'
     nested:
       depth: 4
-      summary: "{{title}}"
-      path:
-        index_file: '_index'
+      summary: "{{name}}"
     # path property meta object allows editing the path of entries
     # moving an existing entry will move the entire subtree of the entry to the new location
     meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
