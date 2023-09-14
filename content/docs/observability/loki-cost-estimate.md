@@ -38,7 +38,7 @@ Alongside the dashboard mentioned above, if the logging infrastructure is runnin
 
 ![cost-explorer-tag](../images/cost-explorer-tag.png)
 
-In addition to those parameters, you can also add more precision to the graph by grouping the result by services :
+In addition to those parameters, one can increase the graph's precision by grouping the result by services:
 
 ![cost-explorer-service](../images/cost-explorer-group-by.png)
 
