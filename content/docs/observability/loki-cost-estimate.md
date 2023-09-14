@@ -26,7 +26,7 @@ The dashboard gives access to graphs related to those sources :
 
 ![loki-cost-dashboard-screenshot](../images/loki-cost-dashboard.png)
 
-By basing yourself on the total storage space used by Loki to store the logs as well as the base cost of the object storage service from your cloud-provider, you can roughly estimate the cost of the object storage for your logging-infrastructure.
+Basing on the total storage space used by Loki to store the logs as well as the base cost of the object storage service from your cloud-provider, one can roughly estimate the cost of storage for the logging-infrastructure.
 
 The same can be done for the data sent to Loki by the promtail pods. If you know the price for network transfer from your cloud-provider, you can have an estimation of the cost corresponding to this from the `Total of bytes transmitted over the network` Field of the dashboard.
 
