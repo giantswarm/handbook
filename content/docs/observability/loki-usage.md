@@ -20,13 +20,13 @@ confidentiality: public
 * Go to "Explore" item in the "Home" menu
 * Select `loki` datasource on the top left corner
 
-![explore](../lokidoc-explore.png)
+![explore](../images/lokidoc-explore.png)
 
 * Then, you can either use
    * `builder` and play with the dropdowns to build your query
    * `code` to write your query using [LogQL](https://grafana.com/docs/loki/latest/logql/)
 
-![builder / code](../lokidoc-builder-code.png)
+![builder / code](../images/lokidoc-builder-code.png)
 
 ## Example of useful LogQL queries
 
