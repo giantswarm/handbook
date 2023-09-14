@@ -8,25 +8,30 @@ confidentiality: public
 
 ## Context
 
-* logs consultation is on the each management cluster's Grafana.
-* Grafana's `Explore` is the way to consult your logs from Loki.
+![context](../images/loki-context.png)
 
-## Logs exploration
+## How to access Logs ?
 
-* Open your cluster's grafana
+* Open your installation's Grafana
   * via UI: https://docs.giantswarm.io/getting-started/observability/grafana/access/
-  * via CLI: `opsctl open -i myInstallation -a grafana`
+  * via CLI (giantswarm only): `opsctl open -i myInstallation -a grafana`
 
-* Go to "Explore" item in the "Home" menu
-* Select `loki` datasource on the top left corner
-
-![explore](../lokidoc-explore.png)
-
-* Then, you can either use
+1. Go to `Explore` item in the `Home` menu
+2. Select `Loki` datasource on the top left corner
+3. Choose how to build your queries:
    * `builder` and play with the dropdowns to build your query
    * `code` to write your query using [LogQL](https://grafana.com/docs/loki/latest/logql/)
 
-![builder / code](../lokidoc-builder-code.png)
+{{< blocks/section color="dark" type="row" >}}
+{{% blocks/feature %}}
+![explore](../images/lokidoc-explore.png)
+{{% /blocks/feature %}}
+
+{{% blocks/feature %}}
+![builder / code](../images/lokidoc-datasource-query.png)
+{{% /blocks/feature %}}
+{{< /blocks/section >}}
+
 
 ## Example of useful LogQL queries
 
