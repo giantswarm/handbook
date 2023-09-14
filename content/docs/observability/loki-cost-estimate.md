@@ -34,7 +34,7 @@ CPU and memory cost are a bit more tricky to quantify, but it's still possible t
 
 ## Using Cost Explorer (AWS only)
 
-Alongside the dashboard mentioned above, if your logging-infrastructure is running on an AWS installation, you can open the AWS console and go to the Cost Explorer service. There, you can select the time period you wish to evaluate as well as the tag `giantswarm.io/installation` with the value corresponding to your installation's name :
+Alongside the dashboard mentioned above, if the logging infrastructure is running on an AWS installation, one can open the AWS console and navigate to the Cost Explorer service. There, select the time period to be evaluated as well as the tag `giantswarm.io/installation` with the value corresponding to the installation's name:
 
 ![cost-explorer-tag](../images/cost-explorer-tag.png)
 
