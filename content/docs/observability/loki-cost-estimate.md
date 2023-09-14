@@ -46,4 +46,4 @@ By selecting those parameters, one can generate a similar looking graph:
 
 ![cost-explorer](../images/aws-cost-explorer.png)
 
-You can then compare the general cost of your installation between a time period where the logging-infrastructure was not enabled and another one where it was.
+Using the graphs it's possible to compare the general cost of the installation between time periods with or without enabled logging infrastructure.
