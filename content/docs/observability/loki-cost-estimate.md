@@ -42,7 +42,7 @@ In addition to those parameters, one can increase the graph's precision by group
 
 ![cost-explorer-service](../images/cost-explorer-group-by.png)
 
-By selecting those parameters, you will get a similar looking graph :
+By selecting those parameters, one can generate a similar looking graph:
 
 ![cost-explorer](../images/aws-cost-explorer.png)
 
