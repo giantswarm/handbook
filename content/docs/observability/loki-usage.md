@@ -35,7 +35,9 @@ confidentiality: public
 ```goat
 { installation="myInstallation", pod=~"k8s-api-server-ip-.*" } |= “unable to load root certificate”
 |                                                            |  | |                               |
-                             .+.                                |                .+.
+.-----------------------------+------------------------------.  | .---------------+---------------.
+                              |                                 |                 |
+                              v                                 v                 v
                      log stream selectors               filter operator    filter expression
 ```
 
