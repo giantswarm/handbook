@@ -28,7 +28,7 @@ The dashboard gives access to graphs related to those sources :
 
 Basing on the total storage space used by Loki to store the logs as well as the base cost of the object storage service from your cloud-provider, one can roughly estimate the cost of storage for the logging-infrastructure.
 
-The same can be done for the data sent to Loki by the promtail pods. If you know the price for network transfer from your cloud-provider, you can have an estimation of the cost corresponding to this from the `Total of bytes transmitted over the network` Field of the dashboard.
+Similar applies to the data sent to Loki by the promtail pods. If one knows the price for network traffic from the cloud-provider, one can estimate the corresponding cost from the `Total of bytes transmitted over the network` field of the dashboard.
 
 Concerning the CPU and memory this gets a little more tricky but at least you can measure the increase in resources counsumption in your clusters.
 
