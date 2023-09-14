@@ -22,16 +22,8 @@ confidentiality: public
    * `builder` and play with the dropdowns to build your query
    * `code` to write your query using [LogQL](https://grafana.com/docs/loki/latest/logql/)
 
-{{< blocks/section color="dark" type="row" >}}
-{{% blocks/feature %}}
-![explore](../images/lokidoc-explore.png)
-{{% /blocks/feature %}}
-
-{{% blocks/feature %}}
-![builder / code](../images/lokidoc-datasource-query.png)
-{{% /blocks/feature %}}
-{{< /blocks/section >}}
-
+<img src="../images/lokidoc-explore.png" width="300" >
+<img src="../images/lokidoc-datasource-query.png" width="600" >
 
 ## Example of useful LogQL queries
 
