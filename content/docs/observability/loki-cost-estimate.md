@@ -30,7 +30,7 @@ Basing on the total storage space used by Loki to store the logs as well as the 
 
 Similar applies to the data sent to Loki by the promtail pods. If one knows the price for network traffic from the cloud-provider, one can estimate the corresponding cost from the `Total of bytes transmitted over the network` field of the dashboard.
 
-Concerning the CPU and memory this gets a little more tricky but at least you can measure the increase in resources counsumption in your clusters.
+CPU and memory cost are a bit more tricky to quantify, but it's still possible to measure the increase in resource consumption in the clusters associated with Loki.
 
 ## Using Cost Explorer (AWS only)
 
