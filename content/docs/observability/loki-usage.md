@@ -58,7 +58,7 @@ Used to filter text within the log stream
 
 ```
 |= : contains
-!= : does not contains
+!= : does not contain
 |~ : regex matches
 !~ : regex does not match
 ```
