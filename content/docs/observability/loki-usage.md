@@ -8,7 +8,7 @@ confidentiality: public
 
 ## Context
 
-![context](../images/loki-context.png)
+<img src="../images/loki-context.png" alt="loki available on AWS, no WC logs, all components, access via Grafana, 1 month retention" >
 
 ## How to access Logs ?
 
