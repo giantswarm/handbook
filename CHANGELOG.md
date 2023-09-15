@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add Observability top level menu item
+  - Move observability files and images
+
 ## [0.5.0] - 2023-09-15
 
 ### Added
