@@ -25,6 +25,42 @@ confidentiality: public
 <img src="../images/lokidoc-explore.png" width="300" >
 <img src="../images/lokidoc-datasource-query.png" width="600" >
 
+## LogQL basics
+
+### Query anatomy
+
+```goat
+{ installation="myInstallation", pod=~"k8s-api-server-ip-.*" } |= “unable to load root certificate”
+|                                                            |  | |                               |
+.-----------------------------+------------------------------.  | .---------------+---------------.
+                              |                                 |                 |
+                              v                                 v                 v
+                     log stream selectors               filter operator    filter expression
+```
+
+### Log stream selectors
+
+Used to filter the log stream by labels
+
+```
+=  : equals
+!= : not equals
+=~ : regex matches
+!~ : regex does not match
+```
+
+### Filter operators
+
+Used to filter text within the log stream
+
+```
+|= : contains
+!= : does not contain
+|~ : regex matches
+!~ : regex does not match
+```
+
+
 ## Example of useful LogQL queries
 
 Here are a few LogQL queries you can test and play with to understand the syntax.
