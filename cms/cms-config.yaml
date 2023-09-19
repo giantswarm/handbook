@@ -33,7 +33,7 @@ collections:
       frame: true
       preview: true
     nested:
-      depth: 4
+      depth: 6
       summary: "{{name}}"
       path:
         index_file: '_index'
