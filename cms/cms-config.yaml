@@ -28,9 +28,15 @@ collections:
     format: frontmatter
     extension: md
     index_file: '_index'
+    editor:
+      size: half
+      frame: true
+      preview: true
     nested:
       depth: 4
       summary: "{{name}}"
+      path:
+        index_file: '_index'
     # path property meta object allows editing the path of entries
     # moving an existing entry will move the entire subtree of the entry to the new location
     meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
