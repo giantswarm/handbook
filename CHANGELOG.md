@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed images path in Loki usage and Loki cost guides
+
 ## [0.7.0] - 2023-09-19
 
 ### Added

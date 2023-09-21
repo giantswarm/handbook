@@ -24,7 +24,7 @@ Loki's cost is coming from 3 different sources :
 
 The dashboard gives access to graphs related to those sources :
 
-![loki-cost-dashboard-screenshot](../images/loki-cost-dashboard.png)
+![loki-cost-dashboard-screenshot](images/loki-cost-dashboard.png)
 
 Basing on the total storage space used by Loki to store the logs as well as the base cost of the object storage service from your cloud-provider, one can roughly estimate the cost of storage for the logging-infrastructure.
 
@@ -36,14 +36,14 @@ CPU and memory cost are a bit more tricky to quantify, but it's still possible t
 
 Alongside the dashboard mentioned above, if the logging infrastructure is running on an AWS installation, one can open the AWS console and navigate to the Cost Explorer service. There, select the time period to be evaluated as well as the tag `giantswarm.io/installation` with the value corresponding to the installation's name:
 
-![cost-explorer-tag](../images/cost-explorer-tag.png)
+![cost-explorer-tag](images/cost-explorer-tag.png)
 
 In addition to those parameters, one can increase the graph's precision by grouping the result by services:
 
-![cost-explorer-service](../images/cost-explorer-group-by.png)
+![cost-explorer-service](images/cost-explorer-group-by.png)
 
 By selecting those parameters, one can generate a similar looking graph:
 
-![cost-explorer](../images/aws-cost-explorer.png)
+![cost-explorer](images/aws-cost-explorer.png)
 
 Using the graphs it's possible to compare the general cost of the installation between time periods with or without enabled logging infrastructure.

@@ -8,7 +8,7 @@ confidentiality: public
 
 ## Context
 
-<img src="../images/loki-context.png" alt="loki available on AWS, no WC logs, all components, access via Grafana, 1 month retention" >
+<img src="images/loki-context.png" alt="loki available on AWS, no WC logs, all components, access via Grafana, 1 month retention" >
 
 ## How to access Logs ?
 
@@ -22,8 +22,8 @@ confidentiality: public
    * `builder` and play with the dropdowns to build your query
    * `code` to write your query using [LogQL](https://grafana.com/docs/loki/latest/logql/)
 
-<img src="../images/lokidoc-explore.png" width="300" >
-<img src="../images/lokidoc-datasource-query.png" width="600" >
+<img src="images/lokidoc-explore.png" width="300" >
+<img src="images/lokidoc-datasource-query.png" width="600" >
 
 ## LogQL basics
 
