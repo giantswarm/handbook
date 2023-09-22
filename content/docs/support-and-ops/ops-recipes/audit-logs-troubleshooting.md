@@ -32,7 +32,7 @@ Now all events are stored in a temporary file on your local machine.
 
 ## Filter out undesired events
 
-Now you have different options to filter through the logs. I saw you here different examples. Be aware you need to have [jq](https://github.com/jqlang/jq) installed in your system.
+There are different options to filter the audit log. In any case one needs to have [jq](https://github.com/jqlang/jq) installed.
 
 1. Filter by verb
 
