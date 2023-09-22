@@ -28,7 +28,7 @@ If the event you are looking for is inside the time window, dump all data to you
 for file in $(kubectl get --raw=/logs/apiserver/ | awk -F'>' '{print $2}' | sed 's/<\/a$//' ); do kubectl get --raw=/logs/apiserver/$file 2>/dev/null >> /tmp/audit.log ; done
 ```
 
-Now all the events are in your local in a temporal file.
+Now all events are stored in a temporary file on your local machine.
 
 ## Filter out undesired events
 
