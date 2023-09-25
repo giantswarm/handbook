@@ -5,11 +5,7 @@ owner:
 confidentiality: public
 ---
 
-How can I check the action of certain user in a cluster?
-
-# Table of Contents
-1. [Gather all logs](#Gather-all-logs)
-1. [Filter out undesired events](#Filter-out-undesired-events)
+How can I check the action of certain user in a cluster? How can I get more details about certain event on the cluster?
 
 ## Gather all logs
 
