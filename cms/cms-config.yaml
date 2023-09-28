@@ -14,7 +14,7 @@ backend:
 site_url: http://localhost:8081/docs
 publish_mode: editorial_workflow
 media_folder: "content/docs"
-media_library: { folder_support: true }
+media_library: { folder_support: true, max_file_size: 1024000 }
 
 collections:
   - folder: content/docs
@@ -37,6 +37,7 @@ collections:
       summary: "{{name}}"
       path:
         index_file: '_index'
+      branch_bundle: true
     # path property meta object allows editing the path of entries
     # moving an existing entry will move the entire subtree of the entry to the new location
     meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
