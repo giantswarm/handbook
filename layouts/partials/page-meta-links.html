@@ -10,7 +10,7 @@
 {{ $gh_branch := (default "master" ($.Param "github_branch")) }}
 {{ if $gh_repo }}
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-{{ $editURL := printf "/admin/?branch-#/collections/pages/entries%s" $pathFormatted }}
+{{ $editURL := printf "/admin/#/collections/pages/entries%s" $pathFormatted }}
 {{ $issuesURL := printf "%s/issues/new?title=%s" $gh_repo (htmlEscape $.Title ) }}
 <a href="{{ $editURL }}" target="_blank"><i class="fa fa-edit fa-fw"></i> {{ T "post_edit_this" }}</a>
 <a href="{{ $issuesURL }}" target="_blank"><i class="fab fa-github fa-fw"></i> {{ T "post_create_issue" }}</a>

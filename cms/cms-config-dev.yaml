@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: giantswarm/handbook
-  base_url: https://handbook.giantswarm.io
+  base_url: http://localhost:8081
   branch: main
   commit_messages:
     create: "Create {{collection}} “{{path}}”"
@@ -11,8 +11,8 @@ backend:
     deleteMedia: "Delete “{{path}}”"
     openAuthoring: '{{message}}'
 
-site_url: https://handbook.giantswarm.io/docs
-logo_url: https://handbook.giantswarm.io/tile70x70.png
+site_url: http://localhost:8081/docs
+logo_url: http://localhost:8081/tile70x70.png
 publish_mode: editorial_workflow
 media_folder: "content/docs"
 media_library: { folder_support: true, max_file_size: 1024000 }
