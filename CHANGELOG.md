@@ -7,6 +7,75 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.1] - 2023-09-21
+
+### Fixed
+
+- Fixed images path in Loki usage and Loki cost guides
+
+## [0.7.0] - 2023-09-19
+
+### Added
+
+- Add page about IDE configuration
+
+## [0.6.0] - 2023-09-19
+
+### Added
+
+- Add Observability top level menu item
+  - Move observability files and images
+
+## [0.5.0] - 2023-09-15
+
+### Added
+
+- Update Loki usage guide
+  - Add LogQL basic
+  - Update context and access sections
+  - Update & fix images
+- Add Loki cost guide
+
+## [0.4.1] - 2023-08-31
+
+### Fixed
+
+- Add Loki usage guide images
+
+## [0.4.0] - 2023-08-31
+
+### Added
+
+- Add Loki usage guide
+
+## [0.3.4] - 2023-08-23
+
+## [0.3.3] - 2023-08-18
+
+## [0.3.2] - 2023-08-17
+
+## [0.3.1] - 2023-08-11
+
+### Added
+
+- Ignore more private URLs in linkchecker.
+
+## [0.3.0] - 2023-08-02
+
+- Add page about developer portal
+
+## [0.2.0] - 2023-07-27
+
+### Added
+
+- Instructions on Karpenter
+
+## [0.1.2] - 2023-07-27
+
+### Added
+
+- A page for incident management FAQ.
+
 ## [0.1.1] - 2023-07-14
 
 ### Added
@@ -134,7 +203,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/giantswarm/handbook/compare/v0.7.0...v0.7.1
+[0.7.0]: https://github.com/giantswarm/handbook/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/giantswarm/handbook/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/giantswarm/handbook/compare/v0.4.1...v0.5.0
+[0.4.1]: https://github.com/giantswarm/handbook/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/giantswarm/handbook/compare/v0.3.4...v0.4.0
+[0.3.4]: https://github.com/giantswarm/handbook/compare/v0.3.3...v0.3.4
+[0.3.3]: https://github.com/giantswarm/handbook/compare/v0.3.2...v0.3.3
+[0.3.2]: https://github.com/giantswarm/handbook/compare/v0.3.1...v0.3.2
+[0.3.1]: https://github.com/giantswarm/handbook/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/giantswarm/handbook/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/giantswarm/handbook/compare/v0.1.2...v0.2.0
+[0.1.2]: https://github.com/giantswarm/handbook/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/giantswarm/handbook/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/giantswarm/handbook/compare/v0.0.20...v0.1.0
 [0.0.20]: https://github.com/giantswarm/handbook/compare/v0.0.19...v0.0.20
