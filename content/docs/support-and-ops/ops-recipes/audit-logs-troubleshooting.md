@@ -47,3 +47,13 @@ cat /tmp/audit.log | jq '. | select(.user.username|test("joe."))'
 ```bash
 cat /tmp/audit.log | jq '. | select(.objectRef.name=="prometheus-prometheus-exporters-tls-assets")'
 ```
+
+## Using Loki
+
+Now all installations >= 19.1.0 have Loki instance deployed with audit logs included. So we can leverage on Lok to get the logs. Example of query:
+
+```
+{cluster_id="myCluster",scrape_job="audit-logs"} |= `` | json | user_username=`joe@giantswarm.io`
+```
+
+__Note__: In json filter to access nested properties you use `_` for getting a child property as the example above (user.username -> user_username).
