@@ -19,7 +19,6 @@ spec:
     spec:
       securityContext:
         runAsUser: 1000
-
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -46,6 +45,27 @@ spec:
           volumeMounts:
             - mountPath: /var/cache/nginx
               name: cache-volume
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 2
+        - name: staticjscms-hugo-standalone
+          image: ghcr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100M
+            limits:
+              cpu: 300m
+              memory: 100M
           livenessProbe:
             httpGet:
               path: /
