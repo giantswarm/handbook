@@ -7,14 +7,139 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.1] - 2023-09-21
+
+### Fixed
+
+- Fixed images path in Loki usage and Loki cost guides
+
+## [0.7.0] - 2023-09-19
+
 ### Added
 
+- Add page about IDE configuration
+
+## [0.6.0] - 2023-09-19
+
+### Added
+
+- Add Observability top level menu item
+  - Move observability files and images
+
+## [0.5.0] - 2023-09-15
+
+### Added
+
+- Update Loki usage guide
+  - Add LogQL basic
+  - Update context and access sections
+  - Update & fix images
+- Add Loki cost guide
+
+## [0.4.1] - 2023-08-31
+
+### Fixed
+
+- Add Loki usage guide images
+
+## [0.4.0] - 2023-08-31
+
+### Added
+
+- Add Loki usage guide
+
+## [0.3.4] - 2023-08-23
+
+## [0.3.3] - 2023-08-18
+
+## [0.3.2] - 2023-08-17
+
+## [0.3.1] - 2023-08-11
+
+### Added
+
+- Ignore more private URLs in linkchecker.
+
+## [0.3.0] - 2023-08-02
+
+- Add page about developer portal
+
+## [0.2.0] - 2023-07-27
+
+### Added
+
+- Instructions on Karpenter
+
+## [0.1.2] - 2023-07-27
+
+### Added
+
+- A page for incident management FAQ.
+
+## [0.1.1] - 2023-07-14
+
+### Added
+
+- Instructions for writing a Cronjob to patch resources
+
+## [0.1.0] - 2023-07-14
+
+### Added
+
+- Tutorial on CloudFormation stack reconciliation
+
+## [0.0.20] - 2023-07-11
+
+## [0.0.19] - 2023-06-29
+
+- Moved SIG docs content pages to handbook
+### Added
+
+- Added "How to write documentation" page from intranet.
+
+### Changed
+
+- Docs: Rename `nginx-ingress-controller` to `ingress-nginx-controller`. ([#82](https://github.com/giantswarm/handbook/pull/82))
+
+
+## [0.0.18] - 2023-06-14
+
+## [0.0.17] - 2023-06-14
+
+- fixed image links in `proxy` documentation
+
+## [0.0.16] - 2023-06-14
+
+- Add notes about the current `proxy` implementation for Management- and Workload-Clusters
+
+## [0.0.15] - 2023-05-31
+
+## [0.0.14] - 2023-05-17
+
+## [0.0.13] - 2023-05-16
+
+## [0.0.12] - 2023-05-11
+
+### Added 
+
+- Add an ops recipe for Master usage CPU too high.
+
+### Changed
+
+- Updated `Troubleshooting gitops` with customer communication section
+
+## [0.0.11] - 2023-04-20
+
+### Added
+
+- A directive in Dockerfile to disable absolute redirects
 - Add an ops recipe to troubleshoot GitOps environments
 
 ### Changed
 
 - Reword "Registry Mirrors" article to focus on current state of containerd but still mention historical context for Docker daemon behavior
 - Avoid the term "private" for registries that we control since the images can be pulled publically and anonymously
+- Fix invalid redirects on request URLs without trailing slash (enable relative redirects)
 
 ## [0.0.10] - 2023-03-23
 
@@ -78,7 +203,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.0.10...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.7.1...HEAD
+[0.7.1]: https://github.com/giantswarm/handbook/compare/v0.7.0...v0.7.1
+[0.7.0]: https://github.com/giantswarm/handbook/compare/v0.6.0...v0.7.0
+[0.6.0]: https://github.com/giantswarm/handbook/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/giantswarm/handbook/compare/v0.4.1...v0.5.0
+[0.4.1]: https://github.com/giantswarm/handbook/compare/v0.4.0...v0.4.1
+[0.4.0]: https://github.com/giantswarm/handbook/compare/v0.3.4...v0.4.0
+[0.3.4]: https://github.com/giantswarm/handbook/compare/v0.3.3...v0.3.4
+[0.3.3]: https://github.com/giantswarm/handbook/compare/v0.3.2...v0.3.3
+[0.3.2]: https://github.com/giantswarm/handbook/compare/v0.3.1...v0.3.2
+[0.3.1]: https://github.com/giantswarm/handbook/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/giantswarm/handbook/compare/v0.2.0...v0.3.0
+[0.2.0]: https://github.com/giantswarm/handbook/compare/v0.1.2...v0.2.0
+[0.1.2]: https://github.com/giantswarm/handbook/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/giantswarm/handbook/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/giantswarm/handbook/compare/v0.0.20...v0.1.0
+[0.0.20]: https://github.com/giantswarm/handbook/compare/v0.0.19...v0.0.20
+[0.0.19]: https://github.com/giantswarm/handbook/compare/v0.0.18...v0.0.19
+[0.0.18]: https://github.com/giantswarm/handbook/compare/v0.0.17...v0.0.18
+[0.0.17]: https://github.com/giantswarm/handbook/compare/v0.0.16...v0.0.17
+[0.0.16]: https://github.com/giantswarm/handbook/compare/v0.0.15...v0.0.16
+[0.0.15]: https://github.com/giantswarm/handbook/compare/v0.0.14...v0.0.15
+[0.0.14]: https://github.com/giantswarm/handbook/compare/v0.0.13...v0.0.14
+[0.0.13]: https://github.com/giantswarm/handbook/compare/v0.0.12...v0.0.13
+[0.0.12]: https://github.com/giantswarm/handbook/compare/v0.0.11...v0.0.12
+[0.0.11]: https://github.com/giantswarm/handbook/compare/v0.0.10...v0.0.11
 [0.0.10]: https://github.com/giantswarm/handbook/compare/v0.0.9...v0.0.10
 [0.0.9]: https://github.com/giantswarm/handbook/compare/v0.0.8...v0.0.9
 [0.0.8]: https://github.com/giantswarm/handbook/compare/v0.0.7...v0.0.8

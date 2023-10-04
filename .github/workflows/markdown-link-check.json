@@ -4,7 +4,13 @@
       "pattern": "^../"
     },
     {
+      "pattern": "^https://github.com/giantswarm/ailefroide-app"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/APP-NAME-app"
+    },
+    {
+      "pattern": "^https://github.com/giantswarm/backstage"
     },
     {
       "pattern": "^https://github.com/giantswarm/giantswarm"
@@ -19,10 +25,16 @@
       "pattern": "^https://github.com/giantswarm/isms"
     },
     {
+      "pattern": "^https://github.com/giantswarm/silences"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/template"
     },
     {
       "pattern": "^https://github.com/giantswarm/web-assets"
+    },
+    {
+      "pattern": "^https://devportal.giantswarm.io"
     },
     {
       "pattern": "^https://intranet.giantswarm.io"
