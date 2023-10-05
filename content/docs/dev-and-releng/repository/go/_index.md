@@ -4,7 +4,7 @@ title: Creating a new Go/Golang repository
 description: The canonical way to create a new Go repository.
 ---
 
-These instructions will help you create a new Go (aka Golang) project repository based on our [template](https://github.com/giantswarm/template).
+These instructions will help you create a new Go (a.k.a. Golang) project repository based on our [template](https://github.com/giantswarm/template).
 
 ## Prerequisites
 
