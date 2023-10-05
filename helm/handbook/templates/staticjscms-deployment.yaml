@@ -52,3 +52,5 @@ spec:
             timeoutSeconds: 2
       serviceAccount: handbook
       serviceAccountName: handbook
+      imagePullSecrets:
+        - name: staticjscms-hugo-standalone-pull-secret
