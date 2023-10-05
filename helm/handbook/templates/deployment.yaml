@@ -53,6 +53,43 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 30
             timeoutSeconds: 2
+      volumes:
+        - name: cache-volume
+          emptyDir: {}
+      serviceAccount: handbook
+      serviceAccountName: handbook
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: intranet
+  name: staticjscms-hugo-standalone
+  labels:
+    app: staticjscms-hugo-standalone
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: staticjscms-hugo-standalone
+  template:
+    metadata:
+      name: staticjscms-hugo-standalone
+      labels:
+        app: staticjscms-hugo-standalone
+    spec:
+      securityContext:
+        runAsUser: 1000
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: staticjscms-hugo-standalone
+                topologyKey: kubernetes.io/hostname
+              weight: 100
+      containers:
         - name: staticjscms-hugo-standalone
           image: ghcr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
           imagePullPolicy: Always
@@ -74,8 +111,5 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 30
             timeoutSeconds: 2
-      volumes:
-        - name: cache-volume
-          emptyDir: {}
       serviceAccount: handbook
       serviceAccountName: handbook
