@@ -40,7 +40,9 @@ If you have any questions feel free to contact Team-Team.
 
 📚book flatrate
 
-🏝paid holiday
+🏝 paid holiday
 
-🗣EAP
+🗣 EAP
+
+🌴 Join us at our yearly onsites! N.B., we pay all travel, accommodation and associated costs, however, the time spent at onsite is unpaid. If you do any daily hours relating to your normal work, this can be billed.
 
