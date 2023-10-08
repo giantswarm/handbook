@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2023-10-05
+
 ### Added
 
 - Add instructions on how to create a new Go repo.
@@ -207,7 +209,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.7.1...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.8.0...HEAD
+[0.8.0]: https://github.com/giantswarm/handbook/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/giantswarm/handbook/compare/v0.7.0...v0.7.1
 [0.7.0]: https://github.com/giantswarm/handbook/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/giantswarm/handbook/compare/v0.5.0...v0.6.0
