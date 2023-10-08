@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.9.0] - 2023-10-08
 
+### Added
+
+- Add customized Static CMS setup (editor)
+
 ## [0.8.0] - 2023-10-05
 
 ### Added
