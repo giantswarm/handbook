@@ -50,7 +50,7 @@ cat /tmp/audit.log | jq '. | select(.objectRef.name=="prometheus-prometheus-expo
 
 ## Using Loki
 
-Now all installations >= 19.1.0 have Loki instance deployed with audit logs included. So we can leverage on Lok to get the logs. Example of query:
+Today all vintage Management Clusters have Loki instance deployed with audit logs included. So we can leverage on Loki to get the logs. Future weeks we will extend Loki to vintage Workload Clusters too. Example of query:
 
 ```
 {cluster_id="myCluster",scrape_job="audit-logs"} |= `` | json | user_username=`joe@giantswarm.io`
