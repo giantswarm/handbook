@@ -93,6 +93,15 @@ Here are a few LogQL queries you can test and play with to understand the syntax
 ```
 {installation="myInstallation", cluster_id="myInstallation", pod=~"prometheus-meta-operator-.*"} | json | resource=~"remotewrite.*" | line_format "{{.message}}"
 ```
+### Audit logs
+
+* Get audit logs using json filter to get only the ones owned by a specific user
+
+```
+{cluster_id="myCluster",scrape_job="audit-logs"} |= `` | json | user_username=`fernando@giantswarm.io`
+```
+
+__Note__: In json filter to access nested properties you use `_` for getting a child property as the example above (user.username -> user_username).
 
 ### System logs
 

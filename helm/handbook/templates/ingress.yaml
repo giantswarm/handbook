@@ -22,6 +22,34 @@ spec:
             name: handbook
             port:
               number: 8080
+      - path: /admin/config.yml
+        pathType: Prefix
+        backend:
+          service:
+            name: handbook
+            port:
+              number: 8080
+      - path: /admin/
+        pathType: Prefix
+        backend:
+          service:
+            name: staticjscms-hugo-standalone
+            port:
+              number: 8080
+      - path: /auth
+        pathType: Prefix
+        backend:
+          service:
+            name: staticjscms-hugo-standalone
+            port:
+              number: 8080
+      - path: /callback
+        pathType: Prefix
+        backend:
+          service:
+            name: staticjscms-hugo-standalone
+            port:
+              number: 8080
   tls:
   - hosts:
     - handbook.giantswarm.io
