@@ -36,7 +36,7 @@ Once workflows are ready, it is time to create release branch. The name
 of the branch is important and it must follow this convention:
 
 ```
-${BASE}#release#v${VERSION}
+${BASE}#release#${VERSION}
 ```
 
 Where:
