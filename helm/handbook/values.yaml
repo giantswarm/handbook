@@ -1,1 +1,10 @@
 staticJsCmsHugoStandaloneVersion: v0.0.1
+
+Secrets:
+  # Information for staticjscms-hugo-standalone and its OAuth proxy component
+  - name: staticjscms-secret
+    data:
+      ORIGIN: https://handbook.giantswarm.io
+      OAUTH_CLIENT_ID: 2199123991asdeadbeef
+      OAUTH_CLIENT_SECRET: aadssadadadadad1231231231adadad123123abc
+      GIT_HOSTNAME: ""

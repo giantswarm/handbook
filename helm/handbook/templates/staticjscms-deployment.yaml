@@ -32,6 +32,27 @@ spec:
         - name: staticjscms-hugo-standalone
           image: ghcr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
           imagePullPolicy: Always
+          env:
+            - name: ORIGIN
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: ORIGIN
+            - name: OAUTH_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: OAUTH_CLIENT_ID
+            - name: OAUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: OAUTH_CLIENT_SECRET
+            - name: GIT_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: GIT_HOSTNAME
           ports:
             - containerPort: 8080
               name: http

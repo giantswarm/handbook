@@ -4,6 +4,20 @@
     "properties": {
         "staticJsCmsHugoStandaloneVersion": {
             "type": "string"
+        },
+        "secrets": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "data": {
+                        "type": "object"
+                    }
+                }
+            }
         }
     }
 }
