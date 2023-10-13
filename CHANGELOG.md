@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.10.2] - 2023-10-13
 
+- Fix secret templates and values
+
 ## [0.10.1] - 2023-10-11
 
 ### Added
