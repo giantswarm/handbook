@@ -5,16 +5,27 @@
         "staticJsCmsHugoStandaloneVersion": {
             "type": "string"
         },
-        "secrets": {
+        "Secrets": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "key": {
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
                     "name": {
                         "type": "string"
-                    },
-                    "data": {
-                        "type": "object"
                     }
                 }
             }
