@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Fix wrong secret key reference in static-cms deployment container spec
+
 ## [0.10.5] - 2023-10-16
 
 ### Added

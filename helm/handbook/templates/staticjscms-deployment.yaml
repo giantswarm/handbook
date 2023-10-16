@@ -33,11 +33,11 @@ spec:
           image: ghcr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
           imagePullPolicy: Always
           env:
-            - name: ORIGIN
+            - name: ORIGINS
               valueFrom:
                 secretKeyRef:
                   name: staticjscms-secret
-                  key: ORIGIN
+                  key: ORIGINS
             - name: OAUTH_CLIENT_ID
               valueFrom:
                 secretKeyRef:
