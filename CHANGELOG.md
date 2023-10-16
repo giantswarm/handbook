@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.10.5] - 2023-10-16
 
+### Added
+
+- Adapt staticjscms-hugo-standalone secret to changes (`ORIGIN` -> `ORIGINS`)
+
 ## [0.10.4] - 2023-10-16
 
 ### Added
