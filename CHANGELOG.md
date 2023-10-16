@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Fix secret template to output more than one secret
+
 ## [0.10.2] - 2023-10-13
 
 - Fix secret templates and values
