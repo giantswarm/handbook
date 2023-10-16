@@ -1,13 +1,21 @@
 version: '3.4'
 
 services:
+  handbook-proxy:
+    container_name: handbook-proxy
+    build:
+      context: proxy
+      dockerfile: Dockerfile.handbook-proxy
+    ports:
+      - "8081:8081"
+    depends_on:
+      - hugo
+      - static-cms
   hugo:
     container_name: hugo
     build:
       context: .
       target: build
-    ports:
-      - 1313:1313
     volumes:
       - ${PWD}/content:/src/content
       - ${PWD}/layouts:/src/layouts
@@ -16,3 +24,18 @@ services:
       - --enableGitInfo
       - --bind=0.0.0.0
       - --buildDrafts
+  static-cms:
+    container_name: static-cms
+    build:
+      context: cms
+      dockerfile: Dockerfile.cms
+    restart: always
+    volumes:
+      - ${PWD}/../static-cms/packages/app:/app/staticcms/app
+    environment:
+      ORIGIN: "${ORIGIN}"
+      OAUTH_CLIENT_ID: "${OAUTH_CLIENT_ID}"
+      OAUTH_CLIENT_SECRET: "${OAUTH_CLIENT_SECRET}"
+      GIT_HOSTNAME: "${GIT_HOSTNAME}"
+    #volumes:
+    #  - ${PWD}/cms-config.yaml:/app/config.yml:ro

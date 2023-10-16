@@ -5,14 +5,17 @@ COPY . /src
 RUN cd themes/docsy && npm install
 # build static site
 RUN hugo --verbose --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
+RUN mkdir -p /src/public/admin && cp /src/cms/cms-config.yaml /src/public/admin/config.yml
 
 # use minimal nginx alpine image for serving static html
 FROM quay.io/giantswarm/nginx-unprivileged:1.21-alpine
 EXPOSE 8080
 USER 0
+
 # enable relative 301 redirects to fix invalid redirects on missing trailing slash
 # (a downstream server doesn't necessarily know the public name and port)
 RUN sed -i 's/location \/ {/location \/ {\n        absolute_redirect off;/' /etc/nginx/conf.d/default.conf
+
 # copy in staticly built hugo site from build step above
 COPY --from=build /src/public /usr/share/nginx/html
 USER 101

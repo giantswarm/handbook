@@ -1,0 +1,52 @@
+backend:
+  name: github
+  repo: giantswarm/handbook
+  base_url: http://localhost:8081
+  branch: main
+  commit_messages:
+    create: "Create {{collection}} “{{path}}”"
+    update: "Update {{collection}} “{{path}}”"
+    delete: "Delete {{collection}} “{{path}}”"
+    uploadMedia: "Upload “{{path}}”"
+    deleteMedia: "Delete “{{path}}”"
+    openAuthoring: '{{message}}'
+
+site_url: http://localhost:8081/docs
+logo_url: http://localhost:8081/tile70x70.png
+publish_mode: editorial_workflow
+media_folder: "content/docs"
+media_library: { folder_support: true, max_file_size: 1024000 }
+
+collections:
+  - folder: content/docs
+    label: "Pages"
+    label_singular: "Page"
+    name: "pages"
+    media_folder: ""
+    public_folder: ""
+    media_library: { folder_support: true }
+    create: true
+    format: frontmatter
+    extension: md
+    index_file: '_index'
+    editor:
+      size: half
+      frame: true
+      preview: true
+    nested:
+      depth: 6
+      summary: "{{name}}"
+      path:
+        index_file: '_index'
+      branch_bundle: true
+    # path property meta object allows editing the path of entries
+    # moving an existing entry will move the entire subtree of the entry to the new location
+    meta: { path: { widget: string, label: 'Path', index_file: '_index' } }
+    fields:
+      - { label: "Title", name: title, widget: "string" }
+      - { label: "Description", name: description, widget: "string" }
+      - label: "Confidentiality"
+        name: confidentiality
+        widget: "select"
+        options: ["public", "operational", "private"]
+      - { label: "Body", name: body, widget: "markdown" }
