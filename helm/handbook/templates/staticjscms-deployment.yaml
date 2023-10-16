@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: intranet
+  name: staticjscms-hugo-standalone
+  labels:
+    app: staticjscms-hugo-standalone
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: staticjscms-hugo-standalone
+  template:
+    metadata:
+      name: staticjscms-hugo-standalone
+      labels:
+        app: staticjscms-hugo-standalone
+    spec:
+      securityContext:
+        runAsUser: 1000
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                labelSelector:
+                  matchLabels:
+                    app: staticjscms-hugo-standalone
+                topologyKey: kubernetes.io/hostname
+              weight: 100
+      containers:
+        - name: staticjscms-hugo-standalone
+          image: ghcr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
+          imagePullPolicy: Always
+          env:
+            - name: ORIGIN
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: ORIGIN
+            - name: OAUTH_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: OAUTH_CLIENT_ID
+            - name: OAUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: OAUTH_CLIENT_SECRET
+            - name: GIT_HOSTNAME
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: GIT_HOSTNAME
+          ports:
+            - containerPort: 8080
+              name: http
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100M
+            limits:
+              cpu: 300m
+              memory: 100M
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 2
+      serviceAccount: handbook
+      serviceAccountName: handbook
+      imagePullSecrets:
+        - name: staticjscms-hugo-standalone-pull-secret

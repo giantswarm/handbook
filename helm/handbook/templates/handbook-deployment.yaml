@@ -19,7 +19,6 @@ spec:
     spec:
       securityContext:
         runAsUser: 1000
-
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
