@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.7] - 2023-10-17
+
 ## [0.10.6] - 2023-10-16
 
 ### Added
@@ -255,7 +257,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.10.6...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.10.7...HEAD
+[0.10.7]: https://github.com/giantswarm/handbook/compare/v0.10.6...v0.10.7
 [0.10.6]: https://github.com/giantswarm/handbook/compare/v0.10.5...v0.10.6
 [0.10.5]: https://github.com/giantswarm/handbook/compare/v0.10.4...v0.10.5
 [0.10.4]: https://github.com/giantswarm/handbook/compare/v0.10.3...v0.10.4
