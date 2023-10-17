@@ -71,6 +71,10 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 30
             timeoutSeconds: 2
+          volumeMounts:
+            {{- $this.Values.volumeMounts | toYaml | nindent 12 }}
+      volumes:
+        {{- $this.Values.Volumes | toYaml | nindent 8 }}
       serviceAccount: handbook
       serviceAccountName: handbook
       imagePullSecrets:

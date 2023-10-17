@@ -5,7 +5,6 @@ COPY . /src
 RUN cd themes/docsy && npm install
 # build static site
 RUN hugo --verbose --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
-RUN mkdir -p /src/public/admin && cp /src/cms/cms-config.yaml /src/public/admin/config.yml
 
 # use minimal nginx alpine image for serving static html
 FROM quay.io/giantswarm/nginx-unprivileged:1.21-alpine
