@@ -4,7 +4,7 @@ secrets:
   # Information for staticjscms-hugo-standalone and its OAuth proxy component
   - name: staticjscms-secret
     data:
-      - key: ORIGIN
+      - key: ORIGINS
         value: aHR0cHM6Ly9oYW5kYm9vay5naWFudHN3YXJtLmlv
       - key: OAUTH_CLIENT_ID
         value: MjE5OTEyMzk5MWFzZGVhZGJlZWY=
