@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.10.7] - 2023-10-17
 
+### Added
+
+- Fix ingress prefix path
+- Mount CMS config from secret
+
 ## [0.10.6] - 2023-10-16
 
 ### Added
