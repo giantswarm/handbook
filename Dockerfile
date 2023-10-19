@@ -7,7 +7,7 @@ RUN cd themes/docsy && npm install
 RUN hugo --verbose --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
 
 # use minimal nginx alpine image for serving static html
-FROM quay.io/giantswarm/nginx-unprivileged:1.21-alpine
+FROM quay.io/giantswarm/nginx-unprivileged:1.24-alpine
 EXPOSE 8080
 USER 0
 
