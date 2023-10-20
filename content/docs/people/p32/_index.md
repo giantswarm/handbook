@@ -11,7 +11,7 @@ _Information Sources:_
 
 - [Slack Channel](https://app.slack.com/client/T0251EQJH/C0430C5BD9N)
 - [Success Indicators](https://docs.google.com/document/d/1O4MzuQk6FejgfY_FjA76Ku7Lfo4ea5qgCcXkcTVlMFE)
-- Contact TeamTeam if you have some questions
+- Contact TeamTeam if you have questions 
 
 
 
