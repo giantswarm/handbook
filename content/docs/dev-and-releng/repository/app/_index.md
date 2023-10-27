@@ -71,16 +71,10 @@ git push origin $(git rev-parse --abbrev-ref HEAD)
 
 ## Step 4 - Configure settings
 
-Now configure the GitHub repository settings (permission, branch protection, etc.) with one simple command:
+Now configure the GitHub repository settings (permission, branch protection, Renovate access, etc.) with one simple command:
 
 ```nohighlight
 devctl repo setup giantswarm/${APP_NAME}
-```
-
-If you also intend to have Mend Renovate provide automatic pull requests to update dependencies, also execute this:
-
-```nohighlight
-devctl repo setup renovate giantswarm/${APP_NAME}
 ```
 
 ## Step 5 - Set up repository automation

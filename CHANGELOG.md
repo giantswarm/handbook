@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated the repo creation docs with the updated renovate process
+
 ## [0.11.0] - 2023-10-19
 
 ### Added
@@ -52,7 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Encode secret values using base64 encoding 
+- Encode secret values using base64 encoding
 
 ## [0.10.0] - 2023-10-10
 
@@ -185,7 +189,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.12] - 2023-05-11
 
-### Added 
+### Added
 
 - Add an ops recipe for Master usage CPU too high.
 

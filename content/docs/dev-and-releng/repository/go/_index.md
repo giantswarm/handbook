@@ -67,29 +67,31 @@ git commit -a -m "Replace placeholder by ${REPOSITORY_NAME}"
 git push origin $(git rev-parse --abbrev-ref HEAD)
 ```
 
-## Step 4 - Configure settings
+## Step 4 - Renovate setup
 
-Now configure the GitHub repository settings (permission, branch protection, etc.) with one simple command:
+By default our template comes with a basic `renovate.json5` configuration. For the Go-specific configuration run the following:
+
+```nohighlight
+devctl gen renovate --language go
+```
+
+## Step 5 - Configure settings
+
+Now configure the GitHub repository settings (permission, branch protection, Renovate access, etc.) with one simple command:
 
 ```nohighlight
 devctl repo setup giantswarm/${REPOSITORY_NAME}
 ```
 
-If you also intend to have Mend Renovate provide automatic pull requests to update dependencies, also execute this:
-
-```nohighlight
-devctl repo setup renovate giantswarm/${REPOSITORY_NAME}
-```
-
-## Step 5 - Set up repository automation
+## Step 6 - Set up repository automation
 
 To maintain team ownership and keep the repository up-to-date with our standards, you should add the new repository to your team's list in [giantswarm/github](https://github.com/giantswarm/github/tree/main/repositories). See the [README](https://github.com/giantswarm/github) for more details.
 
-## Step 6 - Create a container repo
+## Step 7 - Create a container repo
 
 To build containers for the new repository, [set up a Quay.io repository](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/) for it.
 
-## Step 7 - Final touches
+## Step 8 - Final touches
 
 - On the repository home page near `About`, click the cog icon to adjust the repository description and tags. Under "Include in the home page" de-select the Packages and Environments options.
 - Add documentation to the `docs/` folder.
