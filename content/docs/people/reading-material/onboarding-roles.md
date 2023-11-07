@@ -16,7 +16,7 @@ The person who recruited the new joiner. The Recruiter provides the overall stru
 
 You are lucky :) Due to ISO requirements, we have your role clearly defined and documented here ([https://intranet.giantswarm.io/docs/people/reading-material/onboarding/](https://intranet.giantswarm.io/docs/people/reading-material/onboarding/)) Please make sure that if there is anything that needs to be updated to ping @team-team. A few things to really keep an eye on:
 
-- You own the admin onboarding ticket(find it in the template folder in Github or by creating a new issue) together with the new joiner. Make sure that working through this ticket feels like a piece of cake for the new joiner and answer any questions that might arise during this.
+- You own the admin onboarding ticket(find it in the template folder in GitHub or by creating a new issue) together with the new joiner. Make sure that working through this ticket feels like a piece of cake for the new joiner and answer any questions that might arise during this.
 
 ## Buddy
 
