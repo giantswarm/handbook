@@ -10,7 +10,7 @@ A quick overview of the entire onboarding can be found [here](https://miro.com/a
 
 ### Who's that?
 
-The person who recruited the new joiner. The Recruiter provides the overall structure for the onboarding process (Github tickets, main accounts) and is in general the fallback in case the buddy or the tech buddy are not available and there is a problem. If the new joiner has a question he/she can always contact the recruiter.
+The person who recruited the new joiner. The Recruiter provides the overall structure for the onboarding process (GitHub tickets, main accounts) and is in general the fallback in case the buddy or the tech buddy are not available and there is a problem. If the new joiner has a question he/she can always contact the recruiter.
 
 ### **I’m a Recruiter, what now?**
 
