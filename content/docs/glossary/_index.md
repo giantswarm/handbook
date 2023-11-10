@@ -169,7 +169,7 @@ A `Managed App` is an app we actively manage for customers, i.e. the apps in the
 These are NOT Managed Apps
 
 - Apps in the Playground Catalog are Playground Apps. They are not managed, but are "supported with best-effort." See: [Giant Swarm Management and Support Description](https://docs.google.com/document/d/1IujvU9N2wESvQGnJ3wJcO5fYAMKSkdwaDWunefOzQ_M/edit) for more.
-- app-operator and chart-operator. They collectively make up the [App Platform]({{< relref "/docs/glossary/[_index.md#app-platform](_index.md#app-platform)" >}}).
+- app-operator and chart-operator. They collectively make up the [App Platform]({{< relref "/docs/glossary/_index.md#app-platform" >}}).
 
 ### Management cluster (MC)
 
