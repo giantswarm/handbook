@@ -4,8 +4,8 @@ linkTitle: Glossary
 weight: 100
 description: Terminology used by Giant Swarm in internal and external communication.
 icon: fa fa-sort-alpha-down
+confidentiality: public
 ---
-
 ## Intro
 
 - Terms and abbreviations commonly used at Giant Swarm.
@@ -90,12 +90,9 @@ Do not use:
 
 ### End to end (E2E) test {#e2e-test}
 
-An automated test for an application flow from start to
-end. To simulate real user scenarios and validate the system under test.
+An automated test for an application flow from start to end. To simulate real user scenarios and validate the system under test.
 
-For Giant Swarm an example is running the Kubernetes conformance tests against
-a workload cluster. Whereas an _integration test_ only tests a single component
-within the Giant Swarm release.
+For Giant Swarm an example is running the Kubernetes conformance tests against a workload cluster. Whereas an _integration test_ only tests a single component within the Giant Swarm release.
 
 ---
 
@@ -123,7 +120,7 @@ Deprecated, former name for [high-availability control plane](#high-availability
 
 ### Identity provider (IdP)
 
-"A system entity that creates, maintains, and manages identity information for principals while providing authentication services to relying applications within a federation or distributed network." Our SSO uses GitHub as our IdP.
+"A system entity that creates, maintains, and manages identity information for principals while providing authentication services to relying applications within a federation or distributed network." Our SSO uses Azure AD and GitHub as our identity providers.
 
 ### Installation
 
@@ -131,12 +128,9 @@ The overall environment managed for a customer used as a landing zone by Giant S
 
 ### Integration test
 
-An integration test tests an individual component to expose defects in that
-component or how it interacts with other components.
+An integration test tests an individual component to expose defects in that component or how it interacts with other components.
 
-For Giant Swarm an example is a test for an operator which runs in a [KIND](#kind)
-cluster in Circle CI. It differs from an [end-to-end test](#e2e-test) which tests an entire
-Giant Swarm release.
+For Giant Swarm an example is a test for an operator which runs in a [KIND](#kind) cluster in Circle CI. It differs from an [end-to-end test](#e2e-test) which tests an entire Giant Swarm release.
 
 ---
 
@@ -173,8 +167,9 @@ A `Managed App` is an app we actively manage for customers, i.e. the apps in the
 `Managed Apps` is also shorthand for the "Managed Apps Area," which comprise of the members of Team Batman and Team Halo.
 
 These are NOT Managed Apps
+
 - Apps in the Playground Catalog are Playground Apps. They are not managed, but are "supported with best-effort." See: [Giant Swarm Management and Support Description](https://docs.google.com/document/d/1IujvU9N2wESvQGnJ3wJcO5fYAMKSkdwaDWunefOzQ_M/edit) for more.
-- app-operator and chart-operator. They collectively make up the [App Platform]({{< relref "/docs/glossary/_index.md#app-platform" >}}).
+- app-operator and chart-operator. They collectively make up the [App Platform]({{< relref "/docs/glossary/[_index.md#app-platform](_index.md#app-platform)" >}}).
 
 ### Management cluster (MC)
 
@@ -192,7 +187,7 @@ See: MCB, CMC
 
 Manifests management clusters are built on and shared between multiple MCs / customers, for example provider bases (aws,capa,capz,gcp,etc.), our flux setup and optional extra components like external-secrets, crossplane, etc.
 
-Located at: https://github.com/giantswarm/management-cluster-bases
+Located at: [https://github.com/giantswarm/management-cluster-bases](https://github.com/giantswarm/management-cluster-bases)
 
 ### Customer management clusters (CMC)
 
@@ -214,8 +209,7 @@ Spelling: Always spelled `Management API` with an uppercase `M`.
 
 ### Multi-account support {#multi-account-support}
 
-The ability for a management cluster to manage accounts and launch workload clusters outside its default accounts.
-The functionality formerly known as Bring Your Own Cloud (BYOC).
+The ability for a management cluster to manage accounts and launch workload clusters outside its default accounts. The functionality formerly known as Bring Your Own Cloud (BYOC).
 
 ---
 
@@ -263,8 +257,7 @@ See this [introduction](https://blog.growthinstitute.com/scale-up-blueprint/10-r
 
 SIGs are a long term concept where people interested in a certain topic or stakeholders in the topic meet regularly. The goal of the SIG is to continuously find alignment and a shared vision of the topic across the company (represented by the people that join).
 
-Therefore ideas, implementation plans or questions can be brought to a SIG for alignment, reflection and advice.
-Each SIG has a driver who acts as a facilitator for the SIGs meetings and rituals.
+Therefore ideas, implementation plans or questions can be brought to a SIG for alignment, reflection and advice. Each SIG has a driver who acts as a facilitator for the SIGs meetings and rituals.
 
 For more information, please refer to this [blog post](https://www.giantswarm.io/blog/the-giant-swarm-model-explained)
 
@@ -306,8 +299,7 @@ This is the previous generation of our product and is still in production with m
 
 WGs are a short term concept where people willing to work on a specific task (across different teams) meet.
 
-A WG therefor has a narrowly defined, actionable goal statement which it can realistically  achieve with the number of people participating. It dissolves itself once the members of a WG have achieved
-that goal in their own perception.
+A WG therefor has a narrowly defined, actionable goal statement which it can realistically  achieve with the number of people participating. It dissolves itself once the members of a WG have achieved that goal in their own perception.
 
 Check this [blog post](https://www.giantswarm.io/blog/the-giant-swarm-model-explained?hs_preview=ywLStKPF-34462108164) for more information.
 
@@ -335,3 +327,7 @@ The software stack comprising a workload cluster.
 ---
 
 ## Z
+
+
+
+
