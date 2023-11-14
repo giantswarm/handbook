@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# For developing this script, use `make rfcs`. That requires the `rfc` repo cloned (see `RFCS_DIR` variable in the Makefile).
 import argparse
 import datetime
 import os
@@ -28,15 +29,13 @@ OLD_RFC_NUMBER_IN_TITLE_REGEX = re.compile(r'RFC \d+\s*(-\s*)?')
 LINK_REGEX = re.compile(r'\]\(\.\./(?P<slug>[^/]+)/README\.md\)')
 
 RFC_STATE_TO_SPAN = {
-    'open': '<span>',
-    'in progress': '<span style="color: darkorange">',
+    'review': '<span style="color: darkorange">',
     'approved': '<span style="color: darkgreen; font-weight: bold">',
     'declined': '<span style="color: darkred; opacity: 0.8">',
     'obsolete': '<span style="color: darkgray; opacity: 0.8">',
 }
 RFC_STATE_TO_TITLE_SPAN = {
-    'open': '<span>',
-    'in progress': '<span>',
+    'review': '<span>',
     'approved': '<span>',
     'declined': '<span style="opacity: 0.3">',
     'obsolete': '<span style="opacity: 0.3">',
@@ -107,6 +106,11 @@ def main():
         if state not in RFC_STATE_TO_SPAN or state not in RFC_STATE_TO_TITLE_SPAN:
             raise RuntimeError(f'{readme_file_path}: Invalid state - must be one of {{{", ".join(RFC_STATE_TO_SPAN)}}}')
 
+        try:
+            summary = yaml_header['summary']
+        except Exception:
+            raise RuntimeError(f'{readme_file_path}: Missing field `summary` in YAML header')
+
         # Trim whitespace
         for i in range(len(markdown_content_lines)):
             markdown_content_lines[i] = markdown_content_lines[i].rstrip()
@@ -125,6 +129,8 @@ def main():
             'slug': slug,
             'state': state,
             'state_span': RFC_STATE_TO_SPAN[state],
+            # TODO render as tooltip and make sure to add a note that this is possible (but what about mobile??!?!?!?!? - maybe better a button and a dynamic table i.e. <script> which can hide summaries but they default to turned-on?!)
+            'summary': summary,
             'title': title,
             'title_span': RFC_STATE_TO_TITLE_SPAN[state],
         })

@@ -1,5 +1,5 @@
 ---
-title: Decisions / RFCs
+title: Decisions and RFCs
 weight: 20
 icon: fa fa-check
 ---
