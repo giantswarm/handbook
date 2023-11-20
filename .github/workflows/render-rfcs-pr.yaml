@@ -29,8 +29,15 @@ jobs:
         working-directory: "${{ github.workspace }}/handbook"
 
       - name: Create or update pull request
-        uses: peter-evans/create-pull-request@v5
         if: ${{ github.ref == 'refs/heads/rfcs' }} # TODO: replace by `refs/heads/main` later
+        run: |
+          git add -A
+          git commit -m "Update rendered RFCs"
+        working-directory: "${{ github.workspace }}/handbook"
+
+      - name: Create or update pull request
+        if: ${{ github.ref == 'refs/heads/rfcs' }} # TODO: replace by `refs/heads/main` later
+        uses: peter-evans/create-pull-request@v5
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
