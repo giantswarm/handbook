@@ -36,8 +36,7 @@ jobs:
         with:
           path: handbook
           commit-message: "Update rendered RFCs"
-          base: main
-          title: Update generated RFCs content
+          title: "Update generated RFCs content"
           branch: update-generated-rfcs-content
           body: |
             This PR has been created automatically by the 'Render RFCs and create/update PR on changes' GitHub workflow
