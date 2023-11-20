@@ -1,0 +1,52 @@
+name: Render RFCs and create/update PR on changes
+
+on:
+  schedule:
+    - cron: "0 7-18 * * MON-FRI"
+
+  push:
+
+jobs:
+  render-rfcs-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          path: handbook
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: 'giantswarm/rfc'
+          path: rfc
+
+      - name: Render RFCs
+        env:
+          RFCS_DIR: "${{ github.workspace }}/rfc"
+        run: make rfcs
+        working-directory: "${{ github.workspace }}/handbook"
+
+      # - name: Create or update pull request
+      #   uses: gr2m/create-or-update-pull-request-action@v1.3.1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      #   with:
+      #     title: Semi-automatic update of generated content
+      #     branch: "automatic-update-of-generated-content"
+      #     body: |
+      #       This PR has been created automatically by the 'Update generated content' Github workflow
+      #       to keep
+
+      #       - Changes and releases
+      #       - CLI versions
+      #       - CRD pages
+      #       - Website header and footer
+
+      #       up-to-date.
+
+      #       If you see relevant additions in the 'Files' tab, feel free to **Approve** this PR.
+
+      #       If not, leave the PR open. It will be updated periodically as new entries arrive in the
+      #       Changes and releases section or as CRD page sections are updated.
