@@ -29,17 +29,21 @@ jobs:
         working-directory: "${{ github.workspace }}/handbook"
 
       - name: Create or update pull request
-        uses: gr2m/create-or-update-pull-request-action@v1.3.1
+        uses: peter-evans/create-pull-request@v5
         if: ${{ github.ref == 'refs/heads/rfcs' }} # TODO: replace by `refs/heads/main` later
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
+          path: handbook
+          commit-message: "Update rendered RFCs"
+          base: main
           title: Update generated RFCs content
-          branch: "update-generated-rfcs-content"
+          branch: update-generated-rfcs-content
           body: |
             This PR has been created automatically by the 'Render RFCs and create/update PR on changes' GitHub workflow
             to keep rendered RFCs in the handbook up to date.
 
             Please review and merge, or check in `#sig-docs` chat if something is wrong.
           reviewers: AndiDog  # TODO: while this is being tested, replace by team reviewer later
-          #team_reviewers: giantswarm/sig-docs
+          #team-reviewers: |
+          #  giantswarm/sig-docs
