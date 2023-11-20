@@ -92,7 +92,15 @@ def main():
         '| ---------------------- | ----- | ----- |\n'
     )
     for rfc in sorted(rfcs, key=lambda rfc: (-(rfc['creation_date_py'] - datetime.date(1970, 1, 1)).total_seconds(), rfc['title'])):
-        table += f'| {rfc["creation_date"]} | {rfc["title_span"]}[{rfc["title"]}](./{rfc["slug"]})</span> | {rfc["state_span"]}{rfc["state"]}</span> |\n'
+        summary_opt = ''
+        if rfc['summary']:
+            summary_opt = f'<br><br><span style="opacity: 0.7">{rfc["summary"]}</span>'
+
+        table += (
+            f'| {rfc["creation_date"]} '
+            f'| {rfc["title_span"]}[{rfc["title"]}](./{rfc["slug"]})</span>{summary_opt} '
+            f'| {rfc["state_span"]}{rfc["state"]}</span> |\n'
+        )
     with open(output_index_file_path, 'r+', encoding='utf-8') as f:
         content = f.read()
 
@@ -111,6 +119,8 @@ def main():
         if not os.path.isdir(rfc_output_dir):
             os.mkdir(rfc_output_dir)
 
+        summary_column = rfc['summary'] or '-'
+
         markdown_output_file_path = os.path.join(rfc_output_dir, f'_index.md')
         markdown_content = (
             '---\n'
@@ -118,13 +128,25 @@ def main():
                 'PLACEHOLDER',
                 f'https://github.com/giantswarm/rfc/tree/main/{rfc["slug"]}')
             + '\n'
-            + yaml.dump({'title': rfc['title']})
-            + 'toc_hide: true\n'
-            + 'hide_summary: true\n'
+            + yaml.dump({
+                'hide_summary': True,
+                'title': rfc['title'],
+                'toc_hide': True,
+            }, sort_keys=True, width=1000)
             + '---\n'
             + '\n'
+
+            # Information from structured fields
+            + f'| Created | State | Summary |\n'
+            + '|-|-|-|\n'
+            + f'| {rfc["creation_date"]} | {rfc["state_span"]}{rfc["state"]}</span> | {summary_column} |\n'
+            + '\n'
+
+            # Free-form content (note how YAML header `title` field will already product an H1 heading, so we leave it
+            # off here)
             + rfc['markdown_content_without_title']
         )
+
         print(f'Updating file {markdown_output_file_path!r}')
         with open(markdown_output_file_path, 'w', encoding='utf-8') as out:
             out.write(markdown_content)
