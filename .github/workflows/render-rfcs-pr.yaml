@@ -25,7 +25,11 @@ jobs:
       - name: Render RFCs
         env:
           RFCS_DIR: "${{ github.workspace }}/rfc"
-        run: make rfcs
+        run: |
+          make rfcs
+
+          # https://github.com/peter-evans/create-pull-request/issues/783
+          chown -R $USER:$USER .
         working-directory: "${{ github.workspace }}/handbook"
 
       - name: Create or update pull request
