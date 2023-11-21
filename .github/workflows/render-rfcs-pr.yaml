@@ -29,7 +29,10 @@ jobs:
           make rfcs
 
           # https://github.com/peter-evans/create-pull-request/issues/783
-          chown -R $USER:$USER .
+          ls -la
+          ls -la content/docs/rfcs
+          ls -la content/docs/rfcs/*/*
+          sudo chown -R $USER:$USER content/docs/rfcs
         working-directory: "${{ github.workspace }}/handbook"
 
       - name: Create or update pull request
