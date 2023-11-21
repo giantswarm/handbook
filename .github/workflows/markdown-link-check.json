@@ -25,6 +25,12 @@
       "pattern": "^https://github.com/giantswarm/isms"
     },
     {
+      "pattern": "^https://github.com/giantswarm/mc-bootstrap"
+    },
+    {
+      "pattern": "^https://github.com/giantswarm/opsctl"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/silences"
     },
     {
