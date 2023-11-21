@@ -13,6 +13,9 @@
       "pattern": "^https://github.com/giantswarm/backstage"
     },
     {
+      "pattern": "^https://github.com/giantswarm/config"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/giantswarm"
     },
     {
@@ -28,6 +31,9 @@
       "pattern": "^https://github.com/giantswarm/mc-bootstrap"
     },
     {
+      "pattern": "^https://github.com/giantswarm/mc-bootstrap"
+    },
+    {
       "pattern": "^https://github.com/giantswarm/opsctl"
     },
     {
@@ -38,6 +44,9 @@
     },
     {
       "pattern": "^https://github.com/giantswarm/web-assets"
+    },
+    {
+      "pattern": "^https://github.com/giantswarm/workload-clusters-fleet"
     },
     {
       "pattern": "^https://devportal.giantswarm.io"
