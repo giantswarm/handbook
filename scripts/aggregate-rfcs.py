@@ -156,23 +156,30 @@ def main():
         # Also copy content files. Some RFCs are even separated into multiple Markdown files (not recommended, but let's
         # support it while we have that case).
         rfc_dir = os.path.join(args.rfc_repo_dir, rfc['slug'])
-        for filename in os.listdir(rfc_dir):
-            if filename == 'README.md':
-                continue
+        for root, _dirs, files in os.walk(rfc_dir):
+            for filename in files:
+                if filename == 'README.md' and os.path.abspath(root) == os.path.abspath(rfc_dir):
+                    continue
 
-            file_path = os.path.join(rfc_dir, filename)
-            if not os.path.isfile(file_path):
-                continue
+                file_path = os.path.join(root, filename)
+                if not os.path.isfile(file_path):
+                    continue
 
-            _, file_extension = os.path.splitext(filename)
-            if file_extension not in ALLOWED_ASSET_FILE_EXTENSIONS:
-                print(f'{rfc_dir}: Ignoring file {filename!r}')
-                continue
+                rel_file_path = os.path.relpath(file_path, rfc_dir)
 
-            # Note that we don't delete/reconcile old files in the output directory here.
-            # We can add that feature if cleanup is ever needed.
-            print(f'{rfc_dir}: Copying asset file {filename!r}')
-            shutil.copy(file_path, os.path.join(rfc_output_dir, filename))
+                _, file_extension = os.path.splitext(filename)
+                if file_extension not in ALLOWED_ASSET_FILE_EXTENSIONS:
+                    print(f'{rfc_dir}: Ignoring file {rel_file_path!r}')
+                    continue
+
+                # Note that we don't delete/reconcile old files in the output directory here.
+                # We can add that feature if cleanup is ever needed.
+                print(f'{rfc_dir}: Copying asset file {rel_file_path!r}')
+                output_file_path = os.path.join(rfc_output_dir, rel_file_path)
+                output_file_dir = os.path.dirname(output_file_path)
+                if not os.path.isdir(output_file_dir):
+                    os.mkdir(output_file_dir)
+                shutil.copy(file_path, output_file_path)
 
     for file_path in files_to_delete:
         print(f'Deleting old file {file_path!r}')
