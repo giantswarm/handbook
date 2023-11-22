@@ -40,7 +40,7 @@ jobs:
 
       - name: Create or update pull request
         uses: peter-evans/create-pull-request@v5
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/ci' }} # TODO revert to `main`
         env:
           GITHUB_TOKEN: "${{ secrets.TAYLORBOT_GITHUB_ACTION }}"
         with:
