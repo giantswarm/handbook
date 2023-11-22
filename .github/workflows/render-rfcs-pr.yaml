@@ -1,11 +1,16 @@
+# Do not change the filename. This is triggered from https://github.com/giantswarm/rfc/tree/main/.github/workflows
+# (see `on:workflow_dispatch` below), i.e. whenever the RFCs change.
+
 name: Render RFCs and create/update PR on changes
 
 on:
-  # In case the `push` trigger does not work, try regularly
+  # In case the `workflow_dispatch`/`push` triggers don't work, try regularly
   schedule:
     - cron: "0 12,17 * * MON-FRI"
 
   push:
+
+  workflow_dispatch:
 
 jobs:
   render-rfcs-pr:
