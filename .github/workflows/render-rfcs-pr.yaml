@@ -37,7 +37,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: "${{ secrets.TAYLORBOT_GITHUB_ACTION }}"
         with:
           path: handbook
           commit-message: "Update rendered RFCs"
