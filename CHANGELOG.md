@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated the repo creation docs with the updated renovate process
+- Render RFCs
 
 ## [0.11.0] - 2023-10-19
 

@@ -1,8 +1,9 @@
 name: Render RFCs and create/update PR on changes
 
 on:
+  # In case the `push` trigger does not work, try regularly
   schedule:
-    - cron: "0 7-18 * * MON-FRI"
+    - cron: "0 12,17 * * MON-FRI"
 
   push:
 
@@ -36,7 +37,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         if: ${{ github.ref == 'refs/heads/main' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           path: handbook
           commit-message: "Update rendered RFCs"
