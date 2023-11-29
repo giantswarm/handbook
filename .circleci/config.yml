@@ -1,21 +1,16 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@4.34.1
+  architect: giantswarm/architect@4.35.5
 
 workflows:
   version: 2
 
   build_and_update:
     jobs:
-      - architect/push-to-docker:
+      - architect/push-to-registries:
           context: architect
-          name: "build"
-          image: "quay.io/giantswarm/handbook"
-          username_envar: "QUAY_USERNAME"
-          password_envar: "QUAY_PASSWORD"
-          dockerfile: "./Dockerfile"
-          tag-latest-branch: "main"
+          name: push-to-registries
           filters:
             # Trigger job also on git tag.
             tags:
