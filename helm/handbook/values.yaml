@@ -1,1 +1,35 @@
-staticJsCmsHugoStandaloneVersion: v0.0.1
+staticJsCmsHugoStandaloneVersion: v0.0.2
+
+secrets:
+  # Information for staticjscms-hugo-standalone and its OAuth proxy component
+  - name: staticjscms-secret
+    data:
+      - key: ORIGINS
+        value: "aHR0cHM6Ly9oYW5kYm9vay5naWFudHN3YXJtLmlv"
+      - key: OAUTH_CLIENT_ID
+        value: "MjE5OTEyMzk5MWFzZGVhZGJlZWY="
+      - key: OAUTH_CLIENT_SECRET
+        value: "YWFkc3NhZGFkYWRhZGFkMTIzMTIzMTIzMWFkYWRhZDEyMzEyM2FiYw=="
+      - key: GIT_HOSTNAME
+        value: ""
+  - name: staticjscms-hugo-standalone-pull-secret
+    data:
+      - key: .dockerconfigjson
+        value: "ewogICAgICAgICAgICAiYXV0aHMiOiB7CiAgICAgICAgICAgICAgImdoY3IuaW8iOiB7CiAgICAgICAgICAgICAgICAiYXV0aCI6ICJZbXhoWW14aE9tSnNZV0pzWVFvPSIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgIH0="
+  - name: cms-config
+    data:
+      - key: config.yml
+        value: "YmFja2VuZDoKICBuYW1lOiBnaXRodWIKICByZXBvOiBnaWFudHN3YXJtL2hhbmRib29rCiAgYmFzZV91cmw6IGh0dHBzOi8vaGFuZGJvb2suZ2lhbnRzd2FybS5pbwogIGJyYW5jaDogbWFpbgogIGNvbW1pdF9tZXNzYWdlczoKICAgIGNyZWF0ZTogIkNyZWF0ZSB7e2NvbGxlY3Rpb259fSDigJx7e3BhdGh9feKAnSIKICAgIHVwZGF0ZTogIlVwZGF0ZSB7e2NvbGxlY3Rpb259fSDigJx7e3BhdGh9feKAnSIKICAgIGRlbGV0ZTogIkRlbGV0ZSB7e2NvbGxlY3Rpb259fSDigJx7e3BhdGh9feKAnSIKICAgIHVwbG9hZE1lZGlhOiAiVXBsb2FkIOKAnHt7cGF0aH194oCdIgogICAgZGVsZXRlTWVkaWE6ICJEZWxldGUg4oCce3twYXRofX3igJ0iCiAgICBvcGVuQXV0aG9yaW5nOiAne3ttZXNzYWdlfX0nCgpzaXRlX3VybDogaHR0cHM6Ly9oYW5kYm9vay5naWFudHN3YXJtLmlvL2RvY3MKbG9nb191cmw6IGh0dHBzOi8vaGFuZGJvb2suZ2lhbnRzd2FybS5pby90aWxlNzB4NzAucG5nCnB1Ymxpc2hfbW9kZTogZWRpdG9yaWFsX3dvcmtmbG93Cm1lZGlhX2ZvbGRlcjogImNvbnRlbnQvZG9jcyIKbWVkaWFfbGlicmFyeTogeyBmb2xkZXJfc3VwcG9ydDogdHJ1ZSwgbWF4X2ZpbGVfc2l6ZTogMTAyNDAwMCB9Cgpjb2xsZWN0aW9uczoKICAtIGZvbGRlcjogY29udGVudC9kb2NzCiAgICBsYWJlbDogIlBhZ2VzIgogICAgbGFiZWxfc2luZ3VsYXI6ICJQYWdlIgogICAgbmFtZTogInBhZ2VzIgogICAgbWVkaWFfZm9sZGVyOiAiIgogICAgcHVibGljX2ZvbGRlcjogIiIKICAgIG1lZGlhX2xpYnJhcnk6IHsgZm9sZGVyX3N1cHBvcnQ6IHRydWUgfQogICAgY3JlYXRlOiB0cnVlCiAgICBmb3JtYXQ6IGZyb250bWF0dGVyCiAgICBleHRlbnNpb246IG1kCiAgICBpbmRleF9maWxlOiAnX2luZGV4JwogICAgZWRpdG9yOgogICAgICBzaXplOiBoYWxmCiAgICAgIGZyYW1lOiB0cnVlCiAgICAgIHByZXZpZXc6IHRydWUKICAgIG5lc3RlZDoKICAgICAgZGVwdGg6IDYKICAgICAgc3VtbWFyeTogInt7bmFtZX19IgogICAgICBwYXRoOgogICAgICAgIGluZGV4X2ZpbGU6ICdfaW5kZXgnCiAgICAgIGJyYW5jaF9idW5kbGU6IHRydWUKICAgICMgcGF0aCBwcm9wZXJ0eSBtZXRhIG9iamVjdCBhbGxvd3MgZWRpdGluZyB0aGUgcGF0aCBvZiBlbnRyaWVzCiAgICAjIG1vdmluZyBhbiBleGlzdGluZyBlbnRyeSB3aWxsIG1vdmUgdGhlIGVudGlyZSBzdWJ0cmVlIG9mIHRoZSBlbnRyeSB0byB0aGUgbmV3IGxvY2F0aW9uCiAgICBtZXRhOiB7IHBhdGg6IHsgd2lkZ2V0OiBzdHJpbmcsIGxhYmVsOiAnUGF0aCcsIGluZGV4X2ZpbGU6ICdfaW5kZXgnIH0gfQogICAgZmllbGRzOgogICAgICAtIHsgbGFiZWw6ICJUaXRsZSIsIG5hbWU6IHRpdGxlLCB3aWRnZXQ6ICJzdHJpbmciIH0KICAgICAgLSB7IGxhYmVsOiAiRGVzY3JpcHRpb24iLCBuYW1lOiBkZXNjcmlwdGlvbiwgd2lkZ2V0OiAic3RyaW5nIiB9CiAgICAgIC0gbGFiZWw6ICJDb25maWRlbnRpYWxpdHkiCiAgICAgICAgbmFtZTogY29uZmlkZW50aWFsaXR5CiAgICAgICAgd2lkZ2V0OiAic2VsZWN0IgogICAgICAgIG9wdGlvbnM6IFsicHVibGljIiwgIm9wZXJhdGlvbmFsIiwgInByaXZhdGUiXQogICAgICAtIHsgbGFiZWw6ICJCb2R5IiwgbmFtZTogYm9keSwgd2lkZ2V0OiAibWFya2Rvd24iIH0="
+
+volumes:
+  - name: cms-config
+    secret:
+      secretName: cms-config
+      items:
+        - key: config.yml
+          path: config.yml
+
+volumeMounts:
+  - name: cms-config
+    mountPath: "/app/config.yml"
+    subPath: "config.yml"

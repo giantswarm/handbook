@@ -7,6 +7,64 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Updated the repo creation docs with the updated renovate process
+- Render RFCs
+
+## [0.11.0] - 2023-10-19
+
+### Added
+
+- Add instructions on how to create a new App repo.
+
+## [0.10.7] - 2023-10-17
+
+### Added
+
+- Fix ingress prefix path
+- Mount CMS config from secret
+
+## [0.10.6] - 2023-10-16
+
+### Added
+
+- Fix wrong secret key reference in static-cms deployment container spec
+
+## [0.10.5] - 2023-10-16
+
+### Added
+
+- Adapt staticjscms-hugo-standalone secret to changes (`ORIGIN` -> `ORIGINS`)
+
+## [0.10.4] - 2023-10-16
+
+### Added
+
+- Fix secret string quoting
+
+## [0.10.3] - 2023-10-16
+
+### Added
+
+- Fix secret template to output more than one secret
+
+## [0.10.2] - 2023-10-13
+
+- Fix secret templates and values
+
+## [0.10.1] - 2023-10-11
+
+### Added
+
+- Encode secret values using base64 encoding
+
+## [0.10.0] - 2023-10-10
+
+### Added
+
+- Static CMS configuration (secret)
+
 ## [0.9.0] - 2023-10-08
 
 ### Added
@@ -132,7 +190,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.12] - 2023-05-11
 
-### Added 
+### Added
 
 - Add an ops recipe for Master usage CPU too high.
 
@@ -215,7 +273,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.9.0...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.11.0...HEAD
+[0.11.0]: https://github.com/giantswarm/handbook/compare/v0.10.7...v0.11.0
+[0.10.7]: https://github.com/giantswarm/handbook/compare/v0.10.6...v0.10.7
+[0.10.6]: https://github.com/giantswarm/handbook/compare/v0.10.5...v0.10.6
+[0.10.5]: https://github.com/giantswarm/handbook/compare/v0.10.4...v0.10.5
+[0.10.4]: https://github.com/giantswarm/handbook/compare/v0.10.3...v0.10.4
+[0.10.3]: https://github.com/giantswarm/handbook/compare/v0.10.2...v0.10.3
+[0.10.2]: https://github.com/giantswarm/handbook/compare/v0.10.1...v0.10.2
+[0.10.1]: https://github.com/giantswarm/handbook/compare/v0.10.0...v0.10.1
+[0.10.0]: https://github.com/giantswarm/handbook/compare/v0.9.0...v0.10.0
 [0.9.0]: https://github.com/giantswarm/handbook/compare/v0.8.0...v0.9.0
 [0.8.0]: https://github.com/giantswarm/handbook/compare/v0.7.1...v0.8.0
 [0.7.1]: https://github.com/giantswarm/handbook/compare/v0.7.0...v0.7.1

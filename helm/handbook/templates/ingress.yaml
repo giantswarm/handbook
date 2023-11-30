@@ -22,14 +22,7 @@ spec:
             name: handbook
             port:
               number: 8080
-      - path: /admin/config.yml
-        pathType: Prefix
-        backend:
-          service:
-            name: handbook
-            port:
-              number: 8080
-      - path: /admin/
+      - path: /admin
         pathType: Prefix
         backend:
           service:

@@ -36,14 +36,14 @@ Once workflows are ready, it is time to create release branch. The name
 of the branch is important and it must follow this convention:
 
 ```
-${BASE}#release#v${VERSION}
+${BASE}#release#${VERSION}
 ```
 
 Where:
 
 - `BASE` - is the name of the base branch for release PR. Usually it is
   `master` or `main`.
-- `VERSION` - either `major`, `minor`, `patch` or a specific version that is going to be created for the release.
+- `VERSION` - either `major`, `minor`, `patch` or a specific version `v1.2.3` that is going to be created for the release.
 
 Example:
 
