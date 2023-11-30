@@ -53,7 +53,7 @@ cat /tmp/audit.log | jq '. | select(.objectRef.name=="prometheus-prometheus-expo
 Today all AWS (vintage and CAPA) Management Clusters have Loki instance deployed with audit logs included. So we can leverage on Loki to get the logs. Future weeks we will extend Loki to vintage Workload Clusters too. Example of query:
 
 ```
-{cluster_id="myCluster",scrape_job="audit-logs"} |= `` | json | user_username=`joe@giantswarm.io`
+{cluster_id="myCluster",scrape_job="audit-logs"} |= `` | json | user_username=`johndoe@example.com`
 ```
 
-__Note__: In json filter to access nested properties you use `_` for getting a child property as the example above (user.username -> user_username).
+__Note__: Use `_` in json filters to access properties. In the example query above `user.username` is specified as `user_username`.
