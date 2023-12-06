@@ -107,7 +107,7 @@ __Note__: In json filter to access nested properties you use `_` for getting a c
 
 * Look at `containerd` logs for node `10.0.5.119` on `myInstallation` MC:
 ```
-{installation="myInstallation", cluster_id="myInstallation", systemd_unit="containerd.service", hostname="ip-10-0-5-119.eu-west-1.compute.internal"}
+{installation="myInstallation", cluster_id="myInstallation", systemd_unit="containerd.service", node_name="ip-10-0-5-119.eu-west-1.compute.internal"}
 ```
 
 ### Metrics queries
@@ -116,5 +116,5 @@ You can also generate metrics from logs.
 
 * Count number of logs per node
 ```
-sum(count_over_time({installation="myInstallation", cluster_id="myInstallation", hostname=~"ip-.*"}[10m])) by (hostname)
+sum(count_over_time({installation="myInstallation", cluster_id="myInstallation", node_name=~"ip-.*"}[10m])) by (node_name)
 ```
