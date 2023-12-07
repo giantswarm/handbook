@@ -27,7 +27,7 @@ confidentiality: public
 
 ### Live Mode
 
-Live mode feature of Grafana Loki is not available at the moment because of multi-tenancy (c.f. https://github.com/grafana/loki/issues/9493) :(
+Live mode feature of Grafana Loki is not available at the moment because of multi-tenancy (c.f. https://github.com/grafana/loki/issues/9493) 😢
 
 ## LogQL basics
 
