@@ -25,6 +25,10 @@ confidentiality: public
 <img src="images/lokidoc-explore.png" width="300" >
 <img src="images/lokidoc-datasource-query.png" width="600" >
 
+### Live Mode
+
+Live mode feature of Grafana Loki is not available at the moment because of multi-tenancy (c.f. https://github.com/grafana/loki/issues/9493) 😢
+
 ## LogQL basics
 
 ### Query anatomy
