@@ -1,3 +1,6 @@
 * @giantswarm/team-team
 
+# For auto-generated PRs (see `.github/workflows/render-rfcs-pr.yaml`)
+/content/docs/rfcs @giantswarm/sig-docs
+
 /content/docs/support-and-ops/support/ @giantswarm/chapter-se
