@@ -53,5 +53,9 @@ jobs:
             to keep rendered RFCs in the handbook up to date.
 
             Please review and merge, or check in `#sig-docs` chat if something is wrong.
-          team-reviewers: |
-            giantswarm/sig-docs
+          # This does not work if triggered from the `rfc` repo (https://github.com/giantswarm/rfc/blob/main/.github/workflows/render.yaml) due to error
+          # "Unable to request reviewers. If requesting team reviewers a 'repo' scoped PAT is required." (using Taylor Bot token).
+          # So instead, sig-docs was added to CODEOWNERS on RFC-related paths.
+          # ---
+          # team-reviewers: |
+          #   giantswarm/sig-docs

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated the repo creation docs with the updated renovate process
 - Render RFCs
+- Updated Loki handbook by fixing some queries
 
 ## [0.11.0] - 2023-10-19
 
