@@ -122,3 +122,15 @@ You can also generate metrics from logs.
 ```
 sum(count_over_time({installation="myInstallation", cluster_id="myInstallation", node_name=~"ip-.*"}[10m])) by (node_name)
 ```
+
+* Top 10 number of log lines per scrape_job, app, component and systemd_unit
+/!\ This query is heavy in terms of performance, please be careful /!\
+```
+topk(10, sum(rate({cluster_id="myCluster"}[5m])) by (cluster_id, scrape_job, app, component, systemd_unit))
+```
+
+* Rate of logs per syslog identifier
+/!\ This query is heavy in terms of performance, please be careful /!\
+```
+sum(rate({cluster_id="myCluster", scrape_job="system-logs"}[5m] |= `` | json)) by (SYSLOG_IDENTIFIER)
+```
