@@ -33,7 +33,7 @@ Open grafana on the installation you're interested in and go to the `Explore` se
 
 Tempo currently does not work with multi-tenancy so traces are shared between all grafana users.
 
-Tempo is deployed in microservice mode and it can ingest traces either through the tempo gateway or the tempo distributor. The main difference between the 2 is that the tempo-gateway only supports http(s) communication whereas the distributor supports also gRPC.
+Tempo is deployed in microservice mode and it can ingest traces either through the Tempo gateway or the Tempo distributor. The main difference between the two is that the tempo-gateway only supports http(s) communication whereas the distributor supports also gRPC.
 
 For our initial experiment, we decided to work without any "tracing agent" like the opentelemetry-collector to reduce our footprint and effort but this might come in the future.
 
