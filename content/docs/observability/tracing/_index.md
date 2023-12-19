@@ -20,7 +20,7 @@ To have a good understanding of distributed tracing, reading the [opentelemetry 
 
 As an experiment for customers and ourselves, we started to allow the use of Grafana Tempo on Vintage AWS management clusters.
 
-Grafana Tempo is a trace backend used to store distributed traces and it meant to be accessed by grafana.
+Grafana Tempo is a trace backend used to store distributed traces and is meant to be accessed by grafana.
 It can be deployed on demand by customers and internal teams alike if needed.
 
 ### Accessing Tempo
