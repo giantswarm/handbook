@@ -27,7 +27,7 @@ It can be deployed on demand by customers and internal teams alike if needed.
 
 Open grafana on the installation you're interested in and go to the `Explore` section. There, you can use the `Tempo` datasource and start going through traces.
 
-<img src="images/tempo-traces.png" alt="exemple of loki traces stored in tempo traces accessed through grafana" >
+<img src="images/tempo-traces.png" alt="example of Loki traces stored in Tempo traces accessed through grafana" >
 
 ### Inner workings
 
