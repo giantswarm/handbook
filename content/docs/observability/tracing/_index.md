@@ -64,7 +64,7 @@ spec:
 
 Distributed tracing is not a feature that comes by default in applications. They need to be instrumented by opentelemetry SDKs to be able to export traces.
 
-But there are cases where it is not possible to get traces from applications (blackbox or vendored applications, languages not equipped with opentelemetry SDKs like R). This is a really big blind spot in distributed tracing. The good news is that we can now rely on eBPF to get some basic traces from our applications. After experimenting with a few different tools like odigos, we tried out [Grafana Beyla](https://github.com/grafana/beyla) after in was released in version 1.0.0 and it looks to be the more mature solution (not relying on a lot of things that can fail and actually exporting traces from apps)
+But there are cases where it is not possible to get traces from applications (blackbox or vendored applications, languages not equipped with opentelemetry SDKs like R). This is a really big blind spot in distributed tracing. The good news is that we can now rely on eBPF to get some basic traces from our applications. After experimenting with a few different tools like odigos, we tried out [Grafana Beyla](https://github.com/grafana/beyla) after it was released in version 1.0.0 and it looks to be the most mature solution (not relying on a lot of things that can fail and actually exporting traces from apps)
 
 We ran it as an experiment for a customer but if the need arise, this is how we deployed it to trace an application written in R alongside an opentelemetry collector:
 
