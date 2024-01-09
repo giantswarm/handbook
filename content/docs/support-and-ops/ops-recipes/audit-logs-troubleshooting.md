@@ -47,3 +47,13 @@ cat /tmp/audit.log | jq '. | select(.user.username|test("joe."))'
 ```bash
 cat /tmp/audit.log | jq '. | select(.objectRef.name=="prometheus-prometheus-exporters-tls-assets")'
 ```
+
+## Using Loki
+
+Today all AWS (vintage and CAPA) Management Clusters have Loki instance deployed with audit logs included. So we can leverage on Loki to get the logs. Future weeks we will extend Loki to vintage Workload Clusters too. Example of query:
+
+```
+{cluster_id="myCluster",scrape_job="audit-logs"} |= `` | json | user_username=`johndoe@example.com`
+```
+
+__Note__: Use `_` in json filters to access properties. In the example query above `user.username` is specified as `user_username`.

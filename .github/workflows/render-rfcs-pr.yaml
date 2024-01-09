@@ -1,0 +1,61 @@
+# Do not change the filename. This is triggered from https://github.com/giantswarm/rfc/tree/main/.github/workflows
+# (see `on:workflow_dispatch` below), i.e. whenever the RFCs change.
+
+name: Render RFCs and create/update PR on changes
+
+on:
+  # In case the `workflow_dispatch`/`push` triggers don't work, try regularly
+  schedule:
+    - cron: "0 12,17 * * MON-FRI"
+
+  push:
+
+  workflow_dispatch:
+
+jobs:
+  render-rfcs-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          path: handbook
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          repository: 'giantswarm/rfc'
+          path: rfc
+
+      - name: Render RFCs
+        env:
+          RFCS_DIR: "${{ github.workspace }}/rfc"
+        run: |
+          make rfcs
+
+          # https://github.com/peter-evans/create-pull-request/issues/783
+          sudo chown -R $USER:$USER content/docs/rfcs
+        working-directory: "${{ github.workspace }}/handbook"
+
+      - name: Create or update pull request
+        uses: peter-evans/create-pull-request@v5
+        if: ${{ github.ref == 'refs/heads/main' }}
+        env:
+          GITHUB_TOKEN: "${{ secrets.TOKEN }}"
+        with:
+          path: handbook
+          commit-message: "Update rendered RFCs"
+          title: "Update generated RFCs content"
+          branch: update-generated-rfcs-content
+          body: |
+            This PR has been created automatically by the 'Render RFCs and create/update PR on changes' GitHub workflow
+            to keep rendered RFCs in the handbook up to date.
+
+            Please review and merge, or check in `#sig-docs` chat if something is wrong.
+          # This does not work if triggered from the `rfc` repo (https://github.com/giantswarm/rfc/blob/main/.github/workflows/render.yaml) due to error
+          # "Unable to request reviewers. If requesting team reviewers a 'repo' scoped PAT is required." (using Taylor Bot token).
+          # So instead, sig-docs was added to CODEOWNERS on RFC-related paths.
+          # ---
+          # team-reviewers: |
+          #   giantswarm/sig-docs
