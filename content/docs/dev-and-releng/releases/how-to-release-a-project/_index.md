@@ -8,7 +8,8 @@ confidentiality: public
 ---
 ## Recording
 
-There is a recording captured on 2020/06/22 which is complementary to this documentation. It can be found 
+There is a recording captured on 2020/06/22 which is complementary to this documentation:
+https://drive.google.com/file/d/131rkTO8lk8J0NSqqO4hkBEqySzlkX3TM/view
 
 .
 
