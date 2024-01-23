@@ -14,7 +14,7 @@ https://drive.google.com/file/d/131rkTO8lk8J0NSqqO4hkBEqySzlkX3TM/view
 
 ## Ensure GitHub workflows
 
-If you don't want to add the project to `giantswarm/github`, make sure GitHub workflows for creating a new release exist and they are up to date.
+If you won't add the project to `giantswarm/github`, make sure GitHub workflows for creating releases exist and are up to date:
 
 1. Install the newest version of `devctl` with `GO111MODULE=on go get
 github.com/giantswarm/devctl`.
