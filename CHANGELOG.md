@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated the repo creation docs with the updated renovate process
 - Render RFCs
 - Updated Loki handbook by fixing some queries
+- Synchronize local environment (docker-compose.yaml) with updated production environment
 
 ## [0.11.0] - 2023-10-19
 
