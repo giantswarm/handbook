@@ -19,7 +19,7 @@ There are at least a few solutions possible, below is a list of solutions evalua
   - Tested it, but I unfortunately [couldn't make it work](https://github.com/mcronce/oci-registry/issues/14) even for a simple test case, doesn't seem to be well supported.
 - [ACR connected registry](https://learn.microsoft.com/en-us/azure/container-registry/intro-connected-registry)
         - there's no mention of how to deploy outside of AKS edge cluster, seems Azure IoT edge thing only
-- [docker's distribution/distribution](https://github.com/distribution/distribution)
+- [docker's distribution/distribution](https://distribution.github.io/distribution/about/)
   - one instance can proxy only for a single upstream registry (but that's OK for us)
   - tested, works with `containerd` for single upstream repo, works as well with `helm` charts
   - no extra dependencies, can work with just local filesystem storage
