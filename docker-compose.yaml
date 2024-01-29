@@ -33,7 +33,7 @@ services:
     volumes:
       - ${PWD}/../static-cms/packages/app:/app/staticcms/app
     environment:
-      ORIGIN: "${ORIGIN}"
+      ORIGINS: "${ORIGINS}"
       OAUTH_CLIENT_ID: "${OAUTH_CLIENT_ID}"
       OAUTH_CLIENT_SECRET: "${OAUTH_CLIENT_SECRET}"
       GIT_HOSTNAME: "${GIT_HOSTNAME}"
