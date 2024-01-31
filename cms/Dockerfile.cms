@@ -1,5 +1,5 @@
 # use minimal nginx alpine image for proxying to hugo and decap-cms containers
-FROM quay.io/giantswarm/staticjscms-hugo-standalone:latest
+FROM gsoci.azurecr.io/giantswarm/staticjscms-hugo-standalone:latest
 
 # add customized Decap CMS config for handbook
 COPY cms-config-dev.yaml /app/config.yml

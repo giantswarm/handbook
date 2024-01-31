@@ -30,7 +30,7 @@ spec:
               weight: 100
       containers:
         - name: staticjscms-hugo-standalone
-          image: quay.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
+          image: gsoci.azurecr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
           imagePullPolicy: Always
           env:
             - name: ORIGINS
