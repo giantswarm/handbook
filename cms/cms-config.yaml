@@ -32,9 +32,9 @@ collections:
     editor:
       size: half
       frame: true
-      preview: true
+      preview: false
     nested:
-      depth: 6
+      depth: 8
       summary: "{{name}}"
       path:
         index_file: '_index'
