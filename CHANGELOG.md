@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated Loki handbook by fixing some queries
 - Synchronize local environment (docker-compose.yaml) with updated production environment
 - Switch to public `staticjscms-hugo-standalone` image instead of private ghcr.io one
+- Compress static output files using gzip, remove uncompressed HTML files
 
 ## [0.11.0] - 2023-10-19
 
