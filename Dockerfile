@@ -1,5 +1,5 @@
 # use intranet-baseimage with hugo, npm extended image for building in build step
-FROM quay.io/giantswarm/intranet-baseimage:0.0.0-5a27c8b54ae5e584d0354c162aa50fcfeae81764 AS build
+FROM quay.io/giantswarm/intranet-baseimage:0.1.53-abbeb0a4f86c81e5d03b4df0a084bb2c940c78c5  AS build
 # copy in the source files (docs/markdown)
 COPY . /src
 RUN cd themes/docsy && npm install
@@ -30,7 +30,7 @@ USER 0
 
 # enable relative 301 redirects to fix invalid redirects on missing trailing slash
 # (a downstream server doesn't necessarily know the public name and port)
-RUN sed -i 's/location \/ {/location \/ {\n        absolute_redirect off;\n        rewrite ^(.*)/$ $1/index.html last; gzip_static always; gunzip on;/' \
+RUN sed -i 's/location \/ {/location \/ {\n        absolute_redirect off;\n        rewrite ^(.*)\/$ $1\/index.html last; gzip_static always; gunzip on;/' \
     /etc/nginx/conf.d/default.conf
 
 # copy in staticly built hugo site from build step above
