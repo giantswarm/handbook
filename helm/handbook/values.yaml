@@ -1,4 +1,4 @@
-staticJsCmsHugoStandaloneVersion: v0.0.2
+staticJsCmsHugoStandaloneVersion: v0.0.6
 
 secrets:
   # Information for staticjscms-hugo-standalone and its OAuth proxy component
@@ -12,10 +12,6 @@ secrets:
         value: "YWFkc3NhZGFkYWRhZGFkMTIzMTIzMTIzMWFkYWRhZDEyMzEyM2FiYw=="
       - key: GIT_HOSTNAME
         value: ""
-  - name: staticjscms-hugo-standalone-pull-secret
-    data:
-      - key: .dockerconfigjson
-        value: "ewogICAgICAgICAgICAiYXV0aHMiOiB7CiAgICAgICAgICAgICAgImdoY3IuaW8iOiB7CiAgICAgICAgICAgICAgICAiYXV0aCI6ICJZbXhoWW14aE9tSnNZV0pzWVFvPSIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAgIH0="
   - name: cms-config
     data:
       - key: config.yml
