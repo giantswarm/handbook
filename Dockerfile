@@ -28,7 +28,7 @@ FROM quay.io/giantswarm/nginx-unprivileged:1.24-alpine
 EXPOSE 8080
 USER 0
 
-# The custom config enables the /searchapi route, proxying to sitesearch-app.docs:9200
+# The custom config disables absolute redirects and enables gzip compression
 COPY proxy/proxy-production.default.conf /etc/nginx/conf.d/default.conf
 
 # copy in staticly built hugo site from build step above
