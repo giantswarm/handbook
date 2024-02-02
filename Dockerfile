@@ -28,10 +28,8 @@ FROM quay.io/giantswarm/nginx-unprivileged:1.24-alpine
 EXPOSE 8080
 USER 0
 
-# enable relative 301 redirects to fix invalid redirects on missing trailing slash
-# (a downstream server doesn't necessarily know the public name and port)
-RUN sed -i 's/location \/ {/location \/ {\n        absolute_redirect off;\n        rewrite ^(.*)\/$ $1\/index.html last; gzip_static always; gunzip on;/' \
-    /etc/nginx/conf.d/default.conf
+# The custom config enables the /searchapi route, proxying to sitesearch-app.docs:9200
+COPY proxy/proxy-production.default.conf /etc/nginx/conf.d/default.conf
 
 # copy in staticly built hugo site from build step above
 COPY --from=build-production /src/public /usr/share/nginx/html
