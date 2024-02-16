@@ -29,3 +29,7 @@ volumeMounts:
   - name: cms-config
     mountPath: "/app/config.yml"
     subPath: "config.yml"
+
+global:
+  podSecurityStandards:
+    enforced: false
