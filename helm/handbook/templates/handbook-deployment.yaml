@@ -30,7 +30,7 @@ spec:
             weight: 100
       containers:
         - name: handbook
-          image: quay.io/giantswarm/handbook:{{ .Chart.Version }}
+          image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.Version }}
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
