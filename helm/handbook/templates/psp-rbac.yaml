@@ -1,3 +1,4 @@
+{{- if not (((.Values.global).podSecurityStandards).enforced) }}
 ---
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
@@ -58,3 +59,4 @@ subjects:
 - kind: ServiceAccount
   name: handbook
   namespace: {{ .Release.Namespace }}
+{{- end }}
