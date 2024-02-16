@@ -25,12 +25,6 @@ spec:
   - configMap
   - emptyDir
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  namespace: intranet
-  name: handbook
----
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
