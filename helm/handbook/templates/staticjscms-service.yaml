@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  namespace: intranet
+  namespace: {{ .Release.Namespace }}
   name: staticjscms-hugo-standalone
   labels:
     app: staticjscms-hugo-standalone

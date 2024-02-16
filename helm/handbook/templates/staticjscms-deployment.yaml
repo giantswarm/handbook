@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: intranet
+  namespace: {{ .Release.Namespace }}
   name: staticjscms-hugo-standalone
   labels:
     app: staticjscms-hugo-standalone
@@ -19,6 +19,8 @@ spec:
     spec:
       securityContext:
         runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -31,8 +33,20 @@ spec:
       containers:
         - name: staticjscms-hugo-standalone
           image: gsoci.azurecr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
-          imagePullPolicy: Always
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
           env:
+            - name: ORIGIN
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: ORIGINS
             - name: ORIGINS
               valueFrom:
                 secretKeyRef:

@@ -5,11 +5,11 @@ secrets:
   - name: staticjscms-secret
     data:
       - key: ORIGINS
-        value: "aHR0cHM6Ly9oYW5kYm9vay5naWFudHN3YXJtLmlv"
+        value: aGFuZGJvb2suZ2lhbnRzd2FybS5pbw==
       - key: OAUTH_CLIENT_ID
-        value: "MjE5OTEyMzk5MWFzZGVhZGJlZWY="
+        value: MjE5OTEyMzk5MWFzZGVhZGJlZWY=
       - key: OAUTH_CLIENT_SECRET
-        value: "YWFkc3NhZGFkYWRhZGFkMTIzMTIzMTIzMWFkYWRhZDEyMzEyM2FiYw=="
+        value: YWFkc3NhZGFkYWRhZGFkMTIzMTIzMTIzMWFkYWRhZDEyMzEyM2FiYw==
       - key: GIT_HOSTNAME
         value: ""
   - name: cms-config
@@ -29,3 +29,7 @@ volumeMounts:
   - name: cms-config
     mountPath: "/app/config.yml"
     subPath: "config.yml"
+
+global:
+  podSecurityStandards:
+    enforced: false

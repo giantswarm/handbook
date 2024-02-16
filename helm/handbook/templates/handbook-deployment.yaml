@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: intranet
+  namespace: {{ .Release.Namespace }}
   name: handbook
   labels:
     app: handbook
@@ -19,6 +19,8 @@ spec:
     spec:
       securityContext:
         runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -30,8 +32,15 @@ spec:
             weight: 100
       containers:
         - name: handbook
-          image: quay.io/giantswarm/handbook:{{ .Chart.Version }}
-          imagePullPolicy: Always
+          image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.Version }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
           ports:
             - containerPort: 8080
               name: http
