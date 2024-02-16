@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.0] - 2024-02-16
+
 ### Changed
 
 - Updated the repo creation docs with the updated renovate process
@@ -15,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Synchronize local environment (docker-compose.yaml) with updated production environment
 - Switch to public `staticjscms-hugo-standalone` image instead of private ghcr.io one
 - Compress static output files using gzip, remove uncompressed HTML files
+- Update chart to be deployable on K8s 1.25 wit Pod Security Standards enabled
 
 ## [0.11.0] - 2023-10-19
 
@@ -277,7 +280,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.11.0...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.12.0...HEAD
+[0.12.0]: https://github.com/giantswarm/handbook/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/giantswarm/handbook/compare/v0.10.7...v0.11.0
 [0.10.7]: https://github.com/giantswarm/handbook/compare/v0.10.6...v0.10.7
 [0.10.6]: https://github.com/giantswarm/handbook/compare/v0.10.5...v0.10.6
