@@ -5,7 +5,7 @@ secrets:
   - name: staticjscms-secret
     data:
       - key: ORIGINS
-        value: "aHR0cHM6Ly9oYW5kYm9vay5naWFudHN3YXJtLmlv"
+        value: aGFuZGJvb2suZ2lhbnRzd2FybS5pbw==
       - key: OAUTH_CLIENT_ID
         value: "MjE5OTEyMzk5MWFzZGVhZGJlZWY="
       - key: OAUTH_CLIENT_SECRET
