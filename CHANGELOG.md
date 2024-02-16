@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Synchronize local environment (docker-compose.yaml) with updated production environment
 - Switch to public `staticjscms-hugo-standalone` image instead of private ghcr.io one
 - Compress static output files using gzip, remove uncompressed HTML files
+- Update chart to be deployable on K8s 1.25 wit Pod Security Standards enabled
 
 ## [0.11.0] - 2023-10-19
 
