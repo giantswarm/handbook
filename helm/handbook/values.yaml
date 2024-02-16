@@ -7,9 +7,9 @@ secrets:
       - key: ORIGINS
         value: aGFuZGJvb2suZ2lhbnRzd2FybS5pbw==
       - key: OAUTH_CLIENT_ID
-        value: "MjE5OTEyMzk5MWFzZGVhZGJlZWY="
+        value: MjE5OTEyMzk5MWFzZGVhZGJlZWY=
       - key: OAUTH_CLIENT_SECRET
-        value: "YWFkc3NhZGFkYWRhZGFkMTIzMTIzMTIzMWFkYWRhZDEyMzEyM2FiYw=="
+        value: YWFkc3NhZGFkYWRhZGFkMTIzMTIzMTIzMWFkYWRhZDEyMzEyM2FiYw==
       - key: GIT_HOSTNAME
         value: ""
   - name: cms-config
