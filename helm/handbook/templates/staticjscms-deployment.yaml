@@ -19,6 +19,8 @@ spec:
     spec:
       securityContext:
         runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -31,6 +33,14 @@ spec:
       containers:
         - name: staticjscms-hugo-standalone
           image: gsoci.azurecr.io/giantswarm/staticjscms-hugo-standalone:{{ .Values.staticJsCmsHugoStandaloneVersion }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
           env:
             - name: ORIGINS
               valueFrom:

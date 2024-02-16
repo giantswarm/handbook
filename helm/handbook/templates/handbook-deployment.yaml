@@ -19,6 +19,8 @@ spec:
     spec:
       securityContext:
         runAsUser: 1000
+        seccompProfile:
+          type: RuntimeDefault
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -31,6 +33,14 @@ spec:
       containers:
         - name: handbook
           image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.Version }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
           ports:
             - containerPort: 8080
               name: http
