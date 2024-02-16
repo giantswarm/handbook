@@ -42,6 +42,11 @@ spec:
               drop:
                 - ALL
           env:
+            - name: ORIGIN
+              valueFrom:
+                secretKeyRef:
+                  name: staticjscms-secret
+                  key: ORIGINS
             - name: ORIGINS
               valueFrom:
                 secretKeyRef:
