@@ -8,10 +8,10 @@ confidentiality: public
 If we suspect the CNI is misbehaving 
 
 # Table of Contents
-1. [Command Line Tool](#Command-Line-Tool)
-1. [Check Component Status](#Check-Component-Status)
-1. [Cilium Connectivity Test](#Cilium-Connectivity-Test)
-1. [Check Hubble UI](#Hubble-UI)
+1. [Command Line Tool](#command-line-tool)
+1. [Check Component Status](#check-component-status)
+1. [Cilium Connectivity Test](#cilium-connectivity-test)
+1. [Check Hubble UI](#hubble-ui)
 
 ## Command Line Tool
 

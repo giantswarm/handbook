@@ -22,7 +22,7 @@ confidentiality: public
 
 Someone who is responsible for the information flow between your team and a certain SIG (both directions). See [Ambassadors for SIGs]().
 
-### Area {#area}
+### Area
 
 A combination of multiple teams e.g. the "Kubernetes as a Service" (KaaS) Area.
 
@@ -62,7 +62,7 @@ Deprecated. The former name associated with the [multi-account support](#multi-a
 
 A group of people with the same role (possibly limited by [Area](#area)) like PEs of SaaS Area, POs, SAs, Recruiters, Sales.
 
-### Client certificate {#client-certificate}
+### Client certificate
 
 X.509 certificate used by a client to authenticate with a server. In the Giant Swarm context, client certificates are a common authentication means (but not the only one) for the Kubernetes API. For example, we provide tooling to help end users create client certificates to access their workload clusters.
 
@@ -88,7 +88,7 @@ Do not use:
 
 ## E
 
-### End to end (E2E) test {#e2e-test}
+### End to end (E2E) test
 
 An automated test for an application flow from start to end. To simulate real user scenarios and validate the system under test.
 
@@ -130,7 +130,7 @@ The overall environment managed for a customer used as a landing zone by Giant S
 
 An integration test tests an individual component to expose defects in that component or how it interacts with other components.
 
-For Giant Swarm an example is a test for an operator which runs in a [KIND](#kind) cluster in Circle CI. It differs from an [end-to-end test](#e2e-test) which tests an entire Giant Swarm release.
+For Giant Swarm an example is a test for an operator which runs in a [KIND](#kind) cluster in Circle CI. It differs from an [end-to-end test](#end-to-end-e2e-test) which tests an entire Giant Swarm release.
 
 ---
 
@@ -207,7 +207,7 @@ Internally this is also often abbreviated as `MAPI`, however we don't use that a
 
 Spelling: Always spelled `Management API` with an uppercase `M`.
 
-### Multi-account support {#multi-account-support}
+### Multi-account support
 
 The ability for a management cluster to manage accounts and launch workload clusters outside its default accounts. The functionality formerly known as Bring Your Own Cloud (BYOC).
 

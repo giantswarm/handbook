@@ -20,7 +20,7 @@ file to github.
 the `write` permission to the repository.
 
 Catalogs don't drive their content. After creating the catalog, every application that wants to be included
-in it needs to have a correct [circleci.com](https://circleci.com) pipeline (see [below](#packaging-and-pushing-apps-into-an-app-catalog)).
+in it needs to have a correct [circleci.com](https://circleci.com) pipeline (see [below](#adding-an-app-catalog-to-a-management-cluster)).
 The pipeline is responsible for building the Helm chart and including it in the catalog and its index file.
 
 ## Adding an app catalog to a management cluster

@@ -9,42 +9,42 @@ We are offering GitOps as interface for our customers, here we collect tips on h
 
 # Table of Contents
 1. [Identify which kustomization owns a resource](#identify-which-kustomization-owns-a-resource)
-2. [Download the Git Repository source](#Download-the-Git-Repository-source)
-3. [Stop GitOps reconciliation](#Stop-GitOps-reconciliation)
+2. [Download the Git Repository source](#download-the-git-repository-source)
+3. [Stop GitOps reconciliation](#stop-gitops-reconciliation)
 
 
 ## Identify which kustomization owns a resource
 
-1) A resource contains a set of labels that identify which kustomization it belongs to. Example:
+1. resource contains a set of labels that identify which kustomization it belongs to. Example:
 
-```
-  labels:
+    ```
+      labels:
+        ...
+        kustomize.toolkit.fluxcd.io/name: gorilla-clusters-rfjh2
+        kustomize.toolkit.fluxcd.io/namespace: default
+    ```
+    
+    From the kustomization one can tell the source Git repository by looking at the spec field `sourceRef`.
+
+2. Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:
+
+    ```
+    » flux trace app/alfred-app -n alfred-ns
+    
+    Object:        App/alfred-app
+    Namespace:     rfjh2
+    Status:        Managed by Flux
+    ---
+    Kustomization: gorilla-clusters-rfjh2
+    Namespace:     default
     ...
-    kustomize.toolkit.fluxcd.io/name: gorilla-clusters-rfjh2
-    kustomize.toolkit.fluxcd.io/namespace: default
-```
-
-From the kustomization one can tell the source Git repository by looking at the spec field `sourceRef`.
-
-2) Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:
-
-```
-» flux trace app/alfred-app -n alfred-ns
-
-Object:        App/alfred-app
-Namespace:     rfjh2
-Status:        Managed by Flux
----
-Kustomization: gorilla-clusters-rfjh2
-Namespace:     default
-...
----
-GitRepository: workload-clusters-fleet
-Namespace:     default
-...
-```
-
-__Note__: If the resource has no labels (or `flux trace` returns `object not managed by Flux`) the object is not produced as result of helm or kustomize but could still be owned by a higher resource. An example would be a *pod* which may not have the labels, but the parent *deployment* does.
+    ---
+    GitRepository: workload-clusters-fleet
+    Namespace:     default
+    ...
+    ```
+    
+    __Note__: If the resource has no labels (or `flux trace` returns `object not managed by Flux`) the object is not produced as result of helm or kustomize but could still be owned by a higher resource. An example would be a *pod* which may not have the labels, but the parent *deployment* does.
 
 ## Download the Git Repository source
 
