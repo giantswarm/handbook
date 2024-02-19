@@ -5,11 +5,17 @@ jobs:
     name: Broken Links
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Clone repository content
         uses: actions/checkout@v4
-      - name: Run link check
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          use-quiet-mode: 'yes'
-          folder-path: 'content/docs/'
-          config-file: '.github/workflows/markdown-link-check.json'
+          show-progress: false
+
+      - name: Install markdown-link-check
+        run: npm install -g markdown-link-check@3.11.2
+
+      - name: Run markdown-link-check
+        run: |
+          find content/docs -type f -name '*.md' | \
+              xargs markdown-link-check \
+                --quiet \
+                --config ./.github/workflows/markdown-link-check.json
