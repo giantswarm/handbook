@@ -24,7 +24,7 @@ RUN find /src/public \
   -delete
 
 # use minimal nginx alpine image for serving static html
-FROM quay.io/giantswarm/nginx-unprivileged:1.24-alpine
+FROM quay.io/giantswarm/nginx-unprivileged:1.25-alpine
 EXPOSE 8080
 USER 0
 
