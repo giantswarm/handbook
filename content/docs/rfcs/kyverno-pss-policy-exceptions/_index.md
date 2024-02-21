@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-05-08 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-05-08 | <span style="color: darkgreen; font-weight: bold">approved</span> | Outlines the suggested replacement of Pod Security Policies with a Kyverno-backed implementation of the official Pod Security Standards guidelines in Giant Swarm clusters. |
 
 ## Objective
 

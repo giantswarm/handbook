@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-10-09 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-10-09 | <span style="color: darkgreen; font-weight: bold">approved</span> | Introduces the Policy API as an abstraction for declaratively managing several external tools through a single customer interface. |
 
 > [!NOTE]
 > :bulb: This RFC describes a subsystem of the security platform which is an intended long-term approach to improving policy management.

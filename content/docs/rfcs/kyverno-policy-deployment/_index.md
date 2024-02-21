@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2022-03-24 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2022-03-24 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | RFCs related to how Giant Swarm stores, versions, and shares Kyverno policies with customers. Partially superseded by Policy API concepts. |
 
 - [Handling Kyverno Policy Deployment][policy-deployment] details the repository structure used for storing Kyverno policies
 - [Sharing Kyverno Policies with Customers][sharing-policies] explains our thoughts on Kyverno policies as a customer-consumable interface
