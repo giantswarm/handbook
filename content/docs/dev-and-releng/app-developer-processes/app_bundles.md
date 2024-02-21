@@ -13,7 +13,7 @@ way to represent a group of apps as a single app, to the user and to the system.
 The App Bundle usage is currently well established in the company.
 
 For example, for CAPI it has been decided to deploy default apps in this way, see [ADR](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/adr/016-capi-releases/). By bundling a group of default apps we make the installation
-simpler and also means we can retire the [Release](https://docs.giantswarm.io/use-the-api/management-api/crd/releases.release.giantswarm.io/) CRD used in vintage clusters. Hence, a `default-apps-PROVIDER` app bundle will
+simpler and also means we can retire the [Release](https://docs.giantswarm.io/vintage/use-the-api/management-api/crd/releases.release.giantswarm.io/) CRD used in vintage clusters. Hence, a `default-apps-PROVIDER` app bundle will
 exist for each CAPI provider.
 
 Another example is grouping apps by the topic, creating specialized bundles, like for example the `security-pack` app.

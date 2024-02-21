@@ -18,7 +18,7 @@ Our goal is to have all documentation for our product be available via that site
 
 Our responsibilities for public documentation are layered.
 
-- Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/platform-overview/_index.md) as you can see on the front matter (defined by the YAML header fields).
+- Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/vintage/platform-overview/_index.md) as you can see on the front matter (defined by the YAML header fields).
 
 - SIG Docs is responsible for overall content coherence and consistency.
 
