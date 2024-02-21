@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-10-09 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-10-09 | <span style="color: darkgreen; font-weight: bold">approved</span> | Describes the implementation of early Policy API features to assist with customer migrations to Kyverno-enforced Pod Security Standards. |
 
 > [!NOTE]
 > :bulb: This RFC describes a minimal implementation of a small piece of the policy orchestration subsystem described in a parallel RFC. It is designed to meet an immediate need as customers begin PSS migration but will be adapted to meet the more general needs outlined in the linked RFC.
