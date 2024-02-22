@@ -4,7 +4,6 @@ FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.1.174  AS build
 
 # refresh relevant files (without clobbering stuff in the baseimage)
 COPY .git /src/.git/
-COPY archetypes /src/archetypes/
 COPY assets /src/assets/
 COPY content /src/content/
 COPY layouts /src/layouts/
