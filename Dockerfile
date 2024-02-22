@@ -1,8 +1,16 @@
 # use intranet-baseimage with hugo, npm extended image for building in build step
-FROM quay.io/giantswarm/intranet-baseimage:0.1.53-abbeb0a4f86c81e5d03b4df0a084bb2c940c78c5  AS build
-# copy in the source files (docs/markdown)
-COPY . /src
-RUN cd themes/docsy && npm install
+# the base image also includes installed NPM packages and the Hugo theme(s)
+FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.1.174  AS build
+
+# refresh relevant files (without clobbering stuff in the baseimage)
+COPY .git /src/.git/
+COPY archetypes /src/archetypes/
+COPY assets /src/assets/
+COPY content /src/content/
+COPY layouts /src/layouts/
+COPY static /src/static/
+COPY config.toml /src/config.toml
+
 # build static site
 RUN hugo --verbose --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
 
