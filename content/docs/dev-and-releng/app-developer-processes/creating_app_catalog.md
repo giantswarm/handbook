@@ -27,7 +27,7 @@ The pipeline is responsible for building the Helm chart and including it in the 
 
 Please start by reading [documentation about app catalogs and apps](https://github.com/giantswarm/giantswarm/blob/main/archive/archive-roadmap/MANAGED-SERVICES-CATALOG.MD).
 
-All application catalogs are defined in the management cluster using the [Catalog](https://docs.giantswarm.io/use-the-api/management-api/crd/catalogs.application.giantswarm.io/) CRD. To deploy the Catalog CRs,
+All application catalogs are defined in the management cluster using the [Catalog](https://docs.giantswarm.io/vintage/use-the-api/management-api/crd/catalogs.application.giantswarm.io/) CRD. To deploy the Catalog CRs,
 the following process is used:
 
 - App catalog configuration file needs to be added to the [`giantswarm/installations`](https://github.com/giantswarm/installations)
