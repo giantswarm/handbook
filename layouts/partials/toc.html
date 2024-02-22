@@ -1,8 +1,8 @@
-{{ if .Page.TableOfContents }}
+{{ if and (ne .Params.toc false) (gt (len .Page.TableOfContents) 33) }}
 <hr>
 <aside>
     <header>
-    <h3>Table of content</h3>
+    <h3>Table of contents</h3>
     </header>
     {{ .TableOfContents }}
 </aside>
