@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2021-09-17 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2021-09-17 | <span style="color: darkgreen; font-weight: bold">approved</span> | As part of the Cluster API hackathon we brainstormed how to automate the cluster upgrades taking into account customer requirements and technical limitations brought under the new upstream implementation. |
 
 ## Resources
 
