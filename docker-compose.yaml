@@ -23,6 +23,7 @@ services:
       - server
       - --enableGitInfo
       - --bind=0.0.0.0
+      - --liveReloadPort=8081
       - --buildDrafts
   static-cms:
     container_name: static-cms
