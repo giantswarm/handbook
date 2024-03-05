@@ -87,6 +87,12 @@ Apart from the catalog filter functions, the portal also offers a general search
 
 While the search result first appears in a modal, the result can also be accessed on a full page that offers more functions. Go check it out! [Here is an example](https://devportal.giantswarm.io/search?query=hello-world).
 
+### Settings
+
+In the [settings](https://devportal.giantswarm.io/settings) section you can adjust some personal preferences, like picking the dark or light theme, or pinning the left sidebar (which is nice if you have a wide screen).
+
+One particular important settings page is the one named [feature flags](https://devportal.giantswarm.io/settings/feature-flags). Here you can enable some features we consider experimental or very niche.
+
 ### Templates
 
 Backstage offer a function called **Templates** which we don't make use of, yet. The idea is to create things (like, for example, a new software component) with a lot of guidance. However the term appears in the search result filters, so we wanted to explain it here.
