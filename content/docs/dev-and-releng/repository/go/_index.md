@@ -89,7 +89,7 @@ To maintain team ownership and keep the repository up-to-date with our standards
 
 ## Step 7 - Create a container repo
 
-To build containers for the new repository, [set up a Quay.io repository](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/) for it.
+To build containers for the new repository, [set up registry repositories](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/) for it.
 
 ## Step 8 - Final touches
 
