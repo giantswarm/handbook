@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Update docsy to v0.9.0
+- Lower resource requests and limits, make them configurable
 
 ## [0.13.0] - 2024-02-16
 

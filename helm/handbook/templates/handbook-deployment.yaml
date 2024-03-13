@@ -45,12 +45,14 @@ spec:
             - containerPort: 8080
               name: http
           resources:
+
             requests:
-              cpu: 100m
-              memory: 20M
+              cpu: {{ .Values.resources.handbook.requests.cpu }}
+              memory: {{ .Values.resources.handbook.requests.memory }}
             limits:
-              cpu: 300m
-              memory: 20M
+              cpu: {{ .Values.resources.handbook.limits.cpu }}
+              memory: {{ .Values.resources.handbook.limits.memory }}
+
           volumeMounts:
             - mountPath: /var/cache/nginx
               name: cache-volume
