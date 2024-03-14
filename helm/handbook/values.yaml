@@ -1,5 +1,21 @@
 staticJsCmsHugoStandaloneVersion: 0.0.6
 
+resources:
+  handbook:
+    requests:
+      cpu: 5m
+      memory: 5M
+    limits:
+      cpu: 50m
+      memory: 30M
+  cms:
+    requests:
+      cpu: 5m
+      memory: 30M
+    limits:
+      cpu: 200m
+      memory: 60M
+
 secrets:
   # Information for staticjscms-hugo-standalone and its OAuth proxy component
   - name: staticjscms-secret
