@@ -94,6 +94,14 @@ An automated test for an application flow from start to end. To simulate real us
 
 For Giant Swarm an example is running the Kubernetes conformance tests against a workload cluster. Whereas an _integration test_ only tests a single component within the Giant Swarm release.
 
+### Ephemeral Management Cluster (Ephemeral MC)
+
+A short-lived [Management Cluster](#management-cluster-mc) that is used for testing the creation of management clusters. An Ephermaral Management Cluster is created, destroyed and recreated to test the full lifecycle of MCs and is usually managed via automated testing. The same name and configuration is used for each test run.
+
+It is expected that an Ephemeral Management Cluster isn't always available and ideally should only exist while it is being actively tested.
+
+These clusters should have all alerts silenced.
+
 ---
 
 ## F
@@ -177,6 +185,8 @@ A Kubernetes cluster running Giant Swarm specific management components essentia
 
 Formerly called "control plane", often abbreviated as "CP".
 
+Some types of Management Clusters: [Ephemeral Management Clusters](#ephemeral-management-cluster-ephemeral-mc), [Stable-testing Management Clusters](#stable-testing-management-clusters-stable-testing-mc)
+
 ### Management clusters fleet (MCF)
 
 Legacy gitOps configuration for management clusters. Initially, we kept it all in one repo named `management-clusters-fleet`. Later we split this up for security/permission reasons.
@@ -253,6 +263,10 @@ See this [introduction](https://blog.growthinstitute.com/scale-up-blueprint/10-r
 
 ## S
 
+### Single sign-on (SSO)
+
+The concept of using one identity to authenticate with different services. E. g. using a Google account to authenticate for a Software as a Service (SaaS) like LastPass.
+
 ### Special interest group (SIG)
 
 SIGs are a long term concept where people interested in a certain topic or stakeholders in the topic meet regularly. The goal of the SIG is to continuously find alignment and a shared vision of the topic across the company (represented by the people that join).
@@ -261,13 +275,15 @@ Therefore ideas, implementation plans or questions can be brought to a SIG for a
 
 For more information, please refer to this [blog post](https://www.giantswarm.io/blog/the-giant-swarm-model-explained)
 
-### Single sign-on (SSO)
-
-The concept of using one identity to authenticate with different services. E. g. using a Google account to authenticate for a Software as a Service (SaaS) like LastPass.
-
 ### Special working hours (SWH)
 
 Time allocated for specific SIG work. Usually one hour bi-weekly. People get together and work on what they are interested in, within the scope of the particular SIG.
+
+### Stable-Testing Management Clusters (Stable-Testing MC)
+
+A test [management cluster](#management-cluster-mc) that is specifically selected for automated [end-to-end testing](#end-to-end-e2e-test). These management clusters are used by end-to-end tests to create new test workload clusters that have a suite of tests run against them and are then removed.
+
+Stable-testing management clusters shouldn't be used for testing of applications deployed onto MCs and should be treated like production clusters in almost all regards except that these clusters are configured to page only during working hours (and not to page for their test workload clusters).
 
 ---
 
