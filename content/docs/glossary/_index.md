@@ -185,7 +185,7 @@ A Kubernetes cluster running Giant Swarm specific management components essentia
 
 Formerly called "control plane", often abbreviated as "CP".
 
-Some types of Management Clusters: [Ephemeral Management Clusters](#ephemeral-management-cluster-ephemeral-mc), [Stable-testing Management Clusters](#stable-testing-management-cluster-stable-testing-mc)
+Some types of Management Clusters: [Ephemeral Management Clusters](#ephemeral-management-cluster-ephemeral-mc), [Stable-testing Management Clusters](#stable-testing-management-clusters-stable-testing-mc)
 
 ### Management clusters fleet (MCF)
 
