@@ -9,14 +9,21 @@ This alert indicates that the state of teleport cluster is not in healthy state 
 
 State of the teleport process: 0 - ok, 1 - recovering, 2 - degraded, 3 - starting.
 
-# Check if Teleport auth and proxy pods are running
+## Check if Teleport auth and proxy pods are running
 
-First, login to teleport production cluster
+First, login to teleport production cluster, if that works.
 
 ```
 $ tsh login --auth giantswarm --proxy 'teleport.giantswarm.io:443'
 $ tsh kube login teleport.giantswarm.io
 ```
+
+If teleport login doesn't work, then you can use EKS to login.
+
+```
+aws eks ...
+```
+
 
 Then, check if teleport auth pods are running:
 
