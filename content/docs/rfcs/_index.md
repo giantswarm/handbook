@@ -35,7 +35,6 @@ Want to write a new, technical RFC? Please follow the [RFC and decision making p
 | 2022-06-20 | <span>[Multi layer app configs](./multi-layer-app-config)</span> | <span style="color: darkgreen; font-weight: bold">approved</span> |
 | 2022-05-11 | <span>[Classifying clusters based on priority](./classify-cluster-priority)</span> | <span style="color: darkgreen; font-weight: bold">approved</span> |
 | 2022-04-15 | <span>[Automatic App upgrades](./automatic-app-upgrades)</span> | <span style="color: darkgreen; font-weight: bold">approved</span> |
-| 2022-04-07 | <span>[Team Cabbage Roadmap 2022](./cabbage-roadmap-2022-1)</span> | <span style="color: darkgreen; font-weight: bold">approved</span> |
 | 2022-04-01 | <span>[Merging config in a gitops context](./merging-configmaps-gitops)</span> | <span style="color: darkgreen; font-weight: bold">approved</span> |
 | 2022-03-24 | <span style="opacity: 0.3">[RFCs Related to Kyverno Policy Management and Deployment](./kyverno-policy-deployment)</span><br><br><span style="opacity: 0.7">RFCs related to how Giant Swarm stores, versions, and shares Kyverno policies with customers. Partially superseded by Policy API concepts.</span> | <span style="color: darkgray; opacity: 0.8">obsolete</span> |
 | 2022-02-15 | <span>[A better customer email management solution](./alias-forwarder-email-service)</span> | <span style="color: darkgreen; font-weight: bold">approved</span> |
