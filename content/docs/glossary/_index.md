@@ -58,6 +58,13 @@ Deprecated. The former name associated with the [multi-account support](#multi-a
 
 ## C
 
+### Customer config repository (CCR)
+
+Customer repository for holding customer and management cluster specific app configurations. Builds on `giantswarm/shared-configs`.
+
+Repository name must follow the naming convention: `<CUSTOMER_NAME>-configs`, e.g: `giantswarm-configs`.
+
+
 ### Chapter
 
 A group of people with the same role (possibly limited by [Area](#area)) like PEs of SaaS Area, POs, SAs, Recruiters, Sales.
@@ -79,6 +86,13 @@ Do not use:
 - CAPI
 - cluster API
 - ClusterAPI
+
+### Customer management clusters (CMC)
+
+Customer repository for holding the actual MC gitops repository, containing the customer MCs. Builds on MCB by using Flux remote bases.
+
+Repository name must follow the naming convention: `<CUSTOMER_NAME>-management-clusters`, e.g: `giantswarm-management-clusters`.
+
 
 ---
 
@@ -198,12 +212,6 @@ See: MCB, CMC
 Manifests management clusters are built on and shared between multiple MCs / customers, for example provider bases (aws,capa,capz,gcp,etc.), our flux setup and optional extra components like external-secrets, crossplane, etc.
 
 Located at: [https://github.com/giantswarm/management-cluster-bases](https://github.com/giantswarm/management-cluster-bases)
-
-### Customer management clusters (CMC)
-
-Customer repository for holding the actual MC gitops repository, containing the customer MCs. Builds on MCB by using Flux remote bases.
-
-Repository name must follow the naming convention: `<CUSTOMER_NAME>-management-clusters`, e.g: `giantswarm-management-clusters`.
 
 ### Management cluster initializer (MCI)
 
