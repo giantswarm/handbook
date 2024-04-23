@@ -19,37 +19,35 @@ k get -n kong-app svc kong-app-kong-app-proxy -o jsonpath='{.status.loadBalancer
 ### Step 2: Apply Configuration to Kong
 Apply a values.yaml file to your Kong installation.
 Ensure you're using at least version 3.1.0 of the external-dns-app. Check your cluster release requirements to confirm this version is supported.
-Set up your image repository and tag:
+Set up your image repository and tag, disable enterprise and configure the external-dns annotations for the proxy service:
 ```yaml
 image:
   repository: giantswarm/kong
   tag: "<kong-image-tag>"
-```
-Configure the proxy settings, making sure it's disabled if not needed, and set the DNS annotations:
-```yaml
-proxy:
+enterprise:
   enabled: false
+proxy:
   annotations:
     external-dns.alpha.kubernetes.io/hostname: "*.kong.<wc-cluster-base-domain>"
     giantswarm.io/external-dns: managed
 ```
-Step 3: Configure Ingress
-Define the ingress resources in Kubernetes for Kong:
+Step 3: Deploy the `hello-world-app`
+Deploy the `hello-world-app` with the following `values.yaml` config:
 ```yaml
-    ingress:
-      className: kong
-      hosts:
-        - host: hello.kong.<wc-cluster-base-domain>
-          paths:
-            - path: /
-              pathType: Prefix
-      tls:
-        - secretName: hello-world-tls
-          hosts:
-            - hello.kong.<wc-cluster-base-domain>
+ingress:
+  className: kong
+  hosts:
+  - host: hello.kong.<wc-cluster-base-domain>
+    paths:
+    - path: /
+      pathType: Prefix
+  tls:
+  - secretName: hello-world-tls
+    hosts:
+    - hello.kong.<wc-cluster-base-domain>
 ```
 Step 4: Test the Kong Proxy
-After applying the ingress configuration, test the Kong proxy functionality by sending requests to the hello.kong. host.
+After applying the ingress configuration, test the Kong proxy functionality by sending requests to the `hello-world-app`.
 Verify the routing of requests through the Kong proxy and check the responses to ensure they are being processed correctly.
 Additionally, you can test the SSL/TLS configuration by accessing the hello.kong. URL over HTTPS and ensuring that the hello-world-tls certificate is being served correctly.
 
