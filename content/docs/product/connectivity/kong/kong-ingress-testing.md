@@ -12,7 +12,7 @@ Make sure that the Kong Proxy service is configured with an attached Amazon Web 
 ```bash
 k get -n kong-app svc kong-app-kong-app-proxy -o jsonpath='{.status.loadBalancer.ingress[].hostname}'
 # Example Output
-# a62e0e6cd3ac3434c9c5f688277e56c8-1838414965.eu-central-1.elb.amazonaws.com
+# c62e1e6bb3ac3535c9e5f698277e57c8-2828514061.eu-central-1.elb.amazonaws.com
 ```
 
 ### Step 2: Apply Configuration to Kong
