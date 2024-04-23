@@ -51,4 +51,4 @@ After applying the ingress configuration, test the Kong proxy functionality by s
 Verify the routing of requests through the Kong proxy and check the responses to ensure they are being processed correctly.
 Additionally, you can test the SSL/TLS configuration by accessing the hello.kong. URL over HTTPS and ensuring that the hello-world-tls certificate is being served correctly.
 
-Replace with your actual wildcard cluster base domain and with the specific image tag you are using for the Kong installation.
+Replace `<wc-cluster-base-domain>` above with your actual wildcard cluster base domain and `<kong-image-tag>` with the specific image tag you are using for the Kong installation.
