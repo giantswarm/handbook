@@ -31,7 +31,7 @@ proxy:
     external-dns.alpha.kubernetes.io/hostname: "*.kong.<wc-cluster-base-domain>"
     giantswarm.io/external-dns: managed
 ```
-Step 3: Deploy the `hello-world-app`
+### Step 3: Deploy the `hello-world-app`
 Deploy the `hello-world-app` with the following `values.yaml` config:
 ```yaml
 ingress:
