@@ -16,7 +16,8 @@ k get -n kong-app svc kong-app-kong-app-proxy -o jsonpath='{.status.loadBalancer
 ```
 
 ### Step 2: Apply Configuration to Kong
-Apply a values.yaml file to your Kong installation.
+Apply a `values.yaml` file to your Kong installation.
+
 Ensure you're using at least version 3.1.0 of the external-dns-app. Check your cluster release requirements to confirm this version is supported.
 Set up your image repository and tag, disable enterprise and configure the external-dns annotations for the proxy service:
 ```yaml
