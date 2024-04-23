@@ -5,21 +5,28 @@ description: >
 weight: 40
 ---
 
-
-### Step 1: Set Up AWS Infrastructure for Kong
-Ensure that the Kong App is installed in the Workload Cluster.
-Make sure that the Kong Proxy service is configured with an attached Amazon Web Services (AWS) Load Balancer (LB).
+### Step 0: Prerequisites
+- external-dns-app >3.1.0
 ```bash
-k get -n kong-app svc kong-app-kong-app-proxy -o jsonpath='{.status.loadBalancer.ingress[].hostname}'
+helm list -n kube-system | grep external-dns
 # Example Output
-# c62e1e6bb3ac3535c9e5f698277e57c8-2828514061.eu-central-1.elb.amazonaws.com
+# external-dns   kube-system   4   2024-04-23 09:37:02 UTC deployed   external-dns-app-3.1.0
+```
+- Workload Cluster base domain
+```bash
+kubectl get -n giantswarm configmap coredns-chart-values -o jsonpath='{.data.values}' | grep baseDomain
+# Example Output
+# baseDomain: qw54m.k8s.gaia.eu-central-1.aws.gigantic.io
 ```
 
-### Step 2: Apply Configuration to Kong
-Apply a `values.yaml` file to your Kong installation.
+### Step 1: Deploy Kong OSS
 
-Ensure you're using at least version 3.1.0 of the external-dns-app. Check your cluster release requirements to confirm this version is supported.
-Set up your image repository and tag, disable enterprise and configure the external-dns annotations for the proxy service:
+*Ensure you're using at least version 3.1.0 of the external-dns-app. Check your cluster release requirements to confirm this version is supported.*
+
+Deploy kong-app with at least the following values to:
+- configure the OSS image repository and tag
+- disable enterprise
+- configure the external-dns annotations for the proxy service:
 ```yaml
 image:
   repository: giantswarm/kong
@@ -31,7 +38,15 @@ proxy:
     external-dns.alpha.kubernetes.io/hostname: "*.kong.<wc-cluster-base-domain>"
     giantswarm.io/external-dns: managed
 ```
-### Step 3: Deploy the `hello-world-app`
+
+Make sure that the Kong Proxy service is configured with an attached Amazon Web Services (AWS) Load Balancer (LB).
+```bash
+k get -n kong-app svc kong-app-kong-app-proxy -o jsonpath='{.status.loadBalancer.ingress[].hostname}'
+# Example Output
+# c62e1e6bb3ac3535c9e5f698277e57c8-2828514061.eu-central-1.elb.amazonaws.com
+```
+
+### Step 2: Deploy the `hello-world-app`
 Deploy the `hello-world-app` with the following `values.yaml` config:
 ```yaml
 ingress:
@@ -46,6 +61,7 @@ ingress:
     hosts:
     - hello.kong.<wc-cluster-base-domain>
 ```
+
 ### Step 4: Test the Kong Proxy
 After applying the ingress configuration, test the Kong proxy functionality by sending requests to the `hello-world-app`.
 Verify the routing of requests through the Kong proxy and check the responses to ensure they are being processed correctly.
