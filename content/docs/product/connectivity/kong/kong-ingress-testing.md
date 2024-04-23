@@ -49,6 +49,6 @@ ingress:
 ### Step 4: Test the Kong Proxy
 After applying the ingress configuration, test the Kong proxy functionality by sending requests to the `hello-world-app`.
 Verify the routing of requests through the Kong proxy and check the responses to ensure they are being processed correctly.
-Additionally, you can test the SSL/TLS configuration by accessing the hello.kong. URL over HTTPS and ensuring that the hello-world-tls certificate is being served correctly.
+Additionally, you can test the SSL/TLS configuration by accessing the `hello.kong.<wc-cluster-base-domain>` URL over HTTPS and ensuring that the `hello-world-tls` certificate is being served correctly.
 
 Replace `<wc-cluster-base-domain>` above with your actual wildcard cluster base domain and `<kong-image-tag>` with the specific image tag you are using for the Kong installation.
