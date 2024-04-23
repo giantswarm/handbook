@@ -5,7 +5,6 @@ description: >
 weight: 40
 ---
 
-Tue, 23. Apr 2024 
 
 ### Step 1: Set Up AWS Infrastructure for Kong
 Ensure that the Kong App is installed in the Workload Cluster.
