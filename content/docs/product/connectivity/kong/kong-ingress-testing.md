@@ -25,7 +25,6 @@ kubectl get -n giantswarm configmap <wc-name>-chart-operator-chart-values -o jso
 ```
 
 ### Step 1: Deploy Kong OSS
-
 *Ensure you're using at least version 3.1.0 of the external-dns-app. Check your cluster release requirements to confirm this version is supported.*
 
 Deploy kong-app with at least the following values to:
