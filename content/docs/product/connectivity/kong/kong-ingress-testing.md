@@ -14,7 +14,8 @@ helm list -n kube-system | grep external-dns
 ```
 - Workload Cluster base domain
 ```bash
-# Legacy clusters
+# Vintage clusters
+
 kubectl get -n giantswarm configmap chart-operator-chart-values -o jsonpath='{.data.values}' | grep baseDomain
 
 # CAPI clusters
