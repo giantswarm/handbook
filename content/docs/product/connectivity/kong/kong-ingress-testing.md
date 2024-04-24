@@ -14,7 +14,12 @@ helm list -n kube-system | grep external-dns
 ```
 - Workload Cluster base domain
 ```bash
-kubectl get -n giantswarm configmap coredns-chart-values -o jsonpath='{.data.values}' | grep baseDomain
+# Legacy clusters
+kubectl get -n giantswarm configmap chart-operator-chart-values -o jsonpath='{.data.values}' | grep baseDomain
+
+# CAPI clusters
+kubectl get -n giantswarm configmap <wc-name>-chart-operator-chart-values -o jsonpath='{.data.values}' | grep baseDomain
+
 # Example Output
 # baseDomain: qw54m.k8s.gaia.eu-central-1.aws.gigantic.io
 ```
