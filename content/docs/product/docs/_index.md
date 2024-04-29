@@ -68,7 +68,7 @@ Every section has a template reference which helps to create a new entry suggest
 
 ## Style
 
-When writing documentation, there is a lot to be taken care of in terms of tonality, style, voice, and even formatting. We have written a [style guide](https://intranet.giantswarm.io/docs/content/style-guide/) for all written content that follows the [Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/).
+When writing documentation, there is a lot to be taken care of in terms of tonality, style, voice, and even formatting. We have written a [style guide](https://handbook.giantswarm.io/docs/content/style-guide/) for all written content that follows the [Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/).
 
 Here we describe some specifics for our customer face documentation. Feel free to give feedback to SIG Docs if you have any suggestions or questions about this recommendations.
 
