@@ -18,11 +18,11 @@ Our goal is to have all documentation for our product be available via that site
 
 Our responsibilities for public documentation are layered.
 
-- Ownership for content is assigned **according to team or SIG responsibilities**. For example, Team Horizon "owns" articles related to [Developer Platform Overview](https://github.com/giantswarm/docs/blob/main/src/content/vintage/platform-overview/_index.md) as you can see on the front matter (defined by the YAML header fields).
+- Ownership for content is assigned **according to team or SIG responsibilities**. For example, SIG product "owns" the article [overview introduction](https://github.com/giantswarm/docs/blob/main/src/content/overview/introduction/_index.md) as you can see on the front matter (defined by the YAML header fields).
 
 - SIG Docs is responsible for overall content coherence and consistency.
 
-- SIG User Experience (UX) takes responsibility for the overall UI and user experience, having the docs site online and available, have a user-friendly search etc.
+- Team Horizon takes responsibility for the overall structure and functionality, meanwhile Honeybadger is responsible for the operations.
 
 ## Editing content
 
@@ -40,15 +40,13 @@ For pull requests, **seek an agreement and approval within your team first**. Th
 
 Once a pull request in the giantswarm/docs repository gets merged, the changes get published.
 
-> (Under the hood, a new release is created using GitHub actions, immediately after the merge. Then, up to 10 minutes later, the release gets published via the `app-updater-app` on `gollum`. The app for serving `docs.giantswarm.io` lives in workload cluster `c68pn` on `gollum` installation, in the `docs` namespace.)
+> (Under the hood, a new release is created using GitHub actions, immediately after the merge. Then, up to 10 minutes later, the release gets published via the `app-updater-app` on `gazelle`. The app for serving `docs.giantswarm.io` lives in workload cluster `operations` on `gazelle` installation, in the `docs` namespace.)
 
-In the unlikely case that you don't want your changes to be released immediately (e. g. because you want to craft a release manually), simply add
+In the unlikely case that you don't want your changes to be released immediately (e. g. because you want to craft a release manually), simply add the following text to your final commit message when merging:
 
 ```nohighlight
 do not release
 ```
-
-to your final commit message when merging.
 
 ### When to merge a docs PR
 
@@ -66,14 +64,13 @@ When adding content, several questions have to be answered:
 - Where should that page title live?
 - What customer/user question(s) does this article answer?
 
-Feel free to ping SIG Docs to discuss these questions, or join the weekly sync/special working hours call.
+Every section has a template reference which helps to create a new entry suggesting an outline and giving some clues about the content. Feel free to ping SIG Docs to discuss these questions, or join the weekly sync/special working hours call.
 
 ## Style
 
-When writing documentation, there is a lot to be taken care of in terms of tonality, style, voice, and even formatting.
+When writing documentation, there is a lot to be taken care of in terms of tonality, style, voice, and even formatting. We have written a [style guide](https://handbook.giantswarm.io/docs/content/style-guide/) for all written content that follows the [Microsoft Style Guide](https://learn.microsoft.com/en-us/style-guide/).
 
-Feel free to give feedback to SIG Docs regarding what you would like to see guidelines for.
-Information beyond the details below can be found in the [content styleguide](https://docs.google.com/document/d/1TKzd70koVmrJyXx0JOe15tK0-mIiGYkP3gz_2BxM844/edit).
+Here we describe some specifics for our customer face documentation. Feel free to give feedback to SIG Docs if you have any suggestions or questions about this recommendations.
 
 ### Writing goals and principles
 
@@ -169,6 +166,7 @@ gsctl create cluster \
   --owner acme \
   --create-default-nodepool false
 ```
+
 ## Product feature naming
 
 When mentioning a feature, please make sure to use exactly the naming we decided on previously. If there is a canonical name for your feature, you should be able to find it in the [glossary]({{< relref "/docs/glossary/_index.md" >}}). If there isn't one, please kick off a discussion with SIG Product.
