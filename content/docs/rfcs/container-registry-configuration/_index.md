@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-03-01 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-03-01 | <span style="color: darkgreen; font-weight: bold">approved</span> | Since Docker Hub has an image download rate limit which can lead to unhealthy clusters, configure containerd such that it uses other registries as mirrors (fallback). |
 
 The purpose of this RFC is to specify how we configure Kubernetes clusters for container registries.
 
