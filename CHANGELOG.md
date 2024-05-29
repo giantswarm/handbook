@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update docsy to v0.9.0
 - Lower resource requests and limits, make them configurable
+- Change front-matter field `confidentiality` to `classification` to align with ISMS
 
 ## [0.13.0] - 2024-02-16
 
