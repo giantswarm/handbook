@@ -2,7 +2,7 @@
 title: "How to trigger a CloudFormation stack reconciliation"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-teddyfriends
-confidentiality: public
+classification: public
 ---
 
 ## From the AWS Console

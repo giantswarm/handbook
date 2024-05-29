@@ -2,7 +2,7 @@
 title: "Kyverno Stuck In Pending Upgrade"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-shield
-confidentiality: public
+classification: public
 ---
 
 There have been cases where during cluster upgrades, for example from AWS v18 -> v19, the Kyverno migration logic takes longer than the default `app-operator` installation timeout. This can result in Kyverno getting stuck in Helm `pending-upgrade` and requiring manual intervention.

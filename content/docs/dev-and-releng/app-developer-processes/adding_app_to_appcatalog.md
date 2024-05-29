@@ -3,7 +3,7 @@ title: "How to add and maintain App in an App Catalog"
 weight: 30
 description: >
   How to create, manage and release an App into an App Catalog
-confidentiality: public
+classification: public
 ---
 
 ## Table of Contents

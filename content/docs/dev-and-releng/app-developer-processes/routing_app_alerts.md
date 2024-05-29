@@ -3,7 +3,7 @@ title: "How to route app alerts to a team"
 description: |
   Routing app alerts via annotations in Chart.yaml or app CRs.
 weight: 70
-confidentiality: public
+classification: public
 ---
 
 ## App CR Annotation

@@ -2,7 +2,7 @@
 title: "Audit Logs Troubleshooting"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-horizon
-confidentiality: public
+classification: public
 ---
 
 How can I check the action of certain user in a cluster? How can I get more details about certain event on the cluster?

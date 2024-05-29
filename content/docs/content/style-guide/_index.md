@@ -2,7 +2,7 @@
 title: Style guide for written content
 description: >
   This guide only hopes to inspire you and provide an all-in-one source for all things content.
-confidentiality: public
+classification: public
 ---
 
 Writing isn’t a test. Even if you ignore all these guidelines, that’s okay — that’s what good editing is all about. It should help you, not hamper your creativity. So write how you feel and SIG Content ([#sig-content](https://gigantic.slack.com/archives/C02NGJTJN)) + SIG Docs ([#sig-docs](https://gigantic.slack.com/archives/C03FYAV8U)) will be there to support, shape your ideas, answer questions and review your content.

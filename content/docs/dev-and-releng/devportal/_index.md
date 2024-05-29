@@ -2,7 +2,7 @@
 title: Our internal developer portal
 linkTitle: Developer portal
 description: About our internal developer portal at devportal.giantswarm.io
-confidentiality: public
+classification: public
 weight: 10
 ---
 

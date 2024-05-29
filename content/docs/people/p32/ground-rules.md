@@ -2,7 +2,7 @@
 title: Ground Rules
 description: >
   This page documents ground rules we set ourselves for p32.
-confidentiality: public
+classification: public
 ---
 
 ## Pre-Note

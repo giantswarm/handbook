@@ -3,7 +3,7 @@ title: "Karpenter in Vintage AWS Workload Clusters"
 weight: 10
 description: >
   This page describes how we are using Karpenter with some of our customers and talks about current status and configuration.
-confidentiality: public
+classification: public
 ---
 
 ## Installing Karpenter

@@ -2,7 +2,7 @@
 title: "Switch from AWS-CNI, Calico and Kube-Proxy to Cilium"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-phoenix
-confidentiality: public
+classification: public
 ---
 
 This document explains how the upgrade from v18 to v19 legacy releases works and how it can break and affect customer workloads.

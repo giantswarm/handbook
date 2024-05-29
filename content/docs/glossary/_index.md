@@ -4,7 +4,7 @@ linkTitle: Glossary
 weight: 100
 description: Terminology used by Giant Swarm in internal and external communication.
 icon: fa fa-sort-alpha-down
-confidentiality: public
+classification: public
 ---
 ## Intro
 

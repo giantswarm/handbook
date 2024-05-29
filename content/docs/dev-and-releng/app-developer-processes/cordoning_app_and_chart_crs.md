@@ -1,7 +1,7 @@
 ---
 title: "Cordoning app and chart CRs"
 weight: 20
-confidentiality: public
+classification: public
 ---
 
 # Overview

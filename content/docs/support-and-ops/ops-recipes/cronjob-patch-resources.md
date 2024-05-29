@@ -2,7 +2,7 @@
 title: "Scheduling a cronjob to patch resources"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-teddyfriends
-confidentiality: public
+classification: public
 ---
 
 ## Introduction

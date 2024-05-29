@@ -3,7 +3,7 @@ templateKey: empty-page
 title: P32
 description: |
   This page contains information about P32.
-confidentiality: public
+classification: public
 ---
 This is the placeholder for the documentation of P32. As the entire concept is still wip, only current google docs will be linked. In the future you can find a proper documentation.
 

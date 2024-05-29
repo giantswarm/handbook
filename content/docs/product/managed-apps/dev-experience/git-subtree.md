@@ -3,7 +3,7 @@ title: "Git subtree for tracking changes in upstream apps"
 weight: 10
 description: >
   This page describes how to use the git-subtree command to easily track upstream projects without leaving git.
-confidentiality: public
+classification: public
 ---
 
 # Git repo setup for tracking upstream changes

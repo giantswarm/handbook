@@ -2,7 +2,7 @@
 title: "AI workflow support"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-horizon
-confidentiality: public
+classification: public
 ---
 
 ## Why do we need this?

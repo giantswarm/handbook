@@ -2,7 +2,7 @@
 title: Working Student Perks
 description: >
   This page explains how many perks you get as a working student.
-confidentiality: public
+classification: public
 ---
 
 

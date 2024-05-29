@@ -2,7 +2,7 @@
 title: "Cilium Troubleshooting"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-phoenix
-confidentiality: public
+classification: public
 ---
 
 If we suspect the CNI is misbehaving 

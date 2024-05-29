@@ -2,7 +2,7 @@
 title: "Test Environments"
 description: >
   When working with test environments there are a couple of things we should try to stick to process wise in order to make everyones life easier and avoid cost.
-confidentiality: public
+classification: public
 weight: 40
 ---
 

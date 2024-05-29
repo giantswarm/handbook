@@ -2,7 +2,7 @@
 title: Setting up your Integrated Development Environment (IDE) for work with Giant Swarm
 linkTitle: IDEs
 description: In this area we want to help you to set up your IDE for most efficient and painless collaboration with Giant Swarm colleagues and systems.
-confidentiality: public
+classification: public
 weight: 50
 ---
 

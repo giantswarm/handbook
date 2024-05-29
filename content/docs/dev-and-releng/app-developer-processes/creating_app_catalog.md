@@ -1,7 +1,7 @@
 ---
 title: "Creating an App Catalog"
 weight: 20
-confidentiality: public
+classification: public
 ---
 
 # App catalog
