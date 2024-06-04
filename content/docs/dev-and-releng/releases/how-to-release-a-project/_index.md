@@ -4,7 +4,7 @@ description: |
   This document describes the different steps required in order to release
   a new version of a project.
 weight: 20
-confidentiality: public
+classification: public
 ---
 ## Recording
 

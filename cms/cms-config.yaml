@@ -45,8 +45,8 @@ collections:
     fields:
       - { label: "Title", name: title, widget: "string" }
       - { label: "Description", name: description, widget: "string" }
-      - label: "Confidentiality"
-        name: confidentiality
+      - label: "Classification"
+        name: classification
         widget: "select"
-        options: ["public", "operational", "private"]
+        options: ["public", "confidential"]
       - { label: "Body", name: body, widget: "markdown" }

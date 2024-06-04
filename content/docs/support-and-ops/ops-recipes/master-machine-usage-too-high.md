@@ -2,7 +2,7 @@
 title: "Master Machine Usage Too High"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-phoenix
-confidentiality: public
+classification: public
 ---
 
 What to do once we are paged for "workload cluster master machine CPU usage is too high". 

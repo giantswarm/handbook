@@ -2,7 +2,7 @@
 title: Corporate design resources
 description: Material used to create publications according to the Giant Swarm
   design guidelines
-confidentiality: public
+classification: public
 ---
 Please use our [design guidelines](https://www.giantswarm.io/styleguide) for comprehensive information.
 

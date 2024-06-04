@@ -2,7 +2,7 @@
 title: Emergency Availability
 description: >
   This page describes how people are reachable during their P32 days.
-confidentiality: public
+classification: public
 ---
 
 # Ground Rule

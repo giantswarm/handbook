@@ -2,7 +2,7 @@
 title: Adding READMEs and Icons to Apps in Happa
 linkTitle: README and icon
 weight: 20
-confidentiality: public
+classification: public
 ---
 
 Your beautiful app deserves to look beautiful in Happa as well. Here are some

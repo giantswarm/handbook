@@ -2,7 +2,7 @@
 title: "Moving & Travelling @ Giant Swarm"
 description: >
   You want to change your location or travel for Giant Swarm? Check here!
-confidentiality: public
+classification: public
 ---
 ### TL;DR:
 You need to talk to #teamteam if you plan on moving. The “further” away timewise, the better. We do not have one rule that applies to all situations!

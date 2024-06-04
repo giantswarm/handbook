@@ -10,12 +10,12 @@ theme = ["docsy"]
 enableGitInfo = true
 
 [taxonomies]
-confidentiality = "confidentiality"
+classification = "classification"
 
 [params.taxonomy]
 taxonomyCloud = [] # This hides the taxonomies in the sidebar.
 taxonomyCloudTitle = [] # This hides the taxonomies in the sidebar.
-taxonomyPageHeader = ["confidentiality"] 
+taxonomyPageHeader = ["classification"]
 
 # Highlighting config
 pygmentsCodeFences = true

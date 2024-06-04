@@ -2,7 +2,7 @@
 title: Book Flatrate
 description: |
   This is the summary of how our book flatrate works
-confidentiality: public
+classification: public
 ---
 ## We have a Book flatrate!
 

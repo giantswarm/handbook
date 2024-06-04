@@ -2,7 +2,7 @@
 title: "Troubleshooting GitOps"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-honeybadger
-confidentiality: public
+classification: public
 ---
 
 We are offering GitOps as interface for our customers, here we collect tips on how to troubleshoot problems which can occur.

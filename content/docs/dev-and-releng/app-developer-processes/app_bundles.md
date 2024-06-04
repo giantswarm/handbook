@@ -1,7 +1,7 @@
 ---
 title: "App Bundles"
 weight: 20
-confidentiality: public
+classification: public
 ---
 
 ## Overview

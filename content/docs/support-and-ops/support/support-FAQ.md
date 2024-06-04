@@ -2,7 +2,7 @@
 title: "Support FAQ"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-teddyfriends
-confidentiality: public
+classification: public
 ---
 
 This page contains useful information for qualifying and identifying issues raised on support.

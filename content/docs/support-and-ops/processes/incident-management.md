@@ -2,7 +2,7 @@
 title: "How to manage an incident FAQ"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-horizon
-confidentiality: public
+classification: public
 ---
 
 # FAQ

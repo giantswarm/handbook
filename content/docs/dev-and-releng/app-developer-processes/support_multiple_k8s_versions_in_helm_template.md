@@ -3,7 +3,7 @@ title: "How to support multiple k8s versions in a Helm template"
 description: |
   Support multiple k8s versions using Helm capabilities API
 weight: 80
-confidentiality: public
+classification: public
 ---
 
 ## Rationale

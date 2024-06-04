@@ -1,7 +1,7 @@
 ---
 title: "How to resolve resources already exists in helm manifest"
 weight: 20
-confidentiality: public
+classification: public
 ---
 
 ### Problem

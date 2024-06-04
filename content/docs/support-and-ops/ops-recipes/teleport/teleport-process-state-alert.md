@@ -2,7 +2,7 @@
 title: "Teleport Process State Is Not Okay"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-bigmac
-confidentiality: public
+classification: public
 ---
 
 This alert indicates that the state of the Teleport cluster is not in a healthy state (state: 0).

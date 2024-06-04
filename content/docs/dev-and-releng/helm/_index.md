@@ -4,7 +4,7 @@ linkTitle: Helm
 description: >
   We use Helm to deploy our App Platform. This page is for local setup and
   tips and tricks.
-confidentiality: public
+classification: public
 weight: 50
 ---
 

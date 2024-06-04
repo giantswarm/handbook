@@ -2,7 +2,7 @@
 title: "Troubleshooting GitHub"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-honeybadger
-confidentiality: public
+classification: public
 ---
 
 Troubleshooting GitHub related issues.

@@ -3,7 +3,7 @@ title: "LabelSelector MatchLabels are immutable"
 description: |
   LabelSelector MatchLabels of a Kubernetes resource are immutable. This page describes the error and gives tips how to resolve the issue.
 weight: 70
-confidentiality: public
+classification: public
 ---
 
 # spec.selector.matchLabels are immutable in Daemonsets, Deployments etc

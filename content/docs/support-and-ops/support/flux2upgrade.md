@@ -2,7 +2,7 @@
 title: "Checking Flux 2.0 Breaking Changes"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-teddyfriends
-confidentiality: public
+classification: public
 ---
 
 ### Purpose

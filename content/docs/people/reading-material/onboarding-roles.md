@@ -2,7 +2,7 @@
 title: Onboarding Roles
 description: |
   This page explains the different roles during the onboarding of new joiners.
-confidentiality: public
+classification: public
 ---
 A quick overview of the entire onboarding can be found [here](https://miro.com/app/board/uXjVOIhZj6I=/).
 

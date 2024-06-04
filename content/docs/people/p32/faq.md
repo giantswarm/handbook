@@ -2,7 +2,7 @@
 title: Frequently Asked Questions
 description: >
   Frequently asked questions around all things P32.
-confidentiality: public
+classification: public
 ---
 
 ## What does Project 32 mean?

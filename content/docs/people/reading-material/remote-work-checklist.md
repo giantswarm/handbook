@@ -2,7 +2,7 @@
 title: "Remote work checklist"
 description: >
   Here you can find some tips and tricks for working remotely.
-confidentiality: public
+classification: public
 ---
 
 

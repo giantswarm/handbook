@@ -1,6 +1,6 @@
 ---
 title: "Registry Mirrors"
-confidentiality: public
+classification: public
 ---
 
 ## Why do we need to use registry mirrors?

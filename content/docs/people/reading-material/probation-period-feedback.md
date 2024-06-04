@@ -4,7 +4,7 @@ description: >
   This page explains the process for receiving feedback during your probation period.
 aliases:
   - "/docs/people/onboarding/probation-period-feedback/"
-confidentiality: public
+classification: public
 ---
 
 **How it was before:**

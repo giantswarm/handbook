@@ -3,7 +3,7 @@ title: "Using Loki at GiantSwarm"
 linkTitle: Loki usage
 description: >
   This guide explains how to access and explore logs using Loki
-confidentiality: public
+classification: public
 ---
 
 ## Context

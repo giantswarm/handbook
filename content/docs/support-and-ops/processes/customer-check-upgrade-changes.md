@@ -2,7 +2,7 @@
 title: "How to check for changes in k8s upgrades"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-teddyfriends
-confidentiality: public
+classification: public
 ---
 
 ### Purpose
