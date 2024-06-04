@@ -1,5 +1,5 @@
 # use minimal nginx alpine image for proxying to hugo and decap-cms containers
-FROM gsoci.azurecr.io/giantswarm/nginx-unprivileged:1.26-alpine
+FROM gsoci.azurecr.io/giantswarm/nginx-unprivileged:1.27-alpine
 EXPOSE 8081
 USER 0
 
