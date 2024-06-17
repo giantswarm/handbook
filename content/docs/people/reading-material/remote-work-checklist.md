@@ -12,7 +12,7 @@ There are many things that working remotely has in common with a traditional off
 Even if you already have experience in working remotely, you might find some helpful tricks.
 
 ### Security
-- Remote work and mobile security will align with our [Password Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/#password-policy) and [Acceptable Use Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/#acceptable-use-policy) from this document. Please review our [Information Security Policy](https://github.com/giantswarm/isms/wiki/Information-Security-Policy) as well as the [Information Security Guideline](https://intranet.giantswarm.io/docs/security/isms/) for further information.
+- Remote work and mobile security will align with our [Password Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/guideline/#password-policy) and [Acceptable Use Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/guideline/#acceptable-use-policy) from this document. Please review our [Information Security Policy](https://intranet.giantswarm.io/docs/security/isms/information-security/) as well as the [Information Security Guideline](https://intranet.giantswarm.io/docs/security/isms/information-security/guideline/) for further information.
 - Protect your login credentials from other household members.
 - Your machine must be locked if left unattended. Shut down the machine completely if you will be away for an extended period of time.
 - Protect printed documents by storing them in a safe location and remember to only print if really necessary.
