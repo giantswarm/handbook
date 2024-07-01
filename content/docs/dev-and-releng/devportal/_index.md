@@ -10,9 +10,7 @@ Since July 2023 we run a developer portal at [devportal.giantswarm.io](https://d
 
 ## Contact
 
-[Team Honeybadger](https://intranet.giantswarm.io/docs/organizational-structure/teams/honeybadger/) is responsible for running the portal.
-
-We also have a **developer portal working group** (Slack: [#wg-dev-portal](https://gigantic.slack.com/archives/C055VLMTPFE)), which functions as a sounding board for high-level decisions regarding the direction of the portal.
+[Team Honeybadger](https://intranet.giantswarm.io/docs/organizational-structure/teams/honeybadger/) is responsible for running and developing the portal.
 
 ## Usage
 
