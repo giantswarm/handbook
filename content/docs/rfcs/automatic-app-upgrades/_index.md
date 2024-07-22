@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2022-04-15 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2022-04-15 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | Use Flux's watch features such as `ImagePolicy` to automatically upgrade to newer app versions. This change was not performed, but we use `*-collection` repos (on MCs) and cluster default apps (on MCs/WCs) instead, so this RFC is obsolete. |
 
 ## Solution proposal
 
