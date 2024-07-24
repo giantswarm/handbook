@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2024-05-22 | <span style="color: darkorange">review</span> | This contains the process for proposing, discussing, and formalizing technical decisions. It also introduces the RFC structure. |
+| 2024-05-22 | <span style="color: darkgreen; font-weight: bold">approved</span> | This contains the process for proposing, discussing, and formalizing technical decisions. It also introduces the RFC structure. |
 
 ### Problem statement
 
