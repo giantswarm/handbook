@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lower resource requests and limits, make them configurable
 - Change front-matter field `confidentiality` to `classification` to align with ISMS
 - Fix ISMS links in remote-work-checklist page
+- Minor corrections in code signing howto 
 
 ## [0.13.0] - 2024-02-16
 
