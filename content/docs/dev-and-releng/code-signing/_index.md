@@ -1,15 +1,15 @@
 ---
-title: Codesigning for Windows binaries
-linkTitle: Codesigning
+title: Code signing for Windows binaries
+linkTitle: Code signing
 description: >
-  We distribute signed CLI binaries (.exe) for Windows. Here is how to configure CI and the CLI repository, and how to update the certificate once it expires.
+  We distribute signed CLI binaries (.exe) for Windows. Here is how to configure CI and the CLI repository, and how to renew certificates before they expire.
 classification: public
 weight: 1000
 ---
 
 ## Ensure creation of signed binaries
 
-Distributing a signed binary (aka codesigning) requires the following things. If all is in place, signed Windows binaries are created with every release. If something is missing, unsigned binaries are created instead.
+Distributing a signed binary (aka code signing) requires the following things. If all is in place, signed Windows binaries are created with every release. If something is missing, unsigned binaries are created instead.
 
 - A code signing certificate available as GitHub repository action secrets and variables
 - The repository flavor set to `cli`
@@ -40,7 +40,7 @@ Make sure to set `flavour: cli` in your repository configuration, like in [this 
 
 2. Follow the SSL.com documentation
 
-   The documentation page [Ordering And Retrieving Code Signing and EV Code Signing Certificates](https://www.ssl.com/how-to/ordering-and-retrieving-code-signing-certificates/) details how to obtain a P12 file from SSL.com.
+   The documentation page [Ordering Process for Code and Document Signing Certificates](https://www.ssl.com/how-to/ordering-process-for-code-and-document-signing-certificates/) details how to obtain a P12 file from SSL.com.
 
    The last time we replaced our cert, we contacted support and could enter the process at step 27.
 
@@ -52,11 +52,11 @@ Make sure to set `flavour: cli` in your repository configuration, like in [this 
 
 4. Create a base64 version of the P12 file
 
-   On mac OS, this is done using `cat file.p12 | base64`.
+   On macOS, this is done using `cat file.p12 | base64`.
 
 5. Set GitHub repo action secrets
 
-   In your CLI's Github repository, go to Settings > Security > Secrets variables > Actions.
+   In your CLI's GitHub repository, go to Settings > Security > Secrets variables > Actions.
 
    Here, in the _Repository secrets_ section, create two new entries:
 
