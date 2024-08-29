@@ -47,14 +47,14 @@ apiVersion: v1
 data:
   values: |
     extraArgs:
-      - --dns01-self-check-nameservers=1.1.1.1:53,8.8.8.8:53
+      - --dns01-recursive-nameservers=1.1.1.1:53,8.8.8.8:53
       - --dns01-recursive-nameservers-only=true
 ```
 
-When you apply this configuration, the cert manager will roll out and you can check the logs again to see if the issue is resolved. It is recommended to kick the certificate to renew after the rollout to see if the issue is resolved. User [cmctl](https://github.com/cert-manager/cmctl/) tool to renew the certificate:
+When you apply this configuration, the cert manager will roll out and you can check the logs again to see if the issue is resolved. It is recommended to kick the certificate to renew after the rollout to see if the issue is resolved. Use [cmctl](https://github.com/cert-manager/cmctl/) tool to renew the certificate:
 
 ```bash
 cmctl renew -n MY_APP_NS MY_APP_CERT_NAME
 ```
 
-It should make the trick. If not, please reach out to the team bigmac for further investigation.
+It should do the trick. If not, please reach out to the team bigmac for further investigation.
