@@ -5,6 +5,8 @@ owner:
 classification: public
 ---
 
+Whenever a certificate error occurs, we recommend starting your investigation by looking at cert-manager CertificateRequests, Orders, and Challenges. Often, these have useful error messages in their status fields.
+
 # Table of Contents
 1. [DNS01 challenge issues](#dns01)
 
