@@ -1,14 +1,11 @@
 ---
-title: "Cert manager Troubleshooting"
+title: "Cert Manager Troubleshooting"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-bigmac
 classification: public
 ---
 
 Whenever a certificate error occurs, we recommend starting your investigation by looking at cert-manager CertificateRequests, Orders, and Challenges. Often, these have useful error messages in their status fields.
-
-# Table of Contents
-1. [DNS01 challenge issues](#dns01)
 
 ## DNS01 challenge issues
 
@@ -17,6 +14,9 @@ When there is a certificate not becoming ready, it is often due to the ACME DNS0
 ```bash
 stern cert-manager -s 1m -n kube-system -i CERT_NAME
 ```
+
+> *NOTE:* [stern](https://github.com/stern/stern) is a tool conceived to tail multiple pods and containers logs. It is a good tool to use when you want to check logs from multiple pods at the same time.
+
 
 In case you see errors like:
 
@@ -35,7 +35,7 @@ metadata:
   name: cert-manager
   namespace: ORG-NAMESPACE
 spec:
-  ...
+  # ...
   userConfig:
     configMap:
       name: "CLUSTER_ID-user-values"
@@ -53,10 +53,10 @@ data:
       - --dns01-recursive-nameservers-only=true
 ```
 
-When you apply this configuration, the cert manager will roll out and you can check the logs again to see if the issue is resolved. It is recommended to kick the certificate to renew after the rollout to see if the issue is resolved. Use [cmctl](https://github.com/cert-manager/cmctl/) tool to renew the certificate:
+When you apply this configuration, the cert manager will be rolled out, and you can check the logs again to see if the issue is resolved. It is recommended to kick the certificate to renew after the rollout to see if the issue is resolved. Use [cmctl](https://github.com/cert-manager/cmctl/) tool to renew the certificate:
 
 ```bash
 cmctl renew -n MY_APP_NS MY_APP_CERT_NAME
 ```
 
-It should do the trick. If not, please reach out to the team bigmac for further investigation.
+It should do the trick. If not, please reach out to the team BigMac for further investigation.
