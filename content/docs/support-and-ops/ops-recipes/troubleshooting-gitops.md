@@ -46,7 +46,7 @@ Giant Swarm engineers usually have no access to customer repositories, but may -
 ```sh
 export SC=$(kubectl get po -n flux-giantswarm -l app=source-controller -o custom-columns=NAME:.metadata.name --no-headers)
 export GITREPO_NAME=<GOT_IT_FROM_PREVIOUS_STEP>
-kubectl cp -n flux-system $SC:/data/gitrepository/default/$GITREPO_NAME/ .
+kubectl cp -n flux-giantswarm $SC:/data/gitrepository/default/$GITREPO_NAME/ .
 ```
 
 This will download a `<COMMIT_SHA>.tar.gz` file. You can extract it with `tar -xvf <COMMIT_SHA>.tar.gz` to inspect the contents of the repository.
