@@ -1,57 +1,50 @@
 ---
-title: "Troubleshooting GitOps"
+title: Troubleshooting GitOps
 owner:
-- https://github.com/orgs/giantswarm/teams/team-honeybadger
+  - https://github.com/orgs/giantswarm/teams/team-honeybadger
+description: "Help to debug GitOps problems "
 classification: public
 ---
-
 We are offering GitOps as interface for our customers, here we collect tips on how to troubleshoot problems which can occur.
 
 # Table of Contents
-1. [Identify which kustomization owns a resource](#identify-which-kustomization-owns-a-resource)
-2. [Download the Git Repository source](#download-the-git-repository-source)
-3. [Stop GitOps reconciliation](#stop-gitops-reconciliation)
 
+1. [Identify which kustomization owns a resource](#identify-which-kustomization-owns-a-resource)
+1. [Download the Git Repository source](#download-the-git-repository-source)
+1. [Stop GitOps reconciliation](#stop-gitops-reconciliation)
 
 ## Identify which kustomization owns a resource
 
-1. resource contains a set of labels that identify which kustomization it belongs to. Example:
-
-    ```
-      labels:
-        ...
-        kustomize.toolkit.fluxcd.io/name: gorilla-clusters-rfjh2
-        kustomize.toolkit.fluxcd.io/namespace: default
-    ```
-
-    From the kustomization one can tell the source Git repository by looking at the spec field `sourceRef`.
-
-2. Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:
-
-    ```
-    » flux trace app/alfred-app -n alfred-ns
-
-    Object:        App/alfred-app
-    Namespace:     rfjh2
-    Status:        Managed by Flux
-    ---
-    Kustomization: gorilla-clusters-rfjh2
-    Namespace:     default
+1. resource contains a set of labels that identify which kustomization it belongs to. Example:```
+  labels:
     ...
-    ---
-    GitRepository: workload-clusters-fleet
-    Namespace:     default
-    ...
-    ```
+    kustomize.toolkit.fluxcd.io/name: gorilla-clusters-rfjh2
+    kustomize.toolkit.fluxcd.io/namespace: default
+```
+From the kustomization one can tell the source Git repository by looking at the spec field `sourceRef`.
+1. Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:```
+» flux trace app/alfred-app -n alfred-ns
 
-    __Note__: If the resource has no labels (or `flux trace` returns `object not managed by Flux`) the object is not produced as result of helm or kustomize but could still be owned by a higher resource. An example would be a *pod* which may not have the labels, but the parent *deployment* does.
+Object:        App/alfred-app
+Namespace:     rfjh2
+Status:        Managed by Flux
+---
+Kustomization: gorilla-clusters-rfjh2
+Namespace:     default
+...
+---
+GitRepository: workload-clusters-fleet
+Namespace:     default
+...
+```
+**Note**: If the resource has no labels (or `flux trace` returns `object not managed by Flux`) the object is not produced as result of helm or kustomize but could still be owned by a higher resource. An example would be a _pod_ which may not have the labels, but the parent _deployment_ does.
 
 ## Download the Git Repository source
 
 Giant Swarm engineers usually have no access to customer repositories, but may - in case of emergency - need to verify configuration in the source repository. For that purpose, one can download the relevant commit from the source repository using:
 
 ```sh
-export SC=$(kubectl get po -n flux-system -l app=source-controller -o custom-columns=NAME:.metadata.name --no-headers)
+export SC=$(kubectl get po -n flux-giantswarm -l app=source-controller -o custom-columns=NAME:.metadata.name --no-headers)
 export GITREPO_NAME=<GOT_IT_FROM_PREVIOUS_STEP>
 kubectl cp -n flux-system $SC:/data/gitrepository/default/$GITREPO_NAME/ .
 ```
