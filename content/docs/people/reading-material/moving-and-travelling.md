@@ -5,15 +5,15 @@ description: >
 classification: public
 ---
 ### TL;DR:
-You need to talk to #teamteam if you plan on moving. The “further” away timewise, the better. We do not have one rule that applies to all situations!
+You need to talk to Team Up if you plan on moving. The “further” away timewise, the better. We do not have one rule that applies to all situations!
 
 ### Move with Giant Swarm
 
 We are a remote company so in general, moving is easier compared to other companies.
 
-We have the approach of prioritizing PEOPLE over PROCESSES. This means we try to avoid creating processes that work for everyone a bit bit for none properly This also applies if you are moving.
+We have the approach of prioritizing PEOPLE over PROCESSES. This means we try to avoid creating processes that somewhat work for everyone, but for no none properly. This also applies if you are moving.
 
-If you’re planning on or if you have decided to do so, please talk to #teamteam as soon as possible. We have always found solutions, but we have to take administrative implications, internal fairness, and costs into consideration and this sometimes takes time and might require creative solutions.
+If you’re planning on or if you have decided to do so, please talk to Team Up as soon as possible. We have always found solutions, but we have to take administrative implications, internal fairness, and costs into consideration and this sometimes takes time and might require creative solutions.
 
 Hurdles we may need to talk about in your particular case:
 - **Location Factor**
@@ -45,8 +45,6 @@ Please see [Offsetting CO₂ emissions of business flights](https://intranet.gia
 
 **Reimbursement flights for oversea people:**
 
-In general, we reimburse all your flights to the Onsites and the Giant Mansion.
+In general, we reimburse all your flights to the On-sites and the Giant Mansion.
 If you want to go to a conference (which is not necessary) please talk to us - this helps us to keep the budget in control.
-
-
 
