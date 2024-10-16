@@ -24,7 +24,7 @@ classification: public
 
 3. Upload your receipts to Spendesk
 
-If you have any questions feel free to contact Team-Team.
+If you have any questions feel free to contact Team Up.
 
 **Also**
 
@@ -34,7 +34,7 @@ If you have any questions feel free to contact Team-Team.
 
 & of course
 
-**You also have access to these company wide perks**
+**You also have access to these company-wide perks**
 
 🧘🏽‍♀️Yoga classes
 
@@ -44,5 +44,5 @@ If you have any questions feel free to contact Team-Team.
 
 🗣 EAP
 
-🌴 Join us at our yearly onsites! N.B., we pay all travel, accommodation and associated costs, however, the time spent at onsite is unpaid. If you do any daily hours relating to your normal work, this can be billed.
+🌴 Join us at our yearly on-sites! N.B., we pay all travel, accommodation and associated costs, however, the time spent at onsite is unpaid. If you do any daily hours relating to your normal work, this can be billed.
 
