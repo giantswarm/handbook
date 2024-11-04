@@ -17,7 +17,7 @@ This guide provides you with the basics to get started with exploring Logs using
 ## How to access Logs ?
 
 * Open your installation's Grafana
-  * via UI: https://docs.giantswarm.io/getting-started/observability/visualization/access/
+  * via UI: https://docs.giantswarm.io/tutorials/observability/data-exploration/accessing-grafana/
   * via CLI (giantswarm only): `opsctl open -i myInstallation -a grafana`
 
 1. Go to `Explore` item in the `Home` menu
