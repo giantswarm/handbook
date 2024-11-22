@@ -37,3 +37,51 @@ As an alternative to the `kgs` command, you can also install the debug toolbox v
 ```sh
 helm template debug ./helm/debug-toolbox --values=/<custom_values>/values.yaml
 ```
+
+## Kubectl debug
+
+`kubectl debug` helps debugging cluster resources using interactive debugging containers.
+
+The problem is by default these containers are not very secure, and get denied by our cluster security policies as shown here:
+```
+$ kubectl debug -n loki loki-backend-0 --image alpine -- /bin/sh
+Defaulting debug container name to debugger-9fp9k.
+Error from server: admission webhook "validate.kyverno.svc-fail" denied the request: 
+
+resource Pod/loki/loki-backend-0 was blocked due to the following policies 
+
+disallow-capabilities-strict:
+  require-drop-all: 'validation failure: Containers must drop `ALL` capabilities.'
+disallow-privilege-escalation:
+  privilege-escalation: 'validation error: Privilege escalation is disallowed. The
+    fields spec.containers[*].securityContext.allowPrivilegeEscalation, spec.initContainers[*].securityContext.allowPrivilegeEscalation,
+    and spec.ephemeralContainers[*].securityContext.allowPrivilegeEscalation must
+    be set to `false`. rule privilege-escalation failed at path /spec/ephemeralContainers/0/securityContext/'
+```
+
+### Setting custom securityContext with kubectl debug
+
+⚠️This requires at least `kubectl`v1.31
+
+You should create a yaml file with your securityContext. We should call it `customspec.yaml`:
+```yaml
+securityContext:
+  fsGroup: 10001
+  runAsGroup: 10001
+  runAsNonRoot: true
+  runAsUser: 10001
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: false
+  seccompProfile:
+    type: RuntimeDefault
+```
+
+Then you can run your debug container like so:
+```
+kubectl debug -n loki loki-backend-0 -it --image alpine --custom customspec.yaml -- /bin/sh
+```
+
+Feel free to chose your debug image, so you have the tools you need.
