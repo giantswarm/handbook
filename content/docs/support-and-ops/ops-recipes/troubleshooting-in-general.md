@@ -84,4 +84,4 @@ Then you can run your debug container like so:
 kubectl debug -n loki loki-backend-0 -it --image alpine --custom customspec.yaml -- /bin/sh
 ```
 
-Feel free to chose your debug image, so you have the tools you need.
+Feel free to choose your debug image, so you have the tools you need.
