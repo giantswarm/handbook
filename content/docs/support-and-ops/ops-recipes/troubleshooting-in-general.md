@@ -38,13 +38,14 @@ As an alternative to the `kgs` command, you can also install the debug toolbox v
 helm template debug ./helm/debug-toolbox --values=/<custom_values>/values.yaml
 ```
 
-## Kubectl debug
+## `kubectl debug`
 
 `kubectl debug` helps debugging cluster resources using interactive debugging containers.
 
-The problem is by default these containers are not very secure, and get denied by our cluster security policies as shown here:
+By default these containers are not very secure and therefore get denied by our cluster security policies as shown here:
+
 ```
-$ kubectl debug -n loki loki-backend-0 --image alpine -- /bin/sh
+$ kubectl debug --namespace loki loki-backend-0 --image alpine -- /bin/sh
 Defaulting debug container name to debugger-9fp9k.
 Error from server: admission webhook "validate.kyverno.svc-fail" denied the request: 
 
@@ -59,11 +60,12 @@ disallow-privilege-escalation:
     be set to `false`. rule privilege-escalation failed at path /spec/ephemeralContainers/0/securityContext/'
 ```
 
-### Setting custom securityContext with kubectl debug
+### Setting custom container security context with `kubectl debug`
 
-⚠️This requires at least `kubectl`v1.31
+⚠️ This requires at least `kubectl` v1.31.
 
-You should create a yaml file with your securityContext. We should call it `customspec.yaml`:
+First we create a YAML file with a secure container `securityContext` called `custom-spec.yaml` in this example:
+
 ```yaml
 securityContext:
   fsGroup: 10001
@@ -79,9 +81,10 @@ securityContext:
     type: RuntimeDefault
 ```
 
-Then you can run your debug container like so:
+Then we can run our debug container like this:
+
 ```
-kubectl debug -n loki loki-backend-0 -it --image alpine --custom customspec.yaml -- /bin/sh
+kubectl debug --namespace loki loki-backend-0 --stdin --tty --image alpine --custom customspec.yaml -- /bin/sh
 ```
 
-Feel free to choose your debug image, so you have the tools you need.
+Feel free to choose your own debug image, so you have the tools you need.
