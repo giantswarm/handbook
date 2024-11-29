@@ -3,9 +3,10 @@ appVersion: main
 description: A Helm chart for out handbook
 engine: gotpl
 home: https://github.com/giantswarm/handbook
+icon: https://s.giantswarm.io/app-icons/handbook/1/dark.svg
 name: handbook
 annotations:
-  application.giantswarm.io/team: team
+  application.giantswarm.io/team: up
 sources:
   - https://github.com/giantswarm/handbook
-version: [[ .Version ]]
+version: 0.13.82-dev

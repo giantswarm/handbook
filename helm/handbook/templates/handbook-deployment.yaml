@@ -35,6 +35,7 @@ spec:
           image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.Version }}
           securityContext:
             allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
             runAsNonRoot: true
             seccompProfile:
               type: RuntimeDefault
