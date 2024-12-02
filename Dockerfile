@@ -35,8 +35,14 @@ FROM gsoci.azurecr.io/giantswarm/nginx-unprivileged:1.27-alpine
 EXPOSE 8080
 USER 0
 
-# The custom config disables absolute redirects and enables gzip compression
-COPY proxy/proxy-production.default.conf /etc/nginx/conf.d/default.conf
+# Delete default config (which we have no control over)
+RUN rm -r /etc/nginx/conf.d && rm /etc/nginx/nginx.conf
+
+# The custom config enables the /searchapi route, proxying to sitesearch-app.docs:9200
+COPY proxy/proxy-production.default.conf /etc/nginx/nginx.conf
+
+# Ensure tmp dir exists and has right ownership
+RUN mkdir -p /tmp/nginx && chown -R 101 /tmp/nginx
 
 # copy in staticly built hugo site from build step above
 COPY --from=build-production /src/public /usr/share/nginx/html

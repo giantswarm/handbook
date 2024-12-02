@@ -55,8 +55,8 @@ spec:
               memory: {{ .Values.resources.handbook.limits.memory }}
 
           volumeMounts:
-            - mountPath: /var/cache/nginx
-              name: cache-volume
+            - mountPath: /tmp/nginx
+              name: nginx-tmp
           livenessProbe:
             httpGet:
               path: /
@@ -66,7 +66,7 @@ spec:
             periodSeconds: 30
             timeoutSeconds: 2
       volumes:
-        - name: cache-volume
+        - name: nginx-tmp
           emptyDir: {}
       serviceAccount: handbook
       serviceAccountName: handbook
