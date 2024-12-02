@@ -3,8 +3,14 @@ FROM gsoci.azurecr.io/giantswarm/nginx-unprivileged:1.27-alpine
 EXPOSE 8081
 USER 0
 
+# Delete default config (which we have no control over)
+RUN rm -r /etc/nginx/conf.d && rm /etc/nginx/nginx.conf
+
 # configure CMS redirect /admin /auth /callback -> decap, / -> hugo
-COPY proxy-cms-admin.conf /etc/nginx/conf.d/proxy-cms-admin.conf
+COPY proxy-cms-admin.conf /etc/nginx/nginx.conf
+
+# Ensure tmp dir exists and has right ownership
+RUN mkdir -p /tmp/nginx && chown -R 101 /tmp/nginx
 
 # copy in staticly built hugo site from build step above
 #VOLUME /usr/share/nginx/html

@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New recipe for Kyverno stuck in upgrade pending.
 - MC types to glossary (ephemeral and stable-testing)
 - Added `kubectl debug` info in Troubleshooting recipe
+- Improve nginx configuration
 
 ### Changed
 
