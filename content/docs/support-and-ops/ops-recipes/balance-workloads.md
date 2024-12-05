@@ -7,7 +7,7 @@ classification: public
 
 In Giant Swarm, we rely on [descheduler](https://github.com/giantswarm/descheduler-app) to help redistribute pods based on specific policies. Here you see how to run descheduler in cronjob mode to automate this process, ensuring the cluster is balanced and optimized.
 
-## Steps
+## Configuration 
 
 1. Prepare the configuration for the policy. The default policy can be found [here](https://github.com/giantswarm/descheduler-app/blob/main/helm/descheduler-app/values.yaml#L72) and it is valid for most cases. If you dent know how to adjust the policy, skip this step and use the default one.
 
