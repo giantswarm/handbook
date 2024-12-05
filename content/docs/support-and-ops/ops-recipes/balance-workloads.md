@@ -126,7 +126,9 @@ You may want to adjust the policy to your needs. Next is the list of more meanin
       enabled: true
   ```
 
-2. Deploy the app from the [Giant Swarm app catalog](https://github.com/giantswarm/descheduler-app):
+## Deployment
+
+Deploy the app from the [Giant Swarm app catalog](https://github.com/giantswarm/descheduler-app):
 
 ```sh
 export ORG=<your-org>
