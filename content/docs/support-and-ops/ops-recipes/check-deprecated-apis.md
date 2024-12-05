@@ -7,7 +7,7 @@ classification: public
 
 ## Overview
 
-[]`pluto`](https://github.com/FairwindsOps/pluto) is a tool developed by Fairwinds that helps identify deprecated Kubernetes APIs in your manifests and Helm charts. Keeping your Kubernetes resources up to date with the latest API versions is crucial to ensure smooth upgrades and compatibility with future Kubernetes releases.
+[`pluto`](https://github.com/FairwindsOps/pluto) is a tool developed by Fairwinds that helps identify deprecated Kubernetes APIs in your manifests and Helm charts. Keeping your Kubernetes resources up to date with the latest API versions is crucial to ensure smooth upgrades and compatibility with future Kubernetes releases.
 
 ## Prerequisites
 
