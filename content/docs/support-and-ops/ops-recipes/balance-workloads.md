@@ -9,7 +9,7 @@ In Giant Swarm, we rely on [descheduler](https://github.com/giantswarm/deschedul
 
 ## Configuration 
 
-1. Prepare the configuration for the policy. The default policy can be found [here](https://github.com/giantswarm/descheduler-app/blob/main/helm/descheduler-app/values.yaml#L72) and it is valid for most cases. If you dent know how to adjust the policy, skip this step and use the default one.
+1. Prepare the configuration for the policy. The default policy can be found [here](https://github.com/giantswarm/descheduler-app/blob/main/helm/descheduler-app/values.yaml#L72) and it is valid for most cases. If you don't know how to adjust the policy, skip this step and use the default one.
 
 ```yaml
 apiVersion: v1
@@ -165,7 +165,7 @@ And apply it to the platform API (aka MC API):
 kubectl apply -f descheduler-app.yaml
 ```
 
-Now the scheduler cronjob has been created and soon it will spawn a new job. By default, the cronjob runs every 2 minutes. **Since we want to using once, we will remove the app after the job is done.**
+Now the scheduler cronjob has been created and soon it will spawn a new job. By default, the cronjob runs every 2 minutes. **Since we want to use it once, we will remove the app after the job is done.**
 
 In case you want to leave the app running, you can adjust the cronjob schedule by editing the values as described above. Tunning `schedule: "*/2 * * * *"` value to your needs and reapply the app.
 
