@@ -1,7 +1,8 @@
 ---
 title: "Cert Manager Troubleshooting"
 owner:
-- https://github.com/orgs/giantswarm/teams/team-bigmac
+- https://github.com/orgs/giantswarm/teams/team-shield
+description: "Troubleshooting steps to resolve issues with cert-manager."
 classification: public
 ---
 

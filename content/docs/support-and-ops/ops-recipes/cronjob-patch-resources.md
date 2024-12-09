@@ -1,7 +1,8 @@
 ---
 title: "Scheduling a cronjob to patch resources"
 owner:
-- https://github.com/orgs/giantswarm/teams/team-teddyfriends
+- https://github.com/orgs/giantswarm/teams/team-planeteers
+description: "Help to debug common problems"
 classification: public
 ---
 

@@ -1,7 +1,8 @@
 ---
 title: "Teleport Process State Is Not Okay"
 owner:
-- https://github.com/orgs/giantswarm/teams/team-bigmac
+- https://github.com/orgs/giantswarm/teams/team-shield
+description: "Troubleshooting steps to resolve the Teleport process state alert."
 classification: public
 ---
 

@@ -2,6 +2,7 @@
 title: "Network error rate is too high"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-cabbage
+description: "How to troubleshoot network errors"
 classification: public
 ---
 

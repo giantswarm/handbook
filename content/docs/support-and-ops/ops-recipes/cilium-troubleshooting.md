@@ -1,11 +1,12 @@
 ---
 title: "Cilium Troubleshooting"
 owner:
-- https://github.com/orgs/giantswarm/teams/team-phoenix
+- https://github.com/orgs/giantswarm/teams/team-cabbage
+description: "If we suspect the CNI is misbehaving"
 classification: public
 ---
 
-If we suspect the CNI is misbehaving 
+If we suspect the CNI is misbehaving
 
 # Table of Contents
 1. [Command Line Tool](#command-line-tool)
