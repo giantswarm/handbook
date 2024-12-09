@@ -8,3 +8,5 @@ spec:
   selector:
     matchLabels:
       app: handbook
+
+  unhealthyPodEvictionPolicy: AlwaysAllow
