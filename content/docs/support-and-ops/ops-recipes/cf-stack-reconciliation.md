@@ -1,7 +1,7 @@
 ---
 title: "How to trigger a CloudFormation stack reconciliation"
 owner:
-- https://github.com/orgs/giantswarm/teams/team-teddyfriends
+- https://github.com/orgs/giantswarm/teams/team-phoenix
 classification: public
 ---
 
@@ -16,4 +16,3 @@ From time to time, it is necessary to trigger the reconciliation of a CloudForma
 - Click on `Next` for a few times. <img src="../img/step4.jpg" width="1100" />
 - Tick on the `I acknowledge that AWS CloudFormation might create IAM resources.` checkbox and click on `Submit`. <img src="../img/step5.jpg" width="1100" />
 - Wait for a few minutes. The stack's reconciliation will be done once the `OperatorVersion` output of the CloudFormation stack becomes the same as the `OperatorVersion` of the `aws-operator` running in the cluster. In other words: wait for the `-trigger` suffix to disappear from the `OperatorVersion` output.
-

@@ -2,6 +2,7 @@
 title: "Checking for Deprecated Kubernetes APIs with Pluto"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-planeteers
+description: "How to use Pluto to identify deprecated Kubernetes APIs in your manifests and Helm charts."
 classification: public
 ---
 

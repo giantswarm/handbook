@@ -1,7 +1,8 @@
 ---
 title: "Audit Logs Troubleshooting"
 owner:
-- https://github.com/orgs/giantswarm/teams/team-horizon
+- https://github.com/orgs/giantswarm/teams/team-planeteers
+description: "How to check the action of certain user in a cluster"
 classification: public
 ---
 

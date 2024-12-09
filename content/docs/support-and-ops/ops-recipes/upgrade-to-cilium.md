@@ -2,6 +2,7 @@
 title: "Switch from AWS-CNI, Calico and Kube-Proxy to Cilium"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-phoenix
+description: "This document explains how the upgrade from v18 to v19 legacy releases works and how it can break and affect customer workloads. This is currently implemented in AWS only."
 classification: public
 ---
 
@@ -90,7 +91,7 @@ Another critical process happening in this phase is the cleanup of `kube-proxy` 
 - In step 1, the defaulting of `cilium.giantswarm.io/pod-cidr` annotation is provided as a best effort, only on clusters that were previously using default values for the podCIDR. If this annotation cannot be created safely, `aws-admission-controller` stops the upgrade process by rejecting the Update request. It's always possible to set the annotation before triggering the upgrade. `aws-admission-controller` will ensure the values is valid when the upgrade is triggered.
 - This whole process requires automated changes to the `Cluster` and `AWSCluster` CRs and thus is not meant to be compatible with GitOps.
 - While we worked hard to prevent that from happening, it's still possible that some downtime will be happening on the workloads. This is a CNI switch after all.
-- The AWS CNI Pod subnets will remain after the upgrade, they will not be deleted while upgrading to v19 release. We will work on removing them in future releases if neccessary.  
+- The AWS CNI Pod subnets will remain after the upgrade, they will not be deleted while upgrading to v19 release. We will work on removing them in future releases if neccessary.
 
 ## AWS-CNI Leftovers
 
