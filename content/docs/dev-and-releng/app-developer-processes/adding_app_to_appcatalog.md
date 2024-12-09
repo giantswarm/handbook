@@ -36,7 +36,7 @@ For the other 10%, common sense applies, as for the first 90% as well :)
 
 In the App Platform, Apps are defined as Helm chart packages. App Catalogs are stored as Helm repositories. Packaging and pushing Apps into an App Catalog is automated using CircleCI and architect orb's [push-to-app-catalog](https://github.com/giantswarm/architect-orb/blob/master/docs/job/push-to-app-catalog.md) job.
 
-For an overview of the App Platform, Apps, and App Catalogs, please read [The Giant Swarm App Platform](https://docs.giantswarm.io/basics/app-platform/)
+For an overview of the App Platform, Apps, and App Catalogs, please read [The Giant Swarm App Platform](https://docs.giantswarm.io/tutorials/fleet-management/app-platform)
 
 ## The workflow process
 

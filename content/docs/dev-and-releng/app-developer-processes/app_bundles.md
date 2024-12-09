@@ -8,7 +8,7 @@ classification: public
 
 The App Bundle is a Helm Chart that instead of providing a regular resources, that normally represents
 an application, it provides App CRs, optionally accompanied by ConfigMaps and Secrets. In other words, it is a
-way to represent a group of apps as a single app, to the user and to the system. Check out the [public docs](https://docs.giantswarm.io/getting-started/app-platform/app-bundle/#app-bundle-definition) if you look for a more detailed explanation.
+way to represent a group of apps as a single app, to the user and to the system. Check out the [public docs](https://docs.giantswarm.io/tutorials/fleet-management/app-platform/defaulting-validation/) if you look for a more detailed explanation.
 
 The App Bundle usage is currently well established in the company.
 
@@ -46,7 +46,7 @@ about in the next paragraphs.
 
 ## Installing an App Bundle
 
-The installation process for bundles can be found in the [public docs](https://docs.giantswarm.io/getting-started/app-platform/app-bundle/#app-bundle-definition). Go there to understand:
+The installation process for bundles can be found in the [public docs](https://docs.giantswarm.io/tutorials/fleet-management/app-platform/app-bundle/). Go there to understand:
 
 - the components the installation involves
 - the configurational demands by these components
