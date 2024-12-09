@@ -70,7 +70,7 @@ apps:
 
 Each child app should have the `giantswarm.io/managed-by` label set to the name
 of the parent app e.g. `default-apps-openstack`. This identifies the parent app
-CR and means the install [is not blocked](https://docs.giantswarm.io/app-platform/defaulting-validation/#gitops-support)
+CR and means the install [is not blocked](https://docs.giantswarm.io/tutorials/fleet-management/app-platform/defaulting-validation/)
 by `app-admission-controller`.
 
 ```nohighlight
