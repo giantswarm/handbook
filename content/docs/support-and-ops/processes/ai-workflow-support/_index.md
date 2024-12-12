@@ -31,7 +31,7 @@ We could end here but to close the circle ideally we put back the learnt lesson 
 
 ## Further links
 
-- [Inkeep Official docs](https://docs.inkeep.com/overview/getting-started)
+- [Inkeep Official docs](https://docs.inkeep.com/)
 - [Slack Replier repo](https://github.com/giantswarm/slack-replier)
 - [FAIQ repo](https://github.com/giantswarm/faiq)
 - [PR generator repo](https://github.com/giantswarm/pr-generator)
