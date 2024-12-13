@@ -11,7 +11,7 @@ COPY static /src/static/
 COPY config.toml /src/config.toml
 
 # build static site
-RUN hugo --verbose --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
+RUN hugo --logLevel info --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
 
 # final hugo output polished exclusively for production (static files served by nginx)
 FROM build AS build-production
