@@ -1,7 +1,8 @@
 ---
 title: Style guide for written content
 description: >
-  This guide only hopes to inspire you and provide an all-in-one source for all things content.
+  This guide only hopes to inspire you and provide an all-in-one source for all
+  things content.
 classification: public
 ---
 
@@ -41,21 +42,10 @@ In this article, you find guidelines around goals, voice and grammar, the basic 
 
 While these aren’t exhaustive, with every piece of content, we aim to:
 
-- **Educate**
-
-  Share knowledge on the things we care about.
-
-- **Empower**
-
-  Our colleagues, our partners, our customers.
-
-- **Share our values**
-
-  Our values should be reflected in all that we do.
-
-- **Share what makes us special**
-
-  We’re in the best position to share what makes us special, let’s remember to do just that.
+- **Educate**Share knowledge on the things we care about.
+- **Empower**Our colleagues, our partners, our customers.
+- **Share our values**Our values should be reflected in all that we do.
+- **Share what makes us special**We’re in the best position to share what makes us special, let’s remember to do just that.
 
 ## Voice
 
@@ -148,14 +138,18 @@ These are words we try to avoid because they’re clichéd, jargon-y or overly c
 
 ### Bias-free communication
 
-| ❌ Bad             | ✔️ Good |
-| ------------------ | ------ |
-| chairman           | chair, moderator |
-| mankind            | humanity, people, humankind |
-| mans               | operates, staffs |
-| salesman           | sales representative |
-| manmade            | manufactured, synthetic |
+| ❌ Bad              | ✔️ Good                                       |
+|--------------------|-----------------------------------------------|
+| chairman           | chair, moderator                              |
+| mankind            | humanity, people, humankind                   |
+| mans               | operates, staffs                              |
+| salesman           | sales representative                          |
+| manmade            | manufactured, synthetic                       |
 | manpower           | workforce, staff, personnel, capacity, effort |
-| sane (defaults)    | sensible (defaults) |
-| guys               | folks/folx |
-| he/she and him/her | they/theirs |
+| sane (defaults)    | sensible (defaults)                           |
+| guys               | folks/folx                                    |
+| he/she and him/her | they/theirs                                   |
+
+### Further links
+
+- Check out the [technical writing session](https://drive.google.com/file/d/18vhM3PHwNW4zhh4nDSVqG8hXdHycd8aW/view?usp=sharing) hosted by Andreas Sommer [2024/03/14] 
