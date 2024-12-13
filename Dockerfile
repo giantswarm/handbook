@@ -1,6 +1,6 @@
 # use intranet-baseimage with hugo, npm extended image for building in build step
 # the base image also includes installed NPM packages and the Hugo theme(s)
-FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.1.174  AS build
+FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.2.415  AS build
 
 # refresh relevant files (without clobbering stuff in the baseimage)
 COPY .git /src/.git/
@@ -11,7 +11,7 @@ COPY static /src/static/
 COPY config.toml /src/config.toml
 
 # build static site
-RUN hugo --verbose --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
+RUN hugo --logLevel info --gc --minify --enableGitInfo --cleanDestinationDir --destination /src/public
 
 # final hugo output polished exclusively for production (static files served by nginx)
 FROM build AS build-production
