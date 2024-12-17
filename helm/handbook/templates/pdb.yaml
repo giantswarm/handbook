@@ -9,4 +9,16 @@ spec:
     matchLabels:
       app: handbook
   unhealthyPodEvictionPolicy: AlwaysAllow
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: staticjscms-hugo-standalone
+  namespace: {{ .Release.Namespace }}
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: staticjscms-hugo-standalone
+  unhealthyPodEvictionPolicy: AlwaysAllow
 
