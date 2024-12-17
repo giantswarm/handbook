@@ -7,6 +7,11 @@ metadata:
     app: handbook
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -23,13 +28,11 @@ spec:
           type: RuntimeDefault
       affinity:
         podAntiAffinity:
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - podAffinityTerm:
-              labelSelector:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
                 matchLabels:
                   app: handbook
               topologyKey: kubernetes.io/hostname
-            weight: 100
       containers:
         - name: handbook
           image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.Version }}
