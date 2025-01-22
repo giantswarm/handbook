@@ -71,6 +71,15 @@
     },
     {
       "pattern": "https://docs.google.com/spreadsheets/d/"
+    },
+    {
+      "pattern": "https://giant-swarm.personio.de/staff"
+    },
+    {
+      "pattern": "https://docs.google.com/document/d/1Ws05-gb5SESuwaAKI9gQipGmPjUoVxs_KZqEREjZcVk"
+    },
+    {
+      "pattern": "https://giantswarm.app.opsgenie.com/alert/list"
     }
   ]
 }

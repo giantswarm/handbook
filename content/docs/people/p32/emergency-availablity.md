@@ -14,10 +14,10 @@ This has been established in the [first ground rules](https://docs.google.com/do
 
 # Reaching Engineers
 
-Engineers are available through [opsgenie](https://giantswarm.app.opsgenie.com/alert/list).
-Reaching out can easily done by creating an `alert` through the opsgenie UI and assigning the person you need to contact.
+Engineers are available through [Opsgenie](https://giantswarm.app.opsgenie.com/alert/list).
+Reaching out can easily be done by creating an `alert` through the Opsgenie UI and assigning the person you need to contact.
 
 # General Outreach
 
 Everyone is expected to be reachable by phone during their P32 day.
-You can find phone numbers in [personio](https://giant-swarm.personio.de/staff) in the public profile.
+You can find phone numbers in [Personio](https://giant-swarm.personio.de/staff) in the public profile.
