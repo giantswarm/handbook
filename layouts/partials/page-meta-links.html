@@ -1,8 +1,11 @@
-{{ if .Path }}
+{{ $path := "" }}
+{{ with .File }}
+{{ $path = .Path }}
+{{ end }}
 {{ $pathFormatted := "" }}
-{{ if eq .Path "docs" }}
+{{ if eq $path "docs" }}
 {{ else }}
-{{ $pathFormatted = replace ( replace ( replace .Path "\\" "/" ) "docs/" "/" ) ".md" "" }}
+{{ $pathFormatted = replace ( replace ( replace $path "\\" "/" ) "docs/" "/" ) ".md" "" }}
 {{ end }}
 {{ $gh_repo := ($.Param "github_repo") }}
 {{ $gh_subdir := ($.Param "github_subdir") }}
@@ -36,5 +39,4 @@
     };
 </script>
 </div>
-{{ end }}
 {{ end }}
