@@ -9,7 +9,7 @@ classification: public
 ## Installing Karpenter
 
 Karpenter can be installed as a Managed App either via Happa or via an App CR. Before installing Karpenter, you need to make sure that the following prerequisites are met:
-- a nodepool to be used for nodes managed by Karpenter must be available. It is totally fine to use an already-existing nodepool that is currently managed via Cluster Autoscaler. However, regardless of whether the nodepool is newly created or already existing, it must have at least one "standard" (managed via Cluster Autoscaler) node running 
+- a nodepool to be used for nodes managed by Karpenter must be available. It is totally fine to use an already-existing nodepool that is currently managed via Cluster Autoscaler. However, regardless of whether the nodepool is newly created or already existing, it must have at least one "standard" (managed via Cluster Autoscaler) node running
 - some AWS resources must be created as per the Karpenter App [README](https://github.com/giantswarm/karpenter-app/#aws-resources). It is enough to click on the link, ensure that the AWS account and the region are correct, and then click on the "Create" button. This will create the required resources in the AWS account.
 
 In the future, the creation of the AWS resources will be automated. For now, it is manual.
@@ -22,7 +22,7 @@ The configuration of Karpenter happens in Workload Clusters directly via `Provis
 
 ### The `Provisioner` CR
 
-Is described in the [Karpenter docs](https://karpenter.sh/docs/concepts/provisioners/). It basically states how Karpenter should create nodes. Beware that Karpenter only create "single" nodes - it does NOT rely on the concept of AutoScaling Group. This differs from the way we usually manage nodes in our Giant Swarm nodepools.
+Is described in the [Karpenter docs](https://github.com/aws/karpenter-provider-aws/blob/v0.27.0/website/content/en/v0.26.1/concepts/provisioners.md). It basically states how Karpenter should create nodes. Beware that Karpenter only create "single" nodes - it does NOT rely on the concept of AutoScaling Group. This differs from the way we usually manage nodes in our Giant Swarm nodepools.
 
 ### How to configure provisioners
 
@@ -37,7 +37,7 @@ Our suggestion is the following:
 In the following example, we will create two provisioners working on the same nodepool:
 - the higher priority Provisioner (`weight: 10`):
   - will create spot instances only
-  - these instances need to be either `4xlarge` or `8xlarge` or `9xlarge` or `12xlarge` or `16xlarge` 
+  - these instances need to be either `4xlarge` or `8xlarge` or `9xlarge` or `12xlarge` or `16xlarge`
   - these instances must not be small (no `t2`, `t3` or `t3a` instances)
 - the lower priority Provisioner (`weight: 5`) will be used whenever the higher priority one can't spin up a required EC2 instance, for instance because there is no compute available in the AWS region.
   - it will create on-demand instances only
