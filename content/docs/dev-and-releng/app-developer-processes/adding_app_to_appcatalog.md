@@ -63,6 +63,8 @@ The `-app` suffix should be in the repository name. Everywhere else, omit `-app`
 
 Use the following template repo to generate the basic skeleton for your app's repo: <https://github.com/giantswarm/template-app>.
 
+__Note__: It is encouraged to use [devctl](https://handbook.giantswarm.io/docs/dev-and-releng/repository/app/) instead to avoid manual mistakes.
+
 Once created:
 
 1. Go to <https://github.com/giantswarm/APP-NAME-app/settings> and make sure `Allow merge commits` box is unchecked and `Automatically delete head branches` box is checked.
@@ -93,8 +95,10 @@ If you need a Go project skeleton, start with this template instead: <https://gi
 
 #### 2.1. Getting the sources from upstream
 
-This is the most frequent (so far: only) use case. The hard part is to be able to easily synchronize with upstream sources while also keeping our
-local changes. Please read our guide about it: [how to track upstream repositories using the git-subtree method]({{< relref "/docs/product/managed-apps/dev-experience/git-subtree.md" >}}).
+There are two main ways to get the sources from upstream to synchrnoize changes while keeping our local changes:
+
+- [Using the git-subtree method]({{< relref "/docs/product/managed-apps/dev-experience/git-subtree.md" >}}).
+- [Using vendir to sync paths](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/maintain-app-with-vendir/).
 
 #### 2.2. Writing a chart from scratch
 
