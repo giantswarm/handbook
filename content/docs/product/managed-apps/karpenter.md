@@ -18,32 +18,32 @@ In the future, the creation of the AWS resources will be automated. For now, it 
 
 ### Fundamentals
 
-The configuration of Karpenter happens in Workload Clusters directly via `Provisioner` CRs. If you want to centrally manage `Provisioner` CRs in a Git repository, you might consider using Flux in the Management Cluster and rely on its `out-of-band delivery` functionality.
+The configuration of Karpenter happens in Workload Clusters directly via `NodePool` CRs. If you want to centrally manage `NodePool` CRs in a Git repository, you might consider using Flux in the Management Cluster and rely on its `out-of-band delivery` functionality.
 
-### The `Provisioner` CR
+### The `NodePool` CR
 
-Is described in the [Karpenter docs](https://github.com/aws/karpenter-provider-aws/blob/v0.27.0/website/content/en/v0.26.1/concepts/provisioners.md). It basically states how Karpenter should create nodes. Beware that Karpenter only create "single" nodes - it does NOT rely on the concept of AutoScaling Group. This differs from the way we usually manage nodes in our Giant Swarm nodepools.
+Is described in the [Karpenter docs for NodePools](https://karpenter.sh/docs/concepts/nodepools/). It basically states how Karpenter should create nodes. Beware that Karpenter only create "single" nodes - it does NOT rely on the concept of AutoScaling Group. This differs from the way we usually manage nodes in our Giant Swarm nodepools.
 
-### How to configure provisioners
+### How to configure node pools
 
 Our suggestion is the following:
 - each nodepool should have at least one "normal" node running. In other words, `min` needs to be set to 1. `max` can be set to 1 as well in case you want Karpenter to manage all the nodes in the nodepool. If you want to have some nodes managed by Karpenter and some nodes potentially managed by Cluster Autoscaler, you can set `max` to a higher value.
-- in case your nodepool needs to be made of 100% spot instances, create one `Provisioner` with `capacity-type: ["spot"]`
-- in case your nodepools needs to be made of spot instances, but you want to fall back to on-demand in case spot instances of the required types are not available, create two provisioners: one with `capacity-type: ["spot"]` and high `weight`, and another one with `capacity-type: ["on-demand"]` and lower weight. These two can also be configured separately as per the example below
-- each `Provisioner` has a `limits` section, which basically states when Karpenter should stop spinning up EC2 instances. For instance, if `limits` is set as 1000 vCPUs and 1000Gi of RAM, whenever Karpenter is reaching one of those values in total combined compute managed, it will stop spinning up Virtual Machines. We hence suggest very high limits in each provisioner in case the cluster needs to scale up to a very high number of nodes.
+- in case your NodePool needs to be made of 100% spot instances, create one `NodePool` with `capacity-type: ["spot"]`
+- in case your NodePools needs to be made of spot instances, but you want to fall back to on-demand in case spot instances of the required types are not available, create two NodePools: one with `capacity-type: ["spot"]` and high `weight`, and another one with `capacity-type: ["on-demand"]` and lower weight. These two can also be configured separately as per the example below
+- each `NodePool` has a `limits` section, which basically states when Karpenter should stop spinning up EC2 instances. For instance, if `limits` is set as 1000 vCPUs and 1000Gi of RAM, whenever Karpenter is reaching one of those values in total combined compute managed, it will stop spinning up Virtual Machines. We hence suggest very high limits in each NodePool in case the cluster needs to scale up to a very high number of nodes.
 
 ### An example
 
-In the following example, we will create two provisioners working on the same nodepool:
-- the higher priority Provisioner (`weight: 10`):
+In the following example, we will create two node pools:
+- the higher priority NodePool (`weight: 10`):
   - will create spot instances only
   - these instances need to be either `4xlarge` or `8xlarge` or `9xlarge` or `12xlarge` or `16xlarge`
   - these instances must not be small (no `t2`, `t3` or `t3a` instances)
-- the lower priority Provisioner (`weight: 5`) will be used whenever the higher priority one can't spin up a required EC2 instance, for instance because there is no compute available in the AWS region.
+- the lower priority NodePool (`weight: 5`) will be used whenever the higher priority one can't spin up a required EC2 instance, for instance because there is no compute available in the AWS region.
   - it will create on-demand instances only
   - these instances can only be `m6a`, `m6i`, `m5` or `m5a` instances of size `4xlarge`. Whereas with spot instances we accept "whatever" as long as it is cheap, here we enforce stricter conditions since we are paying for the on-demand price
 
-The following example shows a provisioner that works on a single-AZ nodepool. Nothing changes if the nodepool is multi-AZ, except for the fact that the provisioner will create nodes in all the AZs of the nodepool (specified in `topology.kubernetes.io/zone`).
+The following example demonstrates a single-AZ nodepool. Nothing changes if the nodepool is multi-AZ, except for the fact that nodes will be created in all the AZs of the nodepool (specified in `topology.kubernetes.io/zone`).
 
 ```yaml
 apiVersion: v1
