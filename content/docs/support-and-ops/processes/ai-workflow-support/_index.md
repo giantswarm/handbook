@@ -5,29 +5,30 @@ owner:
 classification: public
 ---
 
-## Why do we need this?
+## Why are we doing this?
 
-We have seen that multiple customers have asked similar questions repeatedly. Ideally, we'd put everything in our docs so we can support and profit as the main source of information. However, every reply to an individual question requires some research and thus time, considering the huge amounts of content our docs have. The `AI support workflow` aims to solve this pain by allowing our support colleagues to ask questions to a GPT (called `Inkeep`) and obtain a decent quality, correct answer.
+Main reasons:
 
+- We tend to answer a customer request multiple times.
+- We spend time and effort to find a solution but we rarely update our docs with the findings.
+
+The main idea is to use AI to help us answer customer requests at the same time we capture the knowledge and put it back into our docs without big effort.
 ## How this works?
 
-We have a workflow that could look like
+We can summarize the workflow in two steps:
 
-![AI workflow schema](ai-workflow-00.png)
+1. Assistant flow:
 
-Here we see there is a bot, called `@Ask Inkeep`, which is [automatically called for every new support thread by a dummy reply bot](https://github.com/giantswarm/slack-replier). The Inkeep bot will use OpenAI technology to query a custom GPT for an answer that has been trained on our official documentation.
+Our dummy [Slack Replier bot](https://github.com/giantswarm/slack-replier) listens to Slack for support questions and triggers calls to [Inkeep](https://portal.inkeep.com/) to get an answer. Inkeep returns a `confidence` score which we use to decide if we can use the answer or not. The bot will only reply if the confidence is high (`very_confident`).
+![AI assistant workflow schema](ai-workflow-00.png)
 
-The AI bot will query the trained model and reply in the same thread. The bot also asks for feedback on the response which is important to increase accuracy, over time. In case the response is good, it can be used in a reply to the customer directly (potentially one day we can put this in front of the customer). In case it is not, then we ask the owner team to give us a correct answer, as usual. There may still be some discussion till we mark the support thread as done.
+2. Capture flow:
 
-![AI workflow Inkeep](ai-workflow-01.png)
+The capture flow works in parallel with the assistant flow. Inkeep offers [reports](https://portal.inkeep.com/giantswarm/projects/cln8dq1a20003s60159pi4gv6/reports) and [chat sessions with `documentation gap` enabled](https://portal.inkeep.com/giantswarm/projects/cln8dq1a20003s60159pi4gv6/chat/chat-sessions?filters={%22firstMessageTime%22:%2230d%22,%22isDocumented%22:%22no%22}) where we can find support threads where there was no correct answer by the bot. Then we can verify if there is a gap and check the Slack support thread contains more or less the information to fill that gap. When it is the case, we use `Summarize for public docs` Slack shortcut to generate a summary and a pull request with the changes.
+That Slack shortcut is powered by [FAIQ](https://github.com/giantswarm/faiq) and [PR generator](https://github.com/giantswarm/pr-generator). FAIQ receives the Slack action and retrieve all messages of the thread. Then it asks Chat GPT to have a good summary excluding any credentials or sensitive information. With that summary asks PR generator to find a location in the docs to put the summary and generate a PR with the changes.
+![AI capture workflow Inkeep](ai-workflow-01.png)
 
-At this point, when we have clarified the thread and satisfied the customer, we could run [FAIQ](https://github.com/giantswarm/faiq) to get a good summary of what we have been done in the support request (adding `:support-recipe` icon). It will go through the thread and output a good summary, only taking the content from humans, and asking Open AI for a good summary following some format. Voila, we have markdown response with what has been done.
-
-![AI workflow summary](ai-workflow-02.png)
-
-We could end here but to close the circle ideally we put back the learnt lesson into our docs so AI bot will have a better answer next time. In order to do that we have created a [little bot](https://github.com/giantswarm/pr-generator/) that listens to an icon (`pr-github-open`) and pushes the message (apply it to the markdown summary please) to our docs automatically. After the team in question reviews the PR we can merge and Inkeep will later scrape it and include it in the LLM database.
-
-![AI workflow PR](ai-workflow-03.png)
+Example of [pull request created by the flow](https://github.com/giantswarm/docs/pull/2499/files).
 
 ## Further links
 
