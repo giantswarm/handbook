@@ -40,7 +40,9 @@ Here are some Dos and Don'ts for you to consider:
 - We are sherpas, you know, the behind-the-scenes experts who help the hero climb up the mountain. We do the technical heavy lifting at work and in language. Try to explain things simply and demystify the confusing stuff.
 - It goes without saying, but we’re never condescending or snobby — we bring people in on the joke, we don’t make them the joke.
 - Don’t be formal, write like a person. Write as you would speak to a friend.
-- Where relevant, start sentences with verbs to keep things punchy.> ✔️ Write punchy content by keeping sentences short.
+- Where relevant, start sentences with verbs to keep things punchy.
+
+> ✔️ Write punchy content by keeping sentences short.
 > ❌ The way to write punchy content is by keeping sentences short.
 
 - Say it simply or don’t say it at all — unless it’s really funny, then that’s okay. If it confuses you a little, it’s going to confuse us a lot.
@@ -50,7 +52,9 @@ Here are some Dos and Don'ts for you to consider:
 
 ### Top tips
 
-- Friendly details count. Use contractions:> ✔️ it’s
+- Friendly details count. Use contractions:
+
+> ✔️ it’s
 > ❌ it is
 > ✔️ you’re
 > ❌ you are
@@ -59,10 +63,14 @@ Here are some Dos and Don'ts for you to consider:
 > ✔️ let’s
 > ❌ let us
 
-- We are firm believers in the Oxford comma: in a list of three or more items, include a comma before the conjunction. 🇬🇧> ✔️ These are the options you have for defining the size of a Kubernetes cluster, choosing the instance types, and automatically scaling the cluster.
+- We are firm believers in the Oxford comma: in a list of three or more items, include a comma before the conjunction. 🇬🇧
+
+> ✔️ These are the options you have for defining the size of a Kubernetes cluster, choosing the instance types, and automatically scaling the cluster.
 > ❌ These are the options you have for defining the size of a Kubernetes cluster, choosing the instance types and automatically scaling the cluster.
 
-- Other than that, Giant Swarm uses American English across all platforms. 🇺🇸> ✔️ center
+- Other than that, Giant Swarm uses American English across all platforms. 🇺🇸
+
+> ✔️ center
 > ❌ centre
 
 - Spell out numbers one to ten and use the numerals for the rest.
@@ -74,10 +82,14 @@ This applies to the Giant Swarm text on the blog, website, public and internal d
 
 To ensure consistency, use sentence-case capitalization. This means capitalizing only the first word of a sentence (excluding proper nouns, brands, services).
 
-- If a sentence begins with a lowercase word, rewrite this sentence if possible.> ✔️ Not many people know that adidas is lowercase.
+- If a sentence begins with a lowercase word, rewrite this sentence if possible.
+
+> ✔️ Not many people know that adidas is lowercase.
 > ❌ adidas is lowercase can you believe it.
 
-- Don’t use internal capitalization> ❌ e-Commerce
+- Don’t use internal capitalization
+
+> ❌ e-Commerce
 
 - When spelling out acronyms, only capitalize if it’s a proper noun.
 - If using a slash, for example `On/Off`, always make the words match: lowercase/lowercase or Uppercase/Uppercase.
