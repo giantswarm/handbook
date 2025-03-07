@@ -25,8 +25,7 @@ Our dummy [Slack Replier bot](https://github.com/giantswarm/slack-replier) liste
 2. Capture flow:
 
 The capture flow works in parallel with the assistant flow. Inkeep offers [reports](https://portal.inkeep.com/giantswarm/projects/cln8dq1a20003s60159pi4gv6/reports) and [chat sessions with `documentation gap` enabled](https://portal.inkeep.com/giantswarm/projects/cln8dq1a20003s60159pi4gv6/chat/chat-sessions?filters={%22firstMessageTime%22:%2230d%22,%22isDocumented%22:%22no%22}) where we can find support threads where there was no correct answer by the bot. Then we can verify if there is a gap and check the Slack support thread contains more or less the information to fill that gap. When it is the case, we use `Summarize for public docs` Slack shortcut to generate a summary and a pull request with the changes.
-That Slack shortcut is powered by [FAIQ](https://github.com/giantswarm/faiq) and [PR generator](https://github.com/giantswarm/pr-generator). FAIQ receives the Slack action and retrieve all messages of the thread. Then it ask Chat GPT to have a good summary excluding any credentials or sensitive information. With that summary asks PR generator to find a location in the docs to put the summary and generate a PR with the changes.
-
+That Slack shortcut is powered by [FAIQ](https://github.com/giantswarm/faiq) and [PR generator](https://github.com/giantswarm/pr-generator). FAIQ receives the Slack action and retrieve all messages of the thread. Then it asks Chat GPT to have a good summary excluding any credentials or sensitive information. With that summary asks PR generator to find a location in the docs to put the summary and generate a PR with the changes.
 ![AI capture workflow Inkeep](ai-workflow-01.png)
 
 Example of [pull request created by the flow](https://github.com/giantswarm/docs/pull/2499/files).
