@@ -114,6 +114,3 @@ These are words we try to avoid because they’re clichéd, jargon-y or overly c
 - Read through the [Google Tech Writing training](https://developers.google.com/tech-writing/one/summary).
 - Check out the [technical writing session](https://drive.google.com/file/d/18vhM3PHwNW4zhh4nDSVqG8hXdHycd8aW/view?usp=sharing) hosted by Andreas Sommer [2024/03/14].
 
-
-
-
