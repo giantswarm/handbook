@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2024-09-26 | <span style="color: darkorange">review</span> | Decide whether the apps in CAPI cluster should have or not a prefix, and if we need to enforce it. |
+| 2024-09-26 | <span style="color: darkgreen; font-weight: bold">approved</span> | Decide whether the apps in CAPI cluster should have or not a prefix, and if we need to enforce it. |
 
 ## Intro
 
