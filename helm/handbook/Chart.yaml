@@ -9,4 +9,4 @@ annotations:
   application.giantswarm.io/team: up
 sources:
   - https://github.com/giantswarm/handbook
-version: 0.13.82-dev
+version: 0.13.110
