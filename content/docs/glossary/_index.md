@@ -273,7 +273,7 @@ See this [introduction](https://blog.growthinstitute.com/scale-up-blueprint/10-r
 
 ### Single sign-on (SSO)
 
-The concept of using one identity to authenticate with different services. E. g. using a Google account to authenticate for a Software as a Service (SaaS) like LastPass.
+The concept of using one identity to authenticate with different services. E.g. using a Google account to authenticate with a Software as a Service (SaaS) like Miro.
 
 ### Special interest group (SIG)
 
