@@ -2,6 +2,8 @@
 title: Troubleshooting
 owner:
   - https://github.com/orgs/giantswarm/teams/team-planeteers
+component:
+  - debug-toolbox
 description: "Help to debug common problems"
 classification: public
 ---
@@ -18,6 +20,8 @@ export NAMESPACES=<namespace>
 export ORG=<org>
 kgs template app --catalog giantswarm --name debug-toolbox --namespace org-$ORG --target-namespace $NAMESPACE --version 1.1.0 --cluster-name $CLUSTER
 ```
+
+**Note:** Inspect the [debug tool image](https://github.com/giantswarm/debug-toolbox/blob/main/Dockerfile) and suggest new tools if you think they are useful.
 
 ### Adding custom policy exceptions
 
@@ -44,12 +48,12 @@ helm template debug ./helm/debug-toolbox --values=/<custom_values>/values.yaml
 
 By default these containers are not very secure and therefore get denied by our cluster security policies as shown here:
 
-```
+```sh
 $ kubectl debug --namespace loki loki-backend-0 --image alpine -- /bin/sh
 Defaulting debug container name to debugger-9fp9k.
-Error from server: admission webhook "validate.kyverno.svc-fail" denied the request: 
+Error from server: admission webhook "validate.kyverno.svc-fail" denied the request:
 
-resource Pod/loki/loki-backend-0 was blocked due to the following policies 
+resource Pod/loki/loki-backend-0 was blocked due to the following policies
 
 disallow-capabilities-strict:
   require-drop-all: 'validation failure: Containers must drop `ALL` capabilities.'
