@@ -1,21 +1,30 @@
 ---
-title: "Test Environments"
+title: Test environments
 description: >
-  When working with test environments there are a couple of things we should try to stick to process wise in order to make everyones life easier and avoid cost.
+  When working with test environments (clusters), please pay attention to the instructions on this page to avoid trouble and save money.
 classification: public
 weight: 40
 ---
+
+## Creating a workload cluster for test purposes
+
+The dev portal provides an easy form to create a test cluster. Please give this one a try. It's in an early stage as of March 2025, so Honeybadger would love to get your feedback.
+
+[Create a test cluster](https://devportal.giantswarm.io/create/templates/default/create-test-cluster)
+
+Apart from that, you can also use Happa (where supported) or `kubectl-gs`.
 
 ## Avoid any avoidable cost
 
 Create test clusters in a way so that they are as cheap as possible and as expensive as necessary.
 
-- Use a **single master node** if possible (AWS only)
 - Use **spot instances** (AWS only)
 - Use only **one availability zone** if possible. (Cross AZ traffic costs extra.)
 - Use the **cheapest possible instance type**. On AWS, use `c5.xlarge`.
 - **Minimize the amount of worker nodes**. Set the `min` number of worker nodes to 1 instead of 3 (AWS and Azure only).
 - **Delete your test cluster** as soon as you don't need it any more.
+- On AWS vintage:
+  - Use a **single control plane node** if possible
 
 ## Label the cluster
 
@@ -31,19 +40,16 @@ annotations:
   alpha.giantswarm.io/ignore-cluster-deletion: "true"
 ```
 
-Clusters
+Clusters are deleted automatically by [cluster-cleaner](https://github.com/giantswarm/cluster-cleaner) under the following conditions:
 
-- older than 4 hours AND
-- where the `keep-until` date is in the past OR where no `keep-until` label is present
-- where `alpha.giantswarm.io/ignore-cluster-deletion` annotation is set to `false`
+- the cluster is older than **4 hours**
+- AND ( the `keep-until` label has a date in the past, or the label is not set)
+- AND ( the `alpha.giantswarm.io/ignore-cluster-deletion` annotation is set to `false` or not set )
 
-can be deleted by anyone without notice or [cluster-cleaner](https://github.com/giantswarm/cluster-cleaner) operator will clean them up automatically.
+Also anyone is allowed to delete these clusters without notice.
 
-### Leave The Environment Better Than You Found It
+### Leave the environment better than you found it
 
-- Once you are done with testing, redeploy master before leaving the
-  installation.
-- Check the dedicated alert channels for the installation you tested on and make
-  sure there is nothing broken.
-- In case the test environment is broken or unusable, try to fix it, then escalate
-  the situation to Biscuit.
+- If you replaced any management cluster components: Once you are done with testing, redeploy the original versions.
+- Check the dedicated alert channels for the installation you tested on and make sure there is nothing broken.
+- In case the test environment is broken or unusable, try to fix it, then escalate the situation to a KaaS team.
