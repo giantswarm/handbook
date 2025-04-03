@@ -2,6 +2,8 @@
 title: Troubleshooting GitOps
 owner:
   - https://github.com/orgs/giantswarm/teams/team-honeybadger
+component:
+  - flux-app
 description: "Help to debug GitOps problems."
 classification: public
 ---
@@ -15,14 +17,20 @@ We are offering GitOps as interface for our customers, here we collect tips on h
 
 ## Identify which kustomization owns a resource
 
-1. resource contains a set of labels that identify which kustomization it belongs to. Example:```
-  labels:
-    ...
-    kustomize.toolkit.fluxcd.io/name: gorilla-clusters-rfjh2
-    kustomize.toolkit.fluxcd.io/namespace: default
+1. resource contains a set of labels that identify which kustomization it belongs to. Example:
+
+```yaml
+labels:
+  ...
+  kustomize.toolkit.fluxcd.io/name: gorilla-clusters-rfjh2
+  kustomize.toolkit.fluxcd.io/namespace: default
 ```
+
 From the kustomization one can tell the source Git repository by looking at the spec field `sourceRef`.
-1. Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:```
+
+1. Use the flux command line. It offers a subcommand `trace` which describes all details related to GitOps:
+
+```sh
 » flux trace app/alfred-app -n alfred-ns
 
 Object:        App/alfred-app
@@ -37,6 +45,7 @@ GitRepository: workload-clusters-fleet
 Namespace:     default
 ...
 ```
+
 **Note**: If the resource has no labels (or `flux trace` returns `object not managed by Flux`) the object is not produced as result of helm or kustomize but could still be owned by a higher resource. An example would be a _pod_ which may not have the labels, but the parent _deployment_ does.
 
 ## Download the Git Repository source
@@ -55,7 +64,7 @@ This will download a `<COMMIT_SHA>.tar.gz` file. You can extract it with `tar -x
 
 In case there is a wrong configuration that breaks something in production or pages an oncall person, we might need to stop the flux kustomization while fixing the problem. To do that, one needs to [identify the kustomization the resources belong to](#identify-which-kustomization-owns-a-resource) and then stop the controller reconciliation using:
 
-```
+```sh
 flux suspend kustomization -n default <KUSTOMIZATION_NAME>
 ```
 
@@ -63,8 +72,8 @@ Remember to notify the customer of this change.
 
 ## Customer Communication
 
-After stopping reconcilation, please notify the customer of the change via slack support channel where the customer will be able to review and make the necessary changes the following business day.
+After stopping reconciliation, please notify the customer of the change via slack support channel where the customer will be able to review and make the necessary changes the following business day.
 
-In the case of an issue that cannot be fixed by stopping reconcilation and manually doing, a silence may be required. In this case, please notify via slack support channel a) the situation that we are alerted for and that we cannot help due to customer ownership and no access b) we will silence the alert until the next buisness day.
+In the case of an issue that cannot be fixed by stopping reconciliation and manually doing, a silence may be required. In this case, please notify via slack support channel a) the situation that we are alerted for and that we cannot help due to customer ownership and no access b) we will silence the alert until the next business day.
 
-In case of urgent situations or when pausing reconcilation does not fix the issue and the customer needs to be notified before the next business day, please reference the customer specific escalation matrix found in intranet. This will notify the customer of the situation and that Giant Swarm has no way to fix the problem and that Giant Swarm will silence the alert because of this. The `urgent` remains available for additional help within the Giant Swarm scope but can only be useful after the customer takes care of their fix.
+In case of urgent situations or when pausing reconciliation does not fix the issue and the customer needs to be notified before the next business day, please reference the customer specific escalation matrix found in intranet. This will notify the customer of the situation and that Giant Swarm has no way to fix the problem and that Giant Swarm will silence the alert because of this. The `urgent` remains available for additional help within the Giant Swarm scope but can only be useful after the customer takes care of their fix.
