@@ -80,6 +80,12 @@
     },
     {
       "pattern": "https://giantswarm.app.opsgenie.com/alert/list"
+    },
+    {
+      "pattern": "https://github.com/giantswarm/shared-configs"
+    },
+    {
+      "pattern": "https://github.com/giantswarm/rest-api-app-collection"
     }
   ]
 }
