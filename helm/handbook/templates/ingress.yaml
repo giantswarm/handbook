@@ -5,10 +5,10 @@ metadata:
   name: handbook
   labels:
     app: handbook
+  {{- with .Values.nginx.ingress.annotations }}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-giantswarm
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
   ingressClassName: nginx
   rules:
