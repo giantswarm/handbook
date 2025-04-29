@@ -2,11 +2,11 @@
 title: "Cilium Troubleshooting"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-cabbage
+component:
+  - cilium-app
 description: "If we suspect the CNI is misbehaving"
 classification: public
 ---
-
-If we suspect the CNI is misbehaving
 
 # Table of Contents
 1. [Command Line Tool](#command-line-tool)
@@ -18,7 +18,7 @@ If we suspect the CNI is misbehaving
 
 To run `cilium` command line tool (ctl) you can take use the binary from the cilium agent pod lie
 
-```bash
+```sh
 kubectl exec -it -n kube-system $(kubectl get pod -n kube-system -l app.kubernetes.io/name=cilium-agent -o jsonpath="{.items[0].metadata.name}" ) sh
 ```
 
@@ -33,13 +33,13 @@ or you install [cilium client](https://docs.cilium.io/en/stable/gettingstarted/k
 
 1) Open a terminal connection against any of the pods of the `cilium` daemonset:
 
-```
+```sh
 $> kubectl exec -it -n kube-system $(kubectl get pod -n kube-system -l app.kubernetes.io/name=cilium-agent -o jsonpath="{.items[0].metadata.name}" ) sh
 ```
 
 2) Check cilium status
 
-```
+```sh
 $> cilium status
 
 KVStore:                 Ok   Disabled
@@ -69,7 +69,7 @@ Cluster health:          6/6 reachable   (2023-05-17T10:41:28Z)
 
 1) In order to open the hubble UI you will need to use kubectl port-forwarding:
 
-```
+```sh
 $> kubectl -n kube-system port-forward svc/hubble-ui 3000:80
 ```
 
