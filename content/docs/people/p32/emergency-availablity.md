@@ -16,4 +16,4 @@ Engineers are available through [Opsgenie](https://giantswarm.app.opsgenie.com/a
 
 # General Outreach
 
-Everyone is expected to be reachable by phone during their P32 day. You can find phone numbers in [Personio](https://giant-swarm.personio.de/staff) in the public profile.
+Everyone is expected to be reachable by phone during their P32 day. You can find phone numbers in [Personio](https://giant-swarm.app.personio.com/staff) in the public profile.
