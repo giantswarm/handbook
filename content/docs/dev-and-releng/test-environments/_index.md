@@ -22,7 +22,9 @@ Create test clusters in a way so that they are as cheap as possible and as expen
 - Use only **one availability zone** if possible. (Cross AZ traffic costs extra.)
 - Use the **cheapest possible instance type**. On AWS, use `c5.xlarge`.
 - **Minimize the amount of worker nodes**. Set the `min` number of worker nodes to 1 instead of 3 (AWS and Azure only).
-- **Delete your test cluster** as soon as you don't need it any more.
+- **Delete your test cluster** as soon as you don't need it anymore.
+  - [Delete the workload cluster app](https://docs.giantswarm.io/getting-started/provision-your-first-workload-cluster/#deleting-workload-cluster) on the management cluster, the [cluster-apps-operator](https://github.com/giantswarm/cluster-apps-operator/) will take care of the rest:  
+    `kubectl delete -n org-${ORGANIZATION} app/${CLUSTER_NAME}`
 - On AWS vintage:
   - Use a **single control plane node** if possible
 
@@ -32,9 +34,9 @@ Note: This is not possible on KVM.
 
 To be able to keep a test cluster for more than 4 hours, add the following [labels](https://docs.giantswarm.io/advanced/labelling-workload-clusters/):
 
-- `creator`: The value should be your Slack user name. With this label, others in the company can address you in case of an issue.
+- `creator`: The value should be your Slack username. With this label, others in the company can address you in case of an issue.
 - `keep-until`: As a value, set an ISO date string (format: `YYYY-MM-DD`) for the last day this cluster should still keep running. This is to be evaluated against UTC date/time.
-- Your cluster wont' be deleted until you remove the annotation:
+- Your cluster won't be deleted until you remove the annotation:
 ```
 annotations:
   alpha.giantswarm.io/ignore-cluster-deletion: "true"
