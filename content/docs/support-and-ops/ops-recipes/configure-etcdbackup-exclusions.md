@@ -38,6 +38,9 @@ __Note__: Scaling masters to zero will destroy the cluster, which cannot be rest
 
 3. Commit and push the changes to the repository.
 
+__Note__: Remember that some installations could be frozen and living in `vintage`. In that case, you must push to the frozen branch instead of `main`.
+
+
 ## Best Practices
 
 - Use clear and descriptive commit messages when updating the configuration
