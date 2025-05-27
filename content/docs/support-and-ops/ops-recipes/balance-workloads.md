@@ -142,7 +142,7 @@ export CLUSTER=<your-cluster>
 kubectl gs template app \
   --catalog giantswarm \
   --name descheduler \
-  -- user-configmap /tmp/values.yaml \ # Optional, if you want to customize the descheduler policy
+  --user-configmap /tmp/values.yaml \ # Optional, if you want to customize the descheduler policy
   --target-namespace org-$ORG \
   --organization $ORG \
   --cluster-name $CLUSTER \
