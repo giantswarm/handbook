@@ -3,6 +3,7 @@ title: Balance nodes with descheduler
 owner:
   - https://github.com/orgs/giantswarm/teams/team-phoenix
 description: How to balance workloads across nodes with descheduler
+last_review_date: 2025-05-27
 classification: public
 ---
 In Giant Swarm, we rely on [descheduler](https://github.com/giantswarm/descheduler-app) to help redistribute pods based on specific policies. Here you see how to run descheduler in cronjob mode to automate this process, ensuring the cluster is balanced and optimized.
@@ -31,7 +32,9 @@ You may want to adjust the policy to your needs. Next is the list of more meanin
 ### 1. **PodAntiAffinity**
 
 - **Purpose**: Ensures that pods that should not be co-located on the same node due to pod anti-affinity rules are rescheduled.
-- **Configuration**:```yaml
+- **Configuration**:
+
+```yaml
 strategies:
   "PodAntiAffinity":
     enabled: true
@@ -41,7 +44,9 @@ strategies:
 ### 2. **RemoveDuplicates**
 
 - **Purpose**: Evicts duplicate pods (i.e., pods with the same owner reference) that are scheduled on the same node, which can help balance replicas across nodes.
-- **Configuration**:```yaml
+- **Configuration**:
+
+```yaml
 strategies:
   "RemoveDuplicates":
     enabled: true
@@ -51,19 +56,21 @@ strategies:
 ### 3. **LowNodeUtilization**
 
 - **Purpose**: Evicts pods from underutilized nodes to better distribute workloads across the cluster.
-- **Configuration**:```yaml
+- **Configuration**:
+
+```yaml
 strategies:
   "LowNodeUtilization":
     enabled: true
     params:
       nodeResourceUtilizationThresholds:
         thresholds:
-          cpu: 50
-          memory: 50
+          cpu: 40
+          memory: 40
           pods: 10
         targetThresholds:
-          cpu: 75
-          memory: 75
+          cpu: 90
+          memory: 90
           pods: 50
 ```
 
@@ -72,8 +79,10 @@ strategies:
 
 ### 4. **HighNodeUtilization**
 
-- **Purpose**: Evicts pods from overutilized nodes to reduce load and prevent resource saturation.
-- **Configuration**:```yaml
+- **Purpose**:  Move pods from nodes with low utilization to nodes with high utilization, together with ClusterAutoScaler to remove idle nodes from the cluster. The primary goal is to enhance node utilization.
+- **Configuration**:
+
+```yaml
 strategies:
   "HighNodeUtilization":
     enabled: true
@@ -90,7 +99,9 @@ strategies:
 ### 5. **RemovePodsViolatingNodeAffinity**
 
 - **Purpose**: Evicts pods that are scheduled on nodes in violation of their node affinity rules.
-- **Configuration**:```yaml
+- **Configuration**:
+
+```yaml
 strategies:
   "RemovePodsViolatingNodeAffinity":
     enabled: true
@@ -100,7 +111,9 @@ strategies:
 ### 6. **RemovePodsViolatingInterPodAntiAffinity**
 
 - **Purpose**: Evicts pods violating inter-pod anti-affinity rules to ensure proper distribution according to these rules.
-- **Configuration**:```yaml
+- **Configuration**:
+
+```yaml
 strategies:
   "RemovePodsViolatingInterPodAntiAffinity":
     enabled: true
@@ -110,7 +123,9 @@ strategies:
 ### 7. **RemovePodsViolatingTopologySpreadConstraint**
 
 - **Purpose**: Evicts pods that violate topology spread constraints, which ensure even distribution across specified topology domains.
-- **Configuration**:```yaml
+- **Configuration**:
+
+```yaml
 strategies:
   "RemovePodsViolatingTopologySpreadConstraint":
     enabled: true
@@ -126,11 +141,12 @@ export ORG=<your-org>
 export CLUSTER=<your-cluster>
 kubectl gs template app \
   --catalog giantswarm \
-  --name descheduler-app \
+  --name descheduler \
+  -- user-configmap /tmp/values.yaml \ # Optional, if you want to customize the descheduler policy
   --target-namespace org-$ORG \
   --organization $ORG \
   --cluster-name $CLUSTER \
-  --version 1.0.0 > descheduler-app.yaml
+  --version 1.0.1 > descheduler-app.yaml
 ```
 
 In case of customize the profile, save your config values to a file:
