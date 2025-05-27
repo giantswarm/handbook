@@ -132,7 +132,7 @@ This would be very error-prone and simply would not scale.
 
 - [Intranet page](https://intranet.giantswarm.io/docs/dev-and-releng/psp-deprecation/) about PSP to Kyverno migration and [corresponding public blog post](https://www.giantswarm.io/blog/giant-swarms-farewell-to-psp)
 - [Sample `PolicyException` resource for falco-app](https://github.com/giantswarm/falco-app/blob/main/helm/falco/templates/falco-policy-exception.yaml)
-- [Kyverno PolicyException documentation](https://kyverno.io/docs/writing-policies/exceptions/)
+- [Kyverno PolicyException documentation](https://release-1-11-0.kyverno.io/docs/writing-policies/exceptions/)
 
 ## Appendix
 
