@@ -2,6 +2,8 @@
 title: "Teleport Process State Is Not Okay"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-shield
+component:
+  - teleport-operator
 description: "Troubleshooting steps to resolve the Teleport process state alert."
 classification: public
 ---
@@ -16,7 +18,7 @@ When the Teleport process state alert is triggered, it's essential to check the 
 
 ## Prerequisites
 
-Ensure you have access to the GiantSwarm GitHub organization and are a member of the `team-bigmac` team, as this documentation refers to resources and steps specific to the GiantSwarm infrastructure.
+Ensure you have access to the GiantSwarm GitHub organization and are a member of the `team-shield` team, as this documentation refers to resources and steps specific to the GiantSwarm infrastructure.
 
 ## Configuring AWS CLI Profile for Teleport Cluster
 
@@ -35,7 +37,7 @@ This profile configuration allows you to use the AWS CLI to interact with the AW
 
 First, attempt to login to the Teleport production cluster using the Teleport CLI (`tsh`). This step verifies whether the Teleport cluster is accessible.
 
-```bash
+```text
 $ tsh login --auth giantswarm --proxy 'teleport.giantswarm.io:443'
 $ tsh kube login teleport.giantswarm.io
 ```
@@ -52,19 +54,19 @@ Ensure that the Teleport auth and proxy pods are running within the Kubernetes c
 
 ### Check Teleport Auth Pods
 
-```bash
+```sh
 $ kubectl get pods -l app.kubernetes.io/component=auth -n teleport
 ```
 
 ### Check Teleport Proxy Pods
 
-```bash
+```sh
 $ kubectl get pods -l app.kubernetes.io/component=proxy -n teleport
 ```
 
 After confirming the pods are running, examine the logs for both auth and proxy components for any errors that could indicate the root cause of the issue:
 
-```bash
+```text
 $ kubectl logs -l app.kubernetes.io/component=auth -n teleport
 $ kubectl logs -l app.kubernetes.io/component=proxy -n teleport
 ```
