@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2021-11-10 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2021-11-10 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | Config maps to represent YAML templates in CAPI cluster releases. Share a Git repo for configuration with the customer. Later add cluster definitions to GitOps as well. |
 
 This RFC describes how we can handle configuration management with Cluster API - focusing on defaulting, upgrades and interactions.
 
