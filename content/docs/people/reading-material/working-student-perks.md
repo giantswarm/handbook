@@ -37,7 +37,7 @@ If you have any questions feel free to contact Team Up.
 
 🏝 paid holiday
 
-As a working student in Germany, you are entitled to paid vacation days, just like regular employees. (20 days for Full Time Work). The number of days you get depends on how many days per week you work, e.g. if you work 3 days per week: 12 vacation days per year. (20/5*3) If you want to take more holiday or have further question feel free to ask Team-Up.
+As a working student in Germany, you are entitled to paid vacation days, just like regular employees (20 days for full time work). The number of days you get depends on how many days per week you work, e.g. if you work 3 days per week: 12 (20/5*3) vacation days per year. If you would like to take more holiday or have further questions feel free to ask Team Up.
 
 🗣 EAP
 
