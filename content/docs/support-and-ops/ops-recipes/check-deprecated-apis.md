@@ -2,6 +2,8 @@
 title: "Checking for Deprecated Kubernetes APIs with Pluto"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-planeteers
+component:
+  - cluster
 description: "How to use Pluto to identify deprecated Kubernetes APIs in your manifests and Helm charts."
 classification: public
 ---
@@ -45,7 +47,7 @@ To check Kubernetes manifests for deprecated APIs:
 1. **Navigate to the directory** containing your Kubernetes YAML files.
 2. **Run Pluto**:
 
-   ```bash
+   ```sh
    pluto detect-files -d ./path/to/manifests
    ```
 
@@ -58,7 +60,7 @@ To check Helm charts for deprecated APIs:
 1. **Navigate to the directory** containing your Helm chart.
 2. **Run Pluto**:
 
-   ```bash
+   ```sh
    helm template test ./helm/<HELM_CHART_NAME> | pluto detect-files
    ```
 
@@ -71,7 +73,7 @@ To check the currently deployed resources in a Kubernetes cluster:
 1. **Ensure kubectl is configured** to access the desired cluster.
 2. **Run Pluto**:
 
-   ```bash
+   ```sh
    pluto detect-helm -owide
    ```
 
@@ -81,7 +83,7 @@ To check the currently deployed resources in a Kubernetes cluster:
 
 You can specify which Kubernetes version to check against. For example, to check for deprecations against Kubernetes 1.25:
 
-```bash
+```sh
 pluto detect-files -d ./path/to/manifests --target-versions=k8s=1.25.0
 ```
 
@@ -89,7 +91,7 @@ pluto detect-files -d ./path/to/manifests --target-versions=k8s=1.25.0
 
 `pluto` will output a list of resources with deprecated API versions, including the file path, line number, and suggested API version to migrate to. Here’s an example output:
 
-```
+```text
 +----------------------+-----------------------+------------------+-------------------+
 | KIND                 | NAME                  | DEPRECATED API   | REPLACEMENT API   |
 +----------------------+-----------------------+------------------+-------------------+
