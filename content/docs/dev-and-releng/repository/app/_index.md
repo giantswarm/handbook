@@ -13,7 +13,7 @@ These instructions will help you create a new app repository based on our [templ
 
 ## Bootstrap Command (devctl app bootstrap)
 
-Creates a new app repository from `template-app` with the following features:
+Creates a new app repository from [`template-app`](https://github.com/giantswarm/template-app) with the following features:
 
 - Creates a new repository from the template-app template
 - Configures sync methods (vendir or kustomize)
