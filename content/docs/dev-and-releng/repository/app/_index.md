@@ -45,7 +45,7 @@ devctl app bootstrap \
 - `--github-token-envvar`: Name of environment variable containing GitHub token
 - `--dry-run`: Only print what would be done
 
-After running the command check the PR in `giantswarm/github`
+After running the command check the PR in `giantswarm/github`.
 
 ## Create a container repo
 
