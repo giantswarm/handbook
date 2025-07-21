@@ -17,15 +17,6 @@ taxonomyCloud = [] # This hides the taxonomies in the sidebar.
 taxonomyCloudTitle = [] # This hides the taxonomies in the sidebar.
 taxonomyPageHeader = ["classification"]
 
-# Highlighting config
-pygmentsCodeFences = true
-pygmentsUseClasses = false
-# Use the new Chroma Go highlighter in Hugo.
-pygmentsUseClassic = false
-#pygmentsOptions = "linenos=table"
-# See https://help.farbox.com/pygments.html
-pygmentsStyle = "tango"
-
 # Configure how URLs look like per section.
 [permalinks]
 blog = "/:section/:year/:month/:day/:slug/"
@@ -49,9 +40,25 @@ anchor = "smart"
 # id = "UA-00000000-0"
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+        [markup.goldmark.extensions.passthrough]
+            enable = false
+    [markup.highlight]
+        anchorLineNos = false
+        codeFences = true
+        guessSyntax = false
+        hl_Lines = ''
+        hl_inline = false
+        lineAnchors = ''
+        lineNoStart = 1
+        lineNos = false
+        lineNumbersInTable = true
+        noClasses = true
+        style = 'tango'
+        tabWidth = 4
+        wrapperClass = 'highlight'
 
 # Everything below this are Site Params
 
@@ -66,11 +73,11 @@ archived_version = false
 github_repo = "https://github.com/giantswarm/handbook"
 github_branch = "main"
 
-# Enable Algolia DocSearch
-algolia_docsearch = false
-
 # Enable Lunr.js offline search
 offlineSearch = true
+
+# Disable PrismJS syntax highlighting
+prism_syntax_highlighting = false
 
 # User interface configuration
 [params.ui]
