@@ -15,11 +15,11 @@ These instructions will help you create a new app repository based on our [templ
 
 Creates a new app repository from [`template-app`](https://github.com/giantswarm/template-app) with the following features:
 
-- Creates a new repository from the template-app template
-- Configures sync methods (vendir or kustomize)
-- Sets up patch methods (script or kustomize)
-- Configures CI/CD automatically
-- Creates a pull request with the initial setup
+- new repository based on the `template-app` template
+- sync methods configured (vendir or kustomize)
+- set up patch methods (script or kustomize)
+- fully configured CI/CD 
+- pull request with the initial setup in `giantswarm/github`
 
 ### Example:
 
