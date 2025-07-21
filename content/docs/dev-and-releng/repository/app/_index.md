@@ -53,7 +53,7 @@ To host container images based on the new repository, [set up registry repositor
 
 ## Final touches
 
-- On the repository home page near `About`, click the cog icon to adjust the repository description and tags. Under "Include in the home page" de-select the Packages and Environments options.
+- On the repository home page near `About`, click the gear (⚙️) icon to adjust the repository description and tags. Under "Include in the home page" de-select the Packages and Environments options.
 - Add documentation to the `docs/` folder.
 - Replace the `README.md` of your new repository with meaningful info about the software you're offering there.
 - Learn [how to publish the app in a catalog]({{< relref "/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog" >}})
