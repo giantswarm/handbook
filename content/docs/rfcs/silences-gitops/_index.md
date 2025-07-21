@@ -36,18 +36,17 @@ This solution is laid out as follows:
 
 ```yaml
 $ cat management-cluster-bases/bases/silences/alice.yaml
-apiVersion: observability.giantswarm.io/v1alpha2
+apiVersion: monitoring.giantswarm.io/v1alpha1
 kind: Silence
 metadata:
   name: alice
-  namespace: monitoring
   annotations:
     valid-until: "2100-01-01"
 spec:
   matchers:
   - name: alertname
     value: AliceAlert
-    matchType: "="
+    isRegex: false
 ```
 
 ```yaml
@@ -60,21 +59,20 @@ resources:
 
 ```yaml
 $ cat giantswarm-management-clusters/management-clusters/some-management-cluster/silences/bob.yaml
-apiVersion: observability.giantswarm.io/v1alpha2
+apiVersion: monitoring.giantswarm.io/v1alpha1
 kind: Silence
 metadata:
   name: bob
-  namespace: monitoring
   annotations:
     valid-until: "2100-01-01"
 spec:
   matchers:
   - name: alertname
     value: BobAlert
-    matchType: "="
+    isRegex: false
   - name: cluster_id
     value: some-cluster-id
-    matchType: "="
+    isRegex: false
 ```
 
 ### Use cases
