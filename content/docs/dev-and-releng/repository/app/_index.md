@@ -1,64 +1,10 @@
 ---
 linkTitle: App
 title: Creating a new app repository
-description: The canonical way to create a repository for an app to be
-  distributed and deployed via the Giant Swarm app platform.
-classification: public
+description: The canonical way to create a repository for an app to be distributed and deployed via the Giant Swarm app platform.
 ---
+
 These instructions will help you create a new app repository based on our [template-app](https://github.com/giantswarm/template-app).
-
-## Prerequisites
-
-- `devctl` latest version
-
-## Bootstrap Command (devctl app bootstrap)
-
-Creates a new app repository from [`template-app`](https://github.com/giantswarm/template-app) with the following features:
-
-- new repository based on the `template-app` template
-- sync methods configured (vendir or kustomize)
-- set up patch methods (script or kustomize)
-- fully configured CI/CD 
-- pull request with the initial setup in `giantswarm/github`
-
-### Example:
-
-```
-devctl app bootstrap \
-  --name my-app \
-  --patch-method script \
-  --sync-method vendir \
-  --team myteam \
-  --upstream-chart helm/upstream \
-  --upstream-repo https://github.com/org/repo \
-  --github-token-envvar GITHUB_TOKEN
-```
-
-### Options:
-
-- `--name`: Name of the app (required)
-- `--patch-method`: Method to patch upstream changes (script or kustomize)
-- `--sync-method`: Method to sync upstream changes (vendir or kustomize)
-- `--team`: Team responsible for the app
-- `--upstream-chart`: Path to the upstream chart
-- `--upstream-repo`: URL of the upstream repository
-- `--github-token-envvar`: Name of environment variable containing GitHub token
-- `--dry-run`: Only print what would be done
-
-After running the command check the PR in `giantswarm/github`.
-
-## Create a container repo
-
-To host container images based on the new repository, [set up registry repositories](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/) for it.
-
-## Final touches
-
-- On the repository home page near `About`, click the gear (⚙️) icon to adjust the repository description and tags. Under "Include in the home page" de-select the Packages and Environments options.
-- Add documentation to the `docs/` folder.
-- Replace the `README.md` of your new repository with meaningful info about the software you're offering there.
-- Learn [how to publish the app in a catalog]({{< relref "/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog" >}})
-
-# Manual instructions
 
 ## Prerequisites
 
@@ -145,7 +91,3 @@ To host container images based on the new repository, [set up registry repositor
 - Add documentation to the `docs/` folder.
 - Replace the `README.md` of your new repository with meaningful info about the software you're offering there.
 - Learn [how to publish the app in a catalog]({{< relref "/docs/dev-and-releng/app-developer-processes/adding_app_to_appcatalog" >}})
-
-
-
-
