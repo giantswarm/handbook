@@ -1,0 +1,138 @@
+name: Sync runbooks to components repository
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/docs/support-and-ops/ops-recipes/**'
+  workflow_dispatch:
+
+jobs:
+  sync-recipes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout handbook repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Sync runbooks to components
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Create a temporary directory for our script
+          mkdir -p /tmp/scripts
+
+          # Create the Python script
+          cat > /tmp/scripts/sync_runbooks.py << 'EOL'
+          import os
+          import yaml
+          import subprocess
+          from pathlib import Path
+          from collections import defaultdict
+
+          def parse_frontmatter(file_path):
+              with open(file_path, 'r') as f:
+                  content = f.read()
+                  if not content.startswith('---'):
+                      return None
+
+                  # Split the content and get the frontmatter
+                  parts = content.split('---', 2)
+                  if len(parts) < 3:
+                      return None
+
+                  try:
+                      return yaml.safe_load(parts[1])
+                  except yaml.YAMLError:
+                      return None
+
+          def create_pr(component, changes):
+              repo_name = f"giantswarm/{component}"
+              branch_name = f"sync-runbooks-{component}"
+
+              # Clone the component repository
+              subprocess.run(['git', 'clone', f'https://github.com/{repo_name}.git', f'/tmp/{component}'], check=True)
+              os.chdir(f'/tmp/{component}')
+
+              # Create and switch to a new branch
+              subprocess.run(['git', 'checkout', '-b', branch_name], check=True)
+
+              # Create the runbooks directory if it doesn't exist
+              os.makedirs('docs/runbooks', exist_ok=True)
+
+              # Apply all changes
+              for file_path, content in changes:
+                  with open(f'docs/runbooks/{Path(file_path).name}', 'w') as f:
+                      f.write(content)
+                  subprocess.run(['git', 'add', f'docs/runbooks/{Path(file_path).name}'], check=True)
+
+              # Commit and push
+              subprocess.run(['git', 'commit', '-m', f'Sync runbooks for {component}'], check=True)
+              subprocess.run(['git', 'push', 'origin', branch_name], check=True)
+
+              # Create PR
+              pr_title = f'Sync runbooks for {component}'
+              pr_body = f'This PR syncs the following runbooks from the handbook repository to the component repository:\n\n'
+              for file_path, _ in changes:
+                  pr_body += f'- {Path(file_path).name}\n'
+
+              subprocess.run([
+                  'gh', 'pr', 'create',
+                  '--title', pr_title,
+                  '--body', pr_body,
+                  '--base', 'main'
+              ], check=True)
+
+              os.chdir('/tmp')
+
+          def main():
+              recipes_dir = Path('content/docs/support-and-ops/ops-recipes')
+              # Dictionary to store changes for each component
+              component_changes = defaultdict(list)
+
+              # First pass: collect all changes for each component
+              for file_path in recipes_dir.glob('**/*.md'):
+                  if file_path.name == '_index.md':
+                      continue
+
+                  frontmatter = parse_frontmatter(file_path)
+                  if not frontmatter or 'component' not in frontmatter:
+                      continue
+
+                  components = frontmatter['component']
+                  if not isinstance(components, list):
+                      components = [components]
+
+                  content = file_path.read_text()
+                  for component in components:
+                      component_changes[component].append((file_path, content))
+
+              # Second pass: create PRs for each component with all its changes
+              for component, changes in component_changes.items():
+                  try:
+                      create_pr(component, changes)
+                  except subprocess.CalledProcessError as e:
+                      print(f"Error processing component {component}: {e}")
+                  except Exception as e:
+                      print(f"Unexpected error processing component {component}: {e}")
+
+          if __name__ == '__main__':
+              main()
+          EOL
+
+          # Run the script
+          python /tmp/scripts/sync_runbooks.py

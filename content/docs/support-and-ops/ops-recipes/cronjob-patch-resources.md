@@ -2,11 +2,11 @@
 title: "Scheduling a cronjob to patch resources"
 owner:
 - https://github.com/orgs/giantswarm/teams/team-planeteers
+component:
+  - cluster
 description: "Help to debug common problems"
 classification: public
 ---
-
-## Introduction
 
 This document describes how to schedule a cronjob to patch resources in a cluster. This can be useful in many cases, for instance:
 
@@ -17,7 +17,7 @@ This document describes how to schedule a cronjob to patch resources in a cluste
 
 ### Permissions
 
-First of all, our CronJob needs to be able to apply changes in the CRs in our cluster. Therefore, we will create the following resources for RBAC. Replace `$ORG` with your organization name and the `rules` section to match with the API Groups and resources you want to patch. The example below is done with the `AWSMachineDeployment` (AWS nodepool) CR in mind.
+First of all, our `CronJob` needs to be able to apply changes in the custom resources (CRs) in our cluster. Therefore, we will create the following resources for RBAC. Replace `$ORG` with your organization name and the `rules` section to match with the API Groups and resources you want to patch. The example below is done with the `AWSMachineDeployment` (AWS nodepool) CR in mind.
 
 ```yaml
 apiVersion: v1
@@ -56,6 +56,7 @@ roleRef:
 Now that we have the permissions, we can create the CronJob. The CronJob will run on Tuesdays at 05:30 AM UTC and will patch the `AWSMachineDeployment` CRs in the cluster. Replace `$ORG` with your organization name and the `spec.jobTemplate.spec.template.spec.containers[0].args` section to match with the API Groups and resources you want to patch. The example below is done with the `AWSMachineDeployment` (AWS nodepool) CR in mind. **Please keep in mind that the default timezone is UTC!**
 
 In the example below, we are setting:
+
 - the `dockerVolumeSizeGB` to `50`
 - the `kubeletVolumeSizeGB` to `50`
 - the `instanceType` of the nodepool to `m6a.4xlarge`
