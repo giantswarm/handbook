@@ -1,5 +1,5 @@
 ---
-title: Ensure an upstream container image is available in our registries
+title: Ensure an upstream container image is available in our ACR registry
 classification: public
 ---
 
