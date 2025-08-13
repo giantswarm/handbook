@@ -38,10 +38,11 @@ Copy the long token string (starts with `eyJ`), as you will need it in the next 
 
 ### Copy the image
 
-Now to copy the image with for all architectures, execute a command like the following, with the right source and target image and your token inserted. Do not change the username string!
+Now, to copy the source image for all architectures, execute a command like the following, with the right source and target image and your token inserted. Do not change the username string!
 
 ```nohighlight
-skopeo copy --multi-arch all \
+skopeo copy \
+  --multi-arch all \
   --dest-username 00000000-0000-0000-0000-000000000000 \
   --dest-password "eyJ..." \
   docker://golang:1.24.6-alpine3.22 \
