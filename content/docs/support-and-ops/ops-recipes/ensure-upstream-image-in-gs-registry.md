@@ -1,6 +1,8 @@
 ---
 title: Ensure an upstream container image is available in our ACR registry
 classification: public
+owner:
+  - https://github.com/orgs/giantswarm/teams/team-honeybadger
 ---
 
 ## Introduction
