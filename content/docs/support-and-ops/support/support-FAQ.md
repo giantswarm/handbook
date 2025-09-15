@@ -55,7 +55,7 @@ While logged in the Management Cluster, run the following command: `kubectl get 
 
 ### How do I trigger a CloudFormation stack reconciliation?
 
-Follow [this guide]({{< relref "/docs/support-and-ops/ops-recipes/cf-stack-reconciliation.md" >}}).
+Follow [this internal guide](https://intranet.giantswarm.io/docs/support-and-ops/ops-recipes/cf-stack-reconciliation).
 
 ### How do I fix a AWS Vintage cluster that wasn't upgraded to >v18.4.0 directly after adding the IRSA annotation (migration from KIAM)
 
