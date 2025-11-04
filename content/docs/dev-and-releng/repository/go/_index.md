@@ -87,11 +87,7 @@ devctl repo setup giantswarm/${REPOSITORY_NAME}
 
 To maintain team ownership and keep the repository up-to-date with our standards, you should add the new repository to your team's list in [giantswarm/github](https://github.com/giantswarm/github/tree/main/repositories). See the [README](https://github.com/giantswarm/github) for more details.
 
-## Step 7 - Create a container repo
-
-To build containers for the new repository, [set up registry repositories](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/) for it.
-
-## Step 8 - Final touches
+## Step 7 - Final touches
 
 - On the repository home page near `About`, click the cog icon to adjust the repository description and tags. Under "Include in the home page" de-select the Packages and Environments options.
 - Add documentation to the `docs/` folder.
