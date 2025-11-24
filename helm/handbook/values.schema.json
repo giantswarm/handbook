@@ -2,6 +2,31 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "gateway": {
+            "type": "object",
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "parentRef": {
+                    "type": "object",
+                    "properties": {
+                        "group": {
+                            "type": "string"
+                        },
+                        "kind": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "namespace": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "global": {
             "type": "object",
             "properties": {
@@ -34,6 +59,9 @@
                                     "type": "string"
                                 }
                             }
+                        },
+                        "enabled": {
+                            "type": "boolean"
                         }
                     }
                 }
