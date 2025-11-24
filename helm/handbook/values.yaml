@@ -31,6 +31,8 @@ gateway:
     kind: Gateway
     name: giantswarm-default
     namespace: envoy-gateway-system
+  labels: {}
+  annotations: {}
 
 secrets:
   # Information for staticjscms-hugo-standalone and its OAuth proxy component

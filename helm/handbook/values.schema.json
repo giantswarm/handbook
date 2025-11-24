@@ -5,8 +5,14 @@
         "gateway": {
             "type": "object",
             "properties": {
+                "annotations": {
+                    "type": "object"
+                },
                 "enabled": {
                     "type": "boolean"
+                },
+                "labels": {
+                    "type": "object"
                 },
                 "parentRef": {
                     "type": "object",
