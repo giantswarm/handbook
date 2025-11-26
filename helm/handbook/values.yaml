@@ -24,7 +24,7 @@ nginx:
       kubernetes.io/tls-acme: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 
-gateway:
+route:
   enabled: false
   parentRef:
     group: gateway.networking.k8s.io
