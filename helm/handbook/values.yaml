@@ -18,10 +18,21 @@ resources:
 
 nginx:
   ingress:
+    enabled: true
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-giantswarm
       kubernetes.io/tls-acme: "true"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+route:
+  enabled: false
+  parentRef:
+    group: gateway.networking.k8s.io
+    kind: Gateway
+    name: giantswarm-default
+    namespace: envoy-gateway-system
+  labels: {}
+  annotations: {}
 
 secrets:
   # Information for staticjscms-hugo-standalone and its OAuth proxy component

@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add optional Gateway API HTTPRoute. To be enabled by setting `gateway.enabled` to `true` in your values.
+- Add `nginx.ingress.enabled` value to control Ingress resource creation.
+
 ## [0.13.110] - 2025-03-11
 
 ### Added

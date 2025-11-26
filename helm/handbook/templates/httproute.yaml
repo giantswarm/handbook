@@ -1,0 +1,76 @@
+{{- if .Values.route.enabled -}}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ printf "%s-tls-redirect" ((include "name" .) | trunc 50 | trimSuffix "-") }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+  {{- with .Values.route.labels }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.route.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  hostnames:
+  - handbook.giantswarm.io
+  parentRefs:
+  {{- $redirParentRef := .Values.route.parentRef -}}
+  {{- $_ := set $redirParentRef "sectionName" "http" -}}
+  {{- list $redirParentRef | toYaml | nindent 2 }}
+  rules:
+  - filters:
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ include "name" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "labels.common" . | nindent 4 }}
+  {{- with .Values.route.labels }}
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with .Values.route.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  hostnames:
+  - handbook.giantswarm.io
+  parentRefs:
+  {{- $httpsParentRef := .Values.route.parentRef -}}
+  {{- $_ := set $httpsParentRef "sectionName" "https" -}}
+  {{- list $httpsParentRef | toYaml | nindent 2 }}
+  rules:
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: handbook
+      port: 8080
+    matches:
+    - path:
+        type: PathPrefix
+        value: /
+  - backendRefs:
+    - group: ""
+      kind: Service
+      name: staticjscms-hugo-standalone
+      port: 8080
+    matches:
+    - path:
+        type: PathPrefix
+        value: /admin
+    - path:
+        type: PathPrefix
+        value: /auth
+    - path:
+        type: PathPrefix
+        value: /callback
+{{- end }}
