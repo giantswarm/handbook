@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.0] - 2025-11-26
+
 ### Added
 
 - Add optional Gateway API HTTPRoute. To be enabled by setting `gateway.enabled` to `true` in your values.
@@ -310,7 +312,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial docsy setup.
 
-[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.13.110...HEAD
+[Unreleased]: https://github.com/giantswarm/handbook/compare/v0.14.0...HEAD
+[0.14.0]: https://github.com/giantswarm/handbook/compare/v0.13.110...v0.14.0
 [0.13.110]: https://github.com/giantswarm/handbook/compare/v0.13.0...v0.13.110
 [0.13.0]: https://github.com/giantswarm/handbook/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/giantswarm/handbook/compare/v0.11.0...v0.12.0
