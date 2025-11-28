@@ -253,4 +253,3 @@ Please follow [How to release a project]({{< relref "/docs/dev-and-releng/releas
 - [App Release Checklist](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/app-release-checklist/) contains hints and guidelines on what to do when releasing any Managed App
 - [Creating container registries for retagger](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/)
 - [CircleCI Intranet page](https://intranet.giantswarm.io/docs/dev-and-releng/ci/circle-ci/)
-- [MatchLabels are immutable]({{< relref "/docs/dev-and-releng/app-developer-processes/matchlabels-are-immutable.md" >}})
