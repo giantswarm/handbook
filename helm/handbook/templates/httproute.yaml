@@ -46,7 +46,7 @@ spec:
   - handbook.giantswarm.io
   parentRefs:
   {{- $httpsParentRef := .Values.route.parentRef -}}
-  {{- $_ := set $httpsParentRef "sectionName" "https" -}}
+  {{- $_ := set $httpsParentRef "sectionName" "giantswarmio-https" -}}
   {{- list $httpsParentRef | toYaml | nindent 2 }}
   rules:
   - backendRefs:
