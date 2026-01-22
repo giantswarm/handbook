@@ -55,15 +55,6 @@
       "pattern": "^https://intranet.giantswarm.io"
     },
     {
-      "pattern": "https://github.com/giantswarm/slack-replier"
-    },
-    {
-      "pattern": "https://github.com/giantswarm/faiq"
-    },
-    {
-      "pattern": "https://github.com/giantswarm/pr-generator"
-    },
-    {
       "pattern": "https://docs.google.com/document/d/"
     },
     {
