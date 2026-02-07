@@ -4,7 +4,7 @@ title: Creating a new app repository
 description: The canonical way to create a repository for an app to be distributed and deployed via the Giant Swarm app platform.
 ---
 
-These instructions will help you create a new app repository based on our [template-app](https://github.com/giantswarm/template-app).
+These instructions will help you create a new app repository based on our [repository template](https://github.com/giantswarm/template-app).
 
 ## Prerequisites
 
@@ -19,10 +19,12 @@ Since you will need the app and repository name several times on the command lin
 Example:
 
 ```nohighlight
-export APP_NAME=test-app
+export APP_NAME=something-awesome
 ```
 
-Here we assume you want to create the new app and repository named `test-app`.
+Here we assume you want to create the new app and repository named `something-awesome`.
+
+**Note regarding naming:** Please don't let your repository name end with `-app`. And make sure that the repository and the chart can be named identically. This will help us in day-to-day life.
 
 ## Step 2 - Repo creation
 
@@ -30,7 +32,7 @@ In your current command line / shell session, navigate to the directory where yo
 
 **Note:** No need to create an empty sub folder just for the new repo, as this will happen automatically in the next step.
 
-Now create the repository, using our [template-app](https://github.com/giantswarm/template-app) to pre-fill its content. Execute this command to create the new **public** repository:
+Now create the repository, using our [repository template](https://github.com/giantswarm/template-app) to pre-fill its content. Execute this command to create the new **public** repository:
 
 ```nohighlight
 gh repo create \
