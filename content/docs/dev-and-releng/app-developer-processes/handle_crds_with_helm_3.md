@@ -4,7 +4,7 @@ description: "This page documents a method for installing and updating CRDs usin
 classification: public
 ---
 
-Helm 3 introduced the `crds/` directory inside a helm chart. ([Reference](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/#install-a-crd-declaration-before-using-the-resource))
+Helm 3 introduced the `crds/` directory inside a helm chart. ([Reference](https://helm.sh/docs/chart_best_practices/custom_resource_definitions/))
 
 This approach has some downsides:
 

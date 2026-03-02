@@ -130,7 +130,7 @@ These clusters should have all alerts silenced.
 
 ### High-availability control plane
 
-A feature of our product indicating that workload clusters are provisioned with three control plane nodes instead of one. See our [public docs](https://docs.giantswarm.io/advanced/high-availability/control-plane/) for details.
+A feature of our product indicating that workload clusters are provisioned with three control plane nodes instead of one.
 
 ### High-availability Kubernetes masters
 
@@ -168,7 +168,7 @@ Now called [client certificate](#client-certificate).
 
 ### KIND
 
-**Kubernetes in Docker** is an upstream tool for running local Kubernetes clusters using Docker container “nodes”. See [official docs](https://kind.sigs.k8s.io/docs/user/quick-start/) for more information.
+**Kubernetes in Docker** is an upstream tool for running local Kubernetes clusters using Docker container "nodes". See [official docs](https://kind.sigs.k8s.io/docs/user/quick-start/) for more information.
 
 ---
 
@@ -351,7 +351,3 @@ The software stack comprising a workload cluster.
 ---
 
 ## Z
-
-
-
-
