@@ -348,16 +348,16 @@ spec:
 The upgrade testing must validate compatibility across the entire stack. When upgrading from the **current version** to a **target version**, all components in the chain must remain compatible:
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────────┐
 │                    Teleport Cluster (current → target)               │
 │                    ci.teleport.giantswarm.io                         │
-└─────────────────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────────┘
                               ▲
                               │ Connects via proxyAddr
                               │
-┌─────────────────────────────────────────────────────────────────────────────┐
+┌─────────────────────────────────────────────────────────────────────┐
 │                    Management Cluster (MC)                           │
-├─────────────────────────────────────────────────────────────────────────────┤
+├─────────────────────────────────────────────────────────────────────┤
 │  ┌─────────────────────┐    ┌─────────────────────────────────────┐ │
 │  │  teleport-operator  │    │  teleport-operator-tbot             │ │
 │  │                     │───►│  Authenticates to Teleport cluster  │ │
@@ -369,7 +369,7 @@ The upgrade testing must validate compatibility across the entire stack. When up
 │  │  teleport-kube-agent                                            │ │
 │  │  Registers MC/WC with Teleport cluster                          │ │
 │  └─────────────────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────────────────────┘
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 **Key compatibility points to validate:**
@@ -520,7 +520,7 @@ Implement automated testing and resource cleanup.
 - [teleport-operator repository](https://github.com/giantswarm/teleport-operator)
 - [mc-bootstrap repository](https://github.com/giantswarm/mc-bootstrap)
 - [tekton-resources repository](https://github.com/giantswarm/tekton-resources)
-- [Teleport Upgrade Documentation](https://goteleport.com/docs/upgrading/)
+- [Teleport Upgrade Documentation](https://goteleport.com/docs/management/operations/upgrading/)
 - [Teleport Version Compatibility](https://goteleport.com/docs/faq/#version-compatibility)
 
 ## Appendix: File changes summary
