@@ -55,28 +55,40 @@
       "pattern": "^https://intranet.giantswarm.io"
     },
     {
-      "pattern": "https://docs.google.com/document/d/"
+      "pattern": "^https://docs.google.com/document/d/"
     },
     {
-      "pattern": "https://docs.google.com/document/d/"
+      "pattern": "^https://docs.google.com/document/d/"
     },
     {
-      "pattern": "https://docs.google.com/spreadsheets/d/"
+      "pattern": "^https://docs.google.com/spreadsheets/d/"
     },
     {
-      "pattern": "https://giant-swarm.app.personio.com/staff"
+      "pattern": "^https://giant-swarm.app.personio.com/staff"
     },
     {
-      "pattern": "https://docs.google.com/document/d/1Ws05-gb5SESuwaAKI9gQipGmPjUoVxs_KZqEREjZcVk"
+      "pattern": "^https://docs.google.com/document/d/1Ws05-gb5SESuwaAKI9gQipGmPjUoVxs_KZqEREjZcVk"
     },
     {
-      "pattern": "https://giantswarm.app.opsgenie.com/alert/list"
+      "pattern": "^https://giantswarm.app.opsgenie.com/alert/list"
     },
     {
-      "pattern": "https://github.com/giantswarm/shared-configs"
+      "pattern": "^https://github.com/giantswarm/shared-configs"
     },
     {
-      "pattern": "https://github.com/giantswarm/rest-api-app-collection"
+      "pattern": "^https://github.com/giantswarm/rest-api-app-collection"
+    },
+    {
+      "pattern": "^https://medium\\.com/@stefanprodan/"
+    },
+    {
+      "pattern": "^https://github\\.com/giantswarm/teleport-fleet"
+    },
+    {
+      "pattern": "^https://github\\.com/giantswarm/tekton-resources"
+    },
+    {
+      "pattern": "^https://github\\.com/giantswarm/image-automation-controller"
     }
   ]
 }
