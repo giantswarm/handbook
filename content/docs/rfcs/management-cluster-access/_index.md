@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-01-25 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-01-25 | <span style="color: darkgreen; font-weight: bold">approved</span> | Introduce Azure AD as a second SSO identity provider alongside GitHub to eliminate the single point of failure for management cluster access. Keep 1Password kubeconfig as an emergency fallback and integrate it into `opsctl login`. Automate SSO setup for both management and workload clusters. |
 
 ## Access to management clusters for Giant Swarm staff
 
