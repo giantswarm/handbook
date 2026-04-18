@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-08-24 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-08-24 | <span style="color: darkgreen; font-weight: bold">approved</span> | Each management cluster gets its own `crds` Flux kustomization for flexibility in CRD management, replacing the shared `all` composite with a `common` one. Vintage provider-specific CRDs are versioned based on the apiextensions library. |
 
 Related to: [Manage essential CRDs via MCB]({{< relref "/docs/rfcs/manage-essential-crds-via-mcb/" >}})
 
