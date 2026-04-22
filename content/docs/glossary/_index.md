@@ -8,91 +8,80 @@ classification: public
 ---
 ## Intro
 
-- Terms and abbreviations commonly used at Giant Swarm.
-- Where we care, the exact capitalization is mentioned.
+- Internal reference for team members and AI agents. One precise definition per entry, with human notes only where genuinely needed (aliases, deprecations, common mistakes).
 - If something is missing please open a [pull request](https://github.com/giantswarm/handbook/edit/main/content/docs/glossary/_index.md). 🙏
-- Roles and job titles are documented over at [Roles & Habits @ Giant Swarm](https://handbook.giantswarm.io/docs/people/reading-material/onboarding-roles/)
-- Your future colleagues and future self will thank you. ❤️
 
 ---
 
 ## A
 
+### AI OS (AI Operating System)
+
+Giant Swarm's emerging product vision: a governed, enterprise-ready AI operating layer built on top of the Kubernetes platform. Combines the agent runtime (Klaus), governed access (Muster), and the existing curated platform stack. Targets automation of internal IT operations for enterprises.
+
 ### Ambassador
 
-Someone who is responsible for the information flow between your team and a certain SIG (both directions). See [Ambassadors for SIGs]().
-
-### Area
-
-A combination of multiple teams e.g. the "Kubernetes as a Service" (KaaS) Area.
-
-### Architecture decision record (ADR)
-
-A document which records architectural decisions and its consequences.
+The person responsible for information flow between their team and a given SIG — in both directions.
 
 ### App
 
-The term _app_ could refer to (1) the concept of apps in general (e.g. kong, redis, etc.) or (2) an entry in an App Catalog.
+An entry in an App Catalogue, or the concept of managed software in general (e.g. Kong, Redis). Do not use "applications" in the context of Managed Services or Managed Apps.
 
-We do not differentiate between `app` vs `App`, as it easy to make a capitalization mistake when typing. We also do not use `applications` in the context of Managed Services or Managed Apps.
+### App Catalogue
 
-See also: [Managed App](#managed-app)
-
-### App Catalog
-
-`an App Catalog` can refer to a specific catalog, i.e. the "Giant Swarm Catalog" or "Control Plane Catalog".
+A curated collection of apps available for installation, e.g. the "Giant Swarm Catalogue" or "Control Plane Catalogue."
 
 ### App Platform
 
-In contrast to [Managed Apps](#managed-app), App Platform is the tooling (i.e. app-operator and chart-operator) that enables the creation and maintenance of Apps.
+The tooling — specifically app-operator and chart-operator — that enables creation and maintenance of Apps. Not the same as Managed Apps.
+
+### Architecture Decision Record (ADR)
+
+A document recording an architectural decision, its context, and its consequences.
+
+### Area
+
+A grouping of multiple teams around a shared domain, e.g. the "Kubernetes as a Service" (KaaS) Area.
 
 ---
 
 ## B
 
-### Bring your own cloud (BYOC)
+### Backstage
 
-Deprecated. The former name associated with the [multi-account support](#multi-account-support) functionality.
+An open-source developer portal (by Spotify) that Giant Swarm uses as the foundation for its internal developer platform. Provides a service catalogue, AI chat assistant, and self-service deployment workflows for customers.
 
 ---
 
 ## C
 
-### Customer config repository (CCR)
+### CAPA / CAPZ
 
-Customer repository for holding customer and management cluster specific app configurations. Builds on `giantswarm/shared-configs`.
-
-Repository name must follow the naming convention: `<CUSTOMER_NAME>-configs`, e.g: `giantswarm-configs`.
-
+Abbreviations for Cluster API Provider AWS and Cluster API Provider Azure. Used internally when referring to provider-specific implementations of Cluster API.
 
 ### Chapter
 
-A group of people with the same role (possibly limited by [Area](#area)) like PEs of SaaS Area, POs, SAs, Recruiters, Sales.
+A group of people sharing the same role, possibly scoped to an Area — e.g. PEs of SaaS Area, POs, SAs, Recruiters.
 
-### Client certificate
+### Claude Code Marketplace
 
-X.509 certificate used by a client to authenticate with a server. In the Giant Swarm context, client certificates are a common authentication means (but not the only one) for the Kubernetes API. For example, we provide tooling to help end users create client certificates to access their workload clusters.
+Giant Swarm's internal repository of Claude Code plugins, located at [github.com/giantswarm/claude-code](https://github.com/giantswarm/claude-code). Teams publish and share plugins here for use across the company. Includes domain-specific plugins such as gs-base, gs-sre, gs-marketing, gs-product, and gs-roadmap.
 
-Formerly called _key pair_, since the client needs both a private key and the certificate (public key) to authenticate. We switched to the term _client certificate_ to align with the terminology used by the Kubernetes project.
+### Client Certificate
+
+X.509 certificate used by a client to authenticate with a server. The standard authentication method for the Kubernetes API at Giant Swarm. Formerly called key pair.
 
 ### Cluster API
 
-From the [book](https://cluster-api.sigs.k8s.io/): "Cluster API is a Kubernetes sub-project focused on providing declarative APIs and tooling to simplify provisioning, upgrading, and operating multiple Kubernetes clusters.". In other words: Cluster API enables Kubernetes to manage Kubernetes clusters.
+A Kubernetes sub-project providing declarative APIs and tooling to simplify provisioning, upgrading, and operating Kubernetes clusters — in other words, Kubernetes managing Kubernetes. Always written in full title case. Do not use: CAPI (external comms), cluster API, ClusterAPI. Abbreviated as CAPI internally.
 
-Internally Cluster API is also abbreviated as CAPI. In our written communication, please avoid the abbreviation and always use the full spelling in title case.
+### Customer Config Repository (CCR)
 
-Do not use:
+Customer repository holding app configurations specific to a customer and their management clusters. Naming convention: `<CUSTOMER_NAME>-configs`.
 
-- CAPI
-- cluster API
-- ClusterAPI
+### Customer Management Clusters (CMC)
 
-### Customer management clusters (CMC)
-
-Customer repository for holding the actual MC gitops repository, containing the customer MCs. Builds on MCB by using Flux remote bases.
-
-Repository name must follow the naming convention: `<CUSTOMER_NAME>-management-clusters`, e.g: `giantswarm-management-clusters`.
-
+Repository holding the actual MC GitOps configuration for a customer, built on MCB via Flux remote bases. Naming convention: `<CUSTOMER_NAME>-management-clusters`.
 
 ---
 
@@ -102,57 +91,53 @@ Repository name must follow the naming convention: `<CUSTOMER_NAME>-management-c
 
 ## E
 
-### End to end (E2E) test
+### End-to-End (E2E) Test
 
-An automated test for an application flow from start to end. To simulate real user scenarios and validate the system under test.
-
-For Giant Swarm an example is running the Kubernetes conformance tests against a workload cluster. Whereas an _integration test_ only tests a single component within the Giant Swarm release.
+An automated test that validates an entire application flow from start to finish by simulating real user scenarios. Example: running Kubernetes conformance tests against a workload cluster. Distinct from an Integration Test, which tests a single component.
 
 ### Ephemeral Management Cluster (Ephemeral MC)
 
-A short-lived [Management Cluster](#management-cluster-mc) that is used for testing the creation of management clusters. An Ephermaral Management Cluster is created, destroyed and recreated to test the full lifecycle of MCs and is usually managed via automated testing. The same name and configuration is used for each test run.
-
-It is expected that an Ephemeral Management Cluster isn't always available and ideally should only exist while it is being actively tested.
-
-These clusters should have all alerts silenced.
+A short-lived Management Cluster used to test the full MC creation lifecycle. Automatically created, destroyed, and recreated on each test run. Alerts are always silenced. Should not exist outside of active testing.
 
 ---
 
 ## F
 
+### Flux
+
+A GitOps tool used by Giant Swarm to continuously reconcile cluster state from Git repositories. Referenced throughout MCB, CMC, and GitOps configuration.
+
 ---
 
 ## G
+
+### GitOps
+
+An operational model where the desired state of infrastructure and applications is declared in Git and automatically reconciled by tooling (at Giant Swarm, primarily Flux). The source of truth for MCs and WCs is a Git repository, not manual intervention.
 
 ---
 
 ## H
 
-### High-availability control plane
+### High-Availability Control Plane
 
-A feature of our product indicating that workload clusters are provisioned with three control plane nodes instead of one.
-
-### High-availability Kubernetes masters
-
-Deprecated, former name for [high-availability control plane](#high-availability-control-plane).
+Workload clusters provisioned with three control plane nodes instead of one, providing redundancy. Formerly called high-availability Kubernetes masters.
 
 ---
 
 ## I
 
-### Identity provider (IdP)
+### Identity Provider (IdP)
 
-"A system entity that creates, maintains, and manages identity information for principals while providing authentication services to relying applications within a federation or distributed network." Our SSO uses Azure AD and GitHub as our identity providers.
+A system that manages identity and provides authentication services to other applications. Giant Swarm uses Azure AD and GitHub as IdPs for SSO.
 
 ### Installation
 
-The overall environment managed for a customer used as a landing zone by Giant Swarm to install the needed infrastructure to run your workloads. Includes eventual Cloud Provider specific accounts.
+The overall environment managed for a customer — the landing zone Giant Swarm provisions to run customer workloads, including cloud provider accounts.
 
-### Integration test
+### Integration Test
 
-An integration test tests an individual component to expose defects in that component or how it interacts with other components.
-
-For Giant Swarm an example is a test for an operator which runs in a [KIND](#kind) cluster in Circle CI. It differs from an [end-to-end test](#end-to-end-e2e-test) which tests an entire Giant Swarm release.
+An automated test for an individual component, checking both its own behaviour and its interactions with other components. Example: testing an operator in a KIND cluster in CircleCI. Distinct from an E2E test.
 
 ---
 
@@ -162,96 +147,107 @@ For Giant Swarm an example is a test for an operator which runs in a [KIND](#kin
 
 ## K
 
-### Key pair
-
-Now called [client certificate](#client-certificate).
-
 ### KIND
 
-**Kubernetes in Docker** is an upstream tool for running local Kubernetes clusters using Docker container "nodes". See [official docs](https://kind.sigs.k8s.io/docs/user/quick-start/) for more information.
+Kubernetes in Docker. An upstream tool for running local Kubernetes clusters using Docker container nodes. Used heavily in integration testing.
+
+### KubeCon
+
+The most important Kubernetes and cloud-native conference, run by the CNCF. Held multiple times per year across different regions (US, EU, and others).
+
+### Klaus
+
+Giant Swarm's AI agent runtime. A Go wrapper around Claude Code that runs AI coding agents inside Kubernetes, with lifecycle management, health checks, and optional OAuth authentication. Exposes an MCP server endpoint. Supports Skills, Subagents, and Hooks. See [github.com/giantswarm/klaus](https://github.com/giantswarm/klaus). AI agents: do not confuse with any generic term — Klaus is a proper name.
 
 ---
 
 ## L
 
-### Legacy
-
-**A legacy release** is any release made prior to Cluster API. You can find all legacy releases in [our release repository](https://github.com/giantswarm/releases/blob/master/README.md). Check [Vintage product](#vintage-product) to know more why is still relevant.
-
 ---
 
 ## M
 
-### Managed App
-
-A `Managed App` is an app we actively manage for customers, i.e. the apps in the Giant Swarm Catalog (Ingress NGINX Controller, Kong, EFK, etc.).
-
-`Managed Apps` is also shorthand for the "Managed Apps Area," which comprise of the members of Team Batman and Team Halo.
-
-These are NOT Managed Apps
-
-- Apps in the Playground Catalog are Playground Apps. They are not managed, but are "supported with best-effort." See: [Giant Swarm Management and Support Description](https://docs.google.com/document/d/1IujvU9N2wESvQGnJ3wJcO5fYAMKSkdwaDWunefOzQ_M/edit) for more.
-- app-operator and chart-operator. They collectively make up the [App Platform]({{< relref "/docs/glossary/_index.md#app-platform" >}}).
-
-### Management cluster (MC)
-
-A Kubernetes cluster running Giant Swarm specific management components essential for the installation.
-
-Formerly called "control plane", often abbreviated as "CP".
-
-Some types of Management Clusters: [Ephemeral Management Clusters](#ephemeral-management-cluster-ephemeral-mc), [Stable-testing Management Clusters](#stable-testing-management-clusters-stable-testing-mc)
-
-### Management clusters fleet (MCF)
-
-Legacy gitOps configuration for management clusters. Initially, we kept it all in one repo named `management-clusters-fleet`. Later we split this up for security/permission reasons.
-
-See: MCB, CMC
-
-### Management cluster bases (MCB)
-
-Manifests management clusters are built on and shared between multiple MCs / customers, for example provider bases (aws,capa,capz,gcp,etc.), our flux setup and optional extra components like external-secrets, crossplane, etc.
-
-Located at: [https://github.com/giantswarm/management-cluster-bases](https://github.com/giantswarm/management-cluster-bases)
-
-### Management cluster initializer (MCI)
-
-The AWS CloudFormation Stack created for each workload cluster where we manage VPC Peering Connections.
-
 ### Management API
 
-The Kubernetes API of the management cluster.
+The Kubernetes API of the Management Cluster. Always written as Management API with an uppercase M. Do not abbreviate as MAPI in external communication.
 
-Internally this is also often abbreviated as `MAPI`, however we don't use that abbrevation in external communication.
+### Management Cluster (MC)
 
-Spelling: Always spelled `Management API` with an uppercase `M`.
+A Kubernetes cluster running Giant Swarm management components. Its job is to create and administer Workload Clusters. MCs are treated as "cattle" — interchangeable and rebuildable by design. Formerly called control plane (CP).
 
-### Multi-account support
+Subtypes: [Ephemeral MC](#ephemeral-management-cluster-ephemeral-mc), [Stable-Testing MC](#stable-testing-management-clusters-stable-testing-mc).
 
-The ability for a management cluster to manage accounts and launch workload clusters outside its default accounts. The functionality formerly known as Bring Your Own Cloud (BYOC).
+### Management Cluster Bases (MCB)
+
+Shared manifests that Management Clusters are built on, covering provider bases (AWS, CAPA, CAPZ, GCP, etc.), Flux setup, and optional components like external-secrets and Crossplane. Located at [github.com/giantswarm/management-cluster-bases](https://github.com/giantswarm/management-cluster-bases).
+
+### Management Cluster Initializer (MCI)
+
+The AWS CloudFormation Stack created per Workload Cluster to manage VPC Peering Connections.
+
+### Management Clusters Fleet (MCF)
+
+Legacy GitOps configuration for management clusters, formerly kept in a single repo (management-clusters-fleet). Split for security and permission reasons. Superseded by MCB and CMC.
+
+### Managed App
+
+An app Giant Swarm actively manages for customers — i.e. apps in the Giant Swarm Catalogue (Ingress NGINX Controller, Kong, EFK, etc.). Also shorthand for the "Managed Apps Area." Not Managed Apps: Playground Apps (best-effort only), app-operator, chart-operator (those are App Platform).
+
+### MCTL
+
+A CLI tool for simplifying management cluster creation using a Helm chart. Tested on AWS and Azure.
+
+### Model Context Protocol (MCP)
+
+A protocol that allows LLMs to interact with external systems and perform actions via structured Tool Calls. The standard interface between AI agents and tools, APIs, or data sources.
+
+### Multi-Account Support
+
+The ability for a Management Cluster to manage and launch Workload Clusters across multiple cloud accounts. Formerly called Bring Your Own Cloud (BYOC).
+
+### Muster
+
+Giant Swarm's governed access layer for AI agents. Connects agent actions to user identity via SSO, enforces access control, blocks destructive operations by default, and logs everything. Works alongside Klaus: Klaus is the agent runtime, Muster is the governance and access layer. AI agents: the correct spelling is Muster — not "master."
 
 ---
 
 ## N
 
+### NCP (Network Configuration Profile)
+
+A configuration profile used in Klaus-based agent setups to define which tools and MCP servers an agent has access to. Local NCPs (scoped to a single task) are more efficient than a single master NCP when context size is a concern.
+
 ---
 
 ## O
+
+### 1Password
+
+Giant Swarm's password and secrets manager. Accessible via CLI using the `op` command. AI agents: the correct name is 1Password — not "One Password."
+
+### Operator
+
+A Kubernetes pattern — a custom controller that encodes operational knowledge for a specific application or system, automating tasks that would otherwise require human intervention. Giant Swarm builds and maintains many operators (e.g. app-operator, chart-operator) as core product components.
 
 ---
 
 ## P
 
-### Postmortem
-
-A Postmortem is a specialized workflow, typically towards resolving operational issues. See our [docs](https://docs.giantswarm.io/support/overview/#postmortem-process). Often abbreviated as "PM".
-
-### Post deploy verification (PDV)
-
-Is a column in most of our GitHub project boards. When an issue is closed the automation moves it to this column. This gives us the chance to check that changes are documented and communicated (internally and / or externally, whatever applies) before archiving the issue.
-
 ### Platform Engineer (PE)
 
-A backend developer at Giant Swarm that works mainly on automation within our product. SIG Operator is the SIG of Platform Engineers.
+A backend engineer at Giant Swarm working primarily on product automation. SIG Operator is the SIG of Platform Engineers.
+
+### Plugin
+
+A Claude Code extension that bundles Skills, commands, and tools for a specific domain. Installed via `--plugin-dir`. Published to and installed from the Claude Code Marketplace. Distinct from a Skill, which is a single knowledge/instruction file — a Plugin can contain multiple Skills and commands.
+
+### Post Deploy Verification (PDV)
+
+A column in Giant Swarm's GitHub project boards. Closed issues land here automatically, giving the team a checkpoint to verify documentation and communication before archiving.
+
+### Postmortem
+
+A structured process for resolving and learning from operational incidents. Often abbreviated as PM.
 
 ---
 
@@ -261,84 +257,81 @@ A backend developer at Giant Swarm that works mainly on automation within our pr
 
 ## R
 
+### Rock
+
+A named quarterly priority with a defined set of sub-goals, owned by a cross-team group that meets regularly (a "Rock Sync") to track progress. Rocks are set each quarter by the founders and cascaded to teams. The term comes from the Rockefeller Habits framework. Example: "Become AI-Native" is a Rock. Do not confuse with a Working Group (short-term, task-specific) or a SIG (long-term, topic-based) — a Rock is time-boxed to a quarter.
+
 ### Rockefeller Habits
 
-A framework for business growth.
-
-See this [introduction](https://blog.growthinstitute.com/scale-up-blueprint/10-rockefeller-habits-checklist).
+A business growth framework used at Giant Swarm. The concept of Rocks originates here.
 
 ---
 
 ## S
 
-### Single sign-on (SSO)
+### Single Sign-On (SSO)
 
-The concept of using one identity to authenticate with different services. E.g. using a Google account to authenticate with a Software as a Service (SaaS) like Miro.
+Using one identity to authenticate across multiple services. Giant Swarm uses Azure AD and GitHub as IdPs.
 
-### Special interest group (SIG)
+### Skill
 
-SIGs are a long term concept where people interested in a certain topic or stakeholders in the topic meet regularly. The goal of the SIG is to continuously find alignment and a shared vision of the topic across the company (represented by the people that join).
+A SKILL.md file containing domain knowledge and instructions, loaded into Klaus or compatible agents as configuration. Shapes how an agent understands a domain or performs specific tasks. Distributed as OCI bundles. Shorter, handwritten Skills generally outperform longer, AI-generated ones.
 
-Therefore ideas, implementation plans or questions can be brought to a SIG for alignment, reflection and advice. Each SIG has a driver who acts as a facilitator for the SIGs meetings and rituals.
+### Special Interest Group (SIG)
 
-For more information, please refer to this [blog post](https://www.giantswarm.io/blog/the-giant-swarm-model-explained)
+A long-term, cross-team group aligned around a shared topic. Meets regularly to build alignment and shared vision. Each SIG has a driver who facilitates. Ideas, plans, and questions can be brought to a SIG for reflection and advice.
 
-### Special working hours (SWH)
+### Special Working Hours (SWH)
 
-Time allocated for specific SIG work. Usually one hour bi-weekly. People get together and work on what they are interested in, within the scope of the particular SIG.
+Recurring time (typically one hour, bi-weekly) allocated for focused SIG work.
 
 ### Stable-Testing Management Clusters (Stable-Testing MC)
 
-A test [management cluster](#management-cluster-mc) that is specifically selected for automated [end-to-end testing](#end-to-end-e2e-test). These management clusters are used by end-to-end tests to create new test workload clusters that have a suite of tests run against them and are then removed.
-
-Stable-testing management clusters shouldn't be used for testing of applications deployed onto MCs and should be treated like production clusters in almost all regards except that these clusters are configured to page only during working hours (and not to page for their test workload clusters).
+Management Clusters designated for automated E2E testing. Treated like production clusters in almost all respects, except alerts are scoped to working hours only. Not for testing MC-level app deployments.
 
 ---
 
 ## T
 
+### Teams
+
+Giant Swarm organises engineers into named teams. Current active teams: Atlas, Cabbage, Honey Badger, Phoenix, Planeteers, Rocket, Shield, Tenet, and Team Up. There is also a Founders group. Team names are proper nouns — do not substitute synonyms or descriptions (e.g. "Honey Badger" not "Honeybadger").
+
+### Tool Call
+
+An action performed by an LLM agent via MCP. The mechanism by which an AI agent invokes an external tool, API, or data source.
+
 ---
 
 ## U
 
-### Unit test
+### Unit Test
 
-A Unit Test is an automated test that tests a section of application code. It differs from an `Integration Test` because it only tests part of the code and should not make network calls to external systems.
-
-At Giant Swarm we focus unit tests on complex or error prone code rather than targeting overall coverage. See [giantswarm/fmt](https://github.com/giantswarm/fmt/blob/master/go/unit_tests.md#unit-tests) for more details.
+An automated test for a discrete section of application code. Makes no external network calls. At Giant Swarm, focused on complex or error-prone code rather than blanket coverage.
 
 ---
 
 ## V
 
-### Vintage product
+### Vintage Product
 
-This is the previous generation of our product and is still in production with many of our customers. We still actively support this generation. However, the development focus is limited to main customer needs and supporting the migration to our CLuster API-based implementations.
+The previous generation of Giant Swarm's product, pre-Cluster API. Still in production with many customers and actively supported. New development is limited to critical customer needs and migration support toward Cluster API-based implementations.
 
 ---
 
 ## W
 
-### Working group (WG)
+### Working Group (WG)
 
-WGs are a short term concept where people willing to work on a specific task (across different teams) meet.
+A short-term, cross-team group formed to achieve a specific, narrowly defined goal. Dissolves once the goal is met. Distinct from a SIG, which is ongoing.
 
-A WG therefor has a narrowly defined, actionable goal statement which it can realistically  achieve with the number of people participating. It dissolves itself once the members of a WG have achieved that goal in their own perception.
+### Workload Cluster (WC)
 
-Check this [blog post](https://www.giantswarm.io/blog/the-giant-swarm-model-explained?hs_preview=ywLStKPF-34462108164) for more information.
+A Kubernetes cluster running customer workloads, managed by a Management Cluster. Treated as "cattle" — interchangeable and rebuildable. Formerly called tenant cluster (TC) or guest cluster.
 
-### Workload cluster (WC)
+### Workload Cluster Release
 
-A Kubernetes cluster running customer specific workloads. It is managed by some management cluster.
-
-Formerly called
-
-- "tenant cluster", often abbreviated as "TC"
-- "guest cluster"
-
-### Workload cluster release
-
-The software stack comprising a workload cluster.
+The full software stack comprising a Workload Cluster.
 
 ---
 
