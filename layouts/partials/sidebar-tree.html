@@ -1,0 +1,78 @@
+{{/* Accordion-style sidebar navigation based on docs.giantswarm.io menu */}}
+{{ $site := .Site }}
+{{ $currentPage := . }}
+{{ $shouldDelayActive := ge (len .Site.Pages) (.Site.Params.ui.sidebar_cache_limit | default 2000) }}
+{{ $sidebarMenuTruncate := .Site.Params.ui.sidebar_menu_truncate | default 100 }}
+
+<section class="nav-wrap">
+	<nav class="acnav" role="navigation" aria-label="Main navigation">
+		<ul class="acnav__list acnav__list--level1" role="list">
+			{{ $navRoot := cond (and (ne .Params.toc_root true) (eq .Site.Home.Type "docs")) .Site.Home .FirstSection }}
+			{{ template "section-tree-nav-accordion" (dict "page" $currentPage "section" $navRoot "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "level" 1 "site" $site) }}
+		</ul>
+	</nav>
+</section>
+
+{{ define "section-tree-nav-accordion" }}
+{{ $s := .section }}
+{{ $p := .page }}
+{{ $site := .site }}
+{{ $shouldDelayActive := .shouldDelayActive }}
+{{ $sidebarMenuTruncate := .sidebarMenuTruncate }}
+{{ $level := .level }}
+
+{{ $active := and (not $shouldDelayActive) (eq $s $p) }}
+{{ $activePath := and (not $shouldDelayActive) (or (eq $p $s) ($p.IsDescendant $s)) }}
+{{ $isExpanded := or ($p.IsDescendant $s) (eq $s.Name $p.Name) }}
+
+{{ $pages_tmp := where (union $s.Pages $s.Sections).ByWeight ".Params.toc_hide" "!=" true }}
+{{ $pages := $pages_tmp | first $sidebarMenuTruncate }}
+{{ $truncatedEntryCount := sub (len $pages_tmp) $sidebarMenuTruncate }}
+
+{{ if gt $truncatedEntryCount 0 }}
+	{{ warnf "WARNING: %d sidebar entries have been truncated. To avoid this, increase `params.ui.sidebar_menu_truncate` to at least %d (from %d) in your config file. Section: %s"
+		$truncatedEntryCount (len $pages_tmp) $sidebarMenuTruncate $s.Path }}
+{{ end }}
+
+{{ $hasChildren := gt (len $pages) 0 }}
+{{ $mid := printf "m-%s" ($s.RelPermalink | anchorize) }}
+{{ $manualLink := cond (isset $s.Params "manuallink") $s.Params.manualLink (cond (isset $s.Params "manuallinkrelref") (relref $s $s.Params.manualLinkRelref) $s.RelPermalink) }}
+
+{{ range $pages }}
+	{{ $pageForItem := . }}
+	{{ $isActiveItem := and (not $shouldDelayActive) (eq $pageForItem $p) }}
+	{{ $isActivePathItem := and (not $shouldDelayActive) (or (eq $p $pageForItem) ($p.IsDescendant $pageForItem)) }}
+	{{ $isExpandedItem := or ($p.IsDescendant $pageForItem) (eq $pageForItem.Name $p.Name) }}
+
+	{{ $childPages_tmp := where (union $pageForItem.Pages $pageForItem.Sections).ByWeight ".Params.toc_hide" "!=" true }}
+	{{ $childPages := $childPages_tmp | first $sidebarMenuTruncate }}
+	{{ $hasChildrenItem := gt (len $childPages) 0 }}
+
+	{{ $itemLink := cond (isset $pageForItem.Params "manuallink") $pageForItem.Params.manualLink (cond (isset $pageForItem.Params "manuallinkrelref") (relref $pageForItem $pageForItem.Params.manualLinkRelref) $pageForItem.RelPermalink) }}
+	{{ $itemId := printf "submenu-level%d-%s" $level ($pageForItem.RelPermalink | anchorize) }}
+
+	<li class="acnav__item{{ if $hasChildrenItem }} has-children{{ end }}{{ if $isActiveItem }} is-active{{ end }}{{ if $isExpandedItem }} is-expanded{{ end }}" role="none">
+		{{ if $hasChildrenItem }}
+			<button
+				class="acnav__toggle"
+				aria-expanded="{{ if $isExpandedItem }}true{{ else }}false{{ end }}"
+				aria-controls="{{ $itemId }}"
+				aria-label="{{ if $isExpandedItem }}Collapse{{ else }}Expand{{ end }} {{ $pageForItem.LinkTitle }} submenu"
+			>
+				<span class="acnav__toggle-icon" aria-hidden="true"></span>
+				<a href="{{ $itemLink }}" class="acnav__link{{ if $isActiveItem }} current{{ end }}" role="menuitem">{{ $pageForItem.LinkTitle }}</a>
+			</button>
+			<ul
+				class="acnav__list acnav__list--level{{ add $level 1 }}"
+				id="{{ $itemId }}"
+				role="group"
+				{{ if not $isExpandedItem }}aria-hidden="true"{{ end }}
+			>
+				{{ template "section-tree-nav-accordion" (dict "page" $p "section" $pageForItem "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "level" (add $level 1) "site" $site) }}
+			</ul>
+		{{ else }}
+			<a href="{{ $itemLink }}" class="acnav__link{{ if $isActiveItem }} current{{ end }}" role="menuitem">{{ $pageForItem.LinkTitle }}</a>
+		{{ end }}
+	</li>
+{{ end }}
+{{ end }}

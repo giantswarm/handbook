@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2021-11-24 | <span style="color: darkgreen; font-weight: bold">approved</span> | This RFC describes a general vision for improving the user experience of Managed Apps. |
+| 2021-11-24 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | Spreads managed app ownership from one team to multiple teams for holistic ownership, enabling deeper operations, automated upgrades, and reduced customer operational load. |
 
 This RFC describes a general vision for improving the user experience of Managed Apps.
 

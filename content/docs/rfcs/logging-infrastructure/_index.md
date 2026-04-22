@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-01-12 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-01-12 | <span style="color: darkgreen; font-weight: bold">approved</span> | Adopt a distributed Loki setup with one instance per installation to comply with customer data residency requirements. Evaluate object storage solutions per provider and build a POC starting with one provider. |
 
 As a Giant Swarm engineer, I want to be able to access a history of logs for components managing our platform in order to both investigate ongoing operational issues and provide details for incident reports.
 

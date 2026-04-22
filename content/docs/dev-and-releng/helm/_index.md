@@ -45,8 +45,8 @@ is included when the strategic merge patch is generated.
 - For example if a deployment is scaled down the merge will scale it back up.
 - This means manual changes are higher risk with Helm 3.
 - To prevent app-operator making changes you can [cordon the app CR]({{< relref "/docs/dev-and-releng/app-developer-processes/cordoning_app_and_chart_crs.md" >}}).
-- See the [Helm docs](https://helm.sh/docs/faq/#improved-upgrade-strategy-3-way-strategic-merge-patches)
-for more detail on three way merge.
+- See the [Helm docs](https://helm.sh/docs/v3/faq/changes_since_helm2/#improved-upgrade-strategy-3-way-strategic-merge-patches)
+for more detail on three-way merge.
 
 ## Templating
 

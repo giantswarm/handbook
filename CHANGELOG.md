@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Acordeon style interactive menu to match intranet and docs sites
+
 ## [0.14.0] - 2025-11-26
 
 ### Added

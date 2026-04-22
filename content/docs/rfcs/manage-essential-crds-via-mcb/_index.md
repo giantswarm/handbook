@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-08-07 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-08-07 | <span style="color: darkgreen; font-weight: bold">approved</span> | Use kustomize in management-cluster-bases to manage essential CRDs (Giant Swarm, Flux, VPA, etc.) in a unified way. Replace `opsctl ensure crds` and provide a framework for adding any new CRDs without further migrations. |
 
 Essential CRDs are widely used ones by all / most of Giant Swarm apps in MCs, like VPA or Service Monitors.
 

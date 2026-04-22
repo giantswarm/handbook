@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2021-07-23 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2021-07-23 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | Use Kubernetes mutating webhooks to centralize CAPI cluster defaulting. Webhooks source default values from config-controller, enabling consistent defaults across all cluster creation methods. |
 
 This RFC describes a pattern for defaulting of CAPI clusters by utilizing Kubernetes webhooks extensively.
 
