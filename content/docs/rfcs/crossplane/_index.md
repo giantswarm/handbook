@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2022-11-09 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2022-11-09 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | Install Crossplane via management-clusters-fleet, with a pre-defined immutable list of providers which we manage and don't allow changes to. Customers provide their own secrets and provider configuration. |
 
 Managed Crossplane offering is under development as per customers' requests.
 This document discusses all the required elements of Crossplane's deployment
