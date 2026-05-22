@@ -96,7 +96,7 @@ Below is the example of `lookup` used in [Flux app](https://github.com/giantswar
 ```yaml
 {{- $is_gitrepository_crd := (lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" "gitrepositories.source.toolkit.fluxcd.io") -}}
 {{- if $is_gitrepository_crd }}
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: "{{ .name }}"
@@ -160,7 +160,7 @@ previous paragraph, see below.
 ...
 {{- $is_gitrepository_crd := (lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" "gitrepositories.source.toolkit.fluxcd.io") -}}
 {{- if or $two_step_upgrade.unsupported $is_gitrepository_crd }}
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: "{{ .name }}"
