@@ -1,3 +1,5 @@
+# Managed in https://github.com/giantswarm/github/tree/main/repositories/override/handbook/CODEOWNERS
+
 * @giantswarm/team-up
 
 /content/docs/support-and-ops/support/ @giantswarm/chapter-se
