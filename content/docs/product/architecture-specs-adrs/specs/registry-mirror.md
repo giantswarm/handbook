@@ -47,7 +47,7 @@ We address this by only using Giant Swarm-controlled registries, which only have
 
 ## What Giant Swarm-controlled registry mirrors are we using?
 
-We are using Azure Container Registry (ACR) as a Giant Swarm-controlled registry outside of China. The domain `giantswarm.azurecr.io` is for images while `giantswarmpublic.azurecr.io` is for app catalogs.
+We are using Azure Container Registry (ACR) as a Giant Swarm-controlled registry outside of China. The domain `gsoci.azurecr.io` is the current Giant Swarm registry, serving both container images (under `gsoci.azurecr.io/giantswarm/`) and app catalogs (under `gsoci.azurecr.io/charts/giantswarm/`). The former `giantswarm.azurecr.io` (images) and `giantswarmpublic.azurecr.io` (app catalogs) domains have been decommissioned.
 
 This is configured as a registry mirror, and we synchronise images between Docker Hub and Azure Container Registry (ACR).
 
