@@ -25,7 +25,11 @@ The person responsible for information flow between their team and a given SIG â
 
 ### App
 
-An entry in an App Catalogue, or the concept of managed software in general (e.g. Kong, Redis). Do not use "applications" in the context of Managed Services or Managed Apps.
+A deliberately general shorthand term (synonymous for "application") for managed software running in clusters (e.g. Kong, Redis). Use it as an umbrella when you don't need to be specific. When you do need precision, prefer the exact term: chart, HelmRelease, workload, or service. Avoid capital-A "App" â€” see [App (custom resource)](#app-cr).
+
+### App (custom resource) {#app-cr}
+
+The `App` custom resource from the app platform (app-operator, App Catalogues). Being deprecated.
 
 ### App Catalogue
 
