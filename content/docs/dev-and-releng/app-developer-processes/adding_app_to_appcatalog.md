@@ -34,7 +34,7 @@ This document is meant to be a comprehensive guide and description of the proces
 The idea is that you should use this process by default and it fits 90% of use cases.
 For the other 10%, common sense applies, as for the first 90% as well :)
 
-In the App Platform, Apps are defined as Helm chart packages. App Catalogs are stored as Helm repositories. Packaging and pushing Apps into an App Catalog is automated using CircleCI and architect orb's [push-to-app-catalog](https://github.com/giantswarm/architect-orb/blob/master/docs/job/push-to-app-catalog.md) job.
+In the App Platform, Apps are defined as Helm chart packages. App Catalogs are stored as Helm repositories. Packaging and pushing Apps into an App Catalog is automated using CircleCI and architect orb's [push-to-app-catalog](https://github.com/giantswarm/architect-orb/blob/main/docs/job/push-to-app-catalog.md) job.
 
 For an overview of the App Platform, Apps, and App Catalogs, please read [The Giant Swarm App Platform](https://docs.giantswarm.io/tutorials/fleet-management/app-platform)
 
@@ -208,7 +208,7 @@ Also, adjust `push-to-app-catalog` jobs to your needs:
 - Replace `chart` parameter to reflect the chart name. For `myexample` it has to be `myexample`.
 - If adding App to a different App Catalog, change target `app_catalog` and `app_catalog_test`
 
-If you want automatic metadata generation, set `executor: "app-build-suite"` (see <#building-validating-and-testing-the-chart>) in the `push-to-app-catalog` CircleCI configuration ([`architect-orb docs`](https://github.com/giantswarm/architect-orb/blob/master/docs/job/push-to-app-catalog.md#executor-optional-either-architect-or-app-build-suite-defaultarchitect)). This packages your new app with [`app-build-suite`](https://github.com/giantswarm/app-build-suite), enabling metadata integration and packaging ([Spec and more information about metadata](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/)).
+If you want automatic metadata generation, set `executor: "app-build-suite"` (see <#building-validating-and-testing-the-chart>) in the `push-to-app-catalog` CircleCI configuration ([`architect-orb docs`](https://github.com/giantswarm/architect-orb/blob/main/docs/job/push-to-app-catalog.md#executor-optional-either-architect-or-app-build-suite-defaultarchitect)). This packages your new app with [`app-build-suite`](https://github.com/giantswarm/app-build-suite), enabling metadata integration and packaging ([Spec and more information about metadata](https://intranet.giantswarm.io/docs/product/architecture-specs-adrs/specs/managed-apps/2020-05-05-app-versions-representation/)).
 You'll need to modify the `main.yaml` in the `.abs/` directory to match your desired `app-build-suite` configuration options.
 Rename `helm/APP-NAME` directory with your app's name, then add your Helm chart to this directory.
 
@@ -226,30 +226,30 @@ In order to make the application build process more streamlined and repeatable a
 desktop and CI/CD systems, we have created [app-build-suite](https://github.com/giantswarm/app-build-suite) (a.k.a. `abs`).
 
 To get started with `abs`, please check the [quick start](https://github.com/giantswarm/app-build-suite#quick-start)
-section of the docs or check the full [tutorial](https://github.com/giantswarm/app-build-suite/blob/master/docs/tutorial.md).
+section of the docs or check the full [tutorial](https://github.com/giantswarm/app-build-suite/blob/main/docs/tutorial.md).
 
 Currently, `abs` also handles [application testing](https://github.com/giantswarm/app-build-suite#test-pipelines),
-but we intend to change that in the future. Again, please check the [tutorial](https://github.com/giantswarm/app-build-suite/blob/master/docs/tutorial.md)
+but we intend to change that in the future. Again, please check the [tutorial](https://github.com/giantswarm/app-build-suite/blob/main/docs/tutorial.md)
 for more details.
 
 ### 6. Add your repository to `giantswarm/github` and "Changes and Releases"
 
 Open a PR in [giantswarm/github](https://github.com/giantswarm/github) to add your repository to `repositories/meta.yaml`. Ensure `flavour` is set to `app` (the required value for repositories which contain just a Helm chart). This ensures certain files are kept in sync across our repos. Once merged, `architectbot` will open a PR in your repository to add the necessary files.
 
-Open a PR to add your app to [giantswarm/docs](https://github.com/giantswarm/docs/blob/master/scripts/aggregate-changelogs/config.yaml). When you make a release, it automatically updates "[Changes and Releases](https://docs.giantswarm.io/changes/)" with your app's changes in our external docs.
+Open a PR to add your app to [giantswarm/docs](https://github.com/giantswarm/docs/blob/main/scripts/aggregate-changelogs/config.yaml). When you make a release, it automatically updates "[Changes and Releases](https://docs.giantswarm.io/changes/)" with your app's changes in our external docs.
 
 ### 7. Releasing the App in Giantswarm Catalog
 
 In order to include your App in the Giantswarm catalog, you need to create a release.
 
-Please follow [How to release a project]({{< relref "/docs/dev-and-releng/releases/how-to-release-a-project" >}}) in order to do that.
+Please follow [How to release a project](https://intranet.giantswarm.io/docs/dev-and-releng/releases/how-to-release-a-project/) in order to do that.
 
 ## Related documentation
 
 - A lot of more detailed processes are documented already [on the handbook]({{< relref "/docs/dev-and-releng/app-developer-processes/_index.md" >}})
 - [Adding Readmes and Icons to Apps in Happa]({{< relref "/docs/dev-and-releng/app-developer-processes/apps_in_happa.md" >}}) describes the process of adding a Readme and an app icon to your new app
 - [Quality bars for Managed Apps](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/application-quality-bars/) contain hints how to make your app fit for being a managed app
-- [Kubernetes Annotations and Labels in `giantswarm/fmt`](https://github.com/giantswarm/fmt/blob/master/kubernetes/annotations_and_labels.md) contain some commonly used annotations and labels in kubernetes resources
+- [Kubernetes Annotations and Labels in `giantswarm/fmt`](https://github.com/giantswarm/fmt/blob/main/kubernetes/annotations_and_labels.md) contain some commonly used annotations and labels in kubernetes resources
 - [App Release Checklist](https://intranet.giantswarm.io/docs/dev-and-releng/app-developer-processes/app-release-checklist/) contains hints and guidelines on what to do when releasing any Managed App
 - [Creating container registries for retagger](https://intranet.giantswarm.io/docs/dev-and-releng/container-registry/)
 - [CircleCI Intranet page](https://intranet.giantswarm.io/docs/dev-and-releng/ci/circle-ci/)
