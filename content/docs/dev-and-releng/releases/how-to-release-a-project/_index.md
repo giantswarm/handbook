@@ -1,103 +1,184 @@
 ---
 title: How to release a project
-description: |
-  This document describes the different steps required in order to release
-  a new version of a project.
-weight: 20
+description: >
+  How to create a release of a Giant Swarm software repository: automatically via the generated-CI
+  auto-release on every merge to main, or via the legacy branch-push release workflow.
 classification: public
+weight: 20
 ---
-## Recording
 
-There is a recording captured on 2020/06/22 which is complementary to this documentation:
-https://drive.google.com/file/d/131rkTO8lk8J0NSqqO4hkBEqySzlkX3TM/view
+A release of a Giant Swarm software repository produces a git tag, a GitHub Release, and the
+artifacts that CircleCI builds and publishes from that tag (a container image, a Helm chart, and/or
+CLI binaries). How you *create* a release depends on how the repository's CI is set up.
 
+## Two release models
 
-## Ensure GitHub workflows
+- **Auto-release (generated CI)** — the default for repositories whose CI is generated from
+  [`giantswarm/github`](https://github.com/giantswarm/github) (`gen.ci.generate: true`). There is no
+  release command, release branch, or release PR: every merge to `main` computes the next version
+  from the [Conventional Commits](https://intranet.giantswarm.io/docs/dev-and-releng/developer-workflow/conventional-commits/)
+  in the change and tags it automatically. See [Auto-release](#auto-release-generated-ci-repositories).
+- **Branch-push releases (legacy)** — repositories not yet on generated CI
+  (`releaseWorkflow: legacy`) release by pushing a specially-named branch, which opens a release PR
+  you review and merge. See [Branch-push releases](#branch-push-releases-legacy).
 
-If you won't add the project to `giantswarm/github`, make sure GitHub workflows for creating releases exist and are up to date:
+If a repository has a `.github/workflows/zz_generated.auto_release.yaml` and a `cliff.toml`, it is on
+auto-release; otherwise it uses the branch-push flow. The
+[generated CI pipeline](https://intranet.giantswarm.io/docs/dev-and-releng/ci/circle-ci/) page
+describes how that pipeline is generated and what each tag publishes.
 
-1. Install the newest version of `devctl` with `GO111MODULE=on go get
-github.com/giantswarm/devctl`.
-1. Go to the top level of the git repository and run `devctl gen workflows`.
-1. Create a PR with changes in  `.github/workflows/` directory. This PR can be merged without approval.
+## Auto-release (generated CI repositories)
 
-After it's merged, workflows used to create release PR and create git tag and GitHub release are all set up.
+You do not run a release command. To ship a new version:
 
-## Create release PR
+1. Merge your change to `main` with
+   [Conventional Commit](https://intranet.giantswarm.io/docs/dev-and-releng/developer-workflow/conventional-commits/)
+   messages. The `semantic-pull-request / Validate PR title` check enforces this on every PR.
+2. On merge, the auto-release workflow (`zz_generated.auto_release.yaml`, driven by
+   [git-cliff](https://git-cliff.org/) and the repository's `cliff.toml`) computes the next semantic
+   version from the commits since the last tag — `fix:` bumps the patch, `feat:` the minor, and a `!`
+   or `BREAKING CHANGE:` footer the major — updates `CHANGELOG.md`, and creates the `vX.Y.Z` git tag
+   and GitHub Release.
+3. The new tag triggers the CircleCI pipeline, which builds, signs, and publishes the artifacts
+   (multi-arch image, Helm chart, and/or CLI binaries).
 
-Once workflows are ready, it is time to create release branch. The name of the branch is important and it must follow this convention:
-
-```
-${BASE}#release#${VERSION}
-```
-
-Where:
-
-- `BASE` - is the name of the base branch for release PR. Usually it is
-`master` or `main`.
-- `VERSION` - either `major`, `minor`, `patch` or a specific version `v1.2.3` that is going to be created for the release.
-
-Example:
-
-```
-git checkout main
-git pull origin main
-git checkout -b main#release#v1.2.3
-git push origin main#release#v1.2.3
-```
-
-It is also possible to create the branch using the GitHub UI
-
-![create-pr](create-pr.gif)
-
-After a while (around 1 minute) there should be a release PR created for the branch and you should be assigned. This PR will update `CHANGELOG.md` file and if it exists `project.go` file. There should be not extra work required for this PR apart from requesting reviewers.
-
-If there are new commits in `BASE` branch that you want to integrate you can simply merge into the release branch or rebase it and push:
-
-```sh
-git checkout main#release#v1.2.3
-
-# merge
-git merge main
-git push
-
-# or rebase
-git rebase main
-git push --force
+```mermaid
+graph LR
+    A["Merge to main<br/>(conventional commits)"] --> B["Auto-release workflow<br/>(git-cliff next version)"]
+    B --> C["git tag vX.Y.Z<br/>+ GitHub Release"]
+    C --> D["CircleCI on the tag<br/>build, sign, publish"]
 ```
 
-If something **goes wrong** you can always delete the branch in origin and push it again:
+A change that should not produce a release — for example `docs:`, `chore:`, or `ci:` commits with no
+`feat:`/`fix:` — simply does not bump the version. Maintenance releases for an older line are cut by
+merging to its `release-*` branch, where auto-release runs the same way.
 
-```sh
-# delete the branch / close PR
-git push --delete origin main#release#v1.2.3
+## Branch-push releases (legacy)
 
-# if you need to refresh it
-git checkout main#release#v1.2.3
-git reset --hard main
+Repositories still on the legacy model create a release by **pushing a specially-named branch**. The
+CI then computes the next version from the existing tags, opens a release pull request, and — once
+you merge it — creates the git tag and the GitHub Release. No local tooling is required beyond `git`.
 
-# push it again
-git push origin main#release#v1.2.3
+This flow uses the
+[reusable release workflows](https://intranet.giantswarm.io/docs/dev-and-releng/ci/github-workflows/)
+and the semVer tagging scheme introduced by the
+[semVer-based automatic upgrades RFC](https://github.com/giantswarm/rfc/tree/main/semver-based-automatic-upgrades).
+For how to **consume** these tags in Flux `OCIRepository` objects for automatic app upgrades, see
+[SemVer-based automatic upgrades](https://intranet.giantswarm.io/docs/dev-and-releng/flux/semver-automatic-upgrades/).
+
+### The tagging scheme
+
+Releases use three semVer-compatible tag forms:
+
+- **Stable** — `X.Y.Z`, e.g. `1.2.3`.
+- **Release candidate (RC)** — `X.Y.Z-rc.N`, e.g. `1.3.0-rc.1`. Published as a GitHub pre-release.
+- **Dev** — `X.Y.Z-dev.<branch>.<YYYY-MM-DD>.<HH-MM-SS>.h<sha>`, e.g.
+  `1.2.4-dev.my-feature.2026-01-27.09-49-59.h1a2b3c4`. These are built **automatically** for every
+  commit on a non-`main` branch — you never create them by hand (see [Dev builds](#dev-builds)).
+
+The version is always computed from the highest semVer tag reachable from `HEAD`, using
+[`gitsemver`](https://github.com/giantswarm/gitsemver). You only choose _how_ to bump it.
+
+### How a release is created
+
+Releasing is a two-step, reviewable flow:
+
+1. **Push a release branch** named `<base>#release#<token>` (the base is usually `main`). You push
+   your current `HEAD` to that branch name — the branch does not need to exist beforehand:
+
+   ```bash
+   git push origin HEAD:main#release#patch
+   ```
+
+2. The **Create Release PR** workflow runs `gitsemver next <token>`, prepares the changelog and chart
+   metadata, and opens a `chore(release): vX.Y.Z` pull request.
+
+3. **Review and merge** that PR. The **Create Release** workflow then creates the `vX.Y.Z` git tag,
+   publishes the GitHub Release (a pre-release for RC tags), bumps `pkg/project/project.go` if
+   present, and — for stable major/minor releases — creates a `release-vX.Y.x` maintenance branch.
+
+```mermaid
+graph LR
+    A["Push branch<br/>main#release#TOKEN"] --> B["Create Release PR<br/>(gitsemver next)"]
+    B --> C["Review &amp; merge<br/>chore(release): vX.Y.Z"]
+    C --> D["Create Release<br/>tag + GitHub Release"]
 ```
 
-## Merge the release PR
+### Release commands
 
-After the release PR is merged, there will be a git tag and GitHub release created automatically by the GitHub workflow.
+The last segment of the branch name is the **bump token**. The resulting version depends on the
+token and on the most recent reachable tag:
 
-## Check CI for success
+| Goal                 | Token        | Command                                        | Example: base → result      |
+| -------------------- | ------------ | ---------------------------------------------- | --------------------------- |
+| Patch release        | `patch`      | `git push origin HEAD:main#release#patch`      | `1.2.3` → `1.2.4`           |
+| Minor release        | `minor`      | `git push origin HEAD:main#release#minor`      | `1.2.3` → `1.3.0`           |
+| Major release        | `major`      | `git push origin HEAD:main#release#major`      | `1.2.3` → `2.0.0`           |
+| Start a patch RC     | `patch-rc`   | `git push origin HEAD:main#release#patch-rc`   | `1.2.3` → `1.2.4-rc.1`      |
+| Start a minor RC     | `minor-rc`   | `git push origin HEAD:main#release#minor-rc`   | `1.2.3` → `1.3.0-rc.1`      |
+| Start a major RC     | `major-rc`   | `git push origin HEAD:main#release#major-rc`   | `1.2.3` → `2.0.0-rc.1`      |
+| Next RC              | `rc`         | `git push origin HEAD:main#release#rc`         | `1.3.0-rc.1` → `1.3.0-rc.2` |
+| Promote RC to stable | `rc-release` | `git push origin HEAD:main#release#rc-release` | `1.3.0-rc.2` → `1.3.0`      |
 
-The CI will take care of building and deploying this new version to all installations. The full architecture diagram for CI process can be found
-[here](https://intranet.giantswarm.io/docs/dev-and-releng/ci/architecture/).
+To release an exact version in one step, push the explicit form `main#release#vX.Y.Z` (for example
+`git push origin HEAD:main#release#v1.4.0`). Prefer the bump tokens above for day-to-day work.
 
-Check that CI workflow executes successfully, e.g.
-[https://circleci.com/gh/giantswarm/aws-operator](https://circleci.com/gh/giantswarm/aws-operator)
+### Valid RC transitions
 
-You should get something like this:
+The bump tokens move a repository between **stable** and **RC** states. The token you may use depends
+on whether the latest tag is stable or an RC:
 
-![aws-operator CI](aws-operator_ci_green.png) At this point, an operator with version v6.42.0 should be installed in all MCs.
+```mermaid
+stateDiagram-v2
+    direction LR
+    [*] --> Stable: first stable release
+    Stable --> Stable: patch / minor / major
+    Stable --> RC: patch-rc / minor-rc / major-rc
+    RC --> RC: rc
+    RC --> Stable: rc-release
+```
 
-## Craft a new release if needed
+A concrete walk-through, starting from the stable tag `1.2.3`:
 
-If the released App is a unique App then no further action is needed. It should be deployed to specific provider installations once CI successfully finishes the tag build.
+```mermaid
+graph LR
+    S0["1.2.3<br/>stable"] -->|patch| S1["1.2.4<br/>stable"]
+    S0 -->|minor-rc| R1["1.3.0-rc.1"]
+    R1 -->|rc| R2["1.3.0-rc.2"]
+    R2 -->|rc-release| S2["1.3.0<br/>stable"]
+    S2 -->|major-rc| R3["2.0.0-rc.1"]
+```
 
-If this App is a part of Giant Swarm release, then a new release needs to be created. [Details can be found here]({{< relref "/docs/dev-and-releng/releases" >}}).
+So a typical RC cycle is: start a series with `minor-rc` (`1.3.0-rc.1`), iterate with `rc`
+(`1.3.0-rc.2`, …), then finalize with `rc-release` (`1.3.0`).
+
+### Rules and constraints
+
+- `patch`, `minor`, `major` and the RC starters `patch-rc` / `minor-rc` / `major-rc` require the
+  latest tag to be **stable**. If the latest tag is an RC, they fail — use `rc` to bump the counter
+  or `rc-release` to finalize the series first.
+- `rc` and `rc-release` require the latest tag to be an **RC**, and cannot start from an empty tag
+  history. Begin a new RC series with `patch-rc`, `minor-rc`, or `major-rc`.
+- The branch **prefix** selects the base branch: `main`, or a `release-vX.Y.x` maintenance branch for
+  patching an older line (e.g. `release-v1.2.x#release#patch`).
+- RC releases are published as GitHub **pre-releases**. A stable major or minor release also creates
+  a `release-vX.Y.x` maintenance branch so later patches can be cut from that line.
+- The changelog must contain an entry for the target version; the release-PR workflow prepares it for
+  you, following our
+  [conventional commits](https://intranet.giantswarm.io/docs/dev-and-releng/developer-workflow/conventional-commits/).
+
+### Dev builds
+
+Every commit on a branch other than `main` is built and tagged automatically with a `…-dev.…` tag —
+no command needed. The tag embeds the branch name, the commit's UTC timestamp, and its short SHA, so
+dev builds sort chronologically per branch and trace back to a commit. To skip automatic builds for a
+branch (saving CI and registry resources), prefix its name with `nobuild/`. See
+[`gitsemver`](https://github.com/giantswarm/gitsemver) for the exact format.
+
+### Rolling back
+
+If a release misbehaves and "fix and roll forward" is not viable, pin the affected deployment to a
+known-good version — either narrow the accepted semVer range so the bad version is excluded, or (for
+GitOps-managed objects) pause the owning `Kustomization` and force a specific version. See the
+[emergency rollback section of the RFC](https://github.com/giantswarm/rfc/tree/main/semver-based-automatic-upgrades#emergency-rollback)
+for details.
