@@ -58,7 +58,7 @@ Check below for more details about the bullets above.
 #### 1.1. Create and configure a repo for the App
 
 {{% alert title="TL;DR" color="warning" %}}
-The `-app` suffix should be in the repository name. Everywhere else, omit `-app`.
+Don't use the `-app` suffix. Name the repository and the Helm chart identically, without `-app`.
 {{% /alert %}}
 
 Use the following template repo to generate the basic skeleton for your app's repo: <https://github.com/giantswarm/template-app>.
@@ -67,14 +67,14 @@ __Note__: It is encouraged to use [devctl](https://handbook.giantswarm.io/docs/d
 
 Once created:
 
-1. Go to <https://github.com/giantswarm/APP-NAME-app/settings> and make sure `Allow merge commits` box is unchecked and `Automatically delete head branches` box is checked.
-2. Go to <https://github.com/giantswarm/APP-NAME-app/settings/access> and add
+1. Go to <https://github.com/giantswarm/APP-NAME/settings> and make sure `Allow merge commits` box is unchecked and `Automatically delete head branches` box is checked.
+2. Go to <https://github.com/giantswarm/APP-NAME/settings/access> and add
    `giantswarm/bots` with `Write` access and `giantswarm/employees` with
    `Admin` access.
 
-Note: By convention, we name app repos `[APP-NAME]-app`. [Adding the topic](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository) `app` to the GitHub repository is also useful. This helps the user distinguish the type of repo.
+Note: By convention, the repository and the Helm chart should be named identically, **without** the `-app` suffix (for example `myexample`, not `myexample-app`). See [Creating a new app repository](https://handbook.giantswarm.io/docs/dev-and-releng/repository/app/) for the canonical, `devctl`-based process. [Adding the topic](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository) `app` to the GitHub repository is also useful, as it helps users distinguish the type of repo.
 
-However, it is no longer required nor advisable to name your app and helm chart (step 2 & 3 below) with the `-app` suffix.
+The `-app` suffix is legacy. Many older repositories still carry it, but new repositories should omit it.
 
 {{% alert title="Attention" color="warning" %}}
 Omitting the `-app` suffix for default apps installed as part of a release require `cluster-operator` `>= v3.5.1` on AWS or `>= 0.23.21` on Azure and KVM.
@@ -87,7 +87,7 @@ KVM >= 13.1.0
 
 {{% /alert %}}
 
-So for `myexample` app, the app's name is `myexample` and the repo is `https://github.com/giantswarm/myexample-app`
+So for `myexample` app, the app's name, the chart name, and the repository are all `myexample` (repo: `https://github.com/giantswarm/myexample`).
 
 If you need a Go project skeleton, start with this template instead: <https://github.com/giantswarm/template>.
 
