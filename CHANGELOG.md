@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Acordeon style interactive menu to match intranet and docs sites
+- Tutorial for creating a generic repository, i. e. one that does not fit the Golang or App repository types.
 
 ### Changed
 

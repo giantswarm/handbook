@@ -2,6 +2,7 @@
 linkTitle: App
 title: Creating a new app repository
 description: The canonical way to create a repository for an app to be distributed and deployed via the Giant Swarm app platform.
+weight: 30
 ---
 
 These instructions will help you create a new app repository based on our [repository template](https://github.com/giantswarm/template-app).
