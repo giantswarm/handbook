@@ -35,7 +35,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
         - name: handbook
-          image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.Version }}
+          image: gsoci.azurecr.io/giantswarm/handbook:{{ .Chart.AppVersion }}
           securityContext:
             allowPrivilegeEscalation: false
             readOnlyRootFilesystem: true
