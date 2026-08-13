@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - "How to release a project" page — the release guide now lives solely in the intranet (`giantswarm/giantswarm`). Inbound links point to `https://intranet.giantswarm.io/docs/dev-and-releng/releases/how-to-release-a-project/`.
+- Removed duplicate `app.kubernetes.io/name` and `app.kubernetes.io/instance` labels from Helm chart templates.
 
 ## [0.14.0] - 2025-11-26
 
