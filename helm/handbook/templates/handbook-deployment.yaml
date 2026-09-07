@@ -53,9 +53,11 @@ spec:
             requests:
               cpu: {{ .Values.resources.handbook.requests.cpu }}
               memory: {{ .Values.resources.handbook.requests.memory }}
+              ephemeral-storage: {{ .Values.resources.handbook.requests.ephemeralStorage }}
             limits:
               cpu: {{ .Values.resources.handbook.limits.cpu }}
               memory: {{ .Values.resources.handbook.limits.memory }}
+              ephemeral-storage: {{ .Values.resources.handbook.limits.ephemeralStorage }}
 
           volumeMounts:
             - mountPath: /tmp/nginx
