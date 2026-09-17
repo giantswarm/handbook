@@ -32,7 +32,7 @@ Create test clusters in a way so that they are as cheap as possible and as expen
 
 Note: This is not possible on KVM.
 
-To be able to keep a test cluster for more than 4 hours, add the following [labels](https://docs.giantswarm.io/advanced/labelling-workload-clusters/):
+To be able to keep a test cluster for more than 4 hours, add the following [labels](https://docs.giantswarm.io/tutorials/fleet-management/cluster-management/labelling-workload-clusters/):
 
 - `creator`: The value should be your Slack username. With this label, others in the company can address you in case of an issue.
 - `keep-until`: As a value, set an ISO date string (format: `YYYY-MM-DD`) for the last day this cluster should still keep running. This is to be evaluated against UTC date/time.
