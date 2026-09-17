@@ -63,7 +63,7 @@ Don't use the `-app` suffix. Name the repository and the Helm chart identically,
 
 Use the following template repo to generate the basic skeleton for your app's repo: <https://github.com/giantswarm/template-app>.
 
-__Note__: It is encouraged to use [devctl](https://handbook.giantswarm.io/docs/dev-and-releng/repository/app/) instead to avoid manual mistakes.
+__Note__: It is encouraged to use [`devctl repo create`](https://handbook.giantswarm.io/docs/dev-and-releng/repository/) instead to avoid manual mistakes.
 
 Once created:
 
@@ -72,7 +72,7 @@ Once created:
    `giantswarm/bots` with `Write` access and `giantswarm/employees` with
    `Admin` access.
 
-Note: By convention, the repository and the Helm chart should be named identically, **without** the `-app` suffix (for example `myexample`, not `myexample-app`). See [Creating a new app repository](https://handbook.giantswarm.io/docs/dev-and-releng/repository/app/) for the canonical, `devctl`-based process. [Adding the topic](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository) `app` to the GitHub repository is also useful, as it helps users distinguish the type of repo.
+Note: By convention, the repository and the Helm chart should be named identically, **without** the `-app` suffix (for example `myexample`, not `myexample-app`). See [Creating a new GitHub repository](https://handbook.giantswarm.io/docs/dev-and-releng/repository/) for the canonical, `devctl`-based process. [Adding the topic](https://docs.github.com/en/free-pro-team@latest/github/administering-a-repository/classifying-your-repository-with-topics#adding-topics-to-your-repository) `app` to the GitHub repository is also useful, as it helps users distinguish the type of repo.
 
 The `-app` suffix is legacy. Many older repositories still carry it, but new repositories should omit it.
 
