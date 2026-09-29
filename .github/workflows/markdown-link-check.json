@@ -7,7 +7,7 @@
       "pattern": "^https://github.com/giantswarm/ailefroide-app"
     },
     {
-      "pattern": "^https://github.com/giantswarm/APP-NAME-app"
+      "pattern": "^https://github.com/giantswarm/APP-NAME"
     },
     {
       "pattern": "^https://github.com/giantswarm/backstage"
@@ -26,9 +26,6 @@
     },
     {
       "pattern": "^https://github.com/giantswarm/isms"
-    },
-    {
-      "pattern": "^https://github.com/giantswarm/mc-bootstrap"
     },
     {
       "pattern": "^https://github.com/giantswarm/mc-bootstrap"
@@ -53,9 +50,6 @@
     },
     {
       "pattern": "^https://intranet.giantswarm.io"
-    },
-    {
-      "pattern": "^https://docs.google.com/document/d/"
     },
     {
       "pattern": "^https://docs.google.com/document/d/"
@@ -89,6 +83,15 @@
     },
     {
       "pattern": "^https://github\\.com/giantswarm/image-automation-controller"
+    },
+    {
+      "pattern": "^https://github\\.com/giantswarm/claude-code"
+    },
+    {
+      "pattern": "^https://gigantic\\.slack\\.com/"
+    },
+    {
+      "pattern": "^https://azure\\.microsoft\\.com/en-us/pricing/calculator"
     }
   ]
 }

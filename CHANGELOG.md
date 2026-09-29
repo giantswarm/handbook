@@ -7,10 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
+
 ### Added
 
 - Acordeon style interactive menu to match intranet and docs sites
 - Tutorial for creating a generic repository, i. e. one that does not fit the Golang or App repository types.
+- Add `ephemeral-storage` requests and limits to the handbook Deployment, defaulting to `50Mi` and `200Mi` and overridable via `resources.handbook.requests.ephemeralStorage` / `resources.handbook.limits.ephemeralStorage`. The `nginx-tmp` `emptyDir` declared no `ephemeral-storage`, so the pod raised a `require-emptydir-requests-and-limits` PolicyViolation on every reconcile and was unbounded on ephemeral storage. Matches what `blog-app` already does for the same nginx layout.
 
 ### Changed
 
@@ -21,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - "How to release a project" page — the release guide now lives solely in the intranet (`giantswarm/giantswarm`). Inbound links point to `https://intranet.giantswarm.io/docs/dev-and-releng/releases/how-to-release-a-project/`.
 - Removed duplicate `app.kubernetes.io/name` and `app.kubernetes.io/instance` labels from Helm chart templates.
+
+### Fixed
+
+- Fixed the dead links that kept the `Broken Links` check red on `main`: moved Teleport upgrade and Giant Swarm docs labelling pages repointed, the glossary's `App (custom resource)` anchor, and the link checker told to skip Slack archives, the Azure pricing calculator, the private `claude-code` repository and the `APP-NAME` placeholder.
 
 ## [0.14.0] - 2025-11-26
 

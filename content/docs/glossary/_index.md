@@ -25,9 +25,9 @@ The person responsible for information flow between their team and a given SIG �
 
 ### App
 
-A deliberately general shorthand term (synonymous for "application") for managed software running in clusters (e.g. Kong, Redis). Use it as an umbrella when you don't need to be specific. When you do need precision, prefer the exact term: chart, HelmRelease, workload, or service. Avoid capital-A "App" — see [App (custom resource)](#app-cr).
+A deliberately general shorthand term (synonymous for "application") for managed software running in clusters (e.g. Kong, Redis). Use it as an umbrella when you don't need to be specific. When you do need precision, prefer the exact term: chart, HelmRelease, workload, or service. Avoid capital-A "App" — see [App (custom resource)](#app-custom-resource).
 
-### App (custom resource) {#app-cr}
+### App (custom resource)
 
 The `App` custom resource from the app platform (app-operator, App Catalogues). Being deprecated.
 
