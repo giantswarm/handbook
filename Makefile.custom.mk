@@ -13,5 +13,5 @@ rfcs:
 		--volume="$$(realpath "$(RFCS_DIR)"):/rfc:ro" \
 		--volume="${PWD}/scripts:/scripts:ro" \
 		--volume="${PWD}/content/docs/rfcs:/content/docs/rfcs:rw" \
-		quay.io/giantswarm/docs-scriptrunner:latest \
+		gsoci.azurecr.io/giantswarm/docs-scriptrunner:latest \
 		/scripts/aggregate-rfcs.py /rfc /content/docs/rfcs
