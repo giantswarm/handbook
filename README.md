@@ -11,19 +11,14 @@ It is set up with the [Google docsy](https://github.com/google/docsy) theme and 
 
 ## Development
 
-1. Create a `.env` file with the following content (replace the values with your own):
-    ```
-    ORIGINS=localhost:8081
-    OAUTH_CLIENT_ID=23456789abcdef123456
-    OAUTH_CLIENT_SECRET=abcdef1234567890124567890abcdef123456789
-    GIT_HOSTNAME=
-    ```
-2. You can then easily test and render any changes to the handbook with:
-    ```sh
-    docker-compose build --pull
-    docker-compose up
-    ```
-    The locally rendered site should then be accessible via `http://localhost:8081`.
+You can test and render any changes to the handbook with:
+
+```sh
+docker-compose build --pull
+docker-compose up
+```
+
+The locally rendered site should then be accessible via `http://localhost:8081`.
 
 Or for a simplified setup, run `hugo server`.
 
