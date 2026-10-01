@@ -1,10 +1,8 @@
-version: '3.4'
-
 services:
   hugo:
     container_name: hugo
     ports:
-      - "8081:1313"
+      - "8081:8081"
     build:
       context: .
       target: build
@@ -15,5 +13,5 @@ services:
       - server
       - --enableGitInfo
       - --bind=0.0.0.0
-      - --liveReloadPort=8081
+      - --port=8081
       - --buildDrafts
