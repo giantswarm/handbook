@@ -58,19 +58,4 @@ spec:
     - path:
         type: PathPrefix
         value: /
-  - backendRefs:
-    - group: ""
-      kind: Service
-      name: staticjscms-hugo-standalone
-      port: 8080
-    matches:
-    - path:
-        type: PathPrefix
-        value: /admin
-    - path:
-        type: PathPrefix
-        value: /auth
-    - path:
-        type: PathPrefix
-        value: /callback
 {{- end }}
