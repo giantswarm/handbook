@@ -38,8 +38,8 @@ USER 0
 # Delete default config (which we have no control over)
 RUN rm -r /etc/nginx/conf.d && rm /etc/nginx/nginx.conf
 
-# The custom config enables the /searchapi route, proxying to sitesearch-app.docs:9200
-COPY proxy/proxy-production.default.conf /etc/nginx/nginx.conf
+# Serve the pre-compressed static site
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Ensure tmp dir exists and has right ownership
 RUN mkdir -p /tmp/nginx && chown -R 101 /tmp/nginx
