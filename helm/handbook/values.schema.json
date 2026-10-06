@@ -2,6 +2,14 @@
     "$schema": "http://json-schema.org/schema#",
     "type": "object",
     "properties": {
+        "architecture": {
+            "type": "string",
+            "enum": [
+                "",
+                "amd64",
+                "arm64"
+            ]
+        },
         "global": {
             "type": "object",
             "properties": {
@@ -40,6 +48,12 @@
                         }
                     }
                 }
+            }
+        },
+        "nodeSelector": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
             }
         },
         "resources": {
@@ -134,6 +148,12 @@
                         "type": "string"
                     }
                 }
+            }
+        },
+        "tolerations": {
+            "type": "array",
+            "items": {
+                "type": "object"
             }
         }
     }

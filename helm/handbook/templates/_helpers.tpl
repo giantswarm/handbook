@@ -32,3 +32,49 @@ Selector labels
 app.kubernetes.io/name: {{ include "name" . | quote }}
 app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
+
+{{/*
+Pod scheduling constraints: renders the `nodeSelector` and `tolerations` fields,
+merging the `architecture` shorthand into the explicit values for both.
+Copied from hello-world-app; keep the copies in sync.
+
+Giant Swarm arm64 node pools carry a `kubernetes.io/arch=arm64:NoSchedule`
+taint, so a pod bound to arm64 needs the node selector *and* the matching
+toleration: with only the selector it stays Pending, with only the toleration
+it may be scheduled onto any pool.
+
+The toleration is therefore derived from the *effective* `kubernetes.io/arch`
+selector, whichever of the two values set it. It is skipped when an explicit
+toleration already covers that taint.
+
+A `nodeSelector` that sets `kubernetes.io/arch` to something other than
+`architecture` fails the render instead of silently discarding one of the two.
+Emits nothing when unset, so rendered output is unchanged for existing users.
+*/}}
+{{- define "handbook.podScheduling" -}}
+{{- $nodeSelector := deepCopy (.Values.nodeSelector | default dict) -}}
+{{- $tolerations := .Values.tolerations | default list -}}
+{{- with .Values.architecture -}}
+{{- if and (hasKey $nodeSelector "kubernetes.io/arch") (ne (index $nodeSelector "kubernetes.io/arch") .) -}}
+{{- fail (printf "architecture=%s conflicts with nodeSelector.%q=%s; set only one" . "kubernetes.io/arch" (index $nodeSelector "kubernetes.io/arch")) -}}
+{{- end -}}
+{{- $nodeSelector = merge (dict "kubernetes.io/arch" .) $nodeSelector -}}
+{{- end -}}
+{{- if eq (index $nodeSelector "kubernetes.io/arch" | default "") "arm64" -}}
+{{- $tolerated := false -}}
+{{- range $tolerations -}}
+{{- if and (eq (.key | default "") "kubernetes.io/arch") (has (.effect | default "") (list "" "NoSchedule")) -}}
+{{- if or (eq (.operator | default "Equal") "Exists") (eq (.value | default "") "arm64") -}}
+{{- $tolerated = true -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- if not $tolerated -}}
+{{- $tolerations = concat $tolerations (list (dict "key" "kubernetes.io/arch" "operator" "Equal" "value" "arm64" "effect" "NoSchedule")) -}}
+{{- end -}}
+{{- end -}}
+{{- $scheduling := dict -}}
+{{- if $nodeSelector -}}{{- $_ := set $scheduling "nodeSelector" $nodeSelector -}}{{- end -}}
+{{- if $tolerations -}}{{- $_ := set $scheduling "tolerations" $tolerations -}}{{- end -}}
+{{- with $scheduling }}{{ toYaml . }}{{ end -}}
+{{- end -}}

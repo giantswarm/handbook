@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Chart: `architecture` value (`""`, `amd64`, `arm64`) plus `nodeSelector` and `tolerations`. `arm64` sets both the `kubernetes.io/arch` node selector and the toleration for the arm64 node pool taint.
 - Acordeon style interactive menu to match intranet and docs sites
 - Tutorial for creating a generic repository, i. e. one that does not fit the Golang or App repository types.
 - Add `ephemeral-storage` requests and limits to the handbook Deployment, defaulting to `50Mi` and `200Mi` and overridable via `resources.handbook.requests.ephemeralStorage` / `resources.handbook.limits.ephemeralStorage`. The `nginx-tmp` `emptyDir` declared no `ephemeral-storage`, so the pod raised a `require-emptydir-requests-and-limits` PolicyViolation on every reconcile and was unbounded on ephemeral storage. Matches what `blog-app` already does for the same nginx layout.
