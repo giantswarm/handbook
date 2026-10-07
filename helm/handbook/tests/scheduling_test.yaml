@@ -66,6 +66,13 @@ tests:
             key: dedicated
             operator: Exists
             effect: NoSchedule
+      - contains:
+          path: spec.template.spec.tolerations
+          content:
+            key: kubernetes.io/arch
+            operator: Equal
+            value: arm64
+            effect: NoSchedule
 
   - it: fails when nodeSelector contradicts architecture
     # A contradiction is a mistake, not a preference to arbitrate: architecture
