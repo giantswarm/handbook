@@ -26,6 +26,9 @@ spec:
         runAsUser: 1000
         seccompProfile:
           type: RuntimeDefault
+      {{- with include "handbook.podScheduling" . }}
+      {{- . | nindent 6 }}
+      {{- end }}
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
