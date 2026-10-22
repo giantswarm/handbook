@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- RFC rendering is triggered from giantswarm/rfc with a `render-rfcs` repository_dispatch, sent with the giantswarm-release App token instead of the taylorbot token ([#2280](https://github.com/giantswarm/giantswarm/issues/2280)).
 - Updated stale `master` branch references to `main` in the app-catalog developer process page.
 - Use `.Chart.AppVersion` instead of `.Chart.Version` for image tag because Flux suffixed `.Chart.Version` with artifact hash.
 
