@@ -1,5 +1,5 @@
-# Do not change the filename. This is triggered from https://github.com/giantswarm/rfc/tree/main/.github/workflows
-# (see `on:workflow_dispatch` below), i.e. whenever the RFCs change.
+# Triggered from https://github.com/giantswarm/rfc/tree/main/.github/workflows with a
+# `render-rfcs` repository_dispatch (see `on:repository_dispatch` below), i.e. whenever the RFCs change.
 
 name: Render RFCs and create/update PR on changes
 
@@ -11,6 +11,9 @@ on:
   push:
 
   workflow_dispatch:
+
+  repository_dispatch:
+    types: [render-rfcs]
 
 jobs:
   render-rfcs-pr:
@@ -53,8 +56,8 @@ jobs:
             to keep rendered RFCs in the handbook up to date.
 
             Please review and merge, or check in `#sig-docs` chat if something is wrong.
-          # This does not work if triggered from the `rfc` repo (https://github.com/giantswarm/rfc/blob/main/.github/workflows/render.yaml) due to error
-          # "Unable to request reviewers. If requesting team reviewers a 'repo' scoped PAT is required." (using Taylor Bot token).
+          # Team reviewers are not requested here: GitHub refuses them without a 'repo' scoped PAT
+          # ("Unable to request reviewers. If requesting team reviewers a 'repo' scoped PAT is required.").
           # So instead, sig-docs was added to CODEOWNERS on RFC-related paths.
           # ---
           # team-reviewers: |
