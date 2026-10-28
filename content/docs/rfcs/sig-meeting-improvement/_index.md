@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2022-07-08 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2022-07-08 | <span style="color: darkgreen; font-weight: bold">approved</span> | Every regular SIG meeting needs an agenda, a driver, and a note taker, and is canceled if the agenda is empty. Each SIG keeps one long-lived notes document in a shared format, newest notes on top. Drivers review the agenda at least 60 minutes ahead and cover PSAs before discussion topics. |
 
 ## What are the problems we are experiencing?
 - We have too many meetings which employees are expected to attend.
