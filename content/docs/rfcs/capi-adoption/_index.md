@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2021-07-19 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2021-07-19 | <span style="color: darkgreen; font-weight: bold">approved</span> | Follow the upstream Cluster API model with one version of each controller per management cluster, instead of label-versioned operators in immutable releases. Operators only change infrastructure when a CR changes, and sensible defaults in CR templates replace defaulting and validating admission controllers. Create additional management clusters with CAPI where customers can test major upgrades ahead of time. |
 
 ## About
 
