@@ -14,7 +14,7 @@ Yes – any book (also audiobooks) that you are interested in!
 
 Unfortunately German tax law decided to make things difficult. Therefore the following rules apply:
 
-- Do not spend more than 44 EUR each month.
+- Do not spend more than 50 EUR each month.
 - Only buy books between the 1st and the 20st of each month. Book flatrate is closed from the 21st till the end of each month.
 - When purchasing from the shop, use the billing address “Giant Swarm GmbH, Im Mediapark 5, 50670 Cologne”.
 - Use the [Book Log](https://docs.google.com/spreadsheets/d/1aLbQcybAtjLY90r7v62F0HT7D1nIYOnIWeO3IbI8vt8) to add your purchased books.
