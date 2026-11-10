@@ -17,11 +17,11 @@ Unfortunately German tax law decided to make things difficult. Therefore the fol
 - Do not spend more than 50 EUR each month.
 - Only buy books between the 1st and the 20st of each month. Book flatrate is closed from the 21st till the end of each month.
 - When purchasing from the shop, use the billing address “Giant Swarm GmbH, Im Mediapark 5, 50670 Cologne”.
-- Use the [Book Log](https://docs.google.com/spreadsheets/d/1aLbQcybAtjLY90r7v62F0HT7D1nIYOnIWeO3IbI8vt8) to add your purchased books.
+- Use the Book Log to add your purchased books, this can be found by searching 'Book Log' on the shared Google Drive.
 - Please add book flatrate in the description for payments or reimbursements via spendesk.
 - Choose the `GiantSwarm` cost center in Spendesk.
 - Once you receive the invoice, upload it to Spendesk as soon as possible. Set the correct purchase date (do not confuse month/day).
-- After reading a book, consider posting in [#chat-books](https://gigantic.slack.com/archives/C8G9RH8RK) how you liked it. If you want to exchange books with others, our on-site events are a good place in case you have enough room in your luggage.
+- After reading a book, consider posting in #chat-books on Slack how you liked it. If you want to exchange books with others, our on-site events are a good place in case you have enough room in your luggage.
 
 
 
