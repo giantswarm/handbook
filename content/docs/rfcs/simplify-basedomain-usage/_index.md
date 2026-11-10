@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2023-05-31 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2023-05-31 | <span style="color: darkgray; opacity: 0.8">obsolete</span> | Proposes a `giantswarm.io/dns-zone` annotation on `Cluster` CRs for operators that reconcile clusters, and passing `baseDomain` explicitly in `default-apps-*` values instead of the `cluster-values` ConfigMap. No decision was recorded, and the global `baseDomain` value was changed to `global.connectivity.baseDomain` at least in cluster charts. |
 
 The `baseDomain` is the common suffix that we use as a base for the DNS records created for our clusters.
 The meaning of the `baseDomain` is different in `vintage` and CAPI installations. In `vintage`, it contains information about the management cluster (it identifies a management cluster) while in CAPI installations, it doesn't contain any information about the management cluster.
