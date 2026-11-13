@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2022-10-18 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2022-10-18 | <span style="color: darkgreen; font-weight: bold">approved</span> | Move intranet content that is fine to share into a new public `handbook` repository, served at `handbook.giantswarm.io`, and keep only private content in the `intranet`. The `intranet` search covers both. Doc owners move content when needed at first, then by default for all non-critical docs. |
 
 ## Status quo
 
