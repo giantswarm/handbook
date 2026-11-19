@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Update NGINX to 1.31.9 (NGINX2Root CVEs). The image now uses the upstream `nginx/nginx-unprivileged:1.31.9-alpine` from Docker Hub instead of the stale `gsoci` mirror tag `1.31-alpine`, and the rebuilt intranet baseimage.
+- Update NGINX to 1.31.9 (NGINX2Root CVEs). The image now uses `gsoci.azurecr.io/giantswarm/nginx:1.31.9-alpine` instead of the stale mirror tag `nginx-unprivileged:1.31-alpine`, and the rebuilt intranet baseimage.
 - The `helm.sh/chart` label is valid for long chart versions: the 63-character cut trims the whole trailing run of `-`, `.` and `_`.
 
 ### Added

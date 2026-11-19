@@ -32,8 +32,8 @@ RUN find /src/public \
   -delete
 
 # use minimal nginx alpine image for serving static html
-# TODO(https://github.com/giantswarm/giantswarm/issues/39400): switch back to gsoci.azurecr.io/giantswarm/nginx-unprivileged once 1.31.9 is retagged
-FROM docker.io/nginx/nginx-unprivileged:1.31.9-alpine
+# (plain nginx image from the GS mirror: we set USER 101 / port 8080 ourselves)
+FROM gsoci.azurecr.io/giantswarm/nginx:1.31.9-alpine
 EXPOSE 8080
 USER 0
 
