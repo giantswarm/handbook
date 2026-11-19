@@ -30,8 +30,8 @@ RUN find /src/public \
   -name 'index.html' \
   -delete
 
-# use minimal nginx alpine image for serving static html (pinned patch tag: nginx-unprivileged has no fixed tag yet; we set USER/port ourselves)
-FROM gsoci.azurecr.io/giantswarm/nginx:1.30.7-alpine
+# use minimal nginx alpine image for serving static html
+FROM docker.io/nginx/nginx-unprivileged:1.31.9-alpine
 EXPOSE 8080
 USER 0
 
