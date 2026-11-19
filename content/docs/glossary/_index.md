@@ -69,7 +69,7 @@ A group of people sharing the same role, possibly scoped to an Area — e.g. PEs
 
 ### Claude Code Marketplace
 
-Giant Swarm's internal repository of Claude Code plugins, located at [github.com/giantswarm/claude-code](https://github.com/giantswarm/claude-code). Teams publish and share plugins here for use across the company. Includes domain-specific plugins such as gs-base, gs-sre, gs-marketing, gs-product, and gs-roadmap.
+Giant Swarm's internal repository of Claude Code plugins, located at [github.com/giantswarm/claude-code](https://github.com/giantswarm/claude-code). Teams publish and share plugins here for use across the company. Includes domain-specific plugins such as gs-base, gs-sre, gs-marketing, gs-product, and gs-people.
 
 ### Client Certificate
 
@@ -78,6 +78,10 @@ X.509 certificate used by a client to authenticate with a server. The standard a
 ### Cluster API
 
 A Kubernetes sub-project providing declarative APIs and tooling to simplify provisioning, upgrading, and operating Kubernetes clusters — in other words, Kubernetes managing Kubernetes. Always written in full title case. Do not use: CAPI (external comms), cluster API, ClusterAPI. Abbreviated as CAPI internally.
+
+### Connector
+
+An integration that lets Claude read from and act in another tool, such as Slack, Google Drive or GitHub. Connectors use the [Model Context Protocol (MCP)](#model-context-protocol-mcp). Organization admins add them centrally, and each person authenticates the ones they use, so a connector can only do what that person can do in the tool.
 
 ### Customer Config Repository (CCR)
 
@@ -243,7 +247,7 @@ A backend engineer at Giant Swarm working primarily on product automation. SIG O
 
 ### Plugin
 
-A Claude Code extension that bundles Skills, commands, and tools for a specific domain. Installed via `--plugin-dir`. Published to and installed from the Claude Code Marketplace. Distinct from a Skill, which is a single knowledge/instruction file — a Plugin can contain multiple Skills and commands.
+A Claude Code extension that bundles Skills, commands, and tools for a specific domain. Published to and installed from the Claude Code Marketplace. Giant Swarm's plugins are also enabled for the whole organization in the Claude app. Distinct from a Skill, which is a single knowledge/instruction file — a Plugin can contain multiple Skills and commands.
 
 ### Post Deploy Verification (PDV)
 
@@ -279,7 +283,7 @@ Using one identity to authenticate across multiple services. Giant Swarm uses Az
 
 ### Skill
 
-A SKILL.md file containing domain knowledge and instructions, loaded into Klaus or compatible agents as configuration. Shapes how an agent understands a domain or performs specific tasks. Distributed as OCI bundles. Shorter, handwritten Skills generally outperform longer, AI-generated ones.
+A SKILL.md file containing domain knowledge and instructions, loaded into Klaus or compatible agents as configuration. Shapes how an agent understands a domain or performs specific tasks. Distributed as OCI bundles. Shorter, handwritten Skills generally outperform longer, AI-generated ones. In Claude Code and the Claude app, Skills are usually bundled in a [Plugin](#plugin) and shared through the [Claude Code Marketplace](#claude-code-marketplace).
 
 ### Special Interest Group (SIG)
 
