@@ -1,6 +1,7 @@
 # use intranet-baseimage with hugo, npm extended image for building in build step
 # the base image also includes installed NPM packages and the Hugo theme(s)
-FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.17.29-rf6ffaa74t20261119174555hf0c5e16 AS build
+# the baseimage (and hugo) is amd64-only; the static output is copied into the multi-arch nginx stage
+FROM --platform=linux/amd64 gsoci.azurecr.io/giantswarm/intranet-baseimage:0.17.29-rf6ffaa74t20261119174555hf0c5e16 AS build
 
 # refresh relevant files (without clobbering stuff in the baseimage)
 COPY .git /src/.git/
