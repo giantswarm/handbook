@@ -1,6 +1,6 @@
 # use intranet-baseimage with hugo, npm extended image for building in build step
 # the base image also includes installed NPM packages and the Hugo theme(s)
-FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.2.709  AS build
+FROM gsoci.azurecr.io/giantswarm/intranet-baseimage:0.17.29-rf6ffaa74t20261119165942h092081a AS build
 
 # refresh relevant files (without clobbering stuff in the baseimage)
 COPY .git /src/.git/
@@ -30,8 +30,8 @@ RUN find /src/public \
   -name 'index.html' \
   -delete
 
-# use minimal nginx alpine image for serving static html
-FROM gsoci.azurecr.io/giantswarm/nginx-unprivileged:1.31-alpine
+# use minimal nginx alpine image for serving static html (pinned patch tag: nginx-unprivileged has no fixed tag yet; we set USER/port ourselves)
+FROM gsoci.azurecr.io/giantswarm/nginx:1.30.7-alpine
 EXPOSE 8080
 USER 0
 
