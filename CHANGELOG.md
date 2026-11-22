@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Chart: the `handbook-tls-redirect` HTTPRoute. Where the handbook runs, the Gateway's `http` listener only accepts routes from its own namespace, so it was never accepted, and the Gateway's own redirect sends HTTP to HTTPS. A Gateway without that redirect has to provide one itself.
 - Static CMS editor (`/admin`), its Helm resources and local setup. "Edit this page" links to GitHub now.
 
 ### Fixed
