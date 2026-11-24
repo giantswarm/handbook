@@ -33,7 +33,7 @@ RUN find /src/public \
 
 # use minimal nginx alpine image for serving static html
 # (plain nginx image from the GS mirror: we set USER 101 / port 8080 ourselves)
-FROM gsoci.azurecr.io/giantswarm/nginx:1.31.9-alpine
+FROM gsoci.azurecr.io/giantswarm/nginx:1.31.10-alpine
 EXPOSE 8080
 USER 0
 
