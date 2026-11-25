@@ -7,7 +7,7 @@ toc_hide: true
 
 | Created | State | Summary |
 |-|-|-|
-| 2022-09-07 | <span style="color: darkgreen; font-weight: bold">approved</span> | - |
+| 2022-09-07 | <span style="color: darkgreen; font-weight: bold">approved</span> | Giant Swarm keeps name candidates (5 to 8 letters `a-z`, never used before) in the public `installation-names` repository. Customers claim a name with a pull request that removes it from that list. Names should not hint at the customer's company name. |
 
 The purpose of this RFC is to specify how we select installation names.
 
